@@ -12,7 +12,7 @@ export default class Home extends Component<Props> {
   render() {
     return (
       <div className={styles.container} data-tid="container">
-        <h2>HOME PAGE</h2>
+        <h2>HOME PAGE Test</h2>
         <Link to={routes.COUNTER}>to Counter</Link>
       </div>
     );
