@@ -1,28 +1,67 @@
-import { ApolloServer } from 'apollo-server-express';
-import express from 'express';
-import typeDefs from './typeDefs';
-import resolvers from './resolvers';
+import mongoose from 'mongoose'
+import express from 'express'
+import session from 'express-session'
+import connectRedis from 'connect-redis'
+import { ApolloServer } from 'apollo-server-express'
+import typeDefs from './typeDefs'
+import resolvers from './resolvers'
+import schemaDirectives from './directives'
+import {
+  APP_PORT, IN_PROD, DB_USERNAME, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME,
+  SESS_NAME, SESS_SECRET, SESS_LIFETIME, REDIS_HOST, REDIS_PORT, REDIS_PASSWORD
+} from './config'
 
-const {
-  APP_PORT = 4000,
-  NODE_ENV = 'development'
-} = process.env;
+(async () => {
+  try {
+    await mongoose.connect(
+      `mongodb://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`,
+      { useNewUrlParser: true }
+    )
 
-const IN_PROD = NODE_ENV === 'production';
+    const app = express()
 
-const app = express();
+    app.disable('x-powered-by')
 
-app.disable('x-powered-by');
+    const RedisStore = connectRedis(session)
 
-const server = new ApolloServer({
-  // These will be defined for both new or existing servers
-  typeDefs,
-  resolvers,
-  playground: !IN_PROD
-});
+    const store = new RedisStore({
+      host: REDIS_HOST,
+      port: REDIS_PORT,
+      pass: REDIS_PASSWORD
+    })
 
-server.applyMiddleware({ app }); // app is from an existing express app
+    app.use(session({
+      store,
+      name: SESS_NAME,
+      secret: SESS_SECRET,
+      resave: true,
+      rolling: true,
+      saveUninitialized: false,
+      cookie: {
+        maxAge: parseInt(SESS_LIFETIME),
+        sameSite: true,
+        secure: IN_PROD
+      }
+    }))
 
-app.listen({ port: APP_PORT }, () =>
-  console.log(`🚀 Server ready at http://localhost:${APP_PORT}${server.graphqlPath}`)
-)
+    const server = new ApolloServer({
+      typeDefs,
+      resolvers,
+      schemaDirectives,
+      playground: IN_PROD ? false : {
+        settings: {
+          'request.credentials': 'include'
+        }
+      },
+      context: ({ req, res }) => ({ req, res })
+    })
+
+    server.applyMiddleware({ app, cors: false })
+
+    app.listen({ port: APP_PORT }, () =>
+      console.log(`http://localhost:${APP_PORT}${server.graphqlPath}`)
+    )
+  } catch (e) {
+    console.error(e)
+  }
+})()
