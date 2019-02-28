@@ -11,18 +11,3 @@ export default class LoginPage extends Component<Props> {
     return <Login />;
   }
 }
-/*
-function mapStateToProps(state) {
-  return {
-    login: state.login
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(CounterActions, dispatch);
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Counter);*/

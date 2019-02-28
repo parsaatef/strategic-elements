@@ -4,15 +4,16 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import type { Store } from '../reducers/types';
 import Routes from '../Routes';
+import withSession from '../components/HOC/withSession';
 
 type Props = {
   store: Store,
   history: {}
 };
 
-export default class Root extends Component<Props> {
+class Root extends Component<Props> {
   render() {
-    const { store, history } = this.props;
+    const { store, history } = this.props; // , refetch , session refetch={refetch} session={session}
     return (
       <Provider store={store}>
         <ConnectedRouter history={history}>
@@ -22,3 +23,7 @@ export default class Root extends Component<Props> {
     );
   }
 }
+
+const RootWithSession = withSession(Root);
+
+export default RootWithSession;

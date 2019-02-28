@@ -1,96 +1,126 @@
-import React,{ Component } from 'react';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import routes from '../constants/routes';
-//import { Link } from 'react-router-dom';
-//import { connect } from 'react-redux';
-//import { userActions } from '../_actions';
+import styles from './Counter.css';
 
 export default class Login extends Component<Props> {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        // reset login status
-        //this.props.dispatch(userActions.logout());
+    // reset login status
 
-        this.state = {
-            username: '',
-            password: '',
-            submitted: false
-        };
+    // this.props.dispatch(userActions.logout());
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+    this.state = {
+      username: '',
+      password: '',
+      submitted: false
+    };
 
-    handleChange(e) {
-        const { name, value } = e.target;
-        this.setState({ [name]: value });
-    }
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
-    handleSubmit(e) {
-        e.preventDefault();
+  handleChange(e) {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+  }
 
-        this.setState({ submitted: true });
-        const { username, password } = this.state;
-        //const { dispatch } = this.props;
-        //if (username && password) {
-        //    dispatch(userActions.login(username, password));
-        //}
-    }
+  handleSubmit(e) {
+    e.preventDefault();
 
-    render() {
-        const { loggingIn } = this.props;
-        const { username, password, submitted } = this.state;
-        return (
+    this.setState({ submitted: true });
+    // const { username, password } = this.state;
+  }
 
+  render() {
+    // const { loggingIn } = this.props;
+    const { username, password, submitted } = this.state;
 
-            <div className="smfp-login-page">
-                <div className="smfp-login-wrap">
-                    <div className="smfp-login-wrap-inner">
+    const usernameError = submitted && !username ? ' has-error' : '';
 
-                        <div className="smfp-login-heading"><h1>سامانه مدیریتی فناورانه پویا</h1></div>
+    const passError = submitted && !password ? ' has-error' : '';
 
-                        <form name="loginform" id="loginform" action="" method="post" onSubmit={this.handleSubmit}>
+    return (
+      <div className="smfp-login-page">
+        <div className={styles.backButton} data-tid="backButton">
+          <Link to={routes.HOME}>
+            <i className="fa fa-arrow-left fa-3x" />
+          </Link>
+        </div>
 
-                            <div className={'form-group' + (submitted && !username ? ' has-error' : '')}>
-                                <label className="smfp-input-wrap user-name">
-                                    <input type="text" placeholder="نام کاربری یا ایمیل" className="form-control" name="username" value={username} onChange={this.handleChange} />
-                                </label>
-                                {submitted && !username &&
-                                <div className="help-block">Username is required</div>
-                                }
-                            </div>
-
-                            <div className={'form-group' + (submitted && !password ? ' has-error' : '')}>
-                                <label className="smfp-input-wrap password">
-                                    <input type="password" placeholder="رمز ورود" className="form-control" name="password" value={password} onChange={this.handleChange} />
-                                </label>
-                                {submitted && !password &&
-                                <div className="help-block">Password is required</div>
-                                }
-                            </div>
-
-                            <div className="form-group">
-                                <input type="submit" name="smfp-submit" id="smfp-submit" className="submit button button-primary button-large" value="ورود" />
-                                {//loggingIn &&
-                                }
-                            </div>
-
-                            <div>
-                                <label htmlFor="rememberme" className="forgetmenot">
-                                    <input name="rememberme" type="checkbox" id="rememberme" /> مرا به خاطر بسپار
-                                </label>
-                                <div className="smfp-other"><a href="#" className="signup">ثبت
-                                    نام</a><span> / </span><span className="lostpassword">فراموشی رمز عبور</span>
-                                </div>
-                            </div>
-
-                        </form>
-
-                    </div>
-                </div>
+        <div className="smfp-login-wrap">
+          <div className="smfp-login-wrap-inner">
+            <div className="smfp-login-heading">
+              <h1>سامانه مدیریتی فناورانه پویا</h1>
             </div>
 
-        );
-    }
-}
+            <form
+              name="loginform"
+              id="loginform"
+              action=""
+              method="post"
+              onSubmit={this.handleSubmit}
+            >
+              <div className={`form-group ${usernameError}`}>
+                <div className="smfp-input-wrap user-name">
+                  <input
+                    type="text"
+                    placeholder="نام کاربری یا ایمیل"
+                    className="form-control"
+                    name="username"
+                    value={username}
+                    onChange={this.handleChange}
+                  />
+                </div>
+                {submitted && !username && (
+                  <div className="help-block">Username is required</div>
+                )}
+              </div>
 
+              <div className={`form-group ${passError}`}>
+                <div className="smfp-input-wrap password">
+                  <input
+                    type="password"
+                    placeholder="رمز ورود"
+                    className="form-control"
+                    name="password"
+                    value={password}
+                    onChange={this.handleChange}
+                  />
+                </div>
+                {submitted && !password && (
+                  <div className="help-block">Password is required</div>
+                )}
+              </div>
+
+              <div className="form-group">
+                <input
+                  type="submit"
+                  name="smfp-submit"
+                  id="smfp-submit"
+                  className="submit button button-primary button-large"
+                  value="ورود"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="rememberme" className="forgetmenot">
+                  <input name="rememberme" type="checkbox" id="rememberme" />{' '}
+                  مرا به خاطر بسپار
+                </label>
+                <div className="smfp-other">
+                  <a href="#" className="signup">
+                    ثبت نام
+                  </a>
+                  <span> / </span>
+                  <span className="lostpassword">فراموشی رمز عبور</span>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
