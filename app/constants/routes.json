@@ -2,5 +2,14 @@
   "HOME": "/",
   "LOGIN": "/login",
   "COUNTER": "/counter",
-  "SIGNUP": "/signup"
+  "SIGNUP": "/signup",
+  "ADDNEWELEMENT": "/Add-new-element",
+  "ADDNEWELEMENTFCS": "/Add-new-element-fcs",
+  "ELEMENTDETAILFORWORLD": "/element-detail-for-world",
+  "INFORMATIONOFELEMENT": "/information-of-element",
+  "INFORMATIONOFIRAN": "/information-of-iran",
+  "INFORMATIONOFWORLD": "/information-of-world",
+  "ADDNEWUSER": "/Add-new-user",
+  "USERSLIST": "/users-list",
+  "PROFILE": "/profile"
 }

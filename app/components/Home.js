@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import routes from '../constants/routes';
 import styles from './Home.css';
-import logo from '../images/logo.jpg';
+import Menu from './Menu/Menu';
 
 type Props = {};
 
@@ -16,13 +16,7 @@ export default class Home extends Component<Props> {
         <div className="smfp-main-page">
           <div className="row">
             <div className="col-sm-3">
-              <div className="smfp-header-wrap">
-                <header className="smfp-header">
-                  <div className="smfp-logo">
-                    <img src={logo} className="smfp-App-logo" alt="logo" />
-                  </div>
-                </header>
-              </div>
+              <Menu />
             </div>
 
             <div className="col-sm-9">
@@ -35,6 +29,34 @@ export default class Home extends Component<Props> {
                     <Link to={routes.LOGIN}>to Login</Link>
                     <br />
                     <Link to={routes.SIGNUP}>to signup</Link>
+                    <br />
+                    <Link to={routes.ADDNEWELEMENT}>to ADDNEWELEMENT</Link>
+                    <br />
+                    <Link to={routes.ADDNEWELEMENTFCS}>
+                      to AddNewElementFCS
+                    </Link>
+                    <br />
+                    <Link to={routes.ELEMENTDETAILFORWORLD}>
+                      to ELEMENTDETAILFORWORLD
+                    </Link>
+                    <br />
+                    <Link to={routes.INFORMATIONOFELEMENT}>
+                      to INFORMATIONOFELEMENT
+                    </Link>
+                    <br />
+                    <Link to={routes.INFORMATIONOFIRAN}>
+                      to INFORMATIONOFIRAN
+                    </Link>
+                    <br />
+                    <Link to={routes.INFORMATIONOFWORLD}>
+                      to INFORMATIONOFWORLD
+                    </Link>
+                    <br />
+                    <Link to={routes.ADDNEWUSER}>to ADDNEWUSER</Link>
+                    <br />
+                    <Link to={routes.USERSLIST}>to USERSLIST</Link>
+                    <br />
+                    <Link to={routes.PROFILE}>to PROFILE</Link>
                     <h3>سامانه فناورانه پویا</h3>
                     <i className="fa fa-edit" />
                   </div>
