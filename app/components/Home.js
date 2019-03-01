@@ -1,7 +1,8 @@
 // @flow
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import routes from '../constants/routes';
+import { COUNTER, USER_REGISTER } from '../constants/routes';
+import Signout from './Auth/Signout';
 import styles from './Home.css';
 import logo from '../images/logo.jpg';
 
@@ -21,6 +22,7 @@ export default class Home extends Component<Props> {
                   <div className="smfp-logo">
                     <img src={logo} className="smfp-App-logo" alt="logo" />
                   </div>
+                  <Signout />
                 </header>
               </div>
             </div>
@@ -30,11 +32,9 @@ export default class Home extends Component<Props> {
                 <div className="smfp-main-container-inner">
                   <div className={styles.container} data-tid="container">
                     <h2>HOME PAGE</h2>
-                    <Link to={routes.COUNTER}>to Counter</Link>
+                    <Link to={COUNTER}>to Counter</Link>
                     <br />
-                    <Link to={routes.LOGIN}>to Login</Link>
-                    <br />
-                    <Link to={routes.SIGNUP}>to signup</Link>
+                    <Link to={USER_REGISTER}>to Add User</Link>
                     <h3>سامانه فناورانه پویا</h3>
                     <i className="fa fa-edit" />
                   </div>

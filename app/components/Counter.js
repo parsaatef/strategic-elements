@@ -12,7 +12,7 @@ type Props = {
   counter: number
 };
 
-export default class Counter extends Component<Props> {
+class Counter extends Component<Props> {
   props: Props;
 
   render() {
@@ -71,3 +71,5 @@ export default class Counter extends Component<Props> {
     );
   }
 }
+
+export default Counter;

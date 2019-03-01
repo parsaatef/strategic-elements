@@ -2,7 +2,7 @@ import { gql } from 'apollo-boost';
 
 export const GET_CURRENT_USER = gql`
   query {
-    me {
+    getCurrentUser {
       id
       email
       username
@@ -12,17 +12,27 @@ export const GET_CURRENT_USER = gql`
 `;
 
 export const SIGNIN_USER = gql`
-  mutation($username: String!, $password: String!) {
-    signinUser(username: $username, password: $password) {
+  mutation($email: String!, $password: String!) {
+    signIn(email: $email, password: $password) {
       token
     }
   }
 `;
 
 export const SIGNUP_USER = gql`
-  mutation($username: String!, $email: String!, $password: String!) {
-    signupUser(username: $username, email: $email, password: $password) {
-      token
+  mutation(
+    $email: String!
+    $username: String!
+    $name: String!
+    $password: String!
+  ) {
+    signUp(
+      email: $email
+      username: $username
+      name: $name
+      password: $password
+    ) {
+      id
     }
   }
 `;

@@ -1,6 +1,6 @@
 {
   "HOME": "/",
-  "LOGIN": "/login",
+  "SIGNIN": "/signin",
   "COUNTER": "/counter",
-  "SIGNUP": "/signup"
+  "USER_REGISTER": "/admin/users/add"
 }

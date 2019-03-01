@@ -1,6 +1,7 @@
 import React from 'react';
-import { Query } from 'react-apollo';
 import { Redirect } from 'react-router-dom';
+import { Query, ApolloConsumer } from 'react-apollo';
+import { SIGNIN } from '../../constants/routes';
 import { GET_CURRENT_USER } from '../../queries';
 
 const withAuth = conditionFunc => Component => props => (
@@ -11,7 +12,13 @@ const withAuth = conditionFunc => Component => props => (
       return conditionFunc(data) ? (
         <Component {...props} />
       ) : (
-        <Redirect to="/" />
+        <ApolloConsumer>
+          {client => {
+            localStorage.setItem('token', '');
+            client.resetStore();
+            return <Redirect to={SIGNIN} />;
+          }}
+        </ApolloConsumer>
       );
     }}
   </Query>
