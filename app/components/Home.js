@@ -14,10 +14,8 @@ import {
   USERSLIST,
   PROFILE
 } from '../constants/routes';
-import Signout from './Auth/Signout';
 import styles from './Home.css';
 import Menu from './Menu/Menu';
-import logo from '../images/logo.jpg';
 
 type Props = {};
 
@@ -30,15 +28,6 @@ export default class Home extends Component<Props> {
         <div className="smfp-main-page">
           <div className="row">
             <div className="col-sm-3">
-              <div className="smfp-header-wrap">
-                <header className="smfp-header">
-                  <div className="smfp-logo">
-                    <img src={logo} className="smfp-App-logo" alt="logo" />
-                  </div>
-                  <Signout />
-                </header>
-              </div>
-
               <Menu />
             </div>
 

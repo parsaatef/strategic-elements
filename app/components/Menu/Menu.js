@@ -2,15 +2,46 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import routes from '../../constants/routes';
 import logo from '../../images/logo.jpg';
-/*
-import '../../assets/js/MultiLevelMenu/modernizr-custom';
-import '../../assets/js/MultiLevelMenu/classie';
-import '../../assets/js/MultiLevelMenu/main';
-import '../../assets/js/MultiLevelMenu/menu';
-*/
+import item1 from '../../images/menu-item-1.jpg';
+import item3 from '../../images/menu-item-3.jpg';
+import item4 from '../../images/menu-item-4.jpg';
+import classie from '../../assets/js/MultiLevelMenu/classie';
+import MLMenu from '../../assets/js/MultiLevelMenu/main';
 import '../../assets/css/MultiLevelMenu/component.css';
+// import Signout from '../Auth/Signout';
 
 export default class Menu extends Component<Props> {
+  componentDidMount() {
+    const menuEl = document.getElementById('ml-menu');
+
+    this.mlMenu = new MLMenu(menuEl, {
+      // breadcrumbsCtrl : true, // show breadcrumbs
+      // initialBreadcrumb : 'all', // initial breadcrumb text
+      backCtrl: true, // show back button
+      direction: 'l2r' // direction
+      // itemsDelayInterval : 60, // delay between each menu item sliding animation
+    });
+
+    // mobile menu toggle
+    const openMenuCtrl = document.querySelector('.action--open');
+
+    const closeMenuCtrl = document.querySelector('.action--close');
+
+    openMenuCtrl.addEventListener('click', openMenu);
+
+    closeMenuCtrl.addEventListener('click', closeMenu);
+
+    function openMenu() {
+      classie.add(menuEl, 'menu--open');
+      closeMenuCtrl.focus();
+    }
+
+    function closeMenu() {
+      classie.remove(menuEl, 'menu--open');
+      openMenuCtrl.focus();
+    }
+  }
+
   render() {
     return (
       <div className="smfp-header-wrap">
@@ -19,6 +50,8 @@ export default class Menu extends Component<Props> {
             <img src={logo} className="smfp-App-logo" alt="logo" />
           </div>
         </header>
+
+        {/* <Signout /> */}
 
         <button
           type="button"
@@ -48,7 +81,7 @@ export default class Menu extends Component<Props> {
                   className="smfp-menu-link menu__link"
                   to={routes.INFORMATIONOFWORLD}
                 >
-                  <img src="../../images/menu-item-1.jpg" alt="img" />
+                  <img src={item1} alt="img" />
                   <span className="title">منابع و ذخایر</span>
                 </Link>
               </li>
@@ -59,7 +92,7 @@ export default class Menu extends Component<Props> {
                   aria-owns="submenu-2"
                   to={routes.HOME}
                 >
-                  <img src="../../images/menu-item-3.jpg" alt="img" />
+                  <img src={item3} alt="img" />
                   <span className="title">تحلیل اطلاعات</span>
                 </Link>
               </li>
@@ -70,7 +103,7 @@ export default class Menu extends Component<Props> {
                   aria-owns="submenu-3"
                   to={routes.PROFILE}
                 >
-                  <img src="../../images/menu-item-4.jpg" alt="img" />
+                  <img src={item4} alt="img" />
                   <span className="title">ادمین</span>
                 </Link>
               </li>
