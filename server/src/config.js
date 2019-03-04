@@ -1,4 +1,4 @@
-export const {
+const {
   APP_PORT = 4000,
   NODE_ENV = 'development',
 
@@ -14,7 +14,28 @@ export const {
 
   REDIS_HOST = 'redis-18946.c11.us-east-1-3.ec2.cloud.redislabs.com',
   REDIS_PORT = 18946,
-  REDIS_PASSWORD = 'Q3sQHdUPmOfMZ1FGnz8IoOBLZcAlJVOt' 
+  REDIS_PASSWORD = 'Q3sQHdUPmOfMZ1FGnz8IoOBLZcAlJVOt',
+
+  JWT_SECRET = 'fwsdfaswersdrwe',
+  JWT_EXPIRE = 15 * 60
 } = process.env;
 
-export const IN_PROD = NODE_ENV === 'production';
+const IN_PROD = NODE_ENV === 'production';
+
+export {
+  APP_PORT,
+  IN_PROD,
+  DB_USERNAME,
+  DB_PASSWORD,
+  DB_HOST,
+  DB_PORT,
+  DB_NAME,
+  SESS_NAME,
+  SESS_SECRET,
+  SESS_LIFETIME,
+  REDIS_HOST,
+  REDIS_PORT,
+  REDIS_PASSWORD,
+  JWT_SECRET,
+  JWT_EXPIRE
+};
