@@ -1,5 +1,4 @@
-import user from './user'
+import user from './user';
+import elementStats from './elementStats';
 
-export default [
-  user
-]
+export default [user, elementStats];
