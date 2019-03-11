@@ -94,7 +94,7 @@ export default {
       };
     },
     multiRemoveElementStats: async (root, { ids }) => {
-      const result = await ElementStats.deleteOne({ _id: { $in: ids } });
+      const result = await ElementStats.deleteMany({ _id: { $in: ids } });
       console.log('-----result----', result);
 
       return {
