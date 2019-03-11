@@ -1,5 +1,5 @@
 import root from './root';
 import user from './user';
-import resource from './resource';
+import elementStats from './elementStats';
 
-export default [root, user, resource];
+export default [root, user, elementStats];

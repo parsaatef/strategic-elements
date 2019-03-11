@@ -4,7 +4,16 @@ export default gql`
   extend type Query {
     elementStats(id: ID!): ElementStats @guest
     elementsStats: [ElementStats!]! @guest
-    statsByElement(element: String!): ElementStats @guest
+    searchElementStats(
+      ids: [ID!]
+      location: String
+      locationType: String
+      year: Int
+      users: [String!]
+      elements: [String!]
+      sort: String
+      sortBy: String
+    ): [ElementStats!]! @guest
   }
 
   extend type Mutation {
@@ -40,7 +49,13 @@ export default gql`
       description: String!
       username: String!
       element: String!
-    ): ElementStats @guest
+    ): Result @guest
+    removeElementStats(id: ID!): Result @guest
+    multiRemoveElementStats(ids: [ID!]!): Result @guest
+  }
+
+  type Result {
+    result: Boolean!
   }
 
   type SecondaryResource {
