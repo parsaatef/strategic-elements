@@ -5,6 +5,7 @@ import element from './element';
 import globalPrice from './globalPrice';
 import option from './option';
 import mineral from './mineral';
+import secondarySource from './secondarySource';
 
 export default [
   root,
@@ -13,5 +14,6 @@ export default [
   element,
   globalPrice,
   option,
-  mineral
+  mineral,
+  secondarySource
 ];
