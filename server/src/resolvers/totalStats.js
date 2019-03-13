@@ -49,8 +49,8 @@ export default {
 
       return TotalStats.find(filters).sort({ [sortBy]: sort });
     },
-    minerals: () => TotalStats.find({}),
-    mineral: (root, { id }) => {
+    totalStatsList: () => TotalStats.find({}),
+    totalStats: (root, { id }) => {
       // , context, info
       // TODO: projection, sanitization
       if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -88,7 +88,7 @@ export default {
         result: !!result.deletedCount
       };
     },
-    multiRemoveTotalStatss: async (root, { ids }) => {
+    multiRemoveTotalStats: async (root, { ids }) => {
       const result = await TotalStats.deleteMany({ _id: { $in: ids } });
       console.log('-----result----', result);
 
