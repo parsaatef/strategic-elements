@@ -5,6 +5,7 @@ import globalPrice from './globalPrice';
 import option from './option';
 import mineral from './mineral';
 import secondarySource from './secondarySource';
+import totalStats from './totalStats';
 
 export default [
   user,
@@ -13,5 +14,6 @@ export default [
   globalPrice,
   option,
   mineral,
-  secondarySource
+  secondarySource,
+  totalStats
 ];
