@@ -6,6 +6,7 @@ import globalPrice from './globalPrice';
 import option from './option';
 import mineral from './mineral';
 import secondarySource from './secondarySource';
+import mine from './mine';
 
 export default [
   root,
@@ -15,5 +16,6 @@ export default [
   globalPrice,
   option,
   mineral,
-  secondarySource
+  secondarySource,
+  mine
 ];

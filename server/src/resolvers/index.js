@@ -6,6 +6,7 @@ import option from './option';
 import mineral from './mineral';
 import secondarySource from './secondarySource';
 import totalStats from './totalStats';
+import mine from './mine';
 
 export default [
   user,
@@ -15,5 +16,6 @@ export default [
   option,
   mineral,
   secondarySource,
-  totalStats
+  totalStats,
+  mine
 ];
