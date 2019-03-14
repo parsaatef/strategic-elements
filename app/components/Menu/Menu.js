@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import routes from '../../constants/routes';
+import {
+  HOME,
+  ADD_NEW_ELEMENT,
+  ADD_NEW_ELEMENT_FCS,
+  INFORMATION_OF_WORLD,
+  ADD_NEW_USER,
+  USERS_LIST,
+  PROFILE
+} from '../../constants/routes';
 import logo from '../../images/logo.jpg';
 import item1 from '../../images/menu-item-1.jpg';
 import item3 from '../../images/menu-item-3.jpg';
@@ -79,7 +87,7 @@ export default class Menu extends Component<Props> {
               <li className="smfp-menu-item menu__item" role="menuitem">
                 <Link
                   className="smfp-menu-link menu__link"
-                  to={routes.INFORMATIONOFWORLD}
+                  to={INFORMATION_OF_WORLD}
                 >
                   <img src={item1} alt="img" />
                   <span className="title">منابع و ذخایر</span>
@@ -90,7 +98,7 @@ export default class Menu extends Component<Props> {
                   className="smfp-menu-link menu__link"
                   data-submenu="submenu-2"
                   aria-owns="submenu-2"
-                  to={routes.HOME}
+                  to={HOME}
                 >
                   <img src={item3} alt="img" />
                   <span className="title">تحلیل اطلاعات</span>
@@ -101,7 +109,7 @@ export default class Menu extends Component<Props> {
                   className="smfp-menu-link menu__link"
                   data-submenu="submenu-3"
                   aria-owns="submenu-3"
-                  to={routes.PROFILE}
+                  to={PROFILE}
                 >
                   <img src={item4} alt="img" />
                   <span className="title">ادمین</span>
@@ -118,17 +126,17 @@ export default class Menu extends Component<Props> {
               aria-label="تحلیل اطلاعات"
             >
               <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link className="smfp-menu-link menu__link" to={routes.HOME}>
+                <Link className="smfp-menu-link menu__link" to={HOME}>
                   <span>اقتصادی</span>
                 </Link>
               </li>
               <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link className="smfp-menu-link menu__link" to={routes.HOME}>
+                <Link className="smfp-menu-link menu__link" to={HOME}>
                   <span>راهبردی</span>
                 </Link>
               </li>
               <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link className="smfp-menu-link menu__link" to={routes.HOME}>
+                <Link className="smfp-menu-link menu__link" to={HOME}>
                   <span>محیط زیستی</span>
                 </Link>
               </li>
@@ -147,7 +155,7 @@ export default class Menu extends Component<Props> {
                   className="smfp-menu-link menu__link"
                   data-submenu="submenu-3-1"
                   aria-owns="submenu-3-1"
-                  to={routes.ADDNEWUSER}
+                  to={ADD_NEW_USER}
                 >
                   <span>مدیریت کاربر</span>
                 </Link>
@@ -157,13 +165,13 @@ export default class Menu extends Component<Props> {
                   className="smfp-menu-link menu__link"
                   data-submenu="submenu-3-2"
                   aria-owns="submenu-3-2"
-                  to={routes.ADDNEWELEMENT}
+                  to={ADD_NEW_ELEMENT}
                 >
                   <span>مدیریت ماده معدنی</span>
                 </Link>
               </li>
               <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link className="smfp-menu-link menu__link" to={routes.HOME}>
+                <Link className="smfp-menu-link menu__link" to={HOME}>
                   <span>مدیریت اطلاعات</span>
                 </Link>
               </li>
@@ -178,23 +186,17 @@ export default class Menu extends Component<Props> {
               aria-label="مدیریت کاربر"
             >
               <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link
-                  className="smfp-menu-link menu__link"
-                  to={routes.ADDNEWUSER}
-                >
+                <Link className="smfp-menu-link menu__link" to={ADD_NEW_USER}>
                   <span>افزودن کاربر</span>
                 </Link>
               </li>
               <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link
-                  className="smfp-menu-link menu__link"
-                  to={routes.USERSLIST}
-                >
+                <Link className="smfp-menu-link menu__link" to={USERS_LIST}>
                   <span>لیست کاربران</span>
                 </Link>
               </li>
               <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link className="smfp-menu-link menu__link" to={routes.PROFILE}>
+                <Link className="smfp-menu-link menu__link" to={PROFILE}>
                   <span>پروفایل</span>
                 </Link>
               </li>
@@ -211,7 +213,7 @@ export default class Menu extends Component<Props> {
               <li className="smfp-menu-item menu__item" role="menuitem">
                 <Link
                   className="smfp-menu-link menu__link"
-                  to={routes.ADDNEWELEMENT}
+                  to={ADD_NEW_ELEMENT}
                 >
                   <span>افزودن ماده معدنی</span>
                 </Link>
@@ -219,23 +221,23 @@ export default class Menu extends Component<Props> {
               <li className="smfp-menu-item menu__item" role="menuitem">
                 <Link
                   className="smfp-menu-link menu__link"
-                  to={routes.ADDNEWELEMENTFCS}
+                  to={ADD_NEW_ELEMENT_FCS}
                 >
                   <span>افزودن اطلاعات ماده معدنی کشورها</span>
                 </Link>
               </li>
               <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link className="smfp-menu-link menu__link" to={routes.HOME}>
+                <Link className="smfp-menu-link menu__link" to={HOME}>
                   <span>صنایع پایین دستی</span>
                 </Link>
               </li>
               <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link className="smfp-menu-link menu__link" to={routes.HOME}>
+                <Link className="smfp-menu-link menu__link" to={HOME}>
                   <span>منابع ثانویه</span>
                 </Link>
               </li>
               <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link className="smfp-menu-link menu__link" to={routes.HOME}>
+                <Link className="smfp-menu-link menu__link" to={HOME}>
                   <span>محیط زیستی</span>
                 </Link>
               </li>

@@ -1,10 +1,33 @@
 import React, { Component } from 'react';
 import Datamap from 'datamaps';
-import Menu from '../Menu/Menu';
-//  import $ from 'jquery';
-//  import select2 from 'select2';
+import Select from '../General/Select';
 import item4 from '../../images/menu-item-4.jpg';
-import 'select2/dist/css/select2.min.css';
+
+const MapOptions = [
+  { value: 'map', label: 'انتخاب نقشه' },
+  { value: 'world', label: 'جهان' },
+  { value: 'iran', label: 'ایران' }
+];
+const GroupOptions = [
+  { value: 'Group0', label: 'انتخاب دسته' },
+  { value: 'Group1', label: 'فلزات پایه' },
+  { value: 'Group2', label: 'فلزات گرانبها' },
+  { value: 'Group3', label: 'عناصر نادر خاکی' }
+];
+const ElementOptions = [
+  { value: 'element', label: 'انتخاب عنصر' },
+  { value: 'Zinc', label: 'Zinc' },
+  { value: 'Gallium', label: 'Gallium' },
+  { value: 'Germanium', label: 'Germanium' },
+  { value: 'Selenium', label: 'Selenium' }
+];
+const YearOptions = [
+  { value: 'year', label: 'انتخاب سال' },
+  { value: '2019', label: '2019' },
+  { value: '2018', label: '2018' },
+  { value: '2017', label: '2017' },
+  { value: '2016', label: '2016' }
+];
 
 export default class InformationOfWorld extends Component<Props> {
   componentDidMount() {
@@ -150,92 +173,42 @@ export default class InformationOfWorld extends Component<Props> {
 
   render() {
     return (
-      <div className="container">
-        <div className="smfp-main-page">
+      <div className="smfp-main-container-inner">
+        <div className="info-select-group">
           <div className="row">
-            <div className="col-sm-3">
-              <Menu />
+            <div className="col-sm-3 col-xs-6">
+              <Select options={MapOptions} placeholder="انتخاب نقشه" />
             </div>
 
-            <div className="col-sm-9">
-              <div className="smfp-main-container smfp-Custom-scrollbar-container">
-                <div className="smfp-main-container-inner">
-                  <div className="info-select-group">
-                    <div className="row">
-                      <div className="col-sm-3 col-xs-6">
-                        <select
-                          className="smfp-select2"
-                          name="maplist"
-                          form="maplist"
-                        >
-                          <option value="map">انتخاب نقشه</option>
-                          <option value="world">جهان</option>
-                          <option value="iran">ایران</option>
-                        </select>
-                      </div>
+            <div className="col-sm-3 col-xs-6">
+              <Select options={GroupOptions} placeholder="انتخاب دسته" />
+            </div>
 
-                      <div className="col-sm-3 col-xs-6">
-                        <select
-                          className="smfp-select2"
-                          name="Grouplist"
-                          form="Grouplist"
-                        >
-                          <option value="Group">انتخاب دسته</option>
-                          <option value="Group1">فلزات پایه</option>
-                          <option value="Group2">فلزات گرانبها</option>
-                          <option value="Group3">عناصر نادر خاکی</option>
-                        </select>
-                      </div>
+            <div className="col-sm-3 col-xs-6">
+              <Select options={ElementOptions} placeholder="انتخاب عنصر" />
+            </div>
 
-                      <div className="col-sm-3 col-xs-6">
-                        <select
-                          className="smfp-select2"
-                          name="elementlist"
-                          form="elementlist"
-                        >
-                          <option value="element">انتخاب عنصر</option>
-                          <option value="Zinc">Zinc</option>
-                          <option value="Gallium">Gallium</option>
-                          <option value="Germanium">Germanium</option>
-                          <option value="Selenium">Selenium</option>
-                        </select>
-                      </div>
-
-                      <div className="col-sm-3 col-xs-6">
-                        <select
-                          className="smfp-select2"
-                          name="yearlist"
-                          form="yearform"
-                        >
-                          <option value="year">سال</option>
-                          <option value="2018">2018</option>
-                          <option value="2017">2017</option>
-                          <option value="2016">2016</option>
-                          <option value="2015">2015</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="text-center animated bounce faster">
-                    <h4>نقشه منابع و ذخایر طلا در جهان</h4>
-                  </div>
-
-                  <div
-                    id="world-map"
-                    style={{ height: '65vh', padding: '30px 0' }}
-                  />
-
-                  <div className="text-center btn-element-wrap">
-                    <a className="smfp-btn-img" href="">
-                      <img src={item4} alt="img" />
-                      <div className="title">نمایش اطلاعات عنصر</div>
-                    </a>
-                  </div>
-                </div>
-              </div>
+            <div className="col-sm-3 col-xs-6">
+              <Select options={YearOptions} placeholder="انتخاب سال" />
             </div>
           </div>
+        </div>
+
+        <div className="text-center animated bounce faster">
+          <h4>نقشه منابع و ذخایر طلا در جهان</h4>
+        </div>
+
+        <div
+          id="world-map"
+          className="smfp-datamaps-wrap"
+          style={{ width: '80%', height: '65vh' }}
+        />
+
+        <div className="text-center btn-element-wrap">
+          <a className="smfp-btn-img" href="">
+            <img src={item4} alt="img" />
+            <div className="title">نمایش اطلاعات عنصر</div>
+          </a>
         </div>
       </div>
     );

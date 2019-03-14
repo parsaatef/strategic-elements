@@ -5,14 +5,14 @@ import {
   HOME,
   SIGNIN,
   USER_REGISTER,
-  ADDNEWELEMENT,
-  ADDNEWELEMENTFCS,
-  ELEMENTDETAILFORWORLD,
-  INFORMATIONOFELEMENT,
-  INFORMATIONOFIRAN,
-  INFORMATIONOFWORLD,
-  ADDNEWUSER,
-  USERSLIST,
+  ADD_NEW_ELEMENT,
+  ADD_NEW_ELEMENT_FCS,
+  ELEMENT_DETAIL_FOR_WORLD,
+  INFORMATION_OF_ELEMENT,
+  INFORMATION_OF_IRAN,
+  INFORMATION_OF_WORLD,
+  ADD_NEW_USER,
+  USERS_LIST,
   PROFILE
 } from './constants/routes';
 import App from './containers/App';
@@ -67,42 +67,42 @@ const Routes = ({ session, refetch }: Props) => (
       <Route path={SIGNIN} render={() => <Signin refetch={refetch} />} />
       <RestrictedRoute
         session={session}
-        path={ADDNEWELEMENT}
+        path={ADD_NEW_ELEMENT}
         component={AddNewElement}
       />
       <RestrictedRoute
         session={session}
-        path={ADDNEWELEMENTFCS}
+        path={ADD_NEW_ELEMENT_FCS}
         component={AddNewElementFCS}
       />
       <RestrictedRoute
         session={session}
-        path={ELEMENTDETAILFORWORLD}
+        path={ELEMENT_DETAIL_FOR_WORLD}
         component={ElementDetailForWorld}
       />
       <RestrictedRoute
         session={session}
-        path={INFORMATIONOFELEMENT}
+        path={INFORMATION_OF_ELEMENT}
         component={InformationOfElement}
       />
       <RestrictedRoute
         session={session}
-        path={INFORMATIONOFIRAN}
+        path={INFORMATION_OF_IRAN}
         component={InformationOfIran}
       />
       <RestrictedRoute
         session={session}
-        path={INFORMATIONOFWORLD}
+        path={INFORMATION_OF_WORLD}
         component={InformationOfWorld}
       />
       <RestrictedRoute
         session={session}
-        path={ADDNEWUSER}
+        path={ADD_NEW_USER}
         component={AddNewUser}
       />
       <RestrictedRoute
         session={session}
-        path={USERSLIST}
+        path={USERS_LIST}
         component={UsersList}
       />
       <RestrictedRoute session={session} path={PROFILE} component={Profile} />
