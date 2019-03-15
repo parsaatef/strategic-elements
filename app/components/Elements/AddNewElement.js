@@ -1,18 +1,47 @@
 import React, { Component } from 'react';
-import { Form, Row, Col } from 'react-bootstrap';
+import { Form, Button, Row, Col } from 'react-bootstrap';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 
 const { Control, Group, Label } = Form;
 
 const schema = yup.object({
-  elementName: yup.string().required(),
-  elementSymbol: yup.string().required(),
-  username: yup.string().required(),
-  city: yup.string().required(),
-  state: yup.string().required(),
-  zip: yup.string().required(),
-  terms: yup.bool().required()
+  username: yup
+    .string()
+    .min(4)
+    .max(30)
+    .required(),
+  element: yup
+    .string()
+    .min(2)
+    .max(30)
+    .required(),
+  elementTitle: yup.string().required(),
+  symbol: yup.string().required(),
+  chemicalFormula: yup.string(),
+  phaseAtSTP: yup.string(),
+  density: yup.number(),
+  meltingPoint: yup.number(),
+  boilingPoint: yup.number(),
+  hardness: yup.number(),
+  toxicity: yup.bool(),
+  magneticProperty: yup.bool(),
+  electricalConductivity: yup.string(),
+  group: yup.string().required(),
+  period: yup.string(),
+  atomicWeight: yup.number(),
+  electronegativity: yup.number(),
+  oxidationStates: yup.string(),
+  electronConfiguration: yup.string(),
+  atomicRadius: yup.number(),
+  concentrationInEarthsCrust: yup.number(),
+  description: yup.string(),
+  relatedIndustryDesc: yup.string(),
+  technologyLevelDesc: yup.string(),
+  lowLevelIndustryDesc: yup.string(),
+  threatyDesc: yup.string(),
+  secondaryResourcesDesc: yup.string(),
+  ecologyDesc: yup.string()
 });
 
 export default class AddNewElement extends Component<Props> {
@@ -47,21 +76,39 @@ export default class AddNewElement extends Component<Props> {
               onSubmit={handleSubmit}
               className="smfp-form-container"
             >
-              <Group as={Row} controlId="element_name">
+              <Group as={Row} controlId="element_En_Title">
                 <Label column sm={3}>
-                  Name
+                  Element
                 </Label>
                 <Col sm={9}>
                   <Control
                     type="text"
-                    name="elementName"
-                    value={values.elementName}
+                    name="element"
+                    value={values.element}
                     onChange={handleChange}
-                    isValid={touched.elementName && !errors.elementName}
+                    isValid={touched.element && !errors.element}
                   />
                 </Col>
                 <Control.Feedback type="invalid">
-                  {errors.elementName}
+                  {errors.element}
+                </Control.Feedback>
+              </Group>
+
+              <Group as={Row} controlId="element_Fa_Title">
+                <Label column sm={3}>
+                  Element Title
+                </Label>
+                <Col sm={9}>
+                  <Control
+                    type="text"
+                    name="elementTitle"
+                    value={values.elementTitle}
+                    onChange={handleChange}
+                    isValid={touched.elementTitle && !errors.elementTitle}
+                  />
+                </Col>
+                <Control.Feedback type="invalid">
+                  {errors.elementTitle}
                 </Control.Feedback>
               </Group>
 
@@ -72,268 +119,407 @@ export default class AddNewElement extends Component<Props> {
                 <Col sm={9}>
                   <Control
                     type="text"
-                    name="elementName"
-                    value={values.elementSymbol}
+                    name="symbol"
+                    value={values.symbol}
                     onChange={handleChange}
-                    isValid={touched.elementSymbol && !errors.elementSymbol}
+                    isValid={touched.symbol && !errors.symbol}
+                  />
+                </Col>
+                <Control.Feedback type="invalid">
+                  {errors.symbol}
+                </Control.Feedback>
+              </Group>
+
+              <Group as={Row} controlId="element_chemicalFormula">
+                <Label column sm={3}>
+                  Chemical Formula
+                </Label>
+                <Col sm={9}>
+                  <Control
+                    type="text"
+                    name="chemicalFormula"
+                    value={values.chemicalFormula}
+                    onChange={handleChange}
+                    isValid={touched.chemicalFormula && !errors.chemicalFormula}
                   />
                 </Col>
               </Group>
+
+              <Group as={Row} controlId="element_phaseAtSTP">
+                <Label column sm={3}>
+                  Phase At STP
+                </Label>
+                <Col sm={9}>
+                  <Control
+                    type="text"
+                    name="phaseAtSTP"
+                    value={values.phaseAtSTP}
+                    onChange={handleChange}
+                    isValid={touched.phaseAtSTP && !errors.phaseAtSTP}
+                  />
+                </Col>
+              </Group>
+
+              <Group as={Row} controlId="element_density">
+                <Label column sm={3}>
+                  Density
+                </Label>
+                <Col sm={9}>
+                  <Control
+                    type="number"
+                    name="density"
+                    value={values.density}
+                    onChange={handleChange}
+                    isValid={touched.density && !errors.density}
+                  />
+                </Col>
+              </Group>
+
+              <Group as={Row} controlId="element_meltingPoint">
+                <Label column sm={3}>
+                  Melting Point
+                </Label>
+                <Col sm={9}>
+                  <Control
+                    type="number"
+                    name="meltingPoint"
+                    value={values.meltingPoint}
+                    onChange={handleChange}
+                    isValid={touched.meltingPoint && !errors.meltingPoint}
+                  />
+                </Col>
+              </Group>
+
+              <Group as={Row} controlId="element_boilingPoint">
+                <Label column sm={3}>
+                  Boiling Point
+                </Label>
+                <Col sm={9}>
+                  <Control
+                    type="number"
+                    name="boilingPoint"
+                    value={values.boilingPoint}
+                    onChange={handleChange}
+                    isValid={touched.boilingPoint && !errors.boilingPoint}
+                  />
+                </Col>
+              </Group>
+
+              <Group as={Row} controlId="element_hardness">
+                <Label column sm={3}>
+                  Hardness
+                </Label>
+                <Col sm={9}>
+                  <Control
+                    type="number"
+                    name="hardness"
+                    value={values.hardness}
+                    onChange={handleChange}
+                    isValid={touched.hardness && !errors.hardness}
+                  />
+                </Col>
+              </Group>
+
+              <Group as={Row} controlId="element_toxicity">
+                <Label column sm={3}>
+                  Toxicity
+                </Label>
+                <Col sm={9}>
+                  <Control
+                    type="checkbox"
+                    name="toxicity"
+                    value={values.toxicity}
+                    onChange={handleChange}
+                    isValid={touched.toxicity && !errors.toxicity}
+                  />
+                </Col>
+              </Group>
+
+              <Group as={Row} controlId="element_magneticProperty">
+                <Label column sm={3}>
+                  Magnetic Property
+                </Label>
+                <Col sm={9}>
+                  <Control
+                    type="checkbox"
+                    name="magneticProperty"
+                    value={values.magneticProperty}
+                    onChange={handleChange}
+                    isValid={
+                      touched.magneticProperty && !errors.magneticProperty
+                    }
+                  />
+                </Col>
+              </Group>
+
+              <Group as={Row} controlId="element_electricalConductivity">
+                <Label column sm={3}>
+                  Electrical Conductivity
+                </Label>
+                <Col sm={9}>
+                  <Control
+                    type="text"
+                    name="electricalConductivity"
+                    value={values.electricalConductivity}
+                    onChange={handleChange}
+                    isValid={
+                      touched.electricalConductivity &&
+                      !errors.electricalConductivity
+                    }
+                  />
+                </Col>
+              </Group>
+
+              <Group as={Row} controlId="element_group">
+                <Label column sm={3}>
+                  group
+                </Label>
+                <Col sm={9}>
+                  <Control
+                    type="text"
+                    name="group"
+                    value={values.group}
+                    onChange={handleChange}
+                    isValid={touched.group && !errors.group}
+                  />
+                </Col>
+                <Control.Feedback type="invalid">
+                  {errors.group}
+                </Control.Feedback>
+              </Group>
+
+              <Group as={Row} controlId="element_period">
+                <Label column sm={3}>
+                  Period
+                </Label>
+                <Col sm={9}>
+                  <Control
+                    type="text"
+                    name="period"
+                    value={values.period}
+                    onChange={handleChange}
+                    isValid={touched.period && !errors.period}
+                  />
+                </Col>
+              </Group>
+
+              <Group as={Row} controlId="element_atomicWeight">
+                <Label column sm={3}>
+                  Atomic Weight
+                </Label>
+                <Col sm={9}>
+                  <Control
+                    type="number"
+                    name="atomicWeight"
+                    value={values.atomicWeight}
+                    onChange={handleChange}
+                    isValid={touched.atomicWeight && !errors.atomicWeight}
+                  />
+                </Col>
+              </Group>
+
+              <Group as={Row} controlId="element_electronegativity">
+                <Label column sm={3}>
+                  Electronegativity
+                </Label>
+                <Col sm={9}>
+                  <Control
+                    type="number"
+                    name="electronegativity"
+                    value={values.electronegativity}
+                    onChange={handleChange}
+                    isValid={
+                      touched.electronegativity && !errors.electronegativity
+                    }
+                  />
+                </Col>
+              </Group>
+
+              <Group as={Row} controlId="element_oxidationStates">
+                <Label column sm={3}>
+                  Oxidation States
+                </Label>
+                <Col sm={9}>
+                  <Control
+                    type="text"
+                    name="oxidationStates"
+                    value={values.oxidationStates}
+                    onChange={handleChange}
+                    isValid={touched.oxidationStates && !errors.oxidationStates}
+                  />
+                </Col>
+              </Group>
+
+              <Group as={Row} controlId="element_electronConfiguration">
+                <Label column sm={3}>
+                  Electron Configuration
+                </Label>
+                <Col sm={9}>
+                  <Control
+                    type="text"
+                    name="electronConfiguration"
+                    value={values.electronConfiguration}
+                    onChange={handleChange}
+                    isValid={
+                      touched.electronConfiguration &&
+                      !errors.electronConfiguration
+                    }
+                  />
+                </Col>
+              </Group>
+
+              <Group as={Row} controlId="element_atomicRadius">
+                <Label column sm={3}>
+                  Atomic Radius
+                </Label>
+                <Col sm={9}>
+                  <Control
+                    type="number"
+                    name="atomicRadius"
+                    value={values.atomicRadius}
+                    onChange={handleChange}
+                    isValid={touched.atomicRadius && !errors.atomicRadius}
+                  />
+                </Col>
+              </Group>
+
+              <Group as={Row} controlId="element_concentrationInEarthsCrust">
+                <Label column sm={3}>
+                  Concentration In Earths Crust
+                </Label>
+                <Col sm={9}>
+                  <Control
+                    type="number"
+                    name="concentrationInEarthsCrust"
+                    value={values.concentrationInEarthsCrust}
+                    onChange={handleChange}
+                    isValid={
+                      touched.concentrationInEarthsCrust &&
+                      !errors.concentrationInEarthsCrust
+                    }
+                  />
+                </Col>
+              </Group>
+
+              <Group as={Row} controlId="element_description">
+                <Label column sm={3}>
+                  Description
+                </Label>
+                <Col sm={9}>
+                  <Control
+                    type="text"
+                    name="description"
+                    value={values.description}
+                    onChange={handleChange}
+                    isValid={touched.description && !errors.description}
+                  />
+                </Col>
+              </Group>
+
+              <Group as={Row} controlId="element_relatedIndustryDesc">
+                <Label column sm={3}>
+                  Related Industry Desc
+                </Label>
+                <Col sm={9}>
+                  <Control
+                    type="text"
+                    name="relatedIndustryDesc"
+                    value={values.relatedIndustryDesc}
+                    onChange={handleChange}
+                    isValid={
+                      touched.relatedIndustryDesc && !errors.relatedIndustryDesc
+                    }
+                  />
+                </Col>
+              </Group>
+
+              <Group as={Row} controlId="element_technologyLevelDesc">
+                <Label column sm={3}>
+                  Technology Level Desc
+                </Label>
+                <Col sm={9}>
+                  <Control
+                    type="text"
+                    name="technologyLevelDesc"
+                    value={values.technologyLevelDesc}
+                    onChange={handleChange}
+                    isValid={
+                      touched.technologyLevelDesc && !errors.technologyLevelDesc
+                    }
+                  />
+                </Col>
+              </Group>
+
+              <Group as={Row} controlId="element_lowLevelIndustryDesc">
+                <Label column sm={3}>
+                  Low Level Industry Desc
+                </Label>
+                <Col sm={9}>
+                  <Control
+                    type="text"
+                    name="lowLevelIndustryDesc"
+                    value={values.lowLevelIndustryDesc}
+                    onChange={handleChange}
+                    isValid={
+                      touched.lowLevelIndustryDesc &&
+                      !errors.lowLevelIndustryDesc
+                    }
+                  />
+                </Col>
+              </Group>
+
+              <Group as={Row} controlId="element_threatyDesc">
+                <Label column sm={3}>
+                  Threaty Desc
+                </Label>
+                <Col sm={9}>
+                  <Control
+                    type="text"
+                    name="threatyDesc"
+                    value={values.threatyDesc}
+                    onChange={handleChange}
+                    isValid={touched.threatyDesc && !errors.threatyDesc}
+                  />
+                </Col>
+              </Group>
+
+              <Group as={Row} controlId="element_secondaryResourcesDesc">
+                <Label column sm={3}>
+                  Secondary Resources Desc
+                </Label>
+                <Col sm={9}>
+                  <Control
+                    type="text"
+                    name="secondaryResourcesDesc"
+                    value={values.secondaryResourcesDesc}
+                    onChange={handleChange}
+                    isValid={
+                      touched.secondaryResourcesDesc &&
+                      !errors.secondaryResourcesDesc
+                    }
+                  />
+                </Col>
+              </Group>
+
+              <Group as={Row} controlId="element_ecologyDesc">
+                <Label column sm={3}>
+                  Ecology Desc
+                </Label>
+                <Col sm={9}>
+                  <Control
+                    type="text"
+                    name="ecologyDesc"
+                    value={values.ecologyDesc}
+                    onChange={handleChange}
+                    isValid={touched.ecologyDesc && !errors.ecologyDesc}
+                  />
+                </Col>
+              </Group>
+
+              <Button type="submit">Add New Element</Button>
             </Form>
           )}
         </Formik>
-
-        <form>
-          <table className="smfp-form-table">
-            <tbody>
-              <tr className="form-field">
-                <th scope="row">
-                  <div className="Symbol_element">Symbol</div>
-                </th>
-                <td>
-                  <input
-                    className="Symbol_element"
-                    name="Symbol_element"
-                    type="text"
-                    id="Symbol_element"
-                  />
-                </td>
-              </tr>
-              <tr className="form-field">
-                <th scope="row">
-                  <div className="Atomic_number_element">Atomic number</div>
-                </th>
-                <td>
-                  <input
-                    name="Atomic_number_element"
-                    type="text"
-                    id="Atomic_number_element"
-                  />
-                </td>
-              </tr>
-              <tr className="form-field">
-                <th scope="row">
-                  <div className="Group_element">Group</div>
-                </th>
-                <td>
-                  <input name="Group_element" type="text" id="Group_element" />
-                </td>
-              </tr>
-              <tr className="form-field">
-                <th scope="row">
-                  <div className="Period_element">Period</div>
-                </th>
-                <td>
-                  <input
-                    name="Period_element"
-                    type="text"
-                    id="Period_element"
-                  />
-                </td>
-              </tr>
-              <tr className="form-field">
-                <th scope="row">
-                  <div className="Standard_atomic_weight_element">
-                    Standard atomic weight
-                  </div>
-                </th>
-                <td>
-                  <input
-                    name="Standard_atomic_weight_element"
-                    type="text"
-                    id="Standard_atomic_weight_element"
-                  />
-                </td>
-              </tr>
-              <tr className="form-field">
-                <th scope="row">
-                  <div className="Atomic_Volume_element">Atomic Volume</div>
-                </th>
-                <td>
-                  <input
-                    name="Atomic_Volume_element"
-                    type="text"
-                    id="Atomic_Volume_element"
-                  />
-                </td>
-              </tr>
-              <tr className="form-field">
-                <th scope="row">
-                  <div className="Melting_point_element">Melting point</div>
-                </th>
-                <td>
-                  <input
-                    name="Melting_point_element"
-                    type="text"
-                    id="Melting_point_element"
-                  />
-                </td>
-              </tr>
-              <tr className="form-field">
-                <th scope="row">
-                  <div className="Boiling_point_element">Boiling point</div>
-                </th>
-                <td>
-                  <input
-                    name="Boiling_point_element"
-                    type="text"
-                    id="Boiling_point_element"
-                  />
-                </td>
-              </tr>
-              <tr className="form-field">
-                <th scope="row">
-                  <div className="Phase_at_STP_element">Phase at STP</div>
-                </th>
-                <td>
-                  <input
-                    name="Phase_at_STP_element"
-                    type="text"
-                    id="Phase_at_STP_element"
-                  />
-                </td>
-              </tr>
-              <tr className="form-field">
-                <th scope="row">
-                  <div className="Special_weight_element">Special weight</div>
-                </th>
-                <td>
-                  <input
-                    name="Special_weight_element"
-                    type="text"
-                    id="Special_weight_element"
-                  />
-                </td>
-              </tr>
-              <tr className="form-field">
-                <th scope="row">
-                  <div className="Electronegativity_element">
-                    Electronegativity
-                  </div>
-                </th>
-                <td>
-                  <input
-                    name="Electronegativity_element"
-                    type="text"
-                    id="Electronegativity_element"
-                  />
-                </td>
-              </tr>
-              <tr className="form-field">
-                <th scope="row">
-                  <div className="Oxidation_states_element">
-                    Oxidation states
-                  </div>
-                </th>
-                <td>
-                  <input
-                    name="Oxidation_states_element"
-                    type="text"
-                    id="Oxidation_states_element"
-                  />
-                </td>
-              </tr>
-              <tr className="form-field">
-                <th scope="row">
-                  <div className="Electron_configuration_element">
-                    Electron configuration
-                  </div>
-                </th>
-                <td>
-                  <input
-                    name="Electron_configuration_element"
-                    type="text"
-                    id="Electron_configuration_element"
-                  />
-                </td>
-              </tr>
-              <tr className="form-field">
-                <th scope="row">
-                  <div className="Atomic_radius_element">Atomic radius</div>
-                </th>
-                <td>
-                  <input
-                    name="Atomic_radius_element"
-                    type="text"
-                    id="Atomic_radius_element"
-                  />
-                </td>
-              </tr>
-              <tr className="form-field">
-                <th scope="row">
-                  <div className="Density1_element">Density1</div>
-                </th>
-                <td>
-                  <input
-                    name="Density1_element"
-                    type="text"
-                    id="Density1_element"
-                  />
-                </td>
-              </tr>
-              <tr className="form-field">
-                <th scope="row">
-                  <div className="Density2_element">Density2</div>
-                </th>
-                <td>
-                  <input
-                    name="Density2_element"
-                    type="text"
-                    id="Density2_element"
-                  />
-                </td>
-              </tr>
-              <tr className="form-field">
-                <th scope="row">
-                  <div className="Crystal_structure_element">
-                    Crystal structure
-                  </div>
-                </th>
-                <td>
-                  <input
-                    name="Crystal_structure_element"
-                    type="text"
-                    id="Crystal_structure_element"
-                  />
-                </td>
-              </tr>
-              <tr className="form-field">
-                <th scope="row">
-                  <div className="Hardness_element">Hardness</div>
-                </th>
-                <td>
-                  <input
-                    name="Hardness_element"
-                    type="text"
-                    id="Hardness_element"
-                  />
-                </td>
-              </tr>
-              <tr className="form-field">
-                <th scope="row">
-                  <div className="Toxicity_element">Toxicity</div>
-                </th>
-                <td>
-                  <input
-                    name="Toxicity_element"
-                    type="text"
-                    id="Toxicity_element"
-                  />
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-          <p className="submit">
-            <input
-              type="submit"
-              name="createuser"
-              id="createuser"
-              className="btn btn-primary"
-              value="Add New Element"
-            />
-          </p>
-        </form>
       </div>
     );
   }
