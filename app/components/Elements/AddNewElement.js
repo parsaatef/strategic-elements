@@ -1,4 +1,19 @@
 import React, { Component } from 'react';
+import { Form, Row, Col } from 'react-bootstrap';
+import { Formik } from 'formik';
+import * as yup from 'yup';
+
+const { Control, Group, Label } = Form;
+
+const schema = yup.object({
+  elementName: yup.string().required(),
+  elementSymbol: yup.string().required(),
+  username: yup.string().required(),
+  city: yup.string().required(),
+  state: yup.string().required(),
+  zip: yup.string().required(),
+  terms: yup.bool().required()
+});
 
 export default class AddNewElement extends Component<Props> {
   render() {
@@ -6,17 +21,64 @@ export default class AddNewElement extends Component<Props> {
       <div>
         <h4 id="add-new-user">Add New Element</h4>
 
+        <Formik
+          validationSchema={schema}
+          onSubmit={console.log}
+          initialValues={{
+            elementName: 'Mark',
+            elementSymbol: 'Otto'
+          }}
+        >
+          {({
+            handleSubmit,
+            handleChange,
+            /*
+              handleBlur,
+              */
+            values,
+            touched,
+            /*
+              isValid,
+              */
+            errors
+          }) => (
+            <Form noValidate onSubmit={handleSubmit}>
+              <Group as={Row} controlId="element_name">
+                <Label column sm={4}>
+                  Name
+                </Label>
+                <Col sm={8}>
+                  <Control
+                    type="text"
+                    name="elementName"
+                    value={values.elementName}
+                    onChange={handleChange}
+                    isValid={touched.elementName && !errors.elementName}
+                  />
+                </Col>
+              </Group>
+
+              <Group as={Row} controlId="element_symbol">
+                <Label column sm={4}>
+                  Symbol
+                </Label>
+                <Col sm={8}>
+                  <Control
+                    type="text"
+                    name="elementName"
+                    value={values.elementSymbol}
+                    onChange={handleChange}
+                    isValid={touched.elementSymbol && !errors.elementSymbol}
+                  />
+                </Col>
+              </Group>
+            </Form>
+          )}
+        </Formik>
+
         <form>
           <table className="smfp-form-table">
             <tbody>
-              <tr className="form-field">
-                <th scope="row">
-                  <div className="Name_element">Name</div>
-                </th>
-                <td>
-                  <input name="Name_element" type="text" id="Name_element" />
-                </td>
-              </tr>
               <tr className="form-field">
                 <th scope="row">
                   <div className="Symbol_element">Symbol</div>

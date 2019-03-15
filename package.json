@@ -264,12 +264,14 @@
     "electron-debug": "^2.0.0",
     "electron-log": "^2.2.17",
     "electron-updater": "^3.2.3",
+    "formik": "^1.5.1",
     "graphql": "^14.1.1",
     "history": "^4.7.2",
     "jquery": "^3.3.1",
     "modernizr": "^3.7.0",
     "react": "^16.6.3",
     "react-apollo": "^2.5.1",
+    "react-bootstrap": "^1.0.0-beta.5",
     "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^16.6.3",
     "react-hot-loader": "^4.3.12",
@@ -281,7 +283,8 @@
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "select2": "^4.0.6-rc.1",
-    "source-map-support": "^0.5.9"
+    "source-map-support": "^0.5.9",
+    "yup": "^0.26.10"
   },
   "devEngines": {
     "node": ">=7.x",
