@@ -42,12 +42,16 @@ export default class AddNewElement extends Component<Props> {
               */
             errors
           }) => (
-            <Form noValidate onSubmit={handleSubmit}>
+            <Form
+              noValidate
+              onSubmit={handleSubmit}
+              className="smfp-form-container"
+            >
               <Group as={Row} controlId="element_name">
-                <Label column sm={4}>
+                <Label column sm={3}>
                   Name
                 </Label>
-                <Col sm={8}>
+                <Col sm={9}>
                   <Control
                     type="text"
                     name="elementName"
@@ -56,13 +60,16 @@ export default class AddNewElement extends Component<Props> {
                     isValid={touched.elementName && !errors.elementName}
                   />
                 </Col>
+                <Control.Feedback type="invalid">
+                  {errors.elementName}
+                </Control.Feedback>
               </Group>
 
               <Group as={Row} controlId="element_symbol">
-                <Label column sm={4}>
+                <Label column sm={3}>
                   Symbol
                 </Label>
-                <Col sm={8}>
+                <Col sm={9}>
                   <Control
                     type="text"
                     name="elementName"
