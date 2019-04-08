@@ -19,6 +19,11 @@ import item3 from '../images/menu-item-3.jpg';
 import item4 from '../images/menu-item-4.jpg';
 import styles from './Home.css';
 import SPD from './Elements/SPD';
+import Tabs from './General/Tabs/Tabs';
+import Tab from './General/Tabs/Tab';
+import TabsContent from './General/Tabs/TabsContent';
+import TabItems from './General/Tabs/TabItems';
+import Table from './General/Table';
 
 type Props = {};
 
@@ -28,6 +33,38 @@ export default class Home extends Component<Props> {
   render() {
     return (
       <div>
+        <Tabs>
+          <TabItems>
+            <Tab>
+              <select name="role" id="role">
+                <option selected="selected" value="subscriber">
+                  Subscriber
+                </option>
+                <option value="contributor">Contributor</option>
+                <option value="author">Author</option>
+                <option value="editor">Editor</option>
+                <option value="administrator">Administrator</option>
+              </select>
+            </Tab>
+            <Tab>
+              <div className="icon">
+                <span className="fal fa-th-list" />
+              </div>
+              <div className="title">
+                <span>Form</span>
+              </div>
+            </Tab>
+          </TabItems>
+          <TabsContent>
+            <div className="smfp-ht-tabs-content">
+              <div className="text-center">
+                <h4>عنصر طلا</h4>
+              </div>
+              <Table />
+            </div>
+          </TabsContent>
+        </Tabs>
+
         <SPD />
         <div className={styles.container} data-tid="container">
           <h2>HOME PAGE</h2>
