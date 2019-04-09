@@ -2,9 +2,8 @@
 import React, { Component } from 'react';
 import {
   Form,
-  ButtonToolbar,
-  ButtonGroup,
   Button,
+  Pagination,
   OverlayTrigger,
   Tooltip,
   Modal,
@@ -163,20 +162,23 @@ export default class Table extends Component {
 
         <div className="smfp-pagination-wrap">
           <div className="smfp-pagination">
-            <ButtonToolbar aria-label="Toolbar with button groups">
-              <ButtonGroup className="mr-2" aria-label="First group">
-                <Button className="prev">
-                  <i className="fa fa-chevron-right" />
-                </Button>
-                <Button>1</Button>
-                <Button>2</Button>
-                <Button className="active">3</Button>
-                <Button>4</Button>
-                <Button className="next">
-                  <i className="fa fa-chevron-left" />
-                </Button>
-              </ButtonGroup>
-            </ButtonToolbar>
+            <Pagination>
+              <Pagination.First />
+              <Pagination.Prev />
+              <Pagination.Item>{1}</Pagination.Item>
+              <Pagination.Ellipsis />
+
+              <Pagination.Item>{10}</Pagination.Item>
+              <Pagination.Item>{11}</Pagination.Item>
+              <Pagination.Item active>{12}</Pagination.Item>
+              <Pagination.Item>{13}</Pagination.Item>
+              <Pagination.Item disabled>{14}</Pagination.Item>
+
+              <Pagination.Ellipsis />
+              <Pagination.Item>{20}</Pagination.Item>
+              <Pagination.Next />
+              <Pagination.Last />
+            </Pagination>
           </div>
         </div>
       </>
