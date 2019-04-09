@@ -2,15 +2,19 @@
 import React, { Component } from 'react';
 import {
   Form,
+  ButtonToolbar,
+  ButtonGroup,
   Button,
   OverlayTrigger,
   Tooltip,
+  Modal,
   Row,
   Col
 } from 'react-bootstrap';
 import Select from './Select';
 
 const { Control } = Form;
+const { Header, Title, Body, Footer } = Modal;
 
 const MapOptions = [
   { value: 'Filter', label: 'Filter' },
@@ -18,8 +22,26 @@ const MapOptions = [
   { value: 'Filter2', label: 'Filter2' }
 ];
 
-export default class Table extends Component<Props> {
+export default class Table extends Component {
+  constructor(props, context) {
+    super(props, context);
+
+    this.state = {
+      show: false
+    };
+
+    this.handleShow = () => {
+      this.setState({ show: true });
+    };
+
+    this.handleHide = () => {
+      this.setState({ show: false });
+    };
+  }
+
   render() {
+    const { show } = this.state;
+
     return (
       <>
         <Row className="tb-filter-wrap">
@@ -82,10 +104,40 @@ export default class Table extends Component<Props> {
                   <OverlayTrigger
                     overlay={<Tooltip id="tb-detail-tooltip">Detail</Tooltip>}
                   >
-                    <span className="tb-tooltip-btn">
+                    <Button
+                      className="tb-tooltip-btn"
+                      variant="link"
+                      onClick={this.handleShow}
+                    >
                       <span className="fal fa-file" />
-                    </span>
+                    </Button>
                   </OverlayTrigger>
+
+                  <Modal
+                    show={show}
+                    onHide={this.handleHide}
+                    size="md"
+                    aria-labelledby="contained-modal-title-vcenter"
+                    centered
+                  >
+                    <Header closeButton>
+                      <Title id="contained-modal-title-vcenter">
+                        Modal heading
+                      </Title>
+                    </Header>
+                    <Body>
+                      <h4>Centered Modal</h4>
+                      <p>
+                        Cras mattis consectetur purus sit amet fermentum. Cras
+                        justo odio, dapibus ac facilisis in, egestas eget quam.
+                        Morbi leo risus, porta ac consectetur ac, vestibulum at
+                        eros.
+                      </p>
+                    </Body>
+                    <Footer>
+                      <Button onClick={this.handleHide}>Close</Button>
+                    </Footer>
+                  </Modal>
                 </div>
                 <div className="tb-icons tb-delete-icon">
                   <OverlayTrigger
@@ -109,44 +161,23 @@ export default class Table extends Component<Props> {
           </tbody>
         </table>
 
-        <div className="smfp-pagination-wrapsmfp-pagination-wrap">
-          <ul className="smfp-pagination">
-            <li>
-              <a href="#" className="prev">
-                <i className="fa fa-chevron-right" />
-                Previous
-              </a>
-            </li>
-            <li>
-              <a href="#">1</a>
-            </li>
-            <li>
-              <a href="#">2</a>
-            </li>
-            <li>
-              <a href="#">3</a>
-            </li>
-            <li>
-              <a href="#">4</a>
-            </li>
-            <li>
-              <a href="#" className="active">
-                5
-              </a>
-            </li>
-            <li>
-              <a href="#">6</a>
-            </li>
-            <li>
-              <a href="#">7</a>
-            </li>
-            <li>
-              <a href="#" className="next">
-                Next
-                <i className="fa fa-chevron-left" />
-              </a>
-            </li>
-          </ul>
+        <div className="smfp-pagination-wrap">
+          <div className="smfp-pagination">
+            <ButtonToolbar aria-label="Toolbar with button groups">
+              <ButtonGroup className="mr-2" aria-label="First group">
+                <Button className="prev">
+                  <i className="fa fa-chevron-right" />
+                </Button>
+                <Button>1</Button>
+                <Button>2</Button>
+                <Button className="active">3</Button>
+                <Button>4</Button>
+                <Button className="next">
+                  <i className="fa fa-chevron-left" />
+                </Button>
+              </ButtonGroup>
+            </ButtonToolbar>
+          </div>
         </div>
       </>
     );
