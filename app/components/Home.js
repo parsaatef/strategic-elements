@@ -1,29 +1,10 @@
 // @flow
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  COUNTER,
-  USER_REGISTER,
-  ADD_NEW_ELEMENT,
-  ADD_NEW_ELEMENT_FCS,
-  ELEMENT_DETAIL_FOR_WORLD,
-  INFORMATION_OF_ELEMENT,
-  INFORMATION_OF_IRAN,
-  INFORMATION_OF_WORLD,
-  ADD_NEW_USER,
-  USERS_LIST,
-  PROFILE
-} from '../constants/routes';
+import { HOME, INFORMATION_OF_WORLD, PROFILE } from '../constants/routes';
 import item1 from '../images/menu-item-1.jpg';
 import item3 from '../images/menu-item-3.jpg';
 import item4 from '../images/menu-item-4.jpg';
-import styles from './Home.css';
-import SPD from './Elements/SPD';
-import Tabs from './General/Tabs/Tabs';
-import Tab from './General/Tabs/Tab';
-import TabsContent from './General/Tabs/TabsContent';
-import TabItems from './General/Tabs/TabItems';
-import Table from './General/Table';
 
 type Props = {};
 
@@ -32,121 +13,52 @@ export default class Home extends Component<Props> {
 
   render() {
     return (
-      <div>
-        <Tabs>
-          <TabItems>
-            <Tab>
-              <select name="role" id="role">
-                <option selected="selected" value="subscriber">
-                  Subscriber
-                </option>
-                <option value="contributor">Contributor</option>
-                <option value="author">Author</option>
-                <option value="editor">Editor</option>
-                <option value="administrator">Administrator</option>
-              </select>
-            </Tab>
-            <Tab>
-              <div className="icon">
-                <span className="fal fa-th-list" />
-              </div>
-              <div className="title">
-                <span>Form</span>
-              </div>
-            </Tab>
-          </TabItems>
-          <TabsContent>
-            <div className="smfp-ht-tabs-content">
-              <div className="text-center">
-                <h4>عنصر طلا</h4>
-              </div>
-              <Table />
+      <div className="smfp-intro-page">
+        <div className="smfp-intro-wrap">
+          <div className="smfp-intro-wrap-inner">
+            <div className="smfp-intro-heading">
+              <h1>سامانه مدیریتی فناورانه پویا</h1>
+              <h3 className="sub-title">منابع و ذخایر عناصر راهبردی</h3>
             </div>
-          </TabsContent>
-        </Tabs>
 
-        <SPD />
-        <div className={styles.container} data-tid="container">
-          <h2>HOME PAGE</h2>
-          <Link to={COUNTER}>to Counter</Link>
-          <br />
-          <Link to={USER_REGISTER}>to Add User</Link>
-          <br />
-          <Link to={ADD_NEW_ELEMENT}>to ADD_NEW_ELEMENT</Link>
-          <br />
-          <Link to={ADD_NEW_ELEMENT_FCS}>to AddNewElementFCS</Link>
-          <br />
-          <Link to={ELEMENT_DETAIL_FOR_WORLD}>to ELEMENT_DETAIL_FOR_WORLD</Link>
-          <br />
-          <Link to={INFORMATION_OF_ELEMENT}>to INFORMATION_OF_ELEMENT</Link>
-          <br />
-          <Link to={INFORMATION_OF_IRAN}>to INFORMATION_OF_IRAN</Link>
-          <br />
-          <Link to={INFORMATION_OF_WORLD}>to INFORMATION_OF_WORLD</Link>
-          <br />
-          <Link to={ADD_NEW_USER}>to ADD_NEW_USER</Link>
-          <br />
-          <Link to={USERS_LIST}>to USERS_LIST</Link>
-          <br />
-          <Link to={PROFILE}>to PROFILE</Link>
-
-          <h3>سامانه فناورانه پویا</h3>
-          <i className="fa fa-edit" />
-        </div>
-
-        <div className="smfp-intro-page">
-          <div className="smfp-intro-wrap">
-            <div className="smfp-intro-wrap-inner">
-              <div className="smfp-intro-heading">
-                <h1>سامانه مدیریتی فناورانه پویا</h1>
-                <h3 className="sub-title">منابع و ذخایر عناصر راهبردی</h3>
+            <div className="row smfp-intro-content">
+              <div className="col-sm-4 col-xs-6">
+                <Link className="smfp-main-item-wrap" to={INFORMATION_OF_WORLD}>
+                  <div className="img">
+                    <img src={item1} alt="img" />
+                  </div>
+                  <div className="title">
+                    <h2>منابع و ذخایر</h2>
+                  </div>
+                </Link>
               </div>
-
-              <div className="row smfp-intro-content">
-                <div className="col-sm-4 col-xs-6">
-                  <Link
-                    className="smfp-main-item-wrap"
-                    to={INFORMATION_OF_WORLD}
-                  >
-                    <div className="img">
-                      <img src={item1} alt="img" />
-                    </div>
-                    <div className="title">
-                      <h2>منابع و ذخایر</h2>
-                    </div>
-                  </Link>
-                </div>
-                <div className="col-sm-4 col-xs-6">
-                  <Link
-                    className="smfp-main-item-wrap"
-                    to={INFORMATION_OF_WORLD}
-                  >
-                    <div className="img">
-                      <img src={item3} alt="img" />
-                    </div>
-                    <div className="title">
-                      <h2>تحلیل اطلاعات</h2>
-                    </div>
-                  </Link>
-                </div>
-                <div className="col-sm-4 col-xs-6">
-                  <Link className="smfp-main-item-wrap" to={PROFILE}>
-                    <div className="img">
-                      <img src={item4} alt="img" />
-                    </div>
-                    <div className="title">
-                      <h2>ادمین</h2>
-                    </div>
-                  </Link>
-                </div>
+              <div className="col-sm-4 col-xs-6">
+                <Link className="smfp-main-item-wrap" to={HOME}>
+                  <div className="img">
+                    <img src={item3} alt="img" />
+                  </div>
+                  <div className="title">
+                    <h2>تحلیل اطلاعات</h2>
+                  </div>
+                </Link>
               </div>
-
-              <div className="site-info">
-                <a href="http://localhost/SMFP/page-1.html" className="imprint">
-                  تمامی حقوق مادی و معنوی این اپ مطعلق به سامانه مدیریتی
-                  فناورانه پویا میباشد.
-                </a>
+              <div className="col-sm-4 col-xs-6">
+                <Link className="smfp-main-item-wrap" to={PROFILE}>
+                  <div className="img">
+                    <img src={item4} alt="img" />
+                  </div>
+                  <div className="title">
+                    <h2>ادمین</h2>
+                  </div>
+                </Link>
               </div>
+            </div>
+
+            <div className="site-info">
+              <Link className="imprint" to={HOME}>
+                تمامی حقوق مادی و معنوی این اپ مطعلق به سامانه مدیریتی فناورانه
+                پویا میباشد.
+              </Link>
             </div>
           </div>
         </div>
