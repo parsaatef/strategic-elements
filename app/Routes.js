@@ -3,16 +3,17 @@ import { Route, Switch, Redirect } from 'react-router';
 import {
   COUNTER,
   HOME,
-  SIGNIN,
-  USER_REGISTER,
   ADD_NEW_ELEMENT,
   ADD_NEW_ELEMENT_FCS,
   ELEMENT_DETAIL_FOR_WORLD,
   INFORMATION_OF_ELEMENT,
+  SECONDARY_SOURCE,
   INFORMATION_OF_IRAN,
   INFORMATION_OF_WORLD,
   ADD_NEW_USER,
   USERS_LIST,
+  USER_REGISTER,
+  SIGNIN,
   PROFILE
 } from './constants/routes';
 import App from './containers/App';
@@ -31,6 +32,8 @@ import InformationOfWorld from './components/Information/InformationOfWorld';
 import AddNewUser from './components/Users/AddNewUser';
 import UsersList from './components/Users/UsersList';
 import Profile from './components/Users/Profile';
+
+import SecondarySource from './components/Elements/SecondarySource';
 
 let RestrictedRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={props => <Component {...props} />} />
@@ -85,6 +88,13 @@ const Routes = ({ session, refetch }: Props) => (
         path={INFORMATION_OF_ELEMENT}
         component={InformationOfElement}
       />
+
+      <RestrictedRoute
+        session={session}
+        path={SECONDARY_SOURCE}
+        component={SecondarySource}
+      />
+
       <RestrictedRoute
         session={session}
         path={INFORMATION_OF_IRAN}
