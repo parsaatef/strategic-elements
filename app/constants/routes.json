@@ -9,6 +9,9 @@
   "ADD_NEW_ELEMENT_FCS": "/Add-new-element-fcs",
   "ELEMENT_DETAIL_FOR_WORLD": "/element-detail-for-world",
   "INFORMATION_OF_ELEMENT": "/information-of-element",
+
+  "SECONDARY_SOURCE": "/secondary-source",
+
   "INFORMATION_OF_IRAN": "/information-of-iran",
   "INFORMATION_OF_WORLD": "/information-of-world",
   "ADD_NEW_USER": "/Add-new-user",

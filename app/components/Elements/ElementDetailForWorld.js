@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import ImgButton from '../General/ImgButton';
+import item4 from '../../images/menu-item-4.jpg';
+import { SECONDARY_SOURCE } from '../../constants/routes';
 
 export default class ElementDetailForWorld extends Component<Props> {
   render() {
@@ -55,46 +58,58 @@ export default class ElementDetailForWorld extends Component<Props> {
         </div>
 
         <div className="row">
-          <div className="col-sm-4 main-detail-btn-wrap text-center">
-            <a className="smfp-btn-img" href="">
-              <img src="../../images/menu-item-4.jpg" alt="img" />
-              <div className="title">منابع ثانویه</div>
-            </a>
+          <div className="col-sm-4">
+            <ImgButton
+              className="main-detail-btn-wrap text-center"
+              link={SECONDARY_SOURCE}
+              src={item4}
+              title="منابع ثانویه"
+            />
           </div>
 
-          <div className="col-sm-4 main-detail-btn-wrap text-center">
-            <a className="smfp-btn-img" href="">
-              <img src="../../images/menu-item-4.jpg" alt="img" />
-              <div className="title">صنایع پایین دستی</div>
-            </a>
+          <div className="col-sm-4">
+            <ImgButton
+              className="main-detail-btn-wrap text-center"
+              link={SECONDARY_SOURCE}
+              src={item4}
+              title="صنایع پایین دستی"
+            />
           </div>
 
-          <div className="col-sm-4 main-detail-btn-wrap text-center">
-            <a className="smfp-btn-img" href="">
-              <img src="../../images/menu-item-4.jpg" alt="img" />
-              <div className="title">محیط زیستی</div>
-            </a>
+          <div className="col-sm-4">
+            <ImgButton
+              className="main-detail-btn-wrap text-center"
+              link={SECONDARY_SOURCE}
+              src={item4}
+              title="محیط زیستی"
+            />
           </div>
 
-          <div className="col-sm-4 main-detail-btn-wrap text-center">
-            <a className="smfp-btn-img" href="">
-              <img src="../../images/menu-item-4.jpg" alt="img" />
-              <div className="title">فهرست معادن</div>
-            </a>
+          <div className="col-sm-4">
+            <ImgButton
+              className="main-detail-btn-wrap text-center"
+              link={SECONDARY_SOURCE}
+              src={item4}
+              title="فهرست معادن"
+            />
           </div>
 
-          <div className="col-sm-4 main-detail-btn-wrap text-center">
-            <a className="smfp-btn-img" href="">
-              <img src="../../images/menu-item-4.jpg" alt="img" />
-              <div className="title">فهرست منابع</div>
-            </a>
+          <div className="col-sm-4">
+            <ImgButton
+              className="main-detail-btn-wrap text-center"
+              link={SECONDARY_SOURCE}
+              src={item4}
+              title="فهرست منابع"
+            />
           </div>
 
-          <div className="col-sm-4 main-detail-btn-wrap text-center">
-            <a className="smfp-btn-img" href="">
-              <img src="../../images/menu-item-4.jpg" alt="img" />
-              <div className="title">شرکتهای تولید کننده</div>
-            </a>
+          <div className="col-sm-4">
+            <ImgButton
+              className="main-detail-btn-wrap text-center"
+              link={SECONDARY_SOURCE}
+              src={item4}
+              title="شرکتهای تولید کننده"
+            />
           </div>
         </div>
       </div>

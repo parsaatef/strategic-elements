@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Datamap from 'datamaps';
+import { INFORMATION_OF_ELEMENT } from '../../constants/routes';
 import Select from '../General/Select';
+import ImgButton from '../General/ImgButton';
 import item4 from '../../images/menu-item-4.jpg';
 
 const MapOptions = [
@@ -204,12 +206,12 @@ export default class InformationOfWorld extends Component<Props> {
           style={{ width: '80%', height: '65vh' }}
         />
 
-        <div className="text-center btn-element-wrap">
-          <a className="smfp-btn-img" href="">
-            <img src={item4} alt="img" />
-            <div className="title">نمایش اطلاعات عنصر</div>
-          </a>
-        </div>
+        <ImgButton
+          className="text-center btn-element-wrap"
+          link={INFORMATION_OF_ELEMENT}
+          src={item4}
+          title="نمایش اطلاعات عنصر"
+        />
       </div>
     );
   }

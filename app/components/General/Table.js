@@ -42,7 +42,7 @@ export default class Table extends Component {
     const { show } = this.state;
 
     return (
-      <>
+      <div className="table-of-elements-wrap">
         <Row className="tb-filter-wrap">
           <Col sm={4}>
             <Row>
@@ -181,7 +181,13 @@ export default class Table extends Component {
             </Pagination>
           </div>
         </div>
-      </>
+
+        <div className="spinner-wrap-outer active">
+          <div className="spinner-wrap">
+            <div className="spinner-pulse" />
+          </div>
+        </div>
+      </div>
     );
   }
 }
