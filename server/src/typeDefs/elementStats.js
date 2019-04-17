@@ -2,8 +2,8 @@ import { gql } from 'apollo-server-express';
 
 export default gql`
   extend type Query {
-    elementStats(id: ID!): ElementStats @guest
-    elementsStats: [ElementStats!]! @guest
+    elementStats(id: ID!): ElementStats @auth
+    elementsStats: [ElementStats!]! @auth
     searchElementStats(
       ids: [ID!]
       location: String
@@ -13,7 +13,9 @@ export default gql`
       elements: [String!]
       sort: String
       sortBy: String
-    ): [ElementStats!]! @guest
+      first: Int
+      offset: Int
+    ): ElementsStatsResult @auth
   }
 
   extend type Mutation {
@@ -30,9 +32,8 @@ export default gql`
       year: Int!
       unit: String!
       description: String!
-      username: String!
       element: String!
-    ): ElementStats @guest
+    ): ElementStats @auth
     updateElementStats(
       id: ID!
       location: String!
@@ -47,15 +48,19 @@ export default gql`
       year: Int!
       unit: String!
       description: String!
-      username: String!
       element: String!
-    ): Result @guest
-    removeElementStats(id: ID!): Result @guest
-    multiRemoveElementStats(ids: [ID!]!): Result @guest
+    ): Result @auth
+    removeElementStats(id: ID!): Result @auth
+    multiRemoveElementStats(ids: [ID!]!): Result @auth
   }
 
   type Result {
     result: Boolean!
+  }
+
+  type ElementsStatsResult {
+    elementsStats: [ElementStats!]!
+    totalCount: Int
   }
 
   type ElementStats {

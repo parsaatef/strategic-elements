@@ -84,7 +84,6 @@ export const updateElementStats = Joi.object().keys({
   secondaryProductionValue,
   mineCount,
   year,
-  username,
   element,
   unit,
   description
