@@ -21,9 +21,7 @@ export default {
         users,
         elements,
         sort = 'desc',
-        sortBy = 'createdAt',
-        first = 0,
-        offset = 10
+        sortBy = 'createdAt'
       } = args;
 
       const filters = {};
@@ -35,7 +33,7 @@ export default {
       }
 
       if (location) {
-        filters.location = new RegExp(location, 'i');
+        filters.location = location;
       }
 
       if (locationType) {
@@ -54,15 +52,7 @@ export default {
         filters.element = { $in: elements };
       }
 
-      const query = ElementStats.find(filters)
-        .sort({ [sortBy]: sort })
-        .limit(offset)
-        .skip(first);
-
-      return {
-        elementsStats: query,
-        totalCount: ElementStats.count(filters).exec()
-      };
+      return ElementStats.find(filters).sort({ [sortBy]: sort });
     },
     elementsStats: () => ElementStats.find({}),
     elementStats: (root, { id }) => {
@@ -75,12 +65,10 @@ export default {
     }
   },
   Mutation: {
-    registerElementStats: async (root, args, { req }) => {
+    registerElementStats: async (root, args) => {
       // , {req}, info
       // TODO: projection
-      const newArgs = args;
-      newArgs.username = req.currentUser.username;
-      await Joi.validate(newArgs, registerElementStats, { abortEarly: false });
+      await Joi.validate(args, registerElementStats, { abortEarly: false });
 
       const elementStats = await ElementStats.create(args);
       console.log('-----elementStats----', elementStats);
