@@ -21,7 +21,9 @@ export default {
         users,
         elements,
         sort = 'desc',
-        sortBy = 'createdAt'
+        sortBy = 'createdAt',
+        first = 0,
+        offset = 10
       } = args;
 
       const filters = {};
@@ -33,11 +35,11 @@ export default {
       }
 
       if (title) {
-        filters.title = `/${title}/`;
+        filters.title = new RegExp(title, 'i');
       }
 
       if (description) {
-        filters.description = `/${description}/`;
+        filters.description = new RegExp(description, 'i');
       }
 
       if (color) {
@@ -52,7 +54,15 @@ export default {
         filters.username = { $in: users };
       }
 
-      return Mineral.find(filters).sort({ [sortBy]: sort });
+      const query = Mineral.find(filters)
+        .sort({ [sortBy]: sort })
+        .limit(offset)
+        .skip(first);
+
+      return {
+        minerals: query,
+        totalCount: Mineral.count(filters).exec()
+      };
     },
     minerals: () => Mineral.find({}),
     mineral: (root, { id }) => {
@@ -65,10 +75,12 @@ export default {
     }
   },
   Mutation: {
-    registerMineral: async (root, args) => {
+    registerMineral: async (root, args, { req }) => {
       // , {req}, info
       // TODO: projection
-      await Joi.validate(args, registerMineral, { abortEarly: false });
+      const newArgs = args;
+      newArgs.username = req.currentUser.username;
+      await Joi.validate(newArgs, registerMineral, { abortEarly: false });
 
       const element = await Mineral.create(args);
       console.log('-----element----', element);
