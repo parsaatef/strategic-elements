@@ -23,7 +23,7 @@ export default gql`
       title: String!
       formula: String!
       color: String!
-      abundance: Float!
+      abundance: String!
       description: String!
       elements: [String!]
     ): Mineral @auth
@@ -32,7 +32,7 @@ export default gql`
       title: String!
       formula: String!
       color: String!
-      abundance: Float!
+      abundance: String!
       description: String!
       elements: [String!]
     ): Result @auth
@@ -50,7 +50,7 @@ export default gql`
     title: String!
     formula: String!
     color: String!
-    abundance: Float!
+    abundance: String!
     description: String!
     username: String!
     elements: [String!]

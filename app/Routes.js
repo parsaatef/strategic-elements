@@ -3,6 +3,10 @@ import { Route, Switch, Redirect } from 'react-router';
 import {
   COUNTER,
   HOME,
+  MINERAL_MANAGEMENT,
+  MINERAL_REGISTER,
+  MINERALS_LIST,
+  MINERAL_EDIT,
   ADD_NEW_ELEMENT,
   ADD_NEW_ELEMENT_FCS,
   ELEMENT_DETAIL_FOR_WORLD,
@@ -31,6 +35,7 @@ import InformationOfIran from './components/Information/InformationOfIran';
 import InformationOfWorld from './components/Information/InformationOfWorld';
 import UsersList from './components/Users/UsersList';
 import Profile from './components/Users/Profile';
+import MineralManagement from './containers/admin/mineral/mineralManagement';
 
 import SecondarySource from './components/Elements/SecondarySource';
 
@@ -119,6 +124,28 @@ const Routes = ({ session, refetch }: Props) => (
         path={USER_EDIT}
         component={UsersList}
       />
+
+      <RestrictedRoute
+        session={session}
+        path={MINERAL_MANAGEMENT}
+        component={MineralManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={MINERAL_REGISTER}
+        component={MineralManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={MINERALS_LIST}
+        component={MineralManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={MINERAL_EDIT}
+        component={MineralManagement}
+      />
+
       <RestrictedRoute session={session} path={PROFILE} component={Profile} />
       <Redirect to="/" />
     </Switch>

@@ -29,7 +29,7 @@ const elementSchema = new mongoose.Schema(
     threatyDesc: String,
     secondaryResourcesDesc: String,
     ecologyDesc: String,
-    username: String
+    offset: String
   },
   {
     timestamps: true
