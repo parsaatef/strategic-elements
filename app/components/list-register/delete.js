@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { addStaticVariables } from '../../utils/utility';
 
 class DeleteAction extends Component<Props> {
   remove(removeItem) {
@@ -26,8 +27,12 @@ class DeleteAction extends Component<Props> {
   render() {
     const { id, query } = this.props;
 
+    let variables = { id };
+
+    variables = addStaticVariables(query.remove, variables);
+
     return (
-      <Mutation mutation={query.remove.gql} variables={{ id }}>
+      <Mutation mutation={query.remove.gql} variables={variables}>
         {(
           removeItem // , { loading, error }
         ) => (

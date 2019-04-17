@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Query } from 'react-apollo';
+import ReactSelect from 'react-select';
 import List from './List';
 import Register from './Register';
 import Tabs from '../General/Tabs/Tabs';
@@ -61,20 +62,28 @@ class Page extends Component<Props> {
           <TabItems>
             {hasElementTab && (
               <Tab>
-                <select
+                <ReactSelect
                   onChange={this.setCurrentElement}
                   value={currentElement}
-                  name="role"
-                  id="role"
-                >
-                  <option selected="selected" value="subscriber">
-                    Subscriber
-                  </option>
-                  <option value="contributor">Contributor</option>
-                  <option value="author">Author</option>
-                  <option value="editor">Editor</option>
-                  <option value="administrator">Administrator</option>
-                </select>
+                  options={[
+                    {
+                      label: 'Contributor',
+                      value: 'contributor'
+                    },
+                    {
+                      label: 'Author',
+                      value: 'author'
+                    },
+                    {
+                      label: 'Editor',
+                      value: 'editor'
+                    },
+                    {
+                      label: 'Administrator',
+                      value: 'administrator'
+                    }
+                  ]}
+                />
               </Tab>
             )}
             <Tab

@@ -6,6 +6,7 @@ import ListFilters from './ListFilters';
 import MultiDeleteAction from './multiDelete';
 import STPagination from './pagination';
 import Table from './table';
+import { addStaticVariables } from '../../utils/utility';
 
 const bulkActionsOptions = [
   { value: 'delete', label: 'Delete Selected Items' }
@@ -106,18 +107,19 @@ class ItemsList extends Component<Props> {
 
     const { list } = query;
 
+    let variables = {
+      [searchBy]: searchValue,
+      offset: limit,
+      first: firstItem
+    };
+
+    variables = addStaticVariables(list, variables);
+
     return (
       <div>
         <h4 className="users-list-heading">{heading}</h4>
 
-        <Query
-          query={list.gql}
-          variables={{
-            [searchBy]: searchValue,
-            offset: limit,
-            first: firstItem
-          }}
-        >
+        <Query query={list.gql} variables={variables}>
           {({ data, loading, error, refetch }) => {
             console.log('----data-----', data, loading, error);
             return (

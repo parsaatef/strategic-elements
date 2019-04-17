@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import { withRouter } from 'react-router-dom';
 import FormElement from './Form';
+import { addStaticVariables } from '../../utils/utility';
 
 class Register extends Component {
   constructor(props) {
@@ -45,16 +46,18 @@ class Register extends Component {
 
     const { type, id, query } = this.props;
 
+    let variables =
+      type === 'register' ? { ...formValues } : { ...formValues, id };
+
+    const queryInfo = type === 'register' ? query.register : query.update;
+
+    variables = addStaticVariables(queryInfo, variables);
+
     return (
       <div>
         <h4 id="add-new-user">Add New Element</h4>
 
-        <Mutation
-          mutation={type === 'register' ? query.register.gql : query.update.gql}
-          variables={
-            type === 'register' ? { ...formValues } : { ...formValues, id }
-          }
-        >
+        <Mutation mutation={queryInfo.gql} variables={variables}>
           {(register, { loading, error }) => (
             <FormElement
               loading={loading}
