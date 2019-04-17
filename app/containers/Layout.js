@@ -1,14 +1,24 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Sidebar from './Sidebar';
 import Content from './Content';
 import Routes from '../Routes';
+import FullPageLayout from './FullPageLayout';
 
-type Props = {};
+type Props = {
+  location: object
+};
 
-export default class Layout extends Component<Props> {
+class Layout extends Component<Props> {
   props: Props;
 
   render() {
+    const { location } = this.props;
+
+    if (location.pathname === '/' || location.pathname === '/signin') {
+      return <FullPageLayout />;
+    }
+
     return (
       <div className="container-fluid">
         <div className="smfp-main-page">
@@ -28,3 +38,9 @@ export default class Layout extends Component<Props> {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  location: state.router.location
+});
+
+export default connect(mapStateToProps)(Layout);

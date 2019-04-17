@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import {
   HOME,
   ADD_NEW_ELEMENT,
@@ -19,15 +20,18 @@ import MLMenu from '../../assets/js/MultiLevelMenu/main';
 import '../../assets/css/MultiLevelMenu/component.css';
 // import Signout from '../Auth/Signout';
 
-export default class Menu extends Component<Props> {
+class Menu extends Component<Props> {
   componentDidMount() {
     const menuEl = document.getElementById('ml-menu');
+
+    const { location } = this.props;
 
     this.mlMenu = new MLMenu(menuEl, {
       // breadcrumbsCtrl : true, // show breadcrumbs
       // initialBreadcrumb : 'all', // initial breadcrumb text
       backCtrl: true, // show back button
-      direction: 'l2r' // direction
+      direction: 'l2r', // direction
+      location
       // itemsDelayInterval : 60, // delay between each menu item sliding animation
     });
 
@@ -48,6 +52,14 @@ export default class Menu extends Component<Props> {
     function closeMenu() {
       classie.remove(menuEl, 'menu--open');
       openMenuCtrl.focus();
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    const { location } = this.props;
+
+    if (prevProps.location.pathname !== location.pathname) {
+      this.mlMenu.setCurrentMenu(location);
     }
   }
 
@@ -252,3 +264,9 @@ export default class Menu extends Component<Props> {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  location: state.router.location
+});
+
+export default connect(mapStateToProps)(Menu);

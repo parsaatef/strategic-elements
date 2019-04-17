@@ -24,7 +24,9 @@ export default {
         group,
         period,
         sort = 'desc',
-        sortBy = 'createdAt'
+        sortBy = 'createdAt',
+        first = 0,
+        offset = 10
       } = args;
 
       const filters = {};
@@ -36,7 +38,7 @@ export default {
       }
 
       if (elementTitle) {
-        filters.elementTitle = `/${elementTitle}/`;
+        filters.elementTitle = new RegExp(elementTitle, 'i');
       }
 
       if (phaseAtSTP) {
@@ -44,7 +46,7 @@ export default {
       }
 
       if (toxicity) {
-        filters.year = toxicity;
+        filters.toxicity = toxicity;
       }
 
       if (magneticProperty) {
@@ -67,7 +69,35 @@ export default {
         filters.username = { $in: users };
       }
 
-      return Element.find(filters).sort({ [sortBy]: sort });
+      const query = Element.find(filters)
+        .sort({ [sortBy]: sort })
+        .limit(offset)
+        .skip(first);
+
+      return {
+        elements: query,
+        totalCount: Element.count(filters).exec()
+      };
+
+      /* let promises = {
+        elements: query.exec(),
+        count: Element.count(filters).exec()
+      };
+
+      promises = Object.keys(promises).map((x) => promises[x]);
+
+      return Promise.all(promises).then((data) => {
+
+        const result = {
+          elements: data.elements,
+          totalCount: data.count,
+        };
+
+        const promise = new Promise();
+        promise.resolve(result);
+        return result;
+
+      }); */
     },
     elements: () => Element.find({}),
     element: (root, { id }) => {
@@ -80,10 +110,12 @@ export default {
     }
   },
   Mutation: {
-    registerElement: async (root, args) => {
-      // , {req}, info
+    registerElement: async (root, args, { req }) => {
+      // , info
       // TODO: projection
-      await Joi.validate(args, registerElement, { abortEarly: false });
+      const newArgs = args;
+      newArgs.username = req.currentUser.username;
+      await Joi.validate(newArgs, registerElement, { abortEarly: false });
 
       const element = await Element.create(args);
       console.log('-----element----', element);

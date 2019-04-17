@@ -2,12 +2,12 @@ import { gql } from 'apollo-server-express';
 
 export default gql`
   extend type Query {
-    element(id: ID!): Element @guest
-    elements: [Element!]! @guest
+    element(id: ID!): Element @auth
+    elements: [Element!]! @auth
     searchElement(
       ids: [ID!]
       elementTitle: String
-      PhaseAtSTP: String
+      phaseAtSTP: String
       toxicity: Boolean
       magneticProperty: Boolean
       electricalConductivity: String
@@ -16,7 +16,9 @@ export default gql`
       users: [String!]
       sort: String
       sortBy: String
-    ): [Element!]! @guest
+      first: Int
+      offset: Int
+    ): ElementsResult @auth
   }
 
   extend type Mutation {
@@ -48,8 +50,7 @@ export default gql`
       threatyDesc: String
       secondaryResourcesDesc: String
       ecologyDesc: String
-      username: String!
-    ): Element @guest
+    ): Element @auth
     updateElement(
       id: ID!
       elementTitle: String!
@@ -78,9 +79,14 @@ export default gql`
       threatyDesc: String
       secondaryResourcesDesc: String
       ecologyDesc: String
-    ): Result @guest
-    removeElement(id: ID!): Result @guest
-    multiRemoveElements(ids: [ID!]!): Result @guest
+    ): Result @auth
+    removeElement(id: ID!): Result @auth
+    multiRemoveElements(ids: [ID!]!): Result @auth
+  }
+
+  type ElementsResult {
+    elements: [Element!]!
+    totalCount: Int
   }
 
   type Element {

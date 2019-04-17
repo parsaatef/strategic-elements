@@ -14,13 +14,13 @@ import {
   USERS_LIST,
   USER_REGISTER,
   SIGNIN,
+  USER_EDIT,
   PROFILE
 } from './constants/routes';
 import App from './containers/App';
 import HomePage from './containers/HomePage';
 import CounterPage from './containers/CounterPage';
 import Signin from './components/Auth/Signin';
-import UserRegister from './containers/admin/users/UserRegister';
 import withSession from './components/HOC/withSession';
 import withAuth from './components/HOC/withAuth';
 import AddNewElement from './components/Elements/AddNewElement';
@@ -29,7 +29,6 @@ import ElementDetailForWorld from './components/Elements/ElementDetailForWorld';
 import InformationOfElement from './components/Elements/InformationOfElement';
 import InformationOfIran from './components/Information/InformationOfIran';
 import InformationOfWorld from './components/Information/InformationOfWorld';
-import AddNewUser from './components/Users/AddNewUser';
 import UsersList from './components/Users/UsersList';
 import Profile from './components/Users/Profile';
 
@@ -61,11 +60,6 @@ const Routes = ({ session, refetch }: Props) => (
         path={COUNTER}
         session={session}
         component={CounterPage}
-      />
-      <RestrictedRoute
-        path={USER_REGISTER}
-        session={session}
-        component={UserRegister}
       />
       <Route path={SIGNIN} render={() => <Signin refetch={refetch} />} />
       <RestrictedRoute
@@ -108,11 +102,21 @@ const Routes = ({ session, refetch }: Props) => (
       <RestrictedRoute
         session={session}
         path={ADD_NEW_USER}
-        component={AddNewUser}
+        component={UsersList}
+      />
+      <RestrictedRoute
+        session={session}
+        path={USER_REGISTER}
+        component={UsersList}
       />
       <RestrictedRoute
         session={session}
         path={USERS_LIST}
+        component={UsersList}
+      />
+      <RestrictedRoute
+        session={session}
+        path={USER_EDIT}
         component={UsersList}
       />
       <RestrictedRoute session={session} path={PROFILE} component={Profile} />

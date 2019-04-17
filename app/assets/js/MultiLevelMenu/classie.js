@@ -39,14 +39,14 @@ if ('classList' in document.documentElement) {
 
   addClass = (elem, c) => {
     const element = elem;
-    if (!hasClass(element, c)) {
+    if (!hasClass(elem, c)) {
       element.className += `  ${c}`;
     }
   };
 
   removeClass = (elem, c) => {
     const element = elem;
-    element.className = element.className.replace(classReg(c), ' ');
+    element.className = elem.className.replace(classReg(c), ' ');
   };
 }
 
