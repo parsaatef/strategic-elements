@@ -62,7 +62,6 @@ export const REGISTER_MINERAL = gql`
     $color: String!
     $abundance: String!
     $description: String!
-    $username: String!
     $elements: [String!]
   ) {
     registerMineral(
@@ -71,7 +70,6 @@ export const REGISTER_MINERAL = gql`
       color: $color
       abundance: $abundance
       description: $description
-      username: $username
       elements: $elements
     ) {
       id

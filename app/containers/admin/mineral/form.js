@@ -5,13 +5,18 @@ import _ from 'underscore';
 
 const { Control, Group, Label } = Form;
 
+const AbundanceOptions = [
+  { value: 'Abundance1', label: 'Abundance1' },
+  { value: 'Abundance2', label: 'Abundance2' }
+];
+
 type Props = {
+  formType: string,
   errors: object,
   values: object,
   touched: object,
   handleChange: () => void,
-  handleSubmit: () => void,
-  formType: string
+  handleSubmit: () => void
 };
 
 class ElementForm extends Component<Props> {
@@ -70,17 +75,17 @@ class ElementForm extends Component<Props> {
             Abundance
           </Label>
           <Col sm={9}>
-            <Control
-              as="select"
+            <select
+              name="abundance"
+              value={values.abundance}
               onChange={handleChange}
+              options={AbundanceOptions}
+              placeholder="Abundance"
               isValid={touched.abundance && !errors.abundance}
             >
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </Control>
+              <option value="abundance1">Abundance1</option>
+              <option value="abundance2">Abundance2</option>
+            </select>
           </Col>
         </Group>
 
@@ -104,17 +109,16 @@ class ElementForm extends Component<Props> {
             Elements
           </Label>
           <Col sm={9}>
-            <Control
-              as="select"
+            <select
+              value={values.elements}
               onChange={handleChange}
+              options={AbundanceOptions}
+              placeholder="Elements"
               isValid={touched.elements && !errors.elements}
             >
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </Control>
+              <option value="element1">Element 1</option>
+              <option value="element2">Element 2</option>
+            </select>
           </Col>
         </Group>
 
