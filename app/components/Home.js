@@ -5,8 +5,6 @@ import { HOME, INFORMATION_OF_WORLD, PROFILE } from '../constants/routes';
 import item1 from '../images/menu-item-1.jpg';
 import item3 from '../images/menu-item-3.jpg';
 import item4 from '../images/menu-item-4.jpg';
-import Table from './General/Table';
-import ConfirmBox from './General/ConfirmBox';
 
 type Props = {};
 
@@ -18,12 +16,6 @@ export default class Home extends Component<Props> {
       <div className="smfp-intro-page">
         <div className="smfp-intro-wrap">
           <div className="smfp-intro-wrap-inner">
-            <ConfirmBox
-              message="tessssssssssssst..."
-              confirmAction={this.confirmAction}
-              status="open"
-            />
-            <Table />
             <div className="smfp-intro-heading">
               <h1>سامانه مدیریتی فناورانه پویا</h1>
               <h3 className="sub-title">منابع و ذخایر عناصر راهبردی</h3>
