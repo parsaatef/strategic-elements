@@ -3,13 +3,13 @@ import { Row, Col } from 'react-bootstrap';
 import { ELEMENT_DETAIL_FOR_WORLD } from '../../constants/routes';
 import ImgButton from '../General/ImgButton';
 import item4 from '../../images/menu-item-4.jpg';
-import HeadingOfPage from '../General/HeadingOfPage';
+import PageHeading from '../General/PageHeading';
 
 export default class InformationOfElement extends Component<Props> {
   render() {
     return (
       <div>
-        <HeadingOfPage className="text-center" title="عنصر طلا" />
+        <PageHeading className="text-center" title="عنصر طلا" />
 
         <table className="table table-with-width table-striped table-bordered">
           <tbody>

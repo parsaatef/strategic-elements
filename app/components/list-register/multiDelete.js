@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import { Button } from 'react-bootstrap';
+import { addStaticVariables } from '../../utils/utility';
 
 class MultiDeleteAction extends Component<Props> {
   remove(multiRemoveItems) {
@@ -28,8 +29,12 @@ class MultiDeleteAction extends Component<Props> {
 
     const { multiRemove } = query;
 
+    let variables = { ids };
+
+    variables = addStaticVariables(multiRemove, variables);
+
     return (
-      <Mutation mutation={multiRemove.gql} variables={{ ids }}>
+      <Mutation mutation={multiRemove.gql} variables={variables}>
         {(
           multiRemoveItems // , { loading, error }
         ) => (

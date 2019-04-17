@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 import { Button, OverlayTrigger, Tooltip, Modal } from 'react-bootstrap';
+import { addStaticVariables } from '../../utils/utility';
 
 const { Header, Title, Body, Footer } = Modal;
 
@@ -26,13 +27,12 @@ class DetailAction extends Component<Props> {
     const { id, query, titleCol } = this.props;
     const { item } = query;
 
+    let variables = { id };
+
+    variables = addStaticVariables(item, variables);
+
     return (
-      <Query
-        query={item.gql}
-        variables={{
-          id
-        }}
-      >
+      <Query query={item.gql} variables={variables}>
         {({ data, loading, error }) => {
           console.log('----data-----', data, loading, error);
           return (

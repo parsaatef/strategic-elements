@@ -4,13 +4,13 @@ import ImgButton from '../General/ImgButton';
 import item4 from '../../images/menu-item-4.jpg';
 import { SECONDARY_SOURCE } from '../../constants/routes';
 import ElementDetailItem from './ElementDetailItem';
-import HeadingOfPage from '../General/HeadingOfPage';
+import PageHeading from '../General/PageHeading';
 
 export default class ElementDetailForWorld extends Component<Props> {
   render() {
     return (
       <div>
-        <HeadingOfPage
+        <PageHeading
           className="text-center"
           title="جزییات منابع و ذخایر طلا در جهان"
         />
