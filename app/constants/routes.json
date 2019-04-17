@@ -2,6 +2,12 @@
   "HOME": "/",
   "SIGNIN": "/signin",
   "COUNTER": "/counter",
+
+  "MINERAL_MANAGEMENT": "/admin/mineral-management",
+  "MINERAL_REGISTER": "/admin/mineral/register",
+  "MINERALS_LIST": "/admin/minerals/list",
+  "MINERAL_EDIT": "/admin/mineral/edit/:id",
+
   "USER_REGISTER": "/user/register",
   "USERS_LIST": "/users/list",
   "USER_EDIT": "/user/edit/:id",

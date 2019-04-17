@@ -24,7 +24,7 @@ const description = Joi.string()
 
 const color = Joi.string().label('Color');
 const formula = Joi.string().label('Formula');
-const abundance = Joi.number().label('Abundance');
+const abundance = Joi.string().label('Abundance');
 
 export const registerMineral = Joi.object().keys({
   username,

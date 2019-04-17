@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import {
   HOME,
   ADD_NEW_ELEMENT,
+  MINERAL_MANAGEMENT,
   ADD_NEW_ELEMENT_FCS,
   INFORMATION_OF_WORLD,
   SECONDARY_SOURCE,
@@ -181,6 +182,14 @@ class Menu extends Component<Props> {
                   to={ADD_NEW_ELEMENT}
                 >
                   <span>مدیریت ماده معدنی</span>
+                </Link>
+              </li>
+              <li className="smfp-menu-item menu__item" role="menuitem">
+                <Link
+                  className="smfp-menu-link menu__link"
+                  to={MINERAL_MANAGEMENT}
+                >
+                  <span>مدیریت کانی ها</span>
                 </Link>
               </li>
               <li className="smfp-menu-item menu__item" role="menuitem">

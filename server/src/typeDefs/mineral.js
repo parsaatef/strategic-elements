@@ -21,7 +21,7 @@ export default gql`
       title: String!
       formula: String!
       color: String!
-      abundance: Float!
+      abundance: String!
       description: String!
       username: String!
       elements: [String!]
@@ -31,7 +31,7 @@ export default gql`
       title: String!
       formula: String!
       color: String!
-      abundance: Float!
+      abundance: String!
       description: String!
       elements: [String!]
     ): Result @guest
@@ -44,7 +44,7 @@ export default gql`
     title: String!
     formula: String!
     color: String!
-    abundance: Float!
+    abundance: String!
     description: String!
     username: String!
     elements: [String!]
