@@ -15,7 +15,7 @@ export default gql`
       sortBy: String
       first: Int
       offset: Int
-    ): [MineralsResult!]! @auth
+    ): MineralsResult @auth
   }
 
   extend type Mutation {

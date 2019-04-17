@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import _ from 'underscore';
-import ReactSelect from 'react-select';
 
 const { Control, Group, Label } = Form;
 
@@ -76,14 +75,17 @@ class ElementForm extends Component<Props> {
             Abundance
           </Label>
           <Col sm={9}>
-            <ReactSelect
+            <select
               name="abundance"
               value={values.abundance}
               onChange={handleChange}
               options={AbundanceOptions}
               placeholder="Abundance"
               isValid={touched.abundance && !errors.abundance}
-            />
+            >
+              <option value="abundance1">Abundance1</option>
+              <option value="abundance2">Abundance2</option>
+            </select>
           </Col>
         </Group>
 
@@ -107,13 +109,17 @@ class ElementForm extends Component<Props> {
             Elements
           </Label>
           <Col sm={9}>
-            <ReactSelect
+            <select
+              multiple
               value={values.elements}
               onChange={handleChange}
               options={AbundanceOptions}
               placeholder="Elements"
               isValid={touched.elements && !errors.elements}
-            />
+            >
+              <option value="element1">Element 1</option>
+              <option value="element2">Element 2</option>
+            </select>
           </Col>
         </Group>
 

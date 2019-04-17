@@ -109,10 +109,13 @@ class ItemsList extends Component<Props> {
     const { list } = query;
 
     let variables = {
-      [searchBy]: searchValue,
       offset: limit,
       first: firstItem
     };
+
+    if (searchBy) {
+      variables[searchBy] = searchValue;
+    }
 
     variables = addStaticVariables(list, variables);
 
@@ -178,8 +181,8 @@ class ItemsList extends Component<Props> {
 
                 <STPagination
                   total={
-                    data && data.searchElement && data.searchElement.totalCount
-                      ? data.searchElement.totalCount
+                    data && data[list.func] && data[list.func].totalCount
+                      ? data[list.func].totalCount
                       : 0
                   }
                   onPageClick={this.onPageChange}

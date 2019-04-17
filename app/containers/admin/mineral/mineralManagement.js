@@ -66,9 +66,7 @@ export default class MineralManagement extends Component<Props> {
             {
               filter: 'color',
               label: 'Color',
-              type: 'text', // text or select
-              isDefault: true,
-              default: ''
+              type: 'text' // text or select
             }
           ]}
           columns={[
@@ -102,7 +100,7 @@ export default class MineralManagement extends Component<Props> {
             }
           ]}
           indexCol="id"
-          keyCol="mineral"
+          keyCol="title"
           titleCol="title"
         />
       </div>
