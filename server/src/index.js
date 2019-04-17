@@ -51,7 +51,6 @@ import {
       port: REDIS_PORT,
       pass: REDIS_PASSWORD
     });
-
     // TODO: we should remove session and use from redis with JWT
     app.use(
       session({

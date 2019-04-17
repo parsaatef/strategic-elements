@@ -6,6 +6,7 @@ import {
   ADD_NEW_ELEMENT,
   ADD_NEW_ELEMENT_FCS,
   INFORMATION_OF_WORLD,
+  SECONDARY_SOURCE,
   ADD_NEW_USER,
   USERS_LIST,
   PROFILE
@@ -244,7 +245,10 @@ class Menu extends Component<Props> {
                 </Link>
               </li>
               <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link className="smfp-menu-link menu__link" to={HOME}>
+                <Link
+                  className="smfp-menu-link menu__link"
+                  to={SECONDARY_SOURCE}
+                >
                   <span>منابع ثانویه</span>
                 </Link>
               </li>
