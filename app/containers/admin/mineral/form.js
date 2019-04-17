@@ -6,49 +6,19 @@ import ReactSelect from 'react-select';
 
 const { Control, Group, Label } = Form;
 
-type Props = {
-  name: string,
-  errors: object,
-  values: object,
-  handleChange: () => void
-};
-
 const AbundanceOptions = [
   { value: 'Abundance1', label: 'Abundance1' },
   { value: 'Abundance2', label: 'Abundance2' }
 ];
 
-const TextInput = ({ name, values, errors, handleChange }: Props) => (
-  <Control
-    type="text"
-    name={name}
-    value={!_.isUndefined(values[name]) ? values[name] : ''}
-    onChange={handleChange}
-    isInvalid={!_.isUndefined(values[name]) && errors[name]}
-  />
-);
-
-const ErrorMessage = ({ errors, name, values }) => (
-  <>
-    {!_.isUndefined(values[name]) && (
-      <Control.Feedback type="invalid">{errors[name] || null}</Control.Feedback>
-    )}
-  </>
-);
-
-const TextField = ({ name, label, ...rest }) => (
-  <Group as={Row} controlId={name}>
-    <Label column sm={3}>
-      {label}
-    </Label>
-
-    <Col sm={9}>
-      <TextInput name={name} {...rest} />
-    </Col>
-
-    <ErrorMessage name={name} {...rest} />
-  </Group>
-);
+type Props = {
+  formType: string,
+  errors: object,
+  values: object,
+  touched: object,
+  handleChange: () => void,
+  handleSubmit: () => void
+};
 
 class ElementForm extends Component<Props> {
   render() {
@@ -70,10 +40,6 @@ class ElementForm extends Component<Props> {
 
     return (
       <Form noValidate onSubmit={handleSubmit} className="smfp-form-container">
-        {formType === 'register' && (
-          <TextField name="element" label="Element" {...this.props} />
-        )}
-
         <Group as={Row} controlId="Mineral_Title">
           <Label column sm={3}>
             Mineral Title
@@ -111,6 +77,7 @@ class ElementForm extends Component<Props> {
           </Label>
           <Col sm={9}>
             <ReactSelect
+              name="abundance"
               value={values.abundance}
               onChange={handleChange}
               options={AbundanceOptions}
