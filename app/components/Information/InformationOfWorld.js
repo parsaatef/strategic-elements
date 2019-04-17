@@ -5,7 +5,7 @@ import { INFORMATION_OF_ELEMENT } from '../../constants/routes';
 import Select from '../General/Select';
 import ImgButton from '../General/ImgButton';
 import item4 from '../../images/menu-item-4.jpg';
-import HeadingOfPage from '../General/HeadingOfPage';
+import PageHeading from '../General/PageHeading';
 import Datamaps from './datamaps';
 import irnTopo from './irn.topo.json';
 
@@ -198,7 +198,7 @@ export default class InformationOfWorld extends Component<Props> {
           </Row>
         </div>
 
-        <HeadingOfPage
+        <PageHeading
           className="text-center animated bounce faster"
           title="نقشه منابع و ذخایر طلا در جهان"
         />

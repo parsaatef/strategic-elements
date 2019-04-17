@@ -47,7 +47,9 @@ class Page extends Component<Props> {
       columns,
       indexCol,
       keyCol,
-      titleCol
+      titleCol,
+      registerTitle,
+      editTitle
     } = this.props;
 
     const { item } = query;
@@ -140,6 +142,7 @@ class Page extends Component<Props> {
                   type="register"
                   listRoute={listRoute}
                   query={query}
+                  heading={registerTitle}
                 />
               )}
 
@@ -164,6 +167,7 @@ class Page extends Component<Props> {
                         id={id}
                         listRoute={listRoute}
                         query={query}
+                        heading={editTitle}
                       />
                     );
                   }}

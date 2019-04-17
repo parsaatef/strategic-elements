@@ -28,6 +28,8 @@ export default class UsersList extends Component<Props> {
           listRoute="/users/list"
           editRoute="/user/edit"
           listTitle="Users List"
+          editTitle="User Edit"
+          registerTitle="Add New User"
           query={{
             item: {
               gql: GET_ELEMENT,

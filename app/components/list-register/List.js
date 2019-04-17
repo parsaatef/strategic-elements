@@ -7,6 +7,7 @@ import MultiDeleteAction from './multiDelete';
 import STPagination from './pagination';
 import Table from './table';
 import { addStaticVariables } from '../../utils/utility';
+import PageHeading from '../General/PageHeading';
 
 const bulkActionsOptions = [
   { value: 'delete', label: 'Delete Selected Items' }
@@ -117,7 +118,7 @@ class ItemsList extends Component<Props> {
 
     return (
       <div>
-        <h4 className="users-list-heading">{heading}</h4>
+        <PageHeading className="admin-list-heading" title={heading} />
 
         <Query query={list.gql} variables={variables}>
           {({ data, loading, error, refetch }) => {
