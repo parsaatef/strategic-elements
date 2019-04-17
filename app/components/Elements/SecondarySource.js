@@ -5,7 +5,7 @@ class SecondarySource extends Component<Props> {
   render() {
     return (
       <div>
-        <h4>صنایع پایین دستی</h4>
+        <h4>منابع ثانویه</h4>
         <CkEditor />
       </div>
     );

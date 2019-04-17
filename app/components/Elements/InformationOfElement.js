@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
+import { Row, Col } from 'react-bootstrap';
 import { ELEMENT_DETAIL_FOR_WORLD } from '../../constants/routes';
 import ImgButton from '../General/ImgButton';
 import item4 from '../../images/menu-item-4.jpg';
+import HeadingOfPage from '../General/HeadingOfPage';
 
 export default class InformationOfElement extends Component<Props> {
   render() {
     return (
       <div>
-        <div className="text-center">
-          <h4>عنصر طلا</h4>
-        </div>
+        <HeadingOfPage className="text-center" title="عنصر طلا" />
 
         <table className="table table-with-width table-striped table-bordered">
           <tbody>
@@ -33,72 +33,28 @@ export default class InformationOfElement extends Component<Props> {
               <td>Ernst Handel</td>
               <td>Roland Mendel</td>
             </tr>
-            <tr>
-              <td>Island Trading</td>
-              <td>Helen Bennett</td>
-            </tr>
-            <tr>
-              <td>Königlich</td>
-              <td>Philip Cramer</td>
-            </tr>
-            <tr>
-              <td>Laughing</td>
-              <td>Yoshi Tannamuri</td>
-            </tr>
-            <tr>
-              <td>Magazzini</td>
-              <td>Giovanni Rovelli</td>
-            </tr>
-            <tr>
-              <td>Paris</td>
-              <td>Marie Bertrand</td>
-            </tr>
-            <tr>
-              <td>Island Trading</td>
-              <td>Helen Bennett</td>
-            </tr>
-            <tr>
-              <td>Königlich</td>
-              <td>Philip Cramer</td>
-            </tr>
-            <tr>
-              <td>Laughing</td>
-              <td>Yoshi Tannamuri</td>
-            </tr>
-            <tr>
-              <td>Magazzini</td>
-              <td>Giovanni Rovelli</td>
-            </tr>
-            <tr>
-              <td>North/South</td>
-              <td>Simon Crowther</td>
-            </tr>
-            <tr>
-              <td>Paris</td>
-              <td>Marie Bertrand</td>
-            </tr>
           </tbody>
         </table>
 
-        <div className="row">
-          <div className="col-sm-6">
+        <Row>
+          <Col sm={6}>
             <ImgButton
               className="main-detail-btn-wrap text-left"
               link={ELEMENT_DETAIL_FOR_WORLD}
               src={item4}
               title="جزییات برای جهان"
             />
-          </div>
+          </Col>
 
-          <div className="col-sm-6">
+          <Col sm={6}>
             <ImgButton
               className="main-detail-btn-wrap text-right"
               link={ELEMENT_DETAIL_FOR_WORLD}
               src={item4}
               title="جزییات برای ایران"
             />
-          </div>
-        </div>
+          </Col>
+        </Row>
       </div>
     );
   }

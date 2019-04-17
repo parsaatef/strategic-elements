@@ -11,6 +11,7 @@ import {
   Col
 } from 'react-bootstrap';
 import Select from './Select';
+import ListFilters from './ListFilters';
 
 const { Control } = Form;
 const { Header, Title, Body, Footer } = Modal;
@@ -40,9 +41,23 @@ export default class Table extends Component {
 
   render() {
     const { show } = this.state;
+    const filters = [
+      {
+        filter: 'elementTitle',
+        label: 'Element Title',
+        type: 'text' // text or select
+      },
+      {
+        filter: 'phaseAtSTP',
+        label: 'Phase At STP',
+        type: 'select', // text or select
+        options: MapOptions
+      }
+    ];
 
     return (
       <div className="table-of-elements-wrap">
+        <ListFilters autoApply={false} filters={filters} />
         <Row className="tb-filter-wrap">
           <Col sm={4}>
             <Row>
@@ -182,7 +197,7 @@ export default class Table extends Component {
           </div>
         </div>
 
-        <div className="spinner-wrap-outer active">
+        <div className="spinner-wrap-outer">
           <div className="spinner-wrap">
             <div className="spinner-pulse" />
           </div>

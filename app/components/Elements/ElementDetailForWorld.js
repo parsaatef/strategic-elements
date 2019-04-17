@@ -1,117 +1,85 @@
 import React, { Component } from 'react';
+import { Row, Col } from 'react-bootstrap';
 import ImgButton from '../General/ImgButton';
 import item4 from '../../images/menu-item-4.jpg';
 import { SECONDARY_SOURCE } from '../../constants/routes';
+import ElementDetailItem from './ElementDetailItem';
+import HeadingOfPage from '../General/HeadingOfPage';
 
 export default class ElementDetailForWorld extends Component<Props> {
   render() {
     return (
       <div>
-        <div className="text-center">
-          <h4>جزییات منابع و ذخایر طلا در جهان</h4>
-        </div>
+        <HeadingOfPage
+          className="text-center"
+          title="جزییات منابع و ذخایر طلا در جهان"
+        />
 
         <div className="main-detail-line">
-          <div className="detail-line">
-            <div className="detail-line-content">
-              <div className="detail-line-circle">
-                <span>4200 تن</span>
-              </div>
-              <div className="inner-content">
-                <h4 className="title">میزان منابع</h4>
-              </div>
-            </div>
-          </div>
+          <ElementDetailItem value="4200 تن" name="میزان منابع" />
 
-          <div className="detail-line">
-            <div className="detail-line-content">
-              <div className="detail-line-circle">
-                <span>4200 تن</span>
-              </div>
-              <div className="inner-content">
-                <h4 className="title">مجموع تولید سالانه</h4>
-              </div>
-            </div>
-          </div>
+          <ElementDetailItem value="4200 تن" name="مجموع تولید سالانه" />
 
-          <div className="detail-line">
-            <div className="detail-line-content">
-              <div className="detail-line-circle">
-                <span>4200 تن</span>
-              </div>
-              <div className="inner-content">
-                <h4 className="title">مجموع مصرف سالانه</h4>
-              </div>
-            </div>
-          </div>
+          <ElementDetailItem value="4200 تن" name="مجموع مصرف سالانه" />
 
-          <div className="detail-line">
-            <div className="detail-line-content">
-              <div className="detail-line-circle">
-                <span>4200 تن</span>
-              </div>
-              <div className="inner-content">
-                <h4 className="title">تعداد معادن</h4>
-              </div>
-            </div>
-          </div>
+          <ElementDetailItem value="4200 تن" name="تعداد معادن" />
         </div>
 
-        <div className="row">
-          <div className="col-sm-4">
+        <Row>
+          <Col sm={4}>
             <ImgButton
               className="main-detail-btn-wrap text-center"
               link={SECONDARY_SOURCE}
               src={item4}
               title="منابع ثانویه"
             />
-          </div>
+          </Col>
 
-          <div className="col-sm-4">
+          <Col sm={4}>
             <ImgButton
               className="main-detail-btn-wrap text-center"
               link={SECONDARY_SOURCE}
               src={item4}
               title="صنایع پایین دستی"
             />
-          </div>
+          </Col>
 
-          <div className="col-sm-4">
+          <Col sm={4}>
             <ImgButton
               className="main-detail-btn-wrap text-center"
               link={SECONDARY_SOURCE}
               src={item4}
               title="محیط زیستی"
             />
-          </div>
+          </Col>
 
-          <div className="col-sm-4">
+          <Col sm={4}>
             <ImgButton
               className="main-detail-btn-wrap text-center"
               link={SECONDARY_SOURCE}
               src={item4}
               title="فهرست معادن"
             />
-          </div>
+          </Col>
 
-          <div className="col-sm-4">
+          <Col sm={4}>
             <ImgButton
               className="main-detail-btn-wrap text-center"
               link={SECONDARY_SOURCE}
               src={item4}
               title="فهرست منابع"
             />
-          </div>
+          </Col>
 
-          <div className="col-sm-4">
+          <Col sm={4}>
             <ImgButton
               className="main-detail-btn-wrap text-center"
               link={SECONDARY_SOURCE}
               src={item4}
               title="شرکتهای تولید کننده"
             />
-          </div>
-        </div>
+          </Col>
+        </Row>
       </div>
     );
   }
