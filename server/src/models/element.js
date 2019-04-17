@@ -6,7 +6,7 @@ const elementSchema = new mongoose.Schema(
     elementTitle: String,
     symbol: String,
     chemicalFormula: String,
-    PhaseAtSTP: String,
+    phaseAtSTP: String,
     density: Number,
     meltingPoint: Number,
     boilingPoint: Number,
