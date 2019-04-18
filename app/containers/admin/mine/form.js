@@ -5,11 +5,6 @@ import _ from 'underscore';
 
 const { Control, Group, Label } = Form;
 
-const AbundanceOptions = [
-  { value: 'Abundance1', label: 'Abundance1' },
-  { value: 'Abundance2', label: 'Abundance2' }
-];
-
 type Props = {
   formType: string,
   errors: object,
@@ -39,9 +34,9 @@ class ElementForm extends Component<Props> {
 
     return (
       <Form noValidate onSubmit={handleSubmit} className="smfp-form-container">
-        <Group as={Row} controlId="Mineral_Title">
+        <Group as={Row} controlId="Mine_Title">
           <Label column sm={3}>
-            Mineral Title
+            Mine Title
           </Label>
           <Col sm={9}>
             <Control
@@ -55,77 +50,66 @@ class ElementForm extends Component<Props> {
           <Control.Feedback type="invalid">{errors.title}</Control.Feedback>
         </Group>
 
-        <Group as={Row} controlId="mineral_formula">
+        <Group as={Row} controlId="mineral_element">
           <Label column sm={3}>
-            Chemical Formula
-          </Label>
-          <Col sm={9}>
-            <Control
-              type="text"
-              name="formula"
-              value={values.formula}
-              onChange={handleChange}
-              isValid={touched.formula && !errors.formula}
-            />
-          </Col>
-        </Group>
-
-        <Group as={Row} controlId="mineral_abundance">
-          <Label column sm={3}>
-            Abundance
+            Element
           </Label>
           <Col sm={9}>
             <select
-              name="abundance"
-              value={values.abundance}
+              value={values.element}
               onChange={handleChange}
-              options={AbundanceOptions}
-              placeholder="Abundance"
-              isValid={touched.abundance && !errors.abundance}
-            >
-              <option value="low">Low</option>
-              <option value="medium">Medium</option>
-              <option value="high">High</option>
-            </select>
-          </Col>
-        </Group>
-
-        <Group as={Row} controlId="mineral_color">
-          <Label column sm={3}>
-            Color
-          </Label>
-          <Col sm={9}>
-            <select
-              name="color"
-              value={values.color}
-              onChange={handleChange}
-              options={AbundanceOptions}
-              placeholder="Color"
-              isValid={touched.color && !errors.color}
-            >
-              <option value="color1">color1</option>
-              <option value="color2">color2</option>
-              <option value="color3">color3</option>
-            </select>
-          </Col>
-        </Group>
-
-        <Group as={Row} controlId="mineral_elements">
-          <Label column sm={3}>
-            Elements
-          </Label>
-          <Col sm={9}>
-            <select
-              multiple
-              value={values.elements}
-              onChange={handleChange}
-              options={AbundanceOptions}
-              placeholder="Elements"
-              isValid={touched.elements && !errors.elements}
+              placeholder="Element"
+              isValid={touched.element && !errors.element}
             >
               <option value="element1">Element 1</option>
               <option value="element2">Element 2</option>
             </select>
+          </Col>
+          <Control.Feedback type="invalid">{errors.element}</Control.Feedback>
+        </Group>
+
+        <Group as={Row} controlId="mineral_unit">
+          <Label column sm={3}>
+            Unit
+          </Label>
+          <Col sm={9}>
+            <Control
+              type="text"
+              name="unit"
+              value={values.unit}
+              onChange={handleChange}
+              isValid={touched.unit && !errors.unit}
+            />
+          </Col>
+        </Group>
+
+        <Group as={Row} controlId="element_productionValue">
+          <Label column sm={3}>
+            Production
+          </Label>
+          <Col sm={9}>
+            <Control
+              type="number"
+              name="productionValue"
+              value={values.productionValue}
+              onChange={handleChange}
+              isValid={touched.productionValue && !errors.productionValue}
+            />
+          </Col>
+        </Group>
+
+        <Group as={Row} controlId="element_activeMines">
+          <Label column sm={3}>
+            Active Mines
+          </Label>
+          <Col sm={9}>
+            <Control
+              type="number"
+              name="activeMines"
+              value={values.activeMines}
+              onChange={handleChange}
+              isValid={touched.activeMines && !errors.activeMines}
+            />
           </Col>
         </Group>
 

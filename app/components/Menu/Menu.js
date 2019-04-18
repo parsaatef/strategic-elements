@@ -4,7 +4,11 @@ import { connect } from 'react-redux';
 import {
   HOME,
   ADD_NEW_ELEMENT,
-  MINERAL_MANAGEMENT,
+  MINERALS_LIST,
+  MINES_LIST,
+  ELEMENTS_LIST,
+  GLOBAL_PRICES_LIST,
+  SECONDARY_SOURCES_LIST,
   ADD_NEW_ELEMENT_FCS,
   INFORMATION_OF_WORLD,
   SECONDARY_SOURCE,
@@ -184,14 +188,43 @@ class Menu extends Component<Props> {
                   <span>مدیریت ماده معدنی</span>
                 </Link>
               </li>
+
               <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link
-                  className="smfp-menu-link menu__link"
-                  to={MINERAL_MANAGEMENT}
-                >
+                <Link className="smfp-menu-link menu__link" to={MINERALS_LIST}>
                   <span>مدیریت کانی ها</span>
                 </Link>
               </li>
+
+              <li className="smfp-menu-item menu__item" role="menuitem">
+                <Link className="smfp-menu-link menu__link" to={MINES_LIST}>
+                  <span>مدیریت معادن</span>
+                </Link>
+              </li>
+
+              <li className="smfp-menu-item menu__item" role="menuitem">
+                <Link className="smfp-menu-link menu__link" to={ELEMENTS_LIST}>
+                  <span>مدیریت عنصر ها</span>
+                </Link>
+              </li>
+
+              <li className="smfp-menu-item menu__item" role="menuitem">
+                <Link
+                  className="smfp-menu-link menu__link"
+                  to={GLOBAL_PRICES_LIST}
+                >
+                  <span>مدیریت قیمت جهانی</span>
+                </Link>
+              </li>
+
+              <li className="smfp-menu-item menu__item" role="menuitem">
+                <Link
+                  className="smfp-menu-link menu__link"
+                  to={SECONDARY_SOURCES_LIST}
+                >
+                  <span>مدیریت منابع ثانویه</span>
+                </Link>
+              </li>
+
               <li className="smfp-menu-item menu__item" role="menuitem">
                 <Link className="smfp-menu-link menu__link" to={HOME}>
                   <span>مدیریت اطلاعات</span>

@@ -7,6 +7,22 @@ import {
   MINERAL_REGISTER,
   MINERALS_LIST,
   MINERAL_EDIT,
+  MINE_MANAGEMENT,
+  MINE_REGISTER,
+  MINES_LIST,
+  MINE_EDIT,
+  ELEMENT_MANAGEMENT,
+  ELEMENT_REGISTER,
+  ELEMENTS_LIST,
+  ELEMENT_EDIT,
+  GLOBAL_PRICE_MANAGEMENT,
+  GLOBAL_PRICE_REGISTER,
+  GLOBAL_PRICES_LIST,
+  GLOBAL_PRICE_EDIT,
+  SECONDARY_SOURCE_MANAGEMENT,
+  SECONDARY_SOURCE_REGISTER,
+  SECONDARY_SOURCES_LIST,
+  SECONDARY_SOURCE_EDIT,
   ADD_NEW_ELEMENT,
   ADD_NEW_ELEMENT_FCS,
   ELEMENT_DETAIL_FOR_WORLD,
@@ -36,6 +52,10 @@ import InformationOfWorld from './components/Information/InformationOfWorld';
 import UsersList from './components/Users/UsersList';
 import Profile from './components/Users/Profile';
 import MineralManagement from './containers/admin/mineral/mineralManagement';
+import MineManagement from './containers/admin/mine/mineManagement';
+import ElementManagement from './containers/admin/element/elementManagement';
+import GlobalPriceManagement from './containers/admin/global-price/globalPriceManagement';
+import SecondarySourceManagement from './containers/admin/secondary-source/secondarySourceManagement';
 
 import SecondarySource from './components/Elements/SecondarySource';
 
@@ -146,6 +166,89 @@ const Routes = ({ session, refetch }: Props) => (
         component={MineralManagement}
       />
 
+      <RestrictedRoute
+        session={session}
+        path={MINE_MANAGEMENT}
+        component={MineManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={MINE_REGISTER}
+        component={MineManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={MINES_LIST}
+        component={MineManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={MINE_EDIT}
+        component={MineManagement}
+      />
+
+      <RestrictedRoute
+        session={session}
+        path={ELEMENT_MANAGEMENT}
+        component={ElementManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={ELEMENT_REGISTER}
+        component={ElementManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={ELEMENTS_LIST}
+        component={ElementManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={ELEMENT_EDIT}
+        component={ElementManagement}
+      />
+
+      <RestrictedRoute
+        session={session}
+        path={GLOBAL_PRICE_MANAGEMENT}
+        component={GlobalPriceManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={GLOBAL_PRICE_REGISTER}
+        component={GlobalPriceManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={GLOBAL_PRICES_LIST}
+        component={GlobalPriceManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={GLOBAL_PRICE_EDIT}
+        component={GlobalPriceManagement}
+      />
+
+      <RestrictedRoute
+        session={session}
+        path={SECONDARY_SOURCE_MANAGEMENT}
+        component={SecondarySourceManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={SECONDARY_SOURCE_REGISTER}
+        component={SecondarySourceManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={SECONDARY_SOURCES_LIST}
+        component={SecondarySourceManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={SECONDARY_SOURCE_EDIT}
+        component={SecondarySourceManagement}
+      />
       <RestrictedRoute session={session} path={PROFILE} component={Profile} />
       <Redirect to="/" />
     </Switch>
