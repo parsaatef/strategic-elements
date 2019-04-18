@@ -52,7 +52,7 @@ export default gql`
     color: String!
     abundance: String!
     description: String!
-    username: String!
+    username: String
     elements: [String!]
     createdAt: String!
     updatedAt: String!

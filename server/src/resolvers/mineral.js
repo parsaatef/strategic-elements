@@ -68,6 +68,7 @@ export default {
     mineral: (root, { id }) => {
       // , context, info
       // TODO: projection, sanitization
+      console.log('---------is Valid----------');
       if (!mongoose.Types.ObjectId.isValid(id)) {
         throw new UserInputError(`${id} is not a valid Mineral ID.`);
       }
