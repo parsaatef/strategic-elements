@@ -15,7 +15,8 @@ import {
   SECONDARY_SOURCE,
   ADD_NEW_USER,
   USERS_LIST,
-  PROFILE
+  PROFILE,
+  EXPORT_LIST
 } from '../../constants/routes';
 import logo from '../../images/logo.jpg';
 import item1 from '../../images/menu-item-1.jpg';
@@ -232,6 +233,12 @@ class Menu extends Component<Props> {
                   to={TOTAL_STATS_LIST}
                 >
                   <span>total stats</span>
+                </Link>
+              </li>
+
+              <li className="smfp-menu-item menu__item" role="menuitem">
+                <Link className="smfp-menu-link menu__link" to={EXPORT_LIST}>
+                  <span>مدیریت صادرات</span>
                 </Link>
               </li>
             </ul>

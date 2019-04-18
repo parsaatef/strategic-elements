@@ -27,6 +27,10 @@ import {
   TOTAL_STATS_REGISTER,
   TOTAL_STATS_LIST,
   TOTAL_STATS_EDIT,
+  EXPORT_MANAGEMENT,
+  EXPORT_REGISTER,
+  EXPORT_LIST,
+  EXPORT_EDIT,
   ADD_NEW_ELEMENT,
   ADD_NEW_ELEMENT_FCS,
   ELEMENT_DETAIL_FOR_WORLD,
@@ -63,6 +67,7 @@ import GlobalPriceManagement from './containers/admin/global-price/globalPriceMa
 import SecondarySourceManagement from './containers/admin/secondary-source/secondarySourceManagement';
 import usersManagement from './containers/admin/users/usersManagement';
 import TotalStatsManagement from './containers/admin/total-stats/totalStatsManagement';
+import ExportManagement from './containers/admin/export/exportManagement';
 
 import SecondarySource from './components/Elements/SecondarySource';
 
@@ -282,6 +287,27 @@ const Routes = ({ session, refetch }: Props) => (
         session={session}
         path={TOTAL_STATS_EDIT}
         component={TotalStatsManagement}
+      />
+
+      <RestrictedRoute
+        session={session}
+        path={EXPORT_MANAGEMENT}
+        component={ExportManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={EXPORT_REGISTER}
+        component={ExportManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={EXPORT_LIST}
+        component={ExportManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={EXPORT_EDIT}
+        component={ExportManagement}
       />
       <RestrictedRoute session={session} path={PROFILE} component={Profile} />
       <Redirect to="/" />

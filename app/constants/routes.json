@@ -38,6 +38,11 @@
   "TOTAL_STATS_LIST": "/admin/total-stats/list",
   "TOTAL_STATS_EDIT": "/admin/total-stats/edit/:id",
 
+  "EXPORT_MANAGEMENT": "/admin/export",
+  "EXPORT_REGISTER": "/admin/exports/register",
+  "EXPORT_LIST": "/admin/export/list",
+  "EXPORT_EDIT": "/admin/export/edit/:id",
+
   "USER_MANAGEMENT": "/admin/user",
   "USER_REGISTER": "/admin/user/register",
   "USERS_LIST": "/admin/users/list",
