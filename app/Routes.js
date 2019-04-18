@@ -23,6 +23,10 @@ import {
   SECONDARY_SOURCE_REGISTER,
   SECONDARY_SOURCES_LIST,
   SECONDARY_SOURCE_EDIT,
+  TOTAL_STATS_MANAGEMENT,
+  TOTAL_STATS_REGISTER,
+  TOTAL_STATS_LIST,
+  TOTAL_STATS_EDIT,
   ADD_NEW_ELEMENT,
   ADD_NEW_ELEMENT_FCS,
   ELEMENT_DETAIL_FOR_WORLD,
@@ -31,10 +35,11 @@ import {
   INFORMATION_OF_IRAN,
   INFORMATION_OF_WORLD,
   ADD_NEW_USER,
+  USER_MANAGEMENT,
   USERS_LIST,
   USER_REGISTER,
-  SIGNIN,
   USER_EDIT,
+  SIGNIN,
   PROFILE
 } from './constants/routes';
 import App from './containers/App';
@@ -56,6 +61,8 @@ import MineManagement from './containers/admin/mine/mineManagement';
 import ElementManagement from './containers/admin/element/elementManagement';
 import GlobalPriceManagement from './containers/admin/global-price/globalPriceManagement';
 import SecondarySourceManagement from './containers/admin/secondary-source/secondarySourceManagement';
+import usersManagement from './containers/admin/users/usersManagement';
+import TotalStatsManagement from './containers/admin/total-stats/totalStatsManagement';
 
 import SecondarySource from './components/Elements/SecondarySource';
 
@@ -129,20 +136,26 @@ const Routes = ({ session, refetch }: Props) => (
         path={ADD_NEW_USER}
         component={UsersList}
       />
+
+      <RestrictedRoute
+        session={session}
+        path={USER_MANAGEMENT}
+        component={usersManagement}
+      />
       <RestrictedRoute
         session={session}
         path={USER_REGISTER}
-        component={UsersList}
+        component={usersManagement}
       />
       <RestrictedRoute
         session={session}
         path={USERS_LIST}
-        component={UsersList}
+        component={usersManagement}
       />
       <RestrictedRoute
         session={session}
         path={USER_EDIT}
-        component={UsersList}
+        component={usersManagement}
       />
 
       <RestrictedRoute
@@ -248,6 +261,27 @@ const Routes = ({ session, refetch }: Props) => (
         session={session}
         path={SECONDARY_SOURCE_EDIT}
         component={SecondarySourceManagement}
+      />
+
+      <RestrictedRoute
+        session={session}
+        path={TOTAL_STATS_MANAGEMENT}
+        component={TotalStatsManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={TOTAL_STATS_REGISTER}
+        component={TotalStatsManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={TOTAL_STATS_LIST}
+        component={TotalStatsManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={TOTAL_STATS_EDIT}
+        component={TotalStatsManagement}
       />
       <RestrictedRoute session={session} path={PROFILE} component={Profile} />
       <Redirect to="/" />

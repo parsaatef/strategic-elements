@@ -9,6 +9,7 @@ import {
   ELEMENTS_LIST,
   GLOBAL_PRICES_LIST,
   SECONDARY_SOURCES_LIST,
+  TOTAL_STATS_LIST,
   ADD_NEW_ELEMENT_FCS,
   INFORMATION_OF_WORLD,
   SECONDARY_SOURCE,
@@ -226,8 +227,11 @@ class Menu extends Component<Props> {
               </li>
 
               <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link className="smfp-menu-link menu__link" to={HOME}>
-                  <span>مدیریت اطلاعات</span>
+                <Link
+                  className="smfp-menu-link menu__link"
+                  to={TOTAL_STATS_LIST}
+                >
+                  <span>total stats</span>
                 </Link>
               </li>
             </ul>

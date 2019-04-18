@@ -39,9 +39,9 @@
   "TOTAL_STATS_EDIT": "/admin/total-stats/edit/:id",
 
   "USER_MANAGEMENT": "/admin/user",
-  "USER_REGISTER": "/user/register",
-  "USERS_LIST": "/users/list",
-  "USER_EDIT": "/user/edit/:id",
+  "USER_REGISTER": "/admin/user/register",
+  "USERS_LIST": "/admin/users/list",
+  "USER_EDIT": "/admin/user/edit/:id",
 
   "ADD_NEW_ELEMENT": "/Add-new-element",
   "ADD_NEW_ELEMENT_FCS": "/Add-new-element-fcs",
