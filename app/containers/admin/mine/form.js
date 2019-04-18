@@ -55,15 +55,15 @@ class ElementForm extends Component<Props> {
             Element
           </Label>
           <Col sm={9}>
-            <select
+            <Control
+              as="select"
               value={values.element}
               onChange={handleChange}
-              placeholder="Element"
               isValid={touched.element && !errors.element}
             >
               <option value="element1">Element 1</option>
               <option value="element2">Element 2</option>
-            </select>
+            </Control>
           </Col>
           <Control.Feedback type="invalid">{errors.element}</Control.Feedback>
         </Group>
@@ -120,7 +120,7 @@ class ElementForm extends Component<Props> {
           <Col sm={9}>
             <Control
               as="textarea"
-              rows="3"
+              rows="1"
               name="description"
               value={values.description}
               onChange={handleChange}
