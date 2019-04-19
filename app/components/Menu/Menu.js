@@ -10,13 +10,26 @@ import {
   GLOBAL_PRICES_LIST,
   SECONDARY_SOURCES_LIST,
   TOTAL_STATS_LIST,
+  EXPORT_LIST,
+  IMPORT_LIST,
+  WORLD_RESERVES_LIST,
+  IRAN_RESERVES_LIST,
+  WORLD_PRODUCTION_LIST,
+  IRAN_PRODUCTION_LIST,
+  WORLD_CONSUMPTION_LIST,
+  IRAN_CONSUMPTION_LIST,
+  DEPENDENCE_INDUSTRIES_LIST,
+  TECHNOLOGICAL_LEVEL_LIST,
+  SECONDARY_PRODUCTION_LIST,
+  UPSTREAM_INDUSTRY_LIST,
+  THREATS_LIST,
+  ENVIRONMENT_LIST,
   ADD_NEW_ELEMENT_FCS,
   INFORMATION_OF_WORLD,
   SECONDARY_SOURCE,
   ADD_NEW_USER,
   USERS_LIST,
-  PROFILE,
-  EXPORT_LIST
+  PROFILE
 } from '../../constants/routes';
 import logo from '../../images/logo.jpg';
 import item1 from '../../images/menu-item-1.jpg';
@@ -239,6 +252,117 @@ class Menu extends Component<Props> {
               <li className="smfp-menu-item menu__item" role="menuitem">
                 <Link className="smfp-menu-link menu__link" to={EXPORT_LIST}>
                   <span>مدیریت صادرات</span>
+                </Link>
+              </li>
+
+              <li className="smfp-menu-item menu__item" role="menuitem">
+                <Link className="smfp-menu-link menu__link" to={IMPORT_LIST}>
+                  <span>مدیریت واردات</span>
+                </Link>
+              </li>
+
+              <li className="smfp-menu-item menu__item" role="menuitem">
+                <Link
+                  className="smfp-menu-link menu__link"
+                  to={WORLD_RESERVES_LIST}
+                >
+                  <span>مدیریت منابع جهان</span>
+                </Link>
+              </li>
+
+              <li className="smfp-menu-item menu__item" role="menuitem">
+                <Link
+                  className="smfp-menu-link menu__link"
+                  to={IRAN_RESERVES_LIST}
+                >
+                  <span>مدیریت منابع ایران</span>
+                </Link>
+              </li>
+
+              <li className="smfp-menu-item menu__item" role="menuitem">
+                <Link
+                  className="smfp-menu-link menu__link"
+                  to={WORLD_PRODUCTION_LIST}
+                >
+                  <span>مدیریت تولید جهان</span>
+                </Link>
+              </li>
+
+              <li className="smfp-menu-item menu__item" role="menuitem">
+                <Link
+                  className="smfp-menu-link menu__link"
+                  to={IRAN_PRODUCTION_LIST}
+                >
+                  <span>مدیریت تولید ایران</span>
+                </Link>
+              </li>
+
+              <li className="smfp-menu-item menu__item" role="menuitem">
+                <Link
+                  className="smfp-menu-link menu__link"
+                  to={WORLD_CONSUMPTION_LIST}
+                >
+                  <span>مدیریت مصرف جهان</span>
+                </Link>
+              </li>
+
+              <li className="smfp-menu-item menu__item" role="menuitem">
+                <Link
+                  className="smfp-menu-link menu__link"
+                  to={IRAN_CONSUMPTION_LIST}
+                >
+                  <span>مدیریت مصرف ایران</span>
+                </Link>
+              </li>
+
+              <li className="smfp-menu-item menu__item" role="menuitem">
+                <Link
+                  className="smfp-menu-link menu__link"
+                  to={DEPENDENCE_INDUSTRIES_LIST}
+                >
+                  <span>مدیریت صنایع وابسته</span>
+                </Link>
+              </li>
+
+              <li className="smfp-menu-item menu__item" role="menuitem">
+                <Link
+                  className="smfp-menu-link menu__link"
+                  to={TECHNOLOGICAL_LEVEL_LIST}
+                >
+                  <span>مدیریت سطح تکنولوژی</span>
+                </Link>
+              </li>
+
+              <li className="smfp-menu-item menu__item" role="menuitem">
+                <Link
+                  className="smfp-menu-link menu__link"
+                  to={SECONDARY_PRODUCTION_LIST}
+                >
+                  <span>مدیریت تولید ثانویه</span>
+                </Link>
+              </li>
+
+              <li className="smfp-menu-item menu__item" role="menuitem">
+                <Link
+                  className="smfp-menu-link menu__link"
+                  to={UPSTREAM_INDUSTRY_LIST}
+                >
+                  <span>مدیریت صنایع پایین‌دستی</span>
+                </Link>
+              </li>
+
+              <li className="smfp-menu-item menu__item" role="menuitem">
+                <Link className="smfp-menu-link menu__link" to={THREATS_LIST}>
+                  <span>مدیریت تهدیدات</span>
+                </Link>
+              </li>
+
+              <li className="smfp-menu-item menu__item" role="menuitem">
+                <Link
+                  className="smfp-menu-link menu__link"
+                  to={ENVIRONMENT_LIST}
+                >
+                  <span>مدیریت محیط‌زیست</span>
                 </Link>
               </li>
             </ul>

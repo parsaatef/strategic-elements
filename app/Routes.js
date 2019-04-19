@@ -30,6 +30,45 @@ import {
   EXPORT_REGISTER,
   EXPORT_LIST,
   EXPORT_EDIT,
+  IMPORT_REGISTER,
+  IMPORT_LIST,
+  IMPORT_EDIT,
+  WORLD_RESERVES_REGISTER,
+  WORLD_RESERVES_LIST,
+  WORLD_RESERVES_EDIT,
+  IRAN_RESERVES_REGISTER,
+  IRAN_RESERVES_LIST,
+  IRAN_RESERVES_EDIT,
+  WORLD_PRODUCTION_REGISTER,
+  WORLD_PRODUCTION_LIST,
+  WORLD_PRODUCTION_EDIT,
+  IRAN_PRODUCTION_REGISTER,
+  IRAN_PRODUCTION_LIST,
+  IRAN_PRODUCTION_EDIT,
+  WORLD_CONSUMPTION_REGISTER,
+  WORLD_CONSUMPTION_LIST,
+  WORLD_CONSUMPTION_EDIT,
+  IRAN_CONSUMPTION_REGISTER,
+  IRAN_CONSUMPTION_LIST,
+  IRAN_CONSUMPTION_EDIT,
+  DEPENDENCE_INDUSTRIES_REGISTER,
+  DEPENDENCE_INDUSTRIES_LIST,
+  DEPENDENCE_INDUSTRIES_EDIT,
+  TECHNOLOGICAL_LEVEL_REGISTER,
+  TECHNOLOGICAL_LEVEL_LIST,
+  TECHNOLOGICAL_LEVEL_EDIT,
+  SECONDARY_PRODUCTION_REGISTER,
+  SECONDARY_PRODUCTION_LIST,
+  SECONDARY_PRODUCTION_EDIT,
+  UPSTREAM_INDUSTRY_REGISTER,
+  UPSTREAM_INDUSTRY_LIST,
+  UPSTREAM_INDUSTRY_EDIT,
+  THREAT_REGISTER,
+  THREATS_LIST,
+  THREAT_EDIT,
+  ENVIRONMENT_REGISTER,
+  ENVIRONMENT_LIST,
+  ENVIRONMENT_EDIT,
   ADD_NEW_ELEMENT,
   ADD_NEW_ELEMENT_FCS,
   ELEMENT_DETAIL_FOR_WORLD,
@@ -67,6 +106,19 @@ import SecondarySourceManagement from './containers/admin/secondary-source/secon
 import usersManagement from './containers/admin/users/usersManagement';
 import TotalStatsManagement from './containers/admin/total-stats/totalStatsManagement';
 import ExportManagement from './containers/admin/export/exportManagement';
+import ImportManagement from './containers/admin/import/importManagement';
+import WorldReservesManagement from './containers/admin/world-reserves/worldReservesManagement';
+import IranReservesManagement from './containers/admin/iran-reserves/iranReservesManagement';
+import WorldProductionManagement from './containers/admin/world-production/worldProductionManagement';
+import IranProductionManagement from './containers/admin/iran-production/iranProductionManagement';
+import WorldConsumptionManagement from './containers/admin/world-consumption/worldConsumptionManagement';
+import IranConsumptionManagement from './containers/admin/iran-consumption/iranConsumptionManagement';
+import DependenceIndustriesManagement from './containers/admin/dependence-industries/dependenceIndustriesManagement';
+import TechnologicalLevelManagement from './containers/admin/technological-level/technologicalLevelManagement';
+import SecondaryProductionManagement from './containers/admin/secondary-production/secondaryProductionManagement';
+import UpstreamIndustryManagement from './containers/admin/upstream-industry/upstreamIndustryManagement';
+import ThreatManagement from './containers/admin/threat/threatManagement';
+import EnvironmentManagement from './containers/admin/environment/environmentManagement';
 
 import SecondarySource from './components/Elements/SecondarySource';
 
@@ -303,6 +355,215 @@ const Routes = ({ session, refetch }: Props) => (
         path={EXPORT_EDIT}
         component={ExportManagement}
       />
+
+      <RestrictedRoute
+        session={session}
+        path={IMPORT_REGISTER}
+        component={ImportManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={IMPORT_LIST}
+        component={ImportManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={IMPORT_EDIT}
+        component={ImportManagement}
+      />
+
+      <RestrictedRoute
+        session={session}
+        path={WORLD_RESERVES_REGISTER}
+        component={WorldReservesManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={WORLD_RESERVES_LIST}
+        component={WorldReservesManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={WORLD_RESERVES_EDIT}
+        component={WorldReservesManagement}
+      />
+
+      <RestrictedRoute
+        session={session}
+        path={IRAN_RESERVES_REGISTER}
+        component={IranReservesManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={IRAN_RESERVES_LIST}
+        component={IranReservesManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={IRAN_RESERVES_EDIT}
+        component={IranReservesManagement}
+      />
+
+      <RestrictedRoute
+        session={session}
+        path={WORLD_PRODUCTION_REGISTER}
+        component={WorldProductionManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={WORLD_PRODUCTION_LIST}
+        component={WorldProductionManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={WORLD_PRODUCTION_EDIT}
+        component={WorldProductionManagement}
+      />
+
+      <RestrictedRoute
+        session={session}
+        path={IRAN_PRODUCTION_REGISTER}
+        component={IranProductionManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={IRAN_PRODUCTION_LIST}
+        component={IranProductionManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={IRAN_PRODUCTION_EDIT}
+        component={IranProductionManagement}
+      />
+
+      <RestrictedRoute
+        session={session}
+        path={WORLD_CONSUMPTION_REGISTER}
+        component={WorldConsumptionManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={WORLD_CONSUMPTION_LIST}
+        component={WorldConsumptionManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={WORLD_CONSUMPTION_EDIT}
+        component={WorldConsumptionManagement}
+      />
+
+      <RestrictedRoute
+        session={session}
+        path={IRAN_CONSUMPTION_REGISTER}
+        component={IranConsumptionManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={IRAN_CONSUMPTION_LIST}
+        component={IranConsumptionManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={IRAN_CONSUMPTION_EDIT}
+        component={IranConsumptionManagement}
+      />
+
+      <RestrictedRoute
+        session={session}
+        path={DEPENDENCE_INDUSTRIES_REGISTER}
+        component={DependenceIndustriesManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={DEPENDENCE_INDUSTRIES_LIST}
+        component={DependenceIndustriesManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={DEPENDENCE_INDUSTRIES_EDIT}
+        component={DependenceIndustriesManagement}
+      />
+
+      <RestrictedRoute
+        session={session}
+        path={TECHNOLOGICAL_LEVEL_REGISTER}
+        component={TechnologicalLevelManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={TECHNOLOGICAL_LEVEL_LIST}
+        component={TechnologicalLevelManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={TECHNOLOGICAL_LEVEL_EDIT}
+        component={TechnologicalLevelManagement}
+      />
+
+      <RestrictedRoute
+        session={session}
+        path={SECONDARY_PRODUCTION_REGISTER}
+        component={SecondaryProductionManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={SECONDARY_PRODUCTION_LIST}
+        component={SecondaryProductionManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={SECONDARY_PRODUCTION_EDIT}
+        component={SecondaryProductionManagement}
+      />
+
+      <RestrictedRoute
+        session={session}
+        path={UPSTREAM_INDUSTRY_REGISTER}
+        component={UpstreamIndustryManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={UPSTREAM_INDUSTRY_LIST}
+        component={UpstreamIndustryManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={UPSTREAM_INDUSTRY_EDIT}
+        component={UpstreamIndustryManagement}
+      />
+
+      <RestrictedRoute
+        session={session}
+        path={THREAT_REGISTER}
+        component={ThreatManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={THREATS_LIST}
+        component={ThreatManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={THREAT_EDIT}
+        component={ThreatManagement}
+      />
+
+      <RestrictedRoute
+        session={session}
+        path={ENVIRONMENT_REGISTER}
+        component={EnvironmentManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={ENVIRONMENT_LIST}
+        component={EnvironmentManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={ENVIRONMENT_EDIT}
+        component={EnvironmentManagement}
+      />
+
       <RestrictedRoute session={session} path={PROFILE} component={Profile} />
       <Redirect to="/" />
     </Switch>

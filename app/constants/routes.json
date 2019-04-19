@@ -41,6 +41,58 @@
   "EXPORT_LIST": "/admin/export/list",
   "EXPORT_EDIT": "/admin/export/edit/:id",
 
+  "IMPORT_REGISTER": "/admin/import/register",
+  "IMPORT_LIST": "/admin/import/list",
+  "IMPORT_EDIT": "/admin/import/edit/:id",
+
+  "WORLD_RESERVES_REGISTER": "/admin/world-reserves/register",
+  "WORLD_RESERVES_LIST": "/admin/world-reserves/list",
+  "WORLD_RESERVES_EDIT": "/admin/world-reserves/edit/:id",
+
+  "IRAN_RESERVES_REGISTER": "/admin/iran-reserves/register",
+  "IRAN_RESERVES_LIST": "/admin/iran-reserves/list",
+  "IRAN_RESERVES_EDIT": "/admin/iran-reserves/edit/:id",
+
+  "WORLD_PRODUCTION_REGISTER": "/admin/world-production/register",
+  "WORLD_PRODUCTION_LIST": "/admin/world-production/list",
+  "WORLD_PRODUCTION_EDIT": "/admin/world-production/edit/:id",
+
+  "IRAN_PRODUCTION_REGISTER": "/admin/iran-production/register",
+  "IRAN_PRODUCTION_LIST": "/admin/iran-production/list",
+  "IRAN_PRODUCTION_EDIT": "/admin/iran-production/edit/:id",
+
+  "WORLD_CONSUMPTION_REGISTER": "/admin/world-consumption/register",
+  "WORLD_CONSUMPTION_LIST": "/admin/world-consumption/list",
+  "WORLD_CONSUMPTION_EDIT": "/admin/world-consumption/edit/:id",
+
+  "IRAN_CONSUMPTION_REGISTER": "/admin/iran-consumption/register",
+  "IRAN_CONSUMPTION_LIST": "/admin/iran-consumption/list",
+  "IRAN_CONSUMPTION_EDIT": "/admin/iran-consumption/edit/:id",
+
+  "DEPENDENCE_INDUSTRIES_REGISTER": "/admin/dependence-industries/register",
+  "DEPENDENCE_INDUSTRIES_LIST": "/admin/dependence-industries/list",
+  "DEPENDENCE_INDUSTRIES_EDIT": "/admin/dependence-industries/edit/:id",
+
+  "TECHNOLOGICAL_LEVEL_REGISTER": "/admin/technological-level/register",
+  "TECHNOLOGICAL_LEVEL_LIST": "/admin/technological-level/list",
+  "TECHNOLOGICAL_LEVEL_EDIT": "/admin/technological-level/edit/:id",
+
+  "SECONDARY_PRODUCTION_REGISTER": "/admin/secondary-production/register",
+  "SECONDARY_PRODUCTION_LIST": "/admin/secondary-production/list",
+  "SECONDARY_PRODUCTION_EDIT": "/admin/secondary-production/edit/:id",
+
+  "UPSTREAM_INDUSTRY_REGISTER": "/admin/upstream-industry/register",
+  "UPSTREAM_INDUSTRY_LIST": "/admin/upstream-industry/list",
+  "UPSTREAM_INDUSTRY_EDIT": "/admin/upstream-industry/edit/:id",
+
+  "THREAT_REGISTER": "/admin/threat/register",
+  "THREATS_LIST": "/admin/threats/list",
+  "THREAT_EDIT": "/admin/threat/edit/:id",
+
+  "ENVIRONMENT_REGISTER": "/admin/environment/register",
+  "ENVIRONMENT_LIST": "/admin/environment/list",
+  "ENVIRONMENT_EDIT": "/admin/environment/edit/:id",
+
   "USER_MANAGEMENT": "/admin/user",
   "USER_REGISTER": "/admin/user/register",
   "USERS_LIST": "/admin/users/list",
