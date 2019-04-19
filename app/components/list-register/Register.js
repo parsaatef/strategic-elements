@@ -14,32 +14,33 @@ class Register extends Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-
-    this.formChange = this.formChange.bind(this);
   }
 
-  handleSubmit(register, values, { setSubmitting }) {
-    register()
-      .then(async ({ data }) => {
-        console.log('-----------data--------', data);
+  handleSubmit(register, values) {
+    // , { setSubmitting }
 
-        const { history, listRoute } = this.props;
+    this.setState(
+      {
+        formValues: values
+      },
+      () => {
+        register()
+          .then(async ({ data }) => {
+            console.log('-----------data--------', data);
 
-        history.push(listRoute);
+            const { history, listRoute } = this.props;
 
-        return data;
-      })
-      .catch(e => {
-        console.error(e);
-      });
+            history.push(listRoute);
 
-    setSubmitting(false);
-  }
+            return data;
+          })
+          .catch(e => {
+            console.error(e);
+          });
 
-  formChange(values) {
-    this.setState({
-      formValues: values
-    });
+        // setSubmitting(false);
+      }
+    );
   }
 
   render() {
@@ -64,7 +65,6 @@ class Register extends Component {
               loading={loading}
               error={error}
               submitForm={this.handleSubmit.bind(this, register)}
-              formChange={this.formChange}
               {...this.props}
             />
           )}

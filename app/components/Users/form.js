@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Form, Button, Row, Col } from 'react-bootstrap';
-import { connect } from 'react-redux';
 import _ from 'underscore';
 
 const { Control, Group, Label } = Form;
@@ -60,7 +59,7 @@ class ElementForm extends Component<Props> {
       errors,
       formType
     } = this.props;
-    console.log('------this.props----', this.props);
+    // console.log('------this.props----', this.props);
 
     return (
       <Form noValidate onSubmit={handleSubmit} className="smfp-form-container">
@@ -488,8 +487,4 @@ class ElementForm extends Component<Props> {
   }
 }
 
-const mapStateToProps = state => ({
-  location: state.router.location
-});
-
-export default connect(mapStateToProps)(ElementForm);
+export default ElementForm;

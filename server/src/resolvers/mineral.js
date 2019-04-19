@@ -54,6 +54,8 @@ export default {
         filters.username = { $in: users };
       }
 
+      console.log('---------is Valid----------');
+
       const query = Mineral.find(filters)
         .sort({ [sortBy]: sort })
         .limit(offset)
