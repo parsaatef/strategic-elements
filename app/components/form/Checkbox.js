@@ -20,7 +20,7 @@ const Checkbox = ({ name, value, handleChange, label, error }: Props) => (
         label={label}
         name={name}
         value={value}
-        onChange={e => handleChange(name, e.target.isCheck)}
+        onChange={e => handleChange(name, e.target.checked)}
         isInvalid={!!error}
       />
     </Col>

@@ -26,7 +26,7 @@ export default class ElementManagement extends Component<Props> {
           schema={schema}
           hasElementTab={false}
           registerRoute="/admin/element/register"
-          listRoute="/admin/element/list"
+          listRoute="/admin/elements/list"
           editRoute="/admin/element/edit"
           listTitle="Element List"
           editTitle="Element Edit"

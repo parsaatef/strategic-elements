@@ -10,7 +10,6 @@ import {
   MINE_REGISTER,
   MINES_LIST,
   MINE_EDIT,
-  ELEMENT_MANAGEMENT,
   ELEMENT_REGISTER,
   ELEMENTS_LIST,
   ELEMENT_EDIT,
@@ -199,11 +198,6 @@ const Routes = ({ session, refetch }: Props) => (
         component={MineManagement}
       />
 
-      <RestrictedRoute
-        session={session}
-        path={ELEMENT_MANAGEMENT}
-        component={ElementManagement}
-      />
       <RestrictedRoute
         session={session}
         path={ELEMENT_REGISTER}
