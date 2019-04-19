@@ -7,6 +7,30 @@ import {
   MINERAL_REGISTER,
   MINERALS_LIST,
   MINERAL_EDIT,
+  MINE_MANAGEMENT,
+  MINE_REGISTER,
+  MINES_LIST,
+  MINE_EDIT,
+  ELEMENT_MANAGEMENT,
+  ELEMENT_REGISTER,
+  ELEMENTS_LIST,
+  ELEMENT_EDIT,
+  GLOBAL_PRICE_MANAGEMENT,
+  GLOBAL_PRICE_REGISTER,
+  GLOBAL_PRICES_LIST,
+  GLOBAL_PRICE_EDIT,
+  SECONDARY_SOURCE_MANAGEMENT,
+  SECONDARY_SOURCE_REGISTER,
+  SECONDARY_SOURCES_LIST,
+  SECONDARY_SOURCE_EDIT,
+  TOTAL_STATS_MANAGEMENT,
+  TOTAL_STATS_REGISTER,
+  TOTAL_STATS_LIST,
+  TOTAL_STATS_EDIT,
+  EXPORT_MANAGEMENT,
+  EXPORT_REGISTER,
+  EXPORT_LIST,
+  EXPORT_EDIT,
   ADD_NEW_ELEMENT,
   ADD_NEW_ELEMENT_FCS,
   ELEMENT_DETAIL_FOR_WORLD,
@@ -15,10 +39,11 @@ import {
   INFORMATION_OF_IRAN,
   INFORMATION_OF_WORLD,
   ADD_NEW_USER,
+  USER_MANAGEMENT,
   USERS_LIST,
   USER_REGISTER,
-  SIGNIN,
   USER_EDIT,
+  SIGNIN,
   PROFILE
 } from './constants/routes';
 import App from './containers/App';
@@ -36,6 +61,13 @@ import InformationOfWorld from './components/Information/InformationOfWorld';
 import UsersList from './components/Users/UsersList';
 import Profile from './components/Users/Profile';
 import MineralManagement from './containers/admin/mineral/mineralManagement';
+import MineManagement from './containers/admin/mine/mineManagement';
+import ElementManagement from './containers/admin/element/elementManagement';
+import GlobalPriceManagement from './containers/admin/global-price/globalPriceManagement';
+import SecondarySourceManagement from './containers/admin/secondary-source/secondarySourceManagement';
+import usersManagement from './containers/admin/users/usersManagement';
+import TotalStatsManagement from './containers/admin/total-stats/totalStatsManagement';
+import ExportManagement from './containers/admin/export/exportManagement';
 
 import SecondarySource from './components/Elements/SecondarySource';
 
@@ -109,20 +141,26 @@ const Routes = ({ session, refetch }: Props) => (
         path={ADD_NEW_USER}
         component={UsersList}
       />
+
+      <RestrictedRoute
+        session={session}
+        path={USER_MANAGEMENT}
+        component={usersManagement}
+      />
       <RestrictedRoute
         session={session}
         path={USER_REGISTER}
-        component={UsersList}
+        component={usersManagement}
       />
       <RestrictedRoute
         session={session}
         path={USERS_LIST}
-        component={UsersList}
+        component={usersManagement}
       />
       <RestrictedRoute
         session={session}
         path={USER_EDIT}
-        component={UsersList}
+        component={usersManagement}
       />
 
       <RestrictedRoute
@@ -146,6 +184,131 @@ const Routes = ({ session, refetch }: Props) => (
         component={MineralManagement}
       />
 
+      <RestrictedRoute
+        session={session}
+        path={MINE_MANAGEMENT}
+        component={MineManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={MINE_REGISTER}
+        component={MineManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={MINES_LIST}
+        component={MineManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={MINE_EDIT}
+        component={MineManagement}
+      />
+
+      <RestrictedRoute
+        session={session}
+        path={ELEMENT_MANAGEMENT}
+        component={ElementManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={ELEMENT_REGISTER}
+        component={ElementManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={ELEMENTS_LIST}
+        component={ElementManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={ELEMENT_EDIT}
+        component={ElementManagement}
+      />
+
+      <RestrictedRoute
+        session={session}
+        path={GLOBAL_PRICE_MANAGEMENT}
+        component={GlobalPriceManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={GLOBAL_PRICE_REGISTER}
+        component={GlobalPriceManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={GLOBAL_PRICES_LIST}
+        component={GlobalPriceManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={GLOBAL_PRICE_EDIT}
+        component={GlobalPriceManagement}
+      />
+
+      <RestrictedRoute
+        session={session}
+        path={SECONDARY_SOURCE_MANAGEMENT}
+        component={SecondarySourceManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={SECONDARY_SOURCE_REGISTER}
+        component={SecondarySourceManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={SECONDARY_SOURCES_LIST}
+        component={SecondarySourceManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={SECONDARY_SOURCE_EDIT}
+        component={SecondarySourceManagement}
+      />
+
+      <RestrictedRoute
+        session={session}
+        path={TOTAL_STATS_MANAGEMENT}
+        component={TotalStatsManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={TOTAL_STATS_REGISTER}
+        component={TotalStatsManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={TOTAL_STATS_LIST}
+        component={TotalStatsManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={TOTAL_STATS_EDIT}
+        component={TotalStatsManagement}
+      />
+
+      <RestrictedRoute
+        session={session}
+        path={EXPORT_MANAGEMENT}
+        component={ExportManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={EXPORT_REGISTER}
+        component={ExportManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={EXPORT_LIST}
+        component={ExportManagement}
+      />
+      <RestrictedRoute
+        session={session}
+        path={EXPORT_EDIT}
+        component={ExportManagement}
+      />
       <RestrictedRoute session={session} path={PROFILE} component={Profile} />
       <Redirect to="/" />
     </Switch>
