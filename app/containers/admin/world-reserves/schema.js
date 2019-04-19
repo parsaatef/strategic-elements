@@ -12,11 +12,7 @@ const schema = yup.object({
     .max(20)
     .required(),
   locationType: 'world',
-  year: yup
-    .number()
-    .min(1950)
-    .max(2050),
-  exportValue: yup.number(),
+  resourceValue: yup.number(),
   unit: yup.string(),
   description: yup.string()
 });

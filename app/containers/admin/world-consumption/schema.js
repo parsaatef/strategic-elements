@@ -16,7 +16,7 @@ const schema = yup.object({
     .number()
     .min(1950)
     .max(2050),
-  exportValue: yup.number(),
+  consumptionValue: yup.number(),
   unit: yup.string(),
   description: yup.string()
 });

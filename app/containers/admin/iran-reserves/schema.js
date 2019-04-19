@@ -11,12 +11,8 @@ const schema = yup.object({
     .min(2)
     .max(20)
     .required(),
-  locationType: 'world',
-  year: yup
-    .number()
-    .min(1950)
-    .max(2050),
-  exportValue: yup.number(),
+  locationType: 'iran',
+  resourceValue: yup.number(),
   unit: yup.string(),
   description: yup.string()
 });
