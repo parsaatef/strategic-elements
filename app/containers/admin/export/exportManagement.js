@@ -84,9 +84,7 @@ export default class ExportManagement extends Component<Props> {
             {
               filter: 'year',
               label: 'Year',
-              type: 'text', // text or select
-              isDefault: true,
-              default: ''
+              type: 'text' // text or select
             }
           ]}
           columns={[

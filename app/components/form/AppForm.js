@@ -152,7 +152,6 @@ class AppForm extends Component<Props> {
     const { children } = this.props;
 
     const { values, errors } = this.state;
-    console.log('----values---', values);
 
     return (
       <Form
