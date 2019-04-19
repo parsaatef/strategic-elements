@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Form } from 'react-bootstrap';
 import _ from 'underscore';
+import deepClone from 'underscore.deepclone';
+
+_.mixin(deepClone);
 
 type Props = {
   children: React.Node,
@@ -14,7 +17,7 @@ class AppForm extends Component<Props> {
     super(props);
 
     this.state = {
-      values: {},
+      values: this.setInitialValues(),
       errors: {}
     };
 
@@ -22,7 +25,34 @@ class AppForm extends Component<Props> {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidUpdate(prevProps) {
+    const { initialValues } = this.props;
+
+    const self = this;
+
+    if (!_.isEqual(prevProps.initialValues, initialValues)) {
+      self.setState({
+        values: this.setInitialValues()
+      });
+    }
+  }
+
+  setInitialValues() {
+    const { initialValues } = this.props;
+
+    const newValues = initialValues ? _.deepClone(initialValues) : {};
+
+    _.each(initialValues, (value, key) => {
+      if (_.isNull(value)) {
+        delete newValues[key];
+      }
+    });
+
+    return newValues;
+  }
+
   handleChange(name, value) {
+    console.log('--------name, value-----', name, value);
     this.setState(
       state => {
         const newValues = _.clone(state.values);
@@ -119,10 +149,10 @@ class AppForm extends Component<Props> {
   }
 
   render() {
-    const { children, initialValues } = this.props;
-    console.log('----initialValues---', initialValues);
+    const { children } = this.props;
 
     const { values, errors } = this.state;
+    console.log('----values---', values);
 
     return (
       <Form
@@ -142,7 +172,6 @@ class AppForm extends Component<Props> {
                 child.props.name && !_.isUndefined(errors[child.props.name])
                   ? errors[child.props.name]
                   : ''
-              // defaultValue : child.props.name && !_.isUndefined( initialValues[child.props.name] ) ? initialValues[child.props.name] : null
             });
           }
 
