@@ -1,6 +1,6 @@
 import { gql } from 'apollo-boost';
 
-export const GET_GLOBAL_PRICE = gql`
+export const GET_OPTION = gql`
   query($id: ID!) {
     option(id: $id) {
       id
@@ -12,7 +12,7 @@ export const GET_GLOBAL_PRICE = gql`
   }
 `;
 
-export const GET_GLOBAL_PRICES = gql`
+export const GET_OPTIONS = gql`
   query(
     $ids: [ID!]
     $name: String
@@ -43,7 +43,7 @@ export const GET_GLOBAL_PRICES = gql`
   }
 `;
 
-export const REGISTER_PRICE = gql`
+export const REGISTER_OPTION = gql`
   mutation(
     $name: String!
     $value: String!
@@ -61,7 +61,7 @@ export const REGISTER_PRICE = gql`
   }
 `;
 
-export const UPDATE_PRICE = gql`
+export const UPDATE_OPTION = gql`
   mutation($id: ID!, $name: String!, $value: String!, $type: String!) {
     updateOption(id: $id, name: $name, value: $value, type: $type) {
       result
@@ -69,7 +69,7 @@ export const UPDATE_PRICE = gql`
   }
 `;
 
-export const DELETE_PRICE = gql`
+export const DELETE_OPTION = gql`
   mutation($id: ID!) {
     removeOption(id: $id) {
       result
@@ -77,7 +77,7 @@ export const DELETE_PRICE = gql`
   }
 `;
 
-export const MULTI_DELETE_PRICES = gql`
+export const MULTI_DELETE_OPTIONS = gql`
   mutation($ids: [ID!]!) {
     multiRemoveOptions(ids: $ids) {
       result
