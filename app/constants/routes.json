@@ -3,7 +3,6 @@
   "SIGNIN": "/signin",
   "COUNTER": "/counter",
 
-  "MINERAL_MANAGEMENT": "/admin/mineral",
   "MINERAL_REGISTER": "/admin/mineral/register",
   "MINERALS_LIST": "/admin/minerals/list",
   "MINERAL_EDIT": "/admin/mineral/edit/:id",
@@ -13,7 +12,6 @@
   "MINES_LIST": "/admin/mines/list",
   "MINE_EDIT": "/admin/mine/edit/:id",
 
-  "ELEMENT_MANAGEMENT": "/admin/element",
   "ELEMENT_REGISTER": "/admin/element/register",
   "ELEMENTS_LIST": "/admin/elements/list",
   "ELEMENT_EDIT": "/admin/element/edit/:id",

@@ -14,6 +14,7 @@ import {
 export default class MineralManagement extends Component<Props> {
   render() {
     const { match } = this.props;
+    console.log('--------this.props-----', this.props);
 
     const { id = 0 } = match.params;
 

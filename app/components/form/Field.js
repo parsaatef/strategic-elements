@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TextInput from './TextInput';
 import Select from './Select';
 import Textarea from './Textarea';
+import Checkbox from './Checkbox';
 
 class Field extends Component {
   render() {
@@ -16,9 +17,22 @@ class Field extends Component {
       ...rest
     } = this.props;
 
-    if (type === 'text') {
+    if (type === 'text' || type === 'number') {
       return (
         <TextInput
+          name={name}
+          value={value}
+          handleChange={handleChange}
+          label={label}
+          error={error}
+          {...rest}
+        />
+      );
+    }
+
+    if (type === 'checkbox') {
+      return (
+        <Checkbox
           name={name}
           value={value}
           handleChange={handleChange}

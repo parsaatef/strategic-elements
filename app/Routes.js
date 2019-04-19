@@ -3,7 +3,6 @@ import { Route, Switch, Redirect } from 'react-router';
 import {
   COUNTER,
   HOME,
-  MINERAL_MANAGEMENT,
   MINERAL_REGISTER,
   MINERALS_LIST,
   MINERAL_EDIT,
@@ -163,11 +162,6 @@ const Routes = ({ session, refetch }: Props) => (
         component={usersManagement}
       />
 
-      <RestrictedRoute
-        session={session}
-        path={MINERAL_MANAGEMENT}
-        component={MineralManagement}
-      />
       <RestrictedRoute
         session={session}
         path={MINERAL_REGISTER}

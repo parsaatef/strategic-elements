@@ -131,7 +131,7 @@ class AppForm extends Component<Props> {
         className="smfp-form-container"
       >
         {React.Children.map(children, child => {
-          if (child.type.displayName === 'Field') {
+          if (child && child.type && child.type.displayName === 'Field') {
             return React.cloneElement(child, {
               value:
                 child.props.name && !_.isUndefined(values[child.props.name])

@@ -1,495 +1,132 @@
-import React, { Component } from 'react';
-import { Form, Button, Row, Col } from 'react-bootstrap';
-import { connect } from 'react-redux';
-import _ from 'underscore';
-
-const { Control, Group, Label } = Form;
+import React from 'react';
+import { Button } from 'react-bootstrap';
+import AppForm from '../../../components/form/AppForm';
+import Field from '../../../components/form/Field';
 
 type Props = {
-  name: string,
-  errors: object,
-  values: object,
-  handleChange: () => void
+  formType: string,
+  initialValues: object,
+  validationSchema: object,
+  onSubmit: () => void
 };
 
-const TextInput = ({ name, values, errors, handleChange }: Props) => (
-  <Control
-    type="text"
-    name={name}
-    value={!_.isUndefined(values[name]) ? values[name] : ''}
-    onChange={handleChange}
-    isInvalid={!_.isUndefined(values[name]) && errors[name]}
-  />
-);
+const ElementForm = (props: Props) => {
+  const { onSubmit, formType, initialValues, validationSchema } = props;
 
-const ErrorMessage = ({ errors, name, values }) => (
-  <>
-    {!_.isUndefined(values[name]) && (
-      <Control.Feedback type="invalid">{errors[name] || null}</Control.Feedback>
-    )}
-  </>
-);
+  return (
+    <AppForm
+      onSubmit={onSubmit}
+      initialValues={initialValues}
+      schema={validationSchema}
+    >
+      {formType === 'register' && (
+        <Field type="text" name="element" label="Element" />
+      )}
 
-const TextField = ({ name, label, ...rest }) => (
-  <Group as={Row} controlId={name}>
-    <Label column sm={3}>
-      {label}
-    </Label>
+      <Field type="text" name="elementTitle" label="Element Title" />
 
-    <Col sm={9}>
-      <TextInput name={name} {...rest} />
-    </Col>
+      <Field type="text" name="symbol" label="Symbol" />
 
-    <ErrorMessage name={name} {...rest} />
-  </Group>
-);
+      <Field type="text" name="chemicalFormula" label="Chemical Formula" />
 
-class ElementForm extends Component<Props> {
-  render() {
-    const {
-      handleSubmit,
-      handleChange,
-      /*
-        handleBlur,
-        */
-      values,
-      touched,
-      /*
-        isValid,
-        */
-      errors,
-      formType
-    } = this.props;
-    console.log('------this.props----', this.props);
+      <Field type="text" name="phaseAtSTP" label="Phase At STP" />
 
-    return (
-      <Form noValidate onSubmit={handleSubmit} className="smfp-form-container">
-        {formType === 'register' && (
-          <TextField name="element" label="Element" {...this.props} />
-        )}
+      <Field type="number" name="density" label="Density" />
 
-        <Group as={Row} controlId="element_Fa_Title">
-          <Label column sm={3}>
-            Element Title
-          </Label>
-          <Col sm={9}>
-            <Control
-              type="text"
-              name="elementTitle"
-              value={values.elementTitle}
-              onChange={handleChange}
-              isInvalid={
-                !_.isUndefined(values.elementTitle) && errors.elementTitle
-              }
-            />
-          </Col>
-          <Control.Feedback type="invalid">
-            {errors.elementTitle}
-          </Control.Feedback>
-        </Group>
+      <Field type="number" name="meltingPoint" label="Melting Point" />
 
-        <Group as={Row} controlId="element_symbol">
-          <Label column sm={3}>
-            Symbol
-          </Label>
-          <Col sm={9}>
-            <Control
-              type="text"
-              name="symbol"
-              value={values.symbol}
-              onChange={handleChange}
-              isValid={touched.symbol && !errors.symbol}
-            />
-          </Col>
-          <Control.Feedback type="invalid">{errors.symbol}</Control.Feedback>
-        </Group>
+      <Field type="number" name="boilingPoint" label="Boiling Point" />
 
-        <Group as={Row} controlId="element_chemicalFormula">
-          <Label column sm={3}>
-            Chemical Formula
-          </Label>
-          <Col sm={9}>
-            <Control
-              type="text"
-              name="chemicalFormula"
-              value={values.chemicalFormula}
-              onChange={handleChange}
-              isValid={touched.chemicalFormula && !errors.chemicalFormula}
-            />
-          </Col>
-        </Group>
+      <Field type="number" name="hardness" label="Hardness" />
 
-        <Group as={Row} controlId="element_phaseAtSTP">
-          <Label column sm={3}>
-            Phase At STP
-          </Label>
-          <Col sm={9}>
-            <Control
-              type="text"
-              name="phaseAtSTP"
-              value={values.phaseAtSTP}
-              onChange={handleChange}
-              isValid={touched.phaseAtSTP && !errors.phaseAtSTP}
-            />
-          </Col>
-        </Group>
+      <Field type="checkbox" name="toxicity" label="Toxicity" />
 
-        <Group as={Row} controlId="element_density">
-          <Label column sm={3}>
-            Density
-          </Label>
-          <Col sm={9}>
-            <Control
-              type="number"
-              name="density"
-              value={values.density}
-              onChange={handleChange}
-              isValid={touched.density && !errors.density}
-            />
-          </Col>
-        </Group>
+      <Field
+        type="checkbox"
+        name="magneticProperty"
+        label="Magnetic Property"
+      />
 
-        <Group as={Row} controlId="element_meltingPoint">
-          <Label column sm={3}>
-            Melting Point
-          </Label>
-          <Col sm={9}>
-            <Control
-              type="number"
-              name="meltingPoint"
-              value={values.meltingPoint}
-              onChange={handleChange}
-              isValid={touched.meltingPoint && !errors.meltingPoint}
-            />
-          </Col>
-        </Group>
+      <Field
+        type="text"
+        name="electricalConductivity"
+        label="Electrical Conductivity"
+      />
 
-        <Group as={Row} controlId="element_boilingPoint">
-          <Label column sm={3}>
-            Boiling Point
-          </Label>
-          <Col sm={9}>
-            <Control
-              type="number"
-              name="boilingPoint"
-              value={values.boilingPoint}
-              onChange={handleChange}
-              isValid={touched.boilingPoint && !errors.boilingPoint}
-            />
-          </Col>
-        </Group>
+      <Field
+        type="text"
+        name="electricalConductivity"
+        label="Electrical Conductivity"
+      />
 
-        <Group as={Row} controlId="element_hardness">
-          <Label column sm={3}>
-            Hardness
-          </Label>
-          <Col sm={9}>
-            <Control
-              type="number"
-              name="hardness"
-              value={values.hardness}
-              onChange={handleChange}
-              isValid={touched.hardness && !errors.hardness}
-            />
-          </Col>
-        </Group>
+      <Field
+        type="select"
+        name="group"
+        label="Group"
+        options={[
+          { value: 'group-1', label: 'Group 1' },
+          { value: 'group-2', label: 'Group 2' }
+        ]}
+        placeholder="Abundance"
+      />
 
-        <Group as={Row} controlId="element_toxicity">
-          <Label column sm={3}>
-            Toxicity
-          </Label>
-          <Col sm={9}>
-            <Control
-              type="checkbox"
-              name="toxicity"
-              value={values.toxicity}
-              onChange={handleChange}
-              isValid={touched.toxicity && !errors.toxicity}
-            />
-          </Col>
-        </Group>
+      <Field type="text" name="period" label="Period" />
 
-        <Group as={Row} controlId="element_magneticProperty">
-          <Label column sm={3}>
-            Magnetic Property
-          </Label>
-          <Col sm={9}>
-            <Control
-              type="checkbox"
-              name="magneticProperty"
-              value={values.magneticProperty}
-              onChange={handleChange}
-              isValid={touched.magneticProperty && !errors.magneticProperty}
-            />
-          </Col>
-        </Group>
+      <Field type="number" name="atomicWeight" label="Atomic Weight" />
 
-        <Group as={Row} controlId="element_electricalConductivity">
-          <Label column sm={3}>
-            Electrical Conductivity
-          </Label>
-          <Col sm={9}>
-            <Control
-              type="text"
-              name="electricalConductivity"
-              value={values.electricalConductivity}
-              onChange={handleChange}
-              isValid={
-                touched.electricalConductivity && !errors.electricalConductivity
-              }
-            />
-          </Col>
-        </Group>
+      <Field type="number" name="electronegativity" label="Electronegativity" />
 
-        <Group as={Row} controlId="element_group">
-          <Label column sm={3}>
-            group
-          </Label>
-          <Col sm={9}>
-            <Control
-              type="text"
-              name="group"
-              value={values.group}
-              onChange={handleChange}
-              isInvalid={!_.isUndefined(values.group) && errors.group}
-            />
-          </Col>
-          <Control.Feedback type="invalid">{errors.group}</Control.Feedback>
-        </Group>
+      <Field type="text" name="oxidationStates" label="Oxidation States" />
 
-        <Group as={Row} controlId="element_period">
-          <Label column sm={3}>
-            Period
-          </Label>
-          <Col sm={9}>
-            <Control
-              type="text"
-              name="period"
-              value={values.period}
-              onChange={handleChange}
-              isValid={touched.period && !errors.period}
-            />
-          </Col>
-        </Group>
+      <Field
+        type="text"
+        name="electronConfiguration"
+        label="Electron Configuration"
+      />
 
-        <Group as={Row} controlId="element_atomicWeight">
-          <Label column sm={3}>
-            Atomic Weight
-          </Label>
-          <Col sm={9}>
-            <Control
-              type="number"
-              name="atomicWeight"
-              value={values.atomicWeight}
-              onChange={handleChange}
-              isValid={touched.atomicWeight && !errors.atomicWeight}
-            />
-          </Col>
-        </Group>
+      <Field type="number" name="atomicRadius" label="Atomic Radius" />
 
-        <Group as={Row} controlId="element_electronegativity">
-          <Label column sm={3}>
-            Electronegativity
-          </Label>
-          <Col sm={9}>
-            <Control
-              type="number"
-              name="electronegativity"
-              value={values.atomicWeight}
-              onChange={handleChange}
-              isValid={touched.electronegativity && !errors.electronegativity}
-            />
-          </Col>
-        </Group>
+      <Field
+        type="number"
+        name="concentrationInEarthsCrust"
+        label="Concentration In Earths Crust"
+      />
 
-        <Group as={Row} controlId="element_oxidationStates">
-          <Label column sm={3}>
-            Oxidation States
-          </Label>
-          <Col sm={9}>
-            <Control
-              type="text"
-              name="oxidationStates"
-              value={values.oxidationStates}
-              onChange={handleChange}
-              isValid={touched.oxidationStates && !errors.oxidationStates}
-            />
-          </Col>
-        </Group>
+      <Field type="text" name="description" label="Description" />
 
-        <Group as={Row} controlId="element_electronConfiguration">
-          <Label column sm={3}>
-            Electron Configuration
-          </Label>
-          <Col sm={9}>
-            <Control
-              type="text"
-              name="electronConfiguration"
-              onChange={handleChange}
-              value={values.electronConfiguration}
-              isValid={
-                touched.electronConfiguration && !errors.electronConfiguration
-              }
-            />
-          </Col>
-        </Group>
+      <Field
+        type="text"
+        name="relatedIndustryDesc"
+        label="Related Industry Desc"
+      />
 
-        <Group as={Row} controlId="element_atomicRadius">
-          <Label column sm={3}>
-            Atomic Radius
-          </Label>
-          <Col sm={9}>
-            <Control
-              type="number"
-              name="atomicRadius"
-              onChange={handleChange}
-              value={values.atomicRadius}
-              isValid={touched.atomicRadius && !errors.atomicRadius}
-            />
-          </Col>
-        </Group>
+      <Field
+        type="text"
+        name="technologyLevelDesc"
+        label="Technology Level Desc"
+      />
 
-        <Group as={Row} controlId="element_concentrationInEarthsCrust">
-          <Label column sm={3}>
-            Concentration In Earths Crust
-          </Label>
-          <Col sm={9}>
-            <Control
-              type="number"
-              name="concentrationInEarthsCrust"
-              onChange={handleChange}
-              value={values.concentrationInEarthsCrust}
-              isValid={
-                touched.concentrationInEarthsCrust &&
-                !errors.concentrationInEarthsCrust
-              }
-            />
-          </Col>
-        </Group>
+      <Field
+        type="text"
+        name="lowLevelIndustryDesc"
+        label="Low Level Industry Desc"
+      />
 
-        <Group as={Row} controlId="element_description">
-          <Label column sm={3}>
-            Description
-          </Label>
-          <Col sm={9}>
-            <Control
-              type="text"
-              name="description"
-              onChange={handleChange}
-              value={values.description}
-              isValid={touched.description && !errors.description}
-            />
-          </Col>
-        </Group>
+      <Field type="text" name="threatyDesc" label="Threaty Desc" />
 
-        <Group as={Row} controlId="element_relatedIndustryDesc">
-          <Label column sm={3}>
-            Related Industry Desc
-          </Label>
-          <Col sm={9}>
-            <Control
-              type="text"
-              name="relatedIndustryDesc"
-              onChange={handleChange}
-              value={values.relatedIndustryDesc}
-              isValid={
-                touched.relatedIndustryDesc && !errors.relatedIndustryDesc
-              }
-            />
-          </Col>
-        </Group>
+      <Field
+        type="text"
+        name="secondaryResourcesDesc"
+        label="Secondary Resources Desc"
+      />
 
-        <Group as={Row} controlId="element_technologyLevelDesc">
-          <Label column sm={3}>
-            Technology Level Desc
-          </Label>
-          <Col sm={9}>
-            <Control
-              type="text"
-              name="technologyLevelDesc"
-              onChange={handleChange}
-              value={values.technologyLevelDesc}
-              isValid={
-                touched.technologyLevelDesc && !errors.technologyLevelDesc
-              }
-            />
-          </Col>
-        </Group>
+      <Field type="text" name="ecologyDesc" label="Ecology Desc" />
 
-        <Group as={Row} controlId="element_lowLevelIndustryDesc">
-          <Label column sm={3}>
-            Low Level Industry Desc
-          </Label>
-          <Col sm={9}>
-            <Control
-              type="text"
-              name="lowLevelIndustryDesc"
-              onChange={handleChange}
-              value={values.lowLevelIndustryDesc}
-              isValid={
-                touched.lowLevelIndustryDesc && !errors.lowLevelIndustryDesc
-              }
-            />
-          </Col>
-        </Group>
+      <Button type="submit">
+        {formType === 'register' ? <>Add New Element</> : <>Update Element</>}
+      </Button>
+    </AppForm>
+  );
+};
 
-        <Group as={Row} controlId="element_threatyDesc">
-          <Label column sm={3}>
-            Threaty Desc
-          </Label>
-          <Col sm={9}>
-            <Control
-              type="text"
-              name="threatyDesc"
-              onChange={handleChange}
-              value={values.threatyDesc}
-              isValid={touched.threatyDesc && !errors.threatyDesc}
-            />
-          </Col>
-        </Group>
-
-        <Group as={Row} controlId="element_secondaryResourcesDesc">
-          <Label column sm={3}>
-            Secondary Resources Desc
-          </Label>
-          <Col sm={9}>
-            <Control
-              type="text"
-              name="secondaryResourcesDesc"
-              onChange={handleChange}
-              value={values.secondaryResourcesDesc}
-              isValid={
-                touched.secondaryResourcesDesc && !errors.secondaryResourcesDesc
-              }
-            />
-          </Col>
-        </Group>
-
-        <Group as={Row} controlId="element_ecologyDesc">
-          <Label column sm={3}>
-            Ecology Desc
-          </Label>
-          <Col sm={9}>
-            <Control
-              type="text"
-              name="ecologyDesc"
-              onChange={handleChange}
-              value={values.ecologyDesc}
-              isValid={touched.ecologyDesc && !errors.ecologyDesc}
-            />
-          </Col>
-        </Group>
-
-        <Button type="submit">
-          {formType === 'register' ? <>Add New Element</> : <>Update Element</>}
-        </Button>
-      </Form>
-    );
-  }
-}
-
-const mapStateToProps = state => ({
-  location: state.router.location
-});
-
-export default connect(mapStateToProps)(ElementForm);
+export default ElementForm;
