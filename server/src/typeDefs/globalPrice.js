@@ -2,8 +2,8 @@ import { gql } from 'apollo-server-express';
 
 export default gql`
   extend type Query {
-    globalPrice(id: ID!): GlobalPrice @guest
-    globalPrices: [GlobalPrice!]! @guest
+    globalPrice(id: ID!): GlobalPrice @auth
+    globalPrices: [GlobalPrice!]! @auth
     searchPrice(
       ids: [ID!]
       minPrice: Int
@@ -13,7 +13,9 @@ export default gql`
       users: [String!]
       sort: String
       sortBy: String
-    ): [GlobalPrice!]! @guest
+      first: Int
+      offset: Int
+    ): PricesResult @auth
   }
 
   extend type Mutation {
@@ -22,20 +24,23 @@ export default gql`
       year: Int!
       unit: String!
       description: String!
-      username: String!
       element: String!
-    ): GlobalPrice @guest
+    ): GlobalPrice @auth
     updatePrice(
       id: ID!
       price: Int!
       year: Int!
       unit: String!
       description: String!
-      username: String!
       element: String!
-    ): Result @guest
-    removePrice(id: ID!): Result @guest
-    multiRemovePrices(ids: [ID!]!): Result @guest
+    ): Result @auth
+    removePrice(id: ID!): Result @auth
+    multiRemovePrices(ids: [ID!]!): Result @auth
+  }
+
+  type PricesResult {
+    globalPrices: [GlobalPrice!]!
+    totalCount: Int
   }
 
   type GlobalPrice {

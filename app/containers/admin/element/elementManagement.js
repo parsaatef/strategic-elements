@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
+import { FormattedSimpleMsg } from '../../../utils/utility';
 import Page from '../../../components/list-register/Page';
 import ElementForm from './form';
 import schema from './schema';
@@ -89,23 +91,23 @@ export default class ElementManagement extends Component<Props> {
             },
             {
               key: 'elementTitle',
-              title: 'Element Title'
+              title: <FormattedMessage id="global.elementTitle" />
             },
             {
               key: 'element',
-              title: 'Element'
+              title: <FormattedMessage id="global.element" />
             },
             {
               key: 'group',
-              title: 'Group'
+              title: <FormattedMessage id="global.group" />
             },
             {
               key: 'username',
-              title: 'Username'
+              title: <FormattedMessage id="global.username" />
             },
             {
               key: 'action',
-              title: 'Actions'
+              title: <FormattedSimpleMsg id="global.actions" />
             }
           ]}
           indexCol="id"

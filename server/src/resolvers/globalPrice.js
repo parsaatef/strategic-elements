@@ -21,7 +21,9 @@ export default {
         elements,
         users,
         sort = 'desc',
-        sortBy = 'createdAt'
+        sortBy = 'createdAt',
+        first = 0,
+        offset = 10
       } = args;
 
       const filters = {};
@@ -58,7 +60,15 @@ export default {
         filters.username = { $in: users };
       }
 
-      return GlobalPrice.find(filters).sort({ [sortBy]: sort });
+      const query = GlobalPrice.find(filters)
+        .sort({ [sortBy]: sort })
+        .limit(offset)
+        .skip(first);
+
+      return {
+        globalPrices: query,
+        totalCount: GlobalPrice.count(filters).exec()
+      };
     },
     globalPrices: () => GlobalPrice.find({}),
     globalPrice: (root, { id }) => {
@@ -71,10 +81,12 @@ export default {
     }
   },
   Mutation: {
-    registerPrice: async (root, args) => {
+    registerPrice: async (root, args, { req }) => {
       // , {req}, info
       // TODO: projection
-      await Joi.validate(args, registerGlobalPrice, { abortEarly: false });
+      const newArgs = args;
+      newArgs.username = req.currentUser.username;
+      await Joi.validate(newArgs, registerGlobalPrice, { abortEarly: false });
 
       const element = await GlobalPrice.create(args);
       console.log('-----element----', element);

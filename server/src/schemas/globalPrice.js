@@ -42,6 +42,5 @@ export const updateGlobalPrice = Joi.object().keys({
   year,
   unit,
   description,
-  username,
   element
 });

@@ -255,7 +255,7 @@ class Menu extends Component<Props> {
                   className="smfp-menu-link menu__link"
                   to={TOTAL_STATS_LIST}
                 >
-                  <span>total stats</span>
+                  <span>مدیریت آمار کلی</span>
                 </Link>
               </li>
 

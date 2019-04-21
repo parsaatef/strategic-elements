@@ -24,8 +24,8 @@ const GlobalPriceForm = (props: Props) => {
         name="element"
         label="Element"
         options={[
-          { value: 'group-1', label: 'Group 1' },
-          { value: 'group-2', label: 'Group 2' }
+          { value: 'Element1', label: 'Element 1' },
+          { value: 'Element2', label: 'Element 2' }
         ]}
         placeholder="Select Element"
       />
@@ -39,7 +39,7 @@ const GlobalPriceForm = (props: Props) => {
       <Field type="textarea" name="description" label="Description" />
 
       <Button type="submit">
-        {formType === 'register' ? <>Add New Element</> : <>Update Element</>}
+        {formType === 'register' ? <>Add New Price</> : <>Update Price</>}
       </Button>
     </AppForm>
   );

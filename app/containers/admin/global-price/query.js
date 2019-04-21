@@ -24,6 +24,8 @@ export const GET_GLOBAL_PRICES = gql`
     $users: [String!]
     $sort: String
     $sortBy: String
+    $offset: Int
+    $first: Int
   ) {
     searchPrice(
       ids: $ids
@@ -34,6 +36,8 @@ export const GET_GLOBAL_PRICES = gql`
       users: $users
       sort: $sort
       sortBy: $sortBy
+      offset: $offset
+      first: $first
     ) {
       globalPrices {
         id
@@ -55,7 +59,6 @@ export const REGISTER_PRICE = gql`
     $year: Int!
     $unit: String!
     $description: String!
-    $username: String!
     $element: String!
   ) {
     registerPrice(
@@ -63,7 +66,6 @@ export const REGISTER_PRICE = gql`
       year: $year
       unit: $unit
       description: $description
-      username: $username
       element: $element
     ) {
       id
@@ -78,7 +80,6 @@ export const UPDATE_PRICE = gql`
     $year: Int!
     $unit: String!
     $description: String!
-    $username: String!
     $element: String!
   ) {
     updatePrice(
@@ -87,7 +88,6 @@ export const UPDATE_PRICE = gql`
       year: $year
       unit: $unit
       description: $description
-      username: $username
       element: $element
     ) {
       result

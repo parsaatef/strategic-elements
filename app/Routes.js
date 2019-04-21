@@ -15,19 +15,15 @@ import {
   ELEMENT_REGISTER,
   ELEMENTS_LIST,
   ELEMENT_EDIT,
-  GLOBAL_PRICE_MANAGEMENT,
   GLOBAL_PRICE_REGISTER,
   GLOBAL_PRICES_LIST,
   GLOBAL_PRICE_EDIT,
-  SECONDARY_SOURCE_MANAGEMENT,
   SECONDARY_SOURCE_REGISTER,
   SECONDARY_SOURCES_LIST,
   SECONDARY_SOURCE_EDIT,
-  TOTAL_STATS_MANAGEMENT,
   TOTAL_STATS_REGISTER,
   TOTAL_STATS_LIST,
   TOTAL_STATS_EDIT,
-  EXPORT_MANAGEMENT,
   EXPORT_REGISTER,
   EXPORT_LIST,
   EXPORT_EDIT,
@@ -78,7 +74,6 @@ import {
   INFORMATION_OF_IRAN,
   INFORMATION_OF_WORLD,
   ADD_NEW_USER,
-  USER_MANAGEMENT,
   USERS_LIST,
   USER_REGISTER,
   USER_EDIT,
@@ -254,11 +249,6 @@ const Routes = ({ session, refetch }: Props) => (
 
         <RestrictedRoute
           session={session}
-          path={USER_MANAGEMENT}
-          component={usersManagement}
-        />
-        <RestrictedRoute
-          session={session}
           path={USER_REGISTER}
           component={usersManagement}
         />
@@ -322,11 +312,6 @@ const Routes = ({ session, refetch }: Props) => (
 
         <RestrictedRoute
           session={session}
-          path={GLOBAL_PRICE_MANAGEMENT}
-          component={GlobalPriceManagement}
-        />
-        <RestrictedRoute
-          session={session}
           path={GLOBAL_PRICE_REGISTER}
           component={GlobalPriceManagement}
         />
@@ -341,11 +326,6 @@ const Routes = ({ session, refetch }: Props) => (
           component={GlobalPriceManagement}
         />
 
-        <RestrictedRoute
-          session={session}
-          path={SECONDARY_SOURCE_MANAGEMENT}
-          component={SecondarySourceManagement}
-        />
         <RestrictedRoute
           session={session}
           path={SECONDARY_SOURCE_REGISTER}
@@ -364,11 +344,6 @@ const Routes = ({ session, refetch }: Props) => (
 
         <RestrictedRoute
           session={session}
-          path={TOTAL_STATS_MANAGEMENT}
-          component={TotalStatsManagement}
-        />
-        <RestrictedRoute
-          session={session}
           path={TOTAL_STATS_REGISTER}
           component={TotalStatsManagement}
         />
@@ -383,11 +358,6 @@ const Routes = ({ session, refetch }: Props) => (
           component={TotalStatsManagement}
         />
 
-        <RestrictedRoute
-          session={session}
-          path={EXPORT_MANAGEMENT}
-          component={ExportManagement}
-        />
         <RestrictedRoute
           session={session}
           path={EXPORT_REGISTER}

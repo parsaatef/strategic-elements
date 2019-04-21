@@ -20,7 +20,9 @@ export default {
         users,
         elements,
         sort = 'desc',
-        sortBy = 'createdAt'
+        sortBy = 'createdAt',
+        first = 0,
+        offset = 10
       } = args;
 
       const filters = {};
@@ -32,11 +34,11 @@ export default {
       }
 
       if (title) {
-        filters.title = `/${title}/`;
+        filters.title = new RegExp(title, 'i');
       }
 
       if (description) {
-        filters.description = `/${description}/`;
+        filters.description = new RegExp(description, 'i');
       }
 
       if (elements) {
@@ -47,7 +49,15 @@ export default {
         filters.username = { $in: users };
       }
 
-      return SecondarySource.find(filters).sort({ [sortBy]: sort });
+      const query = SecondarySource.find(filters)
+        .sort({ [sortBy]: sort })
+        .limit(offset)
+        .skip(first);
+
+      return {
+        secondarySources: query,
+        totalCount: SecondarySource.count(filters).exec()
+      };
     },
     minerals: () => SecondarySource.find({}),
     mineral: (root, { id }) => {
@@ -60,10 +70,14 @@ export default {
     }
   },
   Mutation: {
-    registerSecondarySource: async (root, args) => {
+    registerSecondarySource: async (root, args, { req }) => {
       // , {req}, info
       // TODO: projection
-      await Joi.validate(args, registerSecondarySource, { abortEarly: false });
+      const newArgs = args;
+      newArgs.username = req.currentUser.username;
+      await Joi.validate(newArgs, registerSecondarySource, {
+        abortEarly: false
+      });
 
       const element = await SecondarySource.create(args);
       console.log('-----element----', element);

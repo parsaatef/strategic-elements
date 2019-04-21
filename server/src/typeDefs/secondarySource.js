@@ -2,8 +2,8 @@ import { gql } from 'apollo-server-express';
 
 export default gql`
   extend type Query {
-    secondarySource(id: ID!): SecondarySource @guest
-    secondarySources: [SecondarySource!]! @guest
+    secondarySource(id: ID!): SecondarySource @auth
+    secondarySources: [SecondarySource!]! @auth
     searchSecondarySource(
       ids: [ID!]
       title: String
@@ -12,7 +12,9 @@ export default gql`
       elements: [String!]
       sort: String
       sortBy: String
-    ): [SecondarySource!]! @guest
+      first: Int
+      offset: Int
+    ): SecondarySourcesResult @auth
   }
 
   extend type Mutation {
@@ -21,20 +23,23 @@ export default gql`
       value: Int!
       unit: String!
       description: String!
-      username: String!
       element: String!
-    ): SecondarySource @guest
+    ): SecondarySource @auth
     updateSecondarySource(
       id: ID!
       title: String!
       value: Int!
       unit: String!
       description: String!
-      username: String!
       element: String!
-    ): Result @guest
-    removeSecondarySource(id: ID!): Result @guest
-    multiRemoveSecondarySources(ids: [ID!]!): Result @guest
+    ): Result @auth
+    removeSecondarySource(id: ID!): Result @auth
+    multiRemoveSecondarySources(ids: [ID!]!): Result @auth
+  }
+
+  type SecondarySourcesResult {
+    secondarySources: [SecondarySource!]!
+    totalCount: Int
   }
 
   type SecondarySource {

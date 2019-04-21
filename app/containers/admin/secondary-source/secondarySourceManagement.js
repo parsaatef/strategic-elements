@@ -62,6 +62,11 @@ export default class SecondarySourceManagement extends Component<Props> {
               type: 'text', // text or select
               isDefault: true,
               default: ''
+            },
+            {
+              filter: 'description',
+              label: 'Description',
+              type: 'text' // text or select
             }
           ]}
           columns={[

@@ -23,6 +23,8 @@ export const GET_SECONDARY_SOURCES = gql`
     $elements: [String!]
     $sort: String
     $sortBy: String
+    $offset: Int
+    $first: Int
   ) {
     searchSecondarySource(
       ids: $ids
@@ -32,6 +34,8 @@ export const GET_SECONDARY_SOURCES = gql`
       elements: $elements
       sort: $sort
       sortBy: $sortBy
+      offset: $offset
+      first: $first
     ) {
       secondarySources {
         id
@@ -53,7 +57,6 @@ export const REGISTER_SOURCE = gql`
     $value: Int!
     $unit: String!
     $description: String!
-    $username: String!
     $element: String!
   ) {
     registerSecondarySource(
@@ -61,7 +64,6 @@ export const REGISTER_SOURCE = gql`
       value: $value
       unit: $unit
       description: $description
-      username: $username
       element: $element
     ) {
       id
@@ -76,7 +78,6 @@ export const UPDATE_SOURCE = gql`
     $value: Int!
     $unit: String!
     $description: String!
-    $username: String!
     $element: String!
   ) {
     updateSecondarySource(
@@ -85,7 +86,6 @@ export const UPDATE_SOURCE = gql`
       value: $value
       unit: $unit
       description: $description
-      username: $username
       element: $element
     ) {
       result

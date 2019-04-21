@@ -66,9 +66,7 @@ export default class GlobalPriceManagement extends Component<Props> {
             {
               filter: 'price',
               label: 'Price',
-              type: 'text', // text or select
-              isDefault: true,
-              default: ''
+              type: 'text' // text or select
             }
           ]}
           columns={[

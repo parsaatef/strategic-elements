@@ -3,6 +3,8 @@ import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
+import { IntlProvider } from 'react-intl';
+import AppLocale from './languageProvider';
 import Root from './containers/Root';
 import { configureStore, history } from './store/configureStore';
 import { SIGNIN } from './constants/routes';
@@ -46,10 +48,17 @@ const client = new ApolloClient({
 
 const store = configureStore();
 
+const currentAppLocale = AppLocale.fa;
+
 render(
   <AppContainer>
     <ApolloProvider client={client}>
-      <Root store={store} history={history} />
+      <IntlProvider
+        locale={currentAppLocale.locale}
+        messages={currentAppLocale.messages}
+      >
+        <Root store={store} history={history} />
+      </IntlProvider>
     </ApolloProvider>
   </AppContainer>,
   document.getElementById('root')
@@ -62,7 +71,12 @@ if (module.hot) {
     render(
       <AppContainer>
         <ApolloProvider client={client}>
-          <NextRoot store={store} history={history} />
+          <IntlProvider
+            locale={currentAppLocale.locale}
+            messages={currentAppLocale.messages}
+          >
+            <NextRoot store={store} history={history} />
+          </IntlProvider>
         </ApolloProvider>
       </AppContainer>,
       document.getElementById('root')
