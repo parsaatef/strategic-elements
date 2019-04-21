@@ -19,8 +19,11 @@ export default {
         value,
         type,
         users,
+        element,
         sort = 'desc',
-        sortBy = 'createdAt'
+        sortBy = 'createdAt',
+        first = 0,
+        offset = 10
       } = args;
 
       const filters = {};
@@ -32,11 +35,15 @@ export default {
       }
 
       if (name) {
-        filters.name = name;
+        filters.name = new RegExp(name, 'i');
+      }
+
+      if (element) {
+        filters.element = element;
       }
 
       if (value) {
-        filters.value = `/${value}/`;
+        filters.value = new RegExp(value, 'i');
       }
 
       if (type) {
@@ -47,7 +54,15 @@ export default {
         filters.username = { $in: users };
       }
 
-      return Option.find(filters).sort({ [sortBy]: sort });
+      const query = Option.find(filters)
+        .sort({ [sortBy]: sort })
+        .limit(offset)
+        .skip(first);
+
+      return {
+        options: query,
+        totalCount: Option.count(filters).exec()
+      };
     },
     getOption: (root, args) => {
       const { name } = args;
@@ -64,10 +79,12 @@ export default {
     }
   },
   Mutation: {
-    registerOption: async (root, args) => {
+    registerOption: async (root, args, { req }) => {
       // , {req}, info
       // TODO: projection
-      await Joi.validate(args, registerOption, { abortEarly: false });
+      const newArgs = args;
+      newArgs.username = req.currentUser.username;
+      await Joi.validate(newArgs, registerOption, { abortEarly: false });
 
       const element = await Option.create(args);
       console.log('-----element----', element);

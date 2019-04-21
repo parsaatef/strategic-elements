@@ -30,11 +30,38 @@ const ElementForm = (props: Props) => {
         placeholder="Select Element"
       />
 
+      <Field
+        type="select"
+        name="locationType"
+        label="Location Type"
+        options={[
+          { value: 'world', label: 'World' },
+          { value: 'iran', label: 'Iran' }
+        ]}
+        placeholder="Select"
+      />
+
       <Field type="text" name="location" label="Location" />
 
       <Field type="number" name="year" label="Year" />
 
-      <Field type="number" name="exportValue" label="Value" />
+      <Field type="number" name="exportValue" label="Export Value" />
+
+      <Field type="number" name="resourceValue" label="Resource Value" />
+
+      <Field type="number" name="productionValue" label="Production Value" />
+
+      <Field type="number" name="consumptionValue" label="Consumption Value" />
+
+      <Field type="number" name="importValue" label="Import Value" />
+
+      <Field
+        type="number"
+        name="secondaryProductionValue"
+        label="Secondary Production Value"
+      />
+
+      <Field type="number" name="mineCount" label="Mine Count" />
 
       <Field type="text" name="unit" label="Unit" />
 

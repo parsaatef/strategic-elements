@@ -7,7 +7,6 @@
   "MINERALS_LIST": "/admin/minerals/list",
   "MINERAL_EDIT": "/admin/mineral/edit/:id",
 
-  "MINE_MANAGEMENT": "/admin/mine",
   "MINE_REGISTER": "/admin/mine/register",
   "MINES_LIST": "/admin/mines/list",
   "MINE_EDIT": "/admin/mine/edit/:id",
@@ -26,7 +25,6 @@
   "SECONDARY_SOURCES_LIST": "/admin/secondary-sources/list",
   "SECONDARY_SOURCE_EDIT": "/admin/secondary-source/edit/:id",
 
-  "ELEMENT_STATS_MANAGEMENT": "/admin/element-stats",
   "ELEMENT_STATS_REGISTER": "/admin/element-stats/register",
   "ELEMENTS_STATS_LIST": "/admin/elements-stats/list",
   "ELEMENT_STATS_EDIT": "/admin/element-stats/edit/:id",

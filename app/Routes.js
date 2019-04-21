@@ -9,7 +9,6 @@ import {
   MINERAL_REGISTER,
   MINERALS_LIST,
   MINERAL_EDIT,
-  MINE_MANAGEMENT,
   MINE_REGISTER,
   MINES_LIST,
   MINE_EDIT,
@@ -84,7 +83,10 @@ import {
   USER_REGISTER,
   USER_EDIT,
   SIGNIN,
-  PROFILE
+  PROFILE,
+  ELEMENT_STATS_REGISTER,
+  ELEMENTS_STATS_LIST,
+  ELEMENT_STATS_EDIT
 } from './constants/routes';
 
 const HomePage = lazy(() => import('./containers/HomePage'));
@@ -173,6 +175,9 @@ const EnvironmentManagement = lazy(() =>
 );
 const SecondarySource = lazy(() =>
   import('./components/Elements/SecondarySource')
+);
+const ElementStatsManagement = lazy(() =>
+  import('./containers/admin/element-stats/ElementStatsManagement')
 );
 
 let RestrictedRoute = ({ component: Component, ...rest }) => (
@@ -282,12 +287,6 @@ const Routes = ({ session, refetch }: Props) => (
           session={session}
           path={MINERAL_EDIT}
           component={MineralManagement}
-        />
-
-        <RestrictedRoute
-          session={session}
-          path={MINE_MANAGEMENT}
-          component={MineManagement}
         />
         <RestrictedRoute
           session={session}
@@ -611,6 +610,22 @@ const Routes = ({ session, refetch }: Props) => (
           session={session}
           path={ENVIRONMENT_EDIT}
           component={EnvironmentManagement}
+        />
+
+        <RestrictedRoute
+          session={session}
+          path={ELEMENT_STATS_REGISTER}
+          component={ElementStatsManagement}
+        />
+        <RestrictedRoute
+          session={session}
+          path={ELEMENTS_STATS_LIST}
+          component={ElementStatsManagement}
+        />
+        <RestrictedRoute
+          session={session}
+          path={ELEMENT_STATS_EDIT}
+          component={ElementStatsManagement}
         />
 
         <RestrictedRoute session={session} path={PROFILE} component={Profile} />

@@ -5,6 +5,7 @@ const optionSchema = new mongoose.Schema(
     name: String,
     value: String,
     type: String,
+    element: String,
     username: String
   },
   {

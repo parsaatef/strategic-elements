@@ -39,43 +39,43 @@ export default class UpstreamIndustryManagement extends Component<Props> {
               gql: GET_OPTION,
               func: 'option',
               variables: {
-                type: 'environment'
+                type: 'upstream-Industry'
               }
             },
             register: {
               gql: REGISTER_OPTION,
               func: 'registerOption',
               variables: {
-                type: 'environment'
+                type: 'upstream-Industry'
               }
             },
             update: {
               gql: UPDATE_OPTION,
               func: 'updateOption',
               variables: {
-                type: 'environment'
+                type: 'upstream-Industry'
               }
             },
             list: {
               gql: GET_OPTIONS,
               func: 'searchOptions',
-              items: 'getOption',
+              items: 'options',
               variables: {
-                type: 'environment'
+                type: 'upstream-Industry'
               }
             },
             remove: {
               gql: DELETE_OPTION,
               func: 'removeOption',
               variables: {
-                type: 'environment'
+                type: 'upstream-Industry'
               }
             },
             multiRemove: {
               gql: MULTI_DELETE_OPTIONS,
               func: 'multiRemoveOptions',
               variables: {
-                type: 'environment'
+                type: 'upstream-Industry'
               }
             }
           }}
@@ -89,10 +89,8 @@ export default class UpstreamIndustryManagement extends Component<Props> {
             },
             {
               filter: 'value',
-              label: 'Value',
-              type: 'text', // text or select
-              isDefault: true,
-              default: ''
+              label: 'Priority',
+              type: 'text' // text or select
             }
           ]}
           columns={[
@@ -118,8 +116,8 @@ export default class UpstreamIndustryManagement extends Component<Props> {
             }
           ]}
           indexCol="id"
-          keyCol="title"
-          titleCol="title"
+          keyCol="name"
+          titleCol="name"
         />
       </div>
     );

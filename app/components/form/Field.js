@@ -20,6 +20,7 @@ class Field extends Component {
     if (type === 'text' || type === 'number') {
       return (
         <TextInput
+          type={type}
           name={name}
           value={value}
           handleChange={handleChange}

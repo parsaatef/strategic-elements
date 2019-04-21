@@ -59,7 +59,7 @@ export default class MineralManagement extends Component<Props> {
             list: {
               gql: GET_OPTIONS,
               func: 'searchOptions',
-              items: 'getOption',
+              items: 'options',
               variables: {
                 type: 'dependence-industries'
               }
@@ -90,9 +90,7 @@ export default class MineralManagement extends Component<Props> {
             {
               filter: 'value',
               label: 'Value',
-              type: 'text', // text or select
-              isDefault: true,
-              default: ''
+              type: 'text' // text or select
             }
           ]}
           columns={[
@@ -118,8 +116,8 @@ export default class MineralManagement extends Component<Props> {
             }
           ]}
           indexCol="id"
-          keyCol="title"
-          titleCol="title"
+          keyCol="name"
+          titleCol="name"
         />
       </div>
     );

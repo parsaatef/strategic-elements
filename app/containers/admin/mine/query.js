@@ -24,6 +24,8 @@ export const GET_MINES = gql`
     $elements: [String!]
     $sort: String
     $sortBy: String
+    $offset: Int
+    $first: Int
   ) {
     searchMine(
       ids: $ids
@@ -33,6 +35,8 @@ export const GET_MINES = gql`
       elements: $elements
       sort: $sort
       sortBy: $sortBy
+      offset: $offset
+      first: $first
     ) {
       mines {
         id
@@ -56,7 +60,6 @@ export const REGISTER_MINE = gql`
     $productionValue: Int!
     $unit: String!
     $description: String!
-    $username: String!
     $element: String!
   ) {
     registerMine(
@@ -65,7 +68,6 @@ export const REGISTER_MINE = gql`
       productionValue: $productionValue
       unit: $unit
       description: $description
-      username: $username
       element: $element
     ) {
       id
@@ -81,7 +83,6 @@ export const UPDATE_MINE = gql`
     $productionValue: Int!
     $unit: String!
     $description: String!
-    $username: String!
     $element: String!
   ) {
     updateMine(
@@ -91,7 +92,6 @@ export const UPDATE_MINE = gql`
       productionValue: $productionValue
       unit: $unit
       description: $description
-      username: $username
       element: $element
     ) {
       result

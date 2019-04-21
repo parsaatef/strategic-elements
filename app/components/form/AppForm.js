@@ -53,6 +53,7 @@ class AppForm extends Component<Props> {
 
   handleChange(name, value) {
     console.log('--------name, value-----', name, value);
+    console.log('---type--', typeof value);
     this.setState(
       state => {
         const newValues = _.clone(state.values);
@@ -105,7 +106,7 @@ class AppForm extends Component<Props> {
       schema
         .validate(values, { abortEarly: false })
         .then(() => {
-          onSubmit(values);
+          onSubmit(schema.cast(values));
           return true;
         })
         .catch(err => {
@@ -152,6 +153,7 @@ class AppForm extends Component<Props> {
     const { children } = this.props;
 
     const { values, errors } = this.state;
+    console.log('-------values-----', values);
 
     return (
       <Form

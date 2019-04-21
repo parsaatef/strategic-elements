@@ -7,6 +7,7 @@ export const GET_OPTION = gql`
       name
       value
       type
+      element
       username
     }
   }
@@ -18,24 +19,31 @@ export const GET_OPTIONS = gql`
     $name: String
     $value: String
     $type: String
+    $element: String
     $users: [String!]
     $sort: String
     $sortBy: String
+    $offset: Int
+    $first: Int
   ) {
     searchOptions(
       ids: $ids
       name: $name
       value: $value
       type: $type
+      element: $element
       users: $users
       sort: $sort
       sortBy: $sortBy
+      offset: $offset
+      first: $first
     ) {
-      getOption {
+      options {
         id
         name
         value
         type
+        element
         username
       }
       totalCount
@@ -44,26 +52,28 @@ export const GET_OPTIONS = gql`
 `;
 
 export const REGISTER_OPTION = gql`
-  mutation(
-    $name: String!
-    $value: String!
-    $type: String!
-    $username: String!
-  ) {
-    registerOption(
-      name: $name
-      value: $value
-      type: $type
-      username: $username
-    ) {
+  mutation($name: String!, $value: String!, $type: String!, $element: String!) {
+    registerOption(name: $name, value: $value, type: $type, element: $element) {
       id
     }
   }
 `;
 
 export const UPDATE_OPTION = gql`
-  mutation($id: ID!, $name: String!, $value: String!, $type: String!) {
-    updateOption(id: $id, name: $name, value: $value, type: $type) {
+  mutation(
+    $id: ID!
+    $name: String!
+    $value: String!
+    $type: String!
+    $element: String!
+  ) {
+    updateOption(
+      id: $id
+      name: $name
+      value: $value
+      type: $type
+      element: $element
+    ) {
       result
     }
   }

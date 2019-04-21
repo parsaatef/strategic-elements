@@ -32,13 +32,28 @@ const MineralForm = (props: Props) => {
       <Field
         type="select"
         name="value"
-        label="Value"
+        label="Level"
         options={Options}
-        placeholder="select"
+        placeholder="select Level"
+      />
+
+      <Field
+        type="select"
+        name="element"
+        label="Element"
+        options={[
+          { value: 'element1', label: 'Element 1' },
+          { value: 'element2', label: 'Element 2' }
+        ]}
+        placeholder="Select Element"
       />
 
       <Button type="submit">
-        {formType === 'register' ? <>Add New Element</> : <>Update Element</>}
+        {formType === 'register' ? (
+          <>Add New Technology</>
+        ) : (
+          <>Update Technology</>
+        )}
       </Button>
     </AppForm>
   );

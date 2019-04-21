@@ -2,17 +2,20 @@ import { gql } from 'apollo-server-express';
 
 export default gql`
   extend type Query {
-    option(id: ID!): Option @guest
-    getOption(name: String): Option @guest
+    option(id: ID!): Option @auth
+    getOption(name: String): Option @auth
     searchOptions(
       ids: [ID!]
       name: String
       value: String
       type: String
+      element: String
       users: [String!]
       sort: String
       sortBy: String
-    ): [Option!]! @guest
+      first: Int
+      offset: Int
+    ): OptionsResult @auth
   }
 
   extend type Mutation {
@@ -20,12 +23,22 @@ export default gql`
       name: String!
       value: String!
       type: String!
-      username: String!
-    ): Option @guest
-    updateOption(id: ID!, name: String!, value: String!, type: String!): Result
-      @guest
-    removeOption(id: ID!): Result @guest
-    multiRemoveOptions(ids: [ID!]!): Result @guest
+      element: String!
+    ): Option @auth
+    updateOption(
+      id: ID!
+      name: String!
+      value: String!
+      type: String!
+      element: String!
+    ): Result @auth
+    removeOption(id: ID!): Result @auth
+    multiRemoveOptions(ids: [ID!]!): Result @auth
+  }
+
+  type OptionsResult {
+    options: [Option!]!
+    totalCount: Int
   }
 
   type Option {
@@ -33,6 +46,7 @@ export default gql`
     name: String!
     value: String!
     type: String!
+    element: String!
     username: String!
     createdAt: String!
     updatedAt: String!

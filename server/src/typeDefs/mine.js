@@ -2,8 +2,8 @@ import { gql } from 'apollo-server-express';
 
 export default gql`
   extend type Query {
-    mine(id: ID!): Mine @guest
-    mines: [Mine!]! @guest
+    mine(id: ID!): Mine @auth
+    mines: [Mine!]! @auth
     searchMine(
       ids: [ID!]
       title: String
@@ -12,7 +12,9 @@ export default gql`
       elements: [String!]
       sort: String
       sortBy: String
-    ): [Mine!]! @guest
+      first: Int
+      offset: Int
+    ): MinesResult @auth
   }
 
   extend type Mutation {
@@ -22,9 +24,8 @@ export default gql`
       productionValue: Int!
       unit: String!
       description: String!
-      username: String!
       element: String!
-    ): Mine @guest
+    ): Mine @auth
     updateMine(
       id: ID!
       title: String!
@@ -32,11 +33,15 @@ export default gql`
       productionValue: Int!
       unit: String!
       description: String!
-      username: String!
       element: String!
-    ): Result @guest
-    removeMine(id: ID!): Result @guest
-    multiRemoveMines(ids: [ID!]!): Result @guest
+    ): Result @auth
+    removeMine(id: ID!): Result @auth
+    multiRemoveMines(ids: [ID!]!): Result @auth
+  }
+
+  type MinesResult {
+    mines: [Mine!]!
+    totalCount: Int
   }
 
   type Mine {

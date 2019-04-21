@@ -29,7 +29,8 @@ import {
   SECONDARY_SOURCE,
   ADD_NEW_USER,
   USERS_LIST,
-  PROFILE
+  PROFILE,
+  ELEMENTS_STATS_LIST
 } from '../../constants/routes';
 import logo from '../../images/logo.jpg';
 import item1 from '../../images/menu-item-1.jpg';
@@ -205,6 +206,21 @@ class Menu extends Component<Props> {
               </li>
 
               <li className="smfp-menu-item menu__item" role="menuitem">
+                <Link className="smfp-menu-link menu__link" to={ELEMENTS_LIST}>
+                  <span>مدیریت عنصر ها</span>
+                </Link>
+              </li>
+
+              <li className="smfp-menu-item menu__item" role="menuitem">
+                <Link
+                  className="smfp-menu-link menu__link"
+                  to={ELEMENTS_STATS_LIST}
+                >
+                  <span>مدیریت آمار مواد معدنی</span>
+                </Link>
+              </li>
+
+              <li className="smfp-menu-item menu__item" role="menuitem">
                 <Link className="smfp-menu-link menu__link" to={MINERALS_LIST}>
                   <span>مدیریت کانی ها</span>
                 </Link>
@@ -213,12 +229,6 @@ class Menu extends Component<Props> {
               <li className="smfp-menu-item menu__item" role="menuitem">
                 <Link className="smfp-menu-link menu__link" to={MINES_LIST}>
                   <span>مدیریت معادن</span>
-                </Link>
-              </li>
-
-              <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link className="smfp-menu-link menu__link" to={ELEMENTS_LIST}>
-                  <span>مدیریت عنصر ها</span>
                 </Link>
               </li>
 

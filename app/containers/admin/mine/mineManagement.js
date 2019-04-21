@@ -14,6 +14,7 @@ import {
 export default class MineManagement extends Component<Props> {
   render() {
     const { match } = this.props;
+    console.log('-------this.props----', this.props);
 
     const { id = 0 } = match.params;
 
@@ -44,7 +45,7 @@ export default class MineManagement extends Component<Props> {
             list: {
               gql: GET_MINES,
               func: 'searchMine',
-              items: 'minerals'
+              items: 'mines'
             },
             remove: {
               gql: DELETE_MINE,

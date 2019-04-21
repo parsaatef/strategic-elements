@@ -5,6 +5,7 @@ import onChange from './onChange';
 const { Control, Group, Label } = Form;
 
 type Props = {
+  type: string,
   name: string,
   value: string,
   label: string,
@@ -12,14 +13,21 @@ type Props = {
   handleChange: () => void
 };
 
-const TextInput = ({ name, value, handleChange, label, error }: Props) => (
+const TextInput = ({
+  type = 'text',
+  name,
+  value,
+  handleChange,
+  label,
+  error
+}: Props) => (
   <Group as={Row} controlId={`field_${name}`}>
     <Label column sm={3}>
       {label}
     </Label>
     <Col sm={9}>
       <Control
-        type="text"
+        type={type}
         name={name}
         value={value}
         onChange={onChange.bind(null, handleChange)}

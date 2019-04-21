@@ -6,10 +6,10 @@ const schema = yup.object({
     .min(2)
     .max(60)
     .required(),
-  type: yup
+  element: yup
     .string()
     .min(2)
-    .max(20)
+    .max(30)
     .required(),
   value: yup.string()
 });
