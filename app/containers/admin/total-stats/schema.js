@@ -12,6 +12,7 @@ const schema = yup.object({
     .max(30)
     .required(),
   value: yup.string(),
+  unit: yup.string(),
   year: yup.number()
 });
 

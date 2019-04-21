@@ -20,7 +20,9 @@ export default {
         users,
         elements,
         sort = 'desc',
-        sortBy = 'createdAt'
+        sortBy = 'createdAt',
+        first = 0,
+        offset = 10
       } = args;
 
       const filters = {};
@@ -32,7 +34,7 @@ export default {
       }
 
       if (name) {
-        filters.name = name;
+        filters.name = new RegExp(name, 'i');
       }
 
       if (year) {
@@ -47,7 +49,15 @@ export default {
         filters.username = { $in: users };
       }
 
-      return TotalStats.find(filters).sort({ [sortBy]: sort });
+      const query = TotalStats.find(filters)
+        .sort({ [sortBy]: sort })
+        .limit(offset)
+        .skip(first);
+
+      return {
+        totalStatsList: query,
+        totalCount: TotalStats.count(filters).exec()
+      };
     },
     totalStatsList: () => TotalStats.find({}),
     totalStats: (root, { id }) => {
@@ -60,10 +70,12 @@ export default {
     }
   },
   Mutation: {
-    registerTotalStats: async (root, args) => {
+    registerTotalStats: async (root, args, { req }) => {
       // , {req}, info
       // TODO: projection
-      await Joi.validate(args, registerTotalStats, { abortEarly: false });
+      const newArgs = args;
+      newArgs.username = req.currentUser.username;
+      await Joi.validate(newArgs, registerTotalStats, { abortEarly: false });
 
       const element = await TotalStats.create(args);
       console.log('-----element----', element);

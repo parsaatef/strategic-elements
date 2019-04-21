@@ -8,7 +8,6 @@ const username = Joi.string()
   .label('Username');
 
 const name = Joi.string()
-  .alphanum()
   .min(3)
   .max(30)
   .required()
@@ -21,13 +20,15 @@ const element = Joi.string()
   .required()
   .label('Element');
 
-const value = Joi.string().label('Value');
+const value = Joi.number().label('Value');
 const year = Joi.number().label('Year');
+const unit = Joi.string().label('Unit');
 
 export const registerTotalStats = Joi.object().keys({
   name,
   value,
   year,
+  unit,
   username,
   element
 });
@@ -36,5 +37,6 @@ export const updateTotalStats = Joi.object().keys({
   name,
   value,
   year,
+  unit,
   element
 });

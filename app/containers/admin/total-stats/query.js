@@ -2,11 +2,12 @@ import { gql } from 'apollo-boost';
 
 export const GET_TOTAL_STATS = gql`
   query($id: ID!) {
-    TotalStats(id: $id) {
+    totalStats(id: $id) {
       id
       name
       value
       year
+      unit
       username
       element
     }
@@ -22,6 +23,8 @@ export const GET_TOTAL_STATS_LIST = gql`
     $elements: [String!]
     $sort: String
     $sortBy: String
+    $offset: Int
+    $first: Int
   ) {
     searchTotalStats(
       ids: $ids
@@ -31,12 +34,15 @@ export const GET_TOTAL_STATS_LIST = gql`
       elements: $elements
       sort: $sort
       sortBy: $sortBy
+      offset: $offset
+      first: $first
     ) {
       totalStatsList {
         id
         name
         value
         year
+        unit
         username
         element
       }
@@ -50,14 +56,14 @@ export const REGISTER_TOTAL_STATS = gql`
     $name: String!
     $value: String!
     $year: Int!
-    $username: String!
+    $unit: String
     $element: String!
   ) {
     registerTotalStats(
       name: $name
       value: $value
       year: $year
-      username: $username
+      unit: $unit
       element: $element
     ) {
       id
@@ -71,7 +77,7 @@ export const UPDATE_TOTAL_STATS = gql`
     $name: String!
     $value: String!
     $year: Int!
-    $username: String!
+    $unit: String
     $element: String!
   ) {
     updateTotalStats(
@@ -79,7 +85,7 @@ export const UPDATE_TOTAL_STATS = gql`
       name: $name
       value: $value
       year: $year
-      username: $username
+      unit: $unit
       element: $element
     ) {
       result

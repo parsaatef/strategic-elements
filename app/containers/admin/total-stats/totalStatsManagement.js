@@ -66,9 +66,7 @@ export default class TotalStatsManagement extends Component<Props> {
             {
               filter: 'year',
               label: 'Year',
-              type: 'text', // text or select
-              isDefault: true,
-              default: ''
+              type: 'text' // text or select
             }
           ]}
           columns={[
@@ -98,8 +96,8 @@ export default class TotalStatsManagement extends Component<Props> {
             }
           ]}
           indexCol="id"
-          keyCol="title"
-          titleCol="title"
+          keyCol="name"
+          titleCol="name"
         />
       </div>
     );
