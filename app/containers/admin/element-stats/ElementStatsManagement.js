@@ -36,46 +36,28 @@ export default class ExportManagement extends Component<Props> {
           query={{
             item: {
               gql: GET_ELEMENT_STATS,
-              func: 'elementStats',
-              variables: {
-                type: 'export'
-              }
+              func: 'elementStats'
             },
             register: {
               gql: REGISTER_ELEMENT_STATS,
-              func: 'registerElementStats',
-              variables: {
-                type: 'export'
-              }
+              func: 'registerElementStats'
             },
             update: {
               gql: UPDATE_ELEMENT_STATS,
-              func: 'updateElementStats',
-              variables: {
-                type: 'export'
-              }
+              func: 'updateElementStats'
             },
             list: {
               gql: GET_ELEMENTS_STATS,
               func: 'searchElementStats',
-              items: 'elementsStats',
-              variables: {
-                type: 'export'
-              }
+              items: 'elementsStats'
             },
             remove: {
               gql: DELETE_ELEMENT_STATS,
-              func: 'removeElementStats',
-              variables: {
-                type: 'export'
-              }
+              func: 'removeElementStats'
             },
             multiRemove: {
               gql: MULTI_DELETE_ELEMENTS_STATS,
-              func: 'multiRemoveElementStats',
-              variables: {
-                type: 'export'
-              }
+              func: 'multiRemoveElementStats'
             }
           }}
           filters={[

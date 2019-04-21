@@ -1,57 +1,25 @@
 import React, { Component } from 'react';
-import Page from '../../../components/list-register/Page';
-import ElementForm from './form';
-import schema from './schema';
+import List from '../../../components/list-register/List';
 import {
-  GET_ELEMENT_STATS,
-  UPDATE_ELEMENT_STATS,
-  REGISTER_ELEMENT_STATS,
-  GET_ELEMENTS_STATS,
   DELETE_ELEMENT_STATS,
   MULTI_DELETE_ELEMENTS_STATS
 } from '../../../queries/elementStats';
+import { GET_EXPORT, GET_EXPORTS } from './query';
 
 export default class ExportManagement extends Component<Props> {
   render() {
-    const { match } = this.props;
-
-    const { id = 0 } = match.params;
-
     return (
       <div>
-        <Page
-          id={id}
-          form={ElementForm}
-          schema={schema}
-          hasElementTab={false}
-          registerRoute="/admin/export/register"
-          listRoute="/admin/export/list"
+        <List
           editRoute="/admin/export/edit"
-          listTitle="Export List"
+          heading="Export List"
           query={{
             item: {
-              gql: GET_ELEMENT_STATS,
-              func: 'elementStats',
-              variables: {
-                type: 'export'
-              }
-            },
-            register: {
-              gql: REGISTER_ELEMENT_STATS,
-              func: 'registerElementStats',
-              variables: {
-                type: 'export'
-              }
-            },
-            update: {
-              gql: UPDATE_ELEMENT_STATS,
-              func: 'updateElementStats',
-              variables: {
-                type: 'export'
-              }
+              gql: GET_EXPORT,
+              func: 'elementStats'
             },
             list: {
-              gql: GET_ELEMENTS_STATS,
+              gql: GET_EXPORTS,
               func: 'searchElementStats',
               items: 'elementsStats',
               variables: {
@@ -60,17 +28,11 @@ export default class ExportManagement extends Component<Props> {
             },
             remove: {
               gql: DELETE_ELEMENT_STATS,
-              func: 'removeElementStats',
-              variables: {
-                type: 'export'
-              }
+              func: 'removeElementStats'
             },
             multiRemove: {
               gql: MULTI_DELETE_ELEMENTS_STATS,
-              func: 'multiRemoveElementStats',
-              variables: {
-                type: 'export'
-              }
+              func: 'multiRemoveElementStats'
             }
           }}
           filters={[

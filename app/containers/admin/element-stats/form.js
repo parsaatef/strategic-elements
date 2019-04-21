@@ -24,8 +24,8 @@ const ElementForm = (props: Props) => {
         name="element"
         label="Element"
         options={[
-          { value: 'element-1', label: 'Element 1' },
-          { value: 'element-2', label: 'Element 2' }
+          { value: 'element1', label: 'Element 1' },
+          { value: 'element2', label: 'Element 2' }
         ]}
         placeholder="Select Element"
       />
@@ -68,7 +68,7 @@ const ElementForm = (props: Props) => {
       <Field type="textarea" name="description" label="Description" />
 
       <Button type="submit">
-        {formType === 'register' ? <>Add New Element</> : <>Update Element</>}
+        {formType === 'register' ? <>Add New Stats</> : <>Update Stats</>}
       </Button>
     </AppForm>
   );

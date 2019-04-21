@@ -14,7 +14,7 @@ const schema = yup.object({
   locationType: yup
     .string()
     .required()
-    .valid('iran', 'world'),
+    .matches(/(iran|world)/, { excludeEmptyString: true }),
   resourceValue: yup.number(),
   productionValue: yup.number(),
   consumptionValue: yup.number(),

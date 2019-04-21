@@ -1,7 +1,6 @@
 import Joi from 'joi';
 
 const location = Joi.string()
-  .alphanum()
   .min(2)
   .max(20)
   .required()
