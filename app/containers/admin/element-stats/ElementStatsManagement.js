@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
+import { FormattedSimpleMsg } from '../../../utils/utility';
 import Page from '../../../components/list-register/Page';
 import {
   ELEMENT_STATS_REGISTER,
@@ -32,7 +34,7 @@ export default class ExportManagement extends Component<Props> {
           registerRoute={ELEMENT_STATS_REGISTER}
           listRoute={ELEMENTS_STATS_LIST}
           editRoute={ELEMENT_STATS_EDIT.replace('/:id', '')}
-          listTitle="Elements Stats List"
+          listTitle={<FormattedSimpleMsg id="global.elementsStatsList" />}
           query={{
             item: {
               gql: GET_ELEMENT_STATS,
@@ -63,14 +65,14 @@ export default class ExportManagement extends Component<Props> {
           filters={[
             {
               filter: 'location',
-              label: 'Location',
+              label: <FormattedMessage id="global.location" />,
               type: 'text', // text or select
               isDefault: true,
               default: ''
             },
             {
               filter: 'year',
-              label: 'Year',
+              label: <FormattedMessage id="global.year" />,
               type: 'text' // text or select
             }
           ]}
@@ -81,35 +83,35 @@ export default class ExportManagement extends Component<Props> {
             },
             {
               key: 'location',
-              title: 'Location'
+              title: <FormattedMessage id="global.location" />
             },
             {
               key: 'year',
-              title: 'Year'
+              title: <FormattedMessage id="global.year" />
             },
             {
               key: 'exportValue',
-              title: 'Export Value'
+              title: <FormattedMessage id="global.exportValue" />
             },
             {
               key: 'resourceValue',
-              title: 'Resource Value'
+              title: <FormattedMessage id="global.resourceValue" />
             },
             {
               key: 'productionValue',
-              title: 'Production Value'
+              title: <FormattedMessage id="global.productionValue" />
             },
             {
               key: 'consumptionValue',
-              title: 'Consumption Value'
+              title: <FormattedMessage id="global.consumptionValue" />
             },
             {
               key: 'importValue',
-              title: 'Import Value'
+              title: <FormattedMessage id="global.importValue" />
             },
             {
               key: 'action',
-              title: 'Actions'
+              title: <FormattedMessage id="global.actions" />
             }
           ]}
           indexCol="id"

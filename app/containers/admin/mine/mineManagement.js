@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
+import { FormattedSimpleMsg } from '../../../utils/utility';
 import Page from '../../../components/list-register/Page';
 import ElementForm from './form';
 import schema from './schema';
@@ -28,7 +30,7 @@ export default class MineManagement extends Component<Props> {
           registerRoute="/admin/mine/register"
           listRoute="/admin/mines/list"
           editRoute="/admin/mine/edit"
-          listTitle="Mines List"
+          listTitle={<FormattedSimpleMsg id="global.minesList" />}
           query={{
             item: {
               gql: GET_MINE,
@@ -59,20 +61,24 @@ export default class MineManagement extends Component<Props> {
           filters={[
             {
               filter: 'title',
-              label: 'Title',
+              label: <FormattedSimpleMsg id="global.title" />,
               type: 'text', // text or select
               isDefault: true,
               default: ''
             },
             {
               filter: 'activeMines',
-              label: 'Active Mines',
-              type: 'text' // text or select
+              label: <FormattedSimpleMsg id="global.activeMines" />,
+              type: 'text', // text or select
+              isDefault: true,
+              default: ''
             },
             {
               filter: 'productionValue',
-              label: 'Production',
-              type: 'text' // text or select
+              label: <FormattedSimpleMsg id="global.production" />,
+              type: 'text', // text or select
+              isDefault: true,
+              default: ''
             }
           ]}
           columns={[
@@ -82,31 +88,31 @@ export default class MineManagement extends Component<Props> {
             },
             {
               key: 'title',
-              title: 'Title'
+              title: <FormattedMessage id="global.title" />
             },
             {
               key: 'activeMines',
-              title: 'Active Mines'
+              title: <FormattedMessage id="global.value" />
             },
             {
               key: 'productionValue',
-              title: 'Production'
+              title: <FormattedMessage id="global.production" />
             },
             {
               key: 'unit',
-              title: 'Unit'
+              title: <FormattedMessage id="global.unit" />
             },
             {
               key: 'description',
-              title: 'Description'
+              title: <FormattedMessage id="global.description" />
             },
             {
               key: 'username',
-              title: 'Username'
+              title: <FormattedMessage id="global.username" />
             },
             {
               key: 'action',
-              title: 'Actions'
+              title: <FormattedMessage id="global.actions" />
             }
           ]}
           indexCol="id"

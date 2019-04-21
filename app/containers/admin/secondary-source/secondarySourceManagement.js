@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
+import { FormattedSimpleMsg } from '../../../utils/utility';
 import Page from '../../../components/list-register/Page';
 import ElementForm from './form';
 import schema from './schema';
@@ -27,7 +29,7 @@ export default class SecondarySourceManagement extends Component<Props> {
           registerRoute="/admin/secondary-source/register"
           listRoute="/admin/secondary-sources/list"
           editRoute="/admin/secondary-source/edit"
-          listTitle="Global Price List"
+          listTitle={<FormattedSimpleMsg id="global.secondarySourceList" />}
           query={{
             item: {
               gql: GET_SECONDARY_SOURCE,
@@ -58,15 +60,17 @@ export default class SecondarySourceManagement extends Component<Props> {
           filters={[
             {
               filter: 'title',
-              label: 'Title',
+              label: <FormattedMessage id="global.title" />,
               type: 'text', // text or select
               isDefault: true,
               default: ''
             },
             {
-              filter: 'description',
-              label: 'Description',
-              type: 'text' // text or select
+              filter: 'value',
+              label: <FormattedMessage id="global.value" />,
+              type: 'text', // text or select
+              isDefault: true,
+              default: ''
             }
           ]}
           columns={[
@@ -76,27 +80,27 @@ export default class SecondarySourceManagement extends Component<Props> {
             },
             {
               key: 'title',
-              title: 'Title'
+              title: <FormattedMessage id="global.title" />
             },
             {
               key: 'value',
-              title: 'Value'
+              title: <FormattedMessage id="global.value" />
             },
             {
               key: 'unit',
-              title: 'Unit'
+              title: <FormattedMessage id="global.unit" />
             },
             {
               key: 'description',
-              title: 'Description'
+              title: <FormattedMessage id="global.description" />
             },
             {
               key: 'username',
-              title: 'Username'
+              title: <FormattedMessage id="global.username" />
             },
             {
               key: 'action',
-              title: 'Actions'
+              title: <FormattedMessage id="global.actions" />
             }
           ]}
           indexCol="id"

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
 import { Mutation } from 'react-apollo';
 import { Button } from 'react-bootstrap';
 import { addStaticVariables } from '../../utils/utility';
@@ -43,7 +44,7 @@ class MultiDeleteAction extends Component<Props> {
             className="tb-btn-wrap"
             type="submit"
           >
-            Apply
+            <FormattedMessage id="global.apply" />
           </Button>
         )}
       </Mutation>

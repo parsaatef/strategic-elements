@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
+import { FormattedSimpleMsg } from '../../../utils/utility';
 import Page from '../../../components/list-register/Page';
 import {
   UPSTREAM_INDUSTRY_REGISTER,
@@ -33,7 +35,7 @@ export default class UpstreamIndustryManagement extends Component<Props> {
           registerRoute={UPSTREAM_INDUSTRY_REGISTER}
           listRoute={UPSTREAM_INDUSTRY_LIST}
           editRoute={UPSTREAM_INDUSTRY_EDIT.replace('/:id', '')}
-          listTitle="Upstream Industry List"
+          listTitle={<FormattedSimpleMsg id="global.upstreamIndustryList" />}
           query={{
             item: {
               gql: GET_OPTION,
@@ -82,15 +84,17 @@ export default class UpstreamIndustryManagement extends Component<Props> {
           filters={[
             {
               filter: 'name',
-              label: 'Title',
+              label: <FormattedSimpleMsg id="global.title" />,
               type: 'text', // text or select
               isDefault: true,
               default: ''
             },
             {
               filter: 'value',
-              label: 'Priority',
-              type: 'text' // text or select
+              label: <FormattedSimpleMsg id="global.priority" />,
+              type: 'text', // text or select
+              isDefault: true,
+              default: ''
             }
           ]}
           columns={[
@@ -100,19 +104,19 @@ export default class UpstreamIndustryManagement extends Component<Props> {
             },
             {
               key: 'name',
-              title: 'Title'
+              title: <FormattedMessage id="global.title" />
             },
             {
               key: 'value',
-              title: 'Value'
+              title: <FormattedMessage id="global.priority" />
             },
             {
               key: 'username',
-              title: 'Username'
+              title: <FormattedMessage id="global.username" />
             },
             {
               key: 'action',
-              title: 'Actions'
+              title: <FormattedMessage id="global.actions" />
             }
           ]}
           indexCol="id"

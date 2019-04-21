@@ -1,5 +1,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import { FormattedMessage } from 'react-intl';
+import { FormattedSimpleMsg } from '../../../utils/utility';
 import AppForm from '../../../components/form/AppForm';
 import Field from '../../../components/form/Field';
 
@@ -24,33 +26,56 @@ const MineralForm = (props: Props) => {
       initialValues={initialValues}
       schema={validationSchema}
     >
-      <Field type="text" name="title" label="Mineral Title" />
+      <Field
+        type="text"
+        name="title"
+        label={<FormattedMessage id="global.title" />}
+      />
 
-      <Field type="text" name="formula" label="Formula" />
+      <Field
+        type="text"
+        name="formula"
+        label={<FormattedMessage id="global.formula" />}
+      />
 
       <Field
         type="select"
         name="abundance"
-        label="Abundance"
+        label={<FormattedMessage id="global.abundance" />}
         options={AbundanceOptions}
-        placeholder="Abundance"
+        placeholder={<FormattedSimpleMsg id="global.select" />}
       />
 
-      <Field type="text" name="color" label="Color" />
+      <Field
+        type="text"
+        name="color"
+        label={<FormattedMessage id="global.color" />}
+      />
 
       <Field
         multiple
         type="select"
         name="elements"
-        label="Elements"
-        options={AbundanceOptions}
-        placeholder="Elements"
+        label={<FormattedMessage id="global.elements" />}
+        options={[
+          { value: 'element1', label: 'Element 1' },
+          { value: 'element2', label: 'Element 2' }
+        ]}
+        placeholder={<FormattedSimpleMsg id="global.selectElement" />}
       />
 
-      <Field type="textarea" name="description" label="Description" />
+      <Field
+        type="textarea"
+        name="description"
+        label={<FormattedMessage id="global.description" />}
+      />
 
       <Button type="submit">
-        {formType === 'register' ? <>Add New Element</> : <>Update Element</>}
+        {formType === 'register' ? (
+          <FormattedMessage id="global.addNew" />
+        ) : (
+          <FormattedMessage id="global.update" />
+        )}
       </Button>
     </AppForm>
   );

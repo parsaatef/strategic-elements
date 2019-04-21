@@ -6,11 +6,14 @@ import ListFilters from './ListFilters';
 import MultiDeleteAction from './multiDelete';
 import STPagination from './pagination';
 import Table from './table';
-import { addStaticVariables } from '../../utils/utility';
+import { addStaticVariables, FormattedSimpleMsg } from '../../utils/utility';
 import PageHeading from '../General/PageHeading';
 
 const bulkActionsOptions = [
-  { value: 'delete', label: 'Delete Selected Items' }
+  {
+    value: 'delete',
+    label: <FormattedSimpleMsg id="global.deleteSelectedItems" />
+  }
 ];
 
 class ItemsList extends Component<Props> {
@@ -149,7 +152,7 @@ class ItemsList extends Component<Props> {
                           value={bulkAction}
                           onChange={this.setBulkAction}
                           options={bulkActionsOptions}
-                          placeholder="Select"
+                          placeholder=<FormattedSimpleMsg id="global.select" />
                         />
                       </Col>
                       {bulkAction === 'delete' && (

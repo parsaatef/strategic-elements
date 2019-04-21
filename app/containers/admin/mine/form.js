@@ -1,5 +1,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import { FormattedMessage } from 'react-intl';
+import { FormattedSimpleMsg } from '../../../utils/utility';
 import AppForm from '../../../components/form/AppForm';
 import Field from '../../../components/form/Field';
 
@@ -19,29 +21,53 @@ const MineForm = (props: Props) => {
       initialValues={initialValues}
       schema={validationSchema}
     >
-      <Field type="text" name="title" label="Mine Title" />
-
       <Field
         type="select"
         name="element"
-        label="Element"
+        label={<FormattedMessage id="global.element" />}
         options={[
           { value: 'element1', label: 'Element 1' },
           { value: 'element2', label: 'Element 2' }
         ]}
-        placeholder="Select Element"
+        placeholder={<FormattedSimpleMsg id="global.selectElement" />}
       />
 
-      <Field type="text" name="unit" label="Unit" />
+      <Field
+        type="text"
+        name="title"
+        label={<FormattedMessage id="global.title" />}
+      />
 
-      <Field type="number" name="productionValue" label="Production" />
+      <Field
+        type="number"
+        name="productionValue"
+        label={<FormattedMessage id="global.production" />}
+      />
 
-      <Field type="number" name="activeMines" label="Active Mines" />
+      <Field
+        type="number"
+        name="activeMines"
+        label={<FormattedMessage id="global.activeMines" />}
+      />
 
-      <Field type="textarea" name="description" label="Description" />
+      <Field
+        type="text"
+        name="unit"
+        label={<FormattedMessage id="global.unit" />}
+      />
+
+      <Field
+        type="textarea"
+        name="description"
+        label={<FormattedMessage id="global.description" />}
+      />
 
       <Button type="submit">
-        {formType === 'register' ? <>Add New Mine</> : <>Update Mine</>}
+        {formType === 'register' ? (
+          <FormattedMessage id="global.addNew" />
+        ) : (
+          <FormattedMessage id="global.update" />
+        )}
       </Button>
     </AppForm>
   );

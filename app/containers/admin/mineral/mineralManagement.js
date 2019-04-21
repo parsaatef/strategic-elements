@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
+import { FormattedSimpleMsg } from '../../../utils/utility';
 import Page from '../../../components/list-register/Page';
 import ElementForm from './form';
 import schema from './schema';
@@ -28,7 +30,7 @@ export default class MineralManagement extends Component<Props> {
           registerRoute="/admin/mineral/register"
           listRoute="/admin/minerals/list"
           editRoute="/admin/mineral/edit"
-          listTitle="Mineral List"
+          listTitle={<FormattedSimpleMsg id="global.mineralList" />}
           query={{
             item: {
               gql: GET_MINERAL,
@@ -59,15 +61,17 @@ export default class MineralManagement extends Component<Props> {
           filters={[
             {
               filter: 'title',
-              label: 'Title',
+              label: <FormattedMessage id="global.title" />,
               type: 'text', // text or select
               isDefault: true,
               default: ''
             },
             {
               filter: 'color',
-              label: 'Color',
-              type: 'text' // text or select
+              label: <FormattedMessage id="global.color" />,
+              type: 'text', // text or select
+              isDefault: true,
+              default: ''
             }
           ]}
           columns={[
@@ -77,27 +81,27 @@ export default class MineralManagement extends Component<Props> {
             },
             {
               key: 'title',
-              title: 'Title'
+              title: <FormattedMessage id="global.title" />
             },
             {
               key: 'formula',
-              title: 'Formula'
+              title: <FormattedMessage id="global.formula" />
             },
             {
               key: 'color',
-              title: 'Color'
+              title: <FormattedMessage id="global.color" />
+            },
+            {
+              key: 'description',
+              title: <FormattedMessage id="global.description" />
             },
             {
               key: 'username',
-              title: 'Username'
-            },
-            {
-              key: 'elements',
-              title: 'Elements'
+              title: <FormattedMessage id="global.username" />
             },
             {
               key: 'action',
-              title: 'Actions'
+              title: <FormattedMessage id="global.actions" />
             }
           ]}
           indexCol="id"

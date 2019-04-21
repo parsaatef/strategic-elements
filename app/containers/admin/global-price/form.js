@@ -1,5 +1,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import { FormattedMessage } from 'react-intl';
+import { FormattedSimpleMsg } from '../../../utils/utility';
 import AppForm from '../../../components/form/AppForm';
 import Field from '../../../components/form/Field';
 
@@ -22,24 +24,44 @@ const GlobalPriceForm = (props: Props) => {
       <Field
         type="select"
         name="element"
-        label="Element"
+        label={<FormattedMessage id="global.element" />}
         options={[
-          { value: 'Element1', label: 'Element 1' },
-          { value: 'Element2', label: 'Element 2' }
+          { value: 'element1', label: 'Element 1' },
+          { value: 'element2', label: 'Element 2' }
         ]}
-        placeholder="Select Element"
+        placeholder={<FormattedSimpleMsg id="global.selectElement" />}
       />
 
-      <Field type="number" name="year" label="Year" />
+      <Field
+        type="number"
+        name="year"
+        label=<FormattedMessage id="global.year" />
+      />
 
-      <Field type="number" name="price" label="Price" />
+      <Field
+        type="number"
+        name="price"
+        label=<FormattedMessage id="global.price" />
+      />
 
-      <Field type="text" name="unit" label="Unit" />
+      <Field
+        type="text"
+        name="unit"
+        label={<FormattedMessage id="global.unit" />}
+      />
 
-      <Field type="textarea" name="description" label="Description" />
+      <Field
+        type="textarea"
+        name="description"
+        label={<FormattedMessage id="global.description" />}
+      />
 
       <Button type="submit">
-        {formType === 'register' ? <>Add New Price</> : <>Update Price</>}
+        {formType === 'register' ? (
+          <FormattedMessage id="global.addNew" />
+        ) : (
+          <FormattedMessage id="global.update" />
+        )}
       </Button>
     </AppForm>
   );

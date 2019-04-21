@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
+import { FormattedMessage } from 'react-intl';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { addStaticVariables } from '../../utils/utility';
 
@@ -43,7 +44,11 @@ class DeleteAction extends Component<Props> {
             onClick={this.remove.bind(this, removeItem)}
           >
             <OverlayTrigger
-              overlay={<Tooltip id="tb-delete-tooltip">Delete</Tooltip>}
+              overlay={
+                <Tooltip id="tb-delete-tooltip">
+                  <FormattedMessage id="global.delete" />
+                </Tooltip>
+              }
             >
               <span className="tb-tooltip-btn">
                 <span className="fal fa-trash" />

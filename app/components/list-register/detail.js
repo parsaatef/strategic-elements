@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Query } from 'react-apollo';
+import { FormattedMessage } from 'react-intl';
 import { Button, OverlayTrigger, Tooltip, Modal } from 'react-bootstrap';
 import { addStaticVariables } from '../../utils/utility';
 
@@ -38,7 +39,11 @@ class DetailAction extends Component<Props> {
           return (
             <div className="tb-icons tb-detail-icon">
               <OverlayTrigger
-                overlay={<Tooltip id="tb-detail-tooltip">Detail</Tooltip>}
+                overlay={
+                  <Tooltip id="tb-detail-tooltip">
+                    <FormattedMessage id="global.detail" />
+                  </Tooltip>
+                }
               >
                 <Button
                   className="tb-tooltip-btn"
@@ -78,7 +83,9 @@ class DetailAction extends Component<Props> {
                   )}
                 </Body>
                 <Footer>
-                  <Button onClick={this.handleHide}>Close</Button>
+                  <Button onClick={this.handleHide}>
+                    <FormattedMessage id="global.close" />
+                  </Button>
                 </Footer>
               </Modal>
             </div>

@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
+import { FormattedSimpleMsg } from '../../../utils/utility';
 import Page from '../../../components/list-register/Page';
 import {
   DEPENDENCE_INDUSTRIES_REGISTER,
   DEPENDENCE_INDUSTRIES_LIST,
   DEPENDENCE_INDUSTRIES_EDIT
 } from '../../../constants/routes';
-import ElementForm from './form';
+import DependenceIndustriesForm from './form';
 import schema from './schema';
 import {
   GET_OPTION,
@@ -16,7 +18,7 @@ import {
   MULTI_DELETE_OPTIONS
 } from '../../../queries/option';
 
-export default class MineralManagement extends Component<Props> {
+export default class DependenceIndustriesManagement extends Component<Props> {
   render() {
     const { match } = this.props;
     console.log('--------this.props-----', this.props);
@@ -27,13 +29,15 @@ export default class MineralManagement extends Component<Props> {
       <div>
         <Page
           id={id}
-          form={ElementForm}
+          form={DependenceIndustriesForm}
           schema={schema}
           hasElementTab={false}
           registerRoute={DEPENDENCE_INDUSTRIES_REGISTER}
           listRoute={DEPENDENCE_INDUSTRIES_LIST}
           editRoute={DEPENDENCE_INDUSTRIES_EDIT.replace('/:id', '')}
-          listTitle="Dependence Industries List"
+          listTitle={
+            <FormattedSimpleMsg id="global.dependenceIndustriesList" />
+          }
           query={{
             item: {
               gql: GET_OPTION,
@@ -82,14 +86,14 @@ export default class MineralManagement extends Component<Props> {
           filters={[
             {
               filter: 'name',
-              label: 'Title',
+              label: <FormattedSimpleMsg id="global.title" />,
               type: 'text', // text or select
               isDefault: true,
               default: ''
             },
             {
               filter: 'value',
-              label: 'Value',
+              label: <FormattedSimpleMsg id="global.dependentLevel" />,
               type: 'text' // text or select
             }
           ]}
@@ -100,19 +104,19 @@ export default class MineralManagement extends Component<Props> {
             },
             {
               key: 'name',
-              title: 'Title'
+              title: <FormattedMessage id="global.title" />
             },
             {
               key: 'value',
-              title: 'Value'
+              title: <FormattedMessage id="global.dependentLevel" />
             },
             {
               key: 'username',
-              title: 'Username'
+              title: <FormattedMessage id="global.username" />
             },
             {
               key: 'action',
-              title: 'Actions'
+              title: <FormattedMessage id="global.actions" />
             }
           ]}
           indexCol="id"

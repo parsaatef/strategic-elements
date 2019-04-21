@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Query } from 'react-apollo';
+import { FormattedMessage } from 'react-intl';
 import ReactSelect from 'react-select';
 import List from './List';
 import Register from './Register';
@@ -96,7 +97,9 @@ class Page extends Component<Props> {
                 <span className="fal fa-th-list" />
               </div>
               <div className="title">
-                <span>Register</span>
+                <span>
+                  <FormattedMessage id="global.register" />
+                </span>
               </div>
             </Tab>
             <Tab link={listRoute} isActive={this.activeRoute(listRoute)}>
@@ -104,7 +107,9 @@ class Page extends Component<Props> {
                 <span className="fal fa-th-list" />
               </div>
               <div className="title">
-                <span>List</span>
+                <span>
+                  <FormattedMessage id="global.list" />
+                </span>
               </div>
             </Tab>
             {isEdit && (
@@ -113,7 +118,9 @@ class Page extends Component<Props> {
                   <span className="fal fa-th-list" />
                 </div>
                 <div className="title">
-                  <span>Edit</span>
+                  <span>
+                    <FormattedMessage id="global.edit" />
+                  </span>
                 </div>
               </Tab>
             )}

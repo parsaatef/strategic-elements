@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
 import ReactSelect from 'react-select';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import _ from 'underscore';
@@ -144,7 +145,7 @@ class ListFilters extends Component<Props> {
               <Col sm={4}>{filterType}</Col>
               <Col className="tb-btn-wrap" sm={2}>
                 <Button onClick={this.handleSubmit} type="button">
-                  Apply
+                  <FormattedMessage id="global.apply" />
                 </Button>
               </Col>
             </>
@@ -157,7 +158,7 @@ class ListFilters extends Component<Props> {
               type="button"
               variant="outline-danger"
             >
-              Reset
+              <FormattedMessage id="global.reset" />
             </Button>
           </Col>
         </Row>

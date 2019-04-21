@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
+import { FormattedSimpleMsg } from '../../../utils/utility';
 import Page from '../../../components/list-register/Page';
 import ElementForm from './form';
 import schema from './schema';
@@ -27,7 +29,7 @@ export default class TotalStatsManagement extends Component<Props> {
           registerRoute="/admin/total-stats/register"
           listRoute="/admin/total-stats/list"
           editRoute="/admin/total-stats/edit"
-          listTitle="Total Stats List"
+          listTitle={<FormattedSimpleMsg id="global.totalStatsList" />}
           query={{
             item: {
               gql: GET_TOTAL_STATS,
@@ -58,14 +60,14 @@ export default class TotalStatsManagement extends Component<Props> {
           filters={[
             {
               filter: 'name',
-              label: 'Name',
+              label: <FormattedMessage id="global.title" />,
               type: 'text', // text or select
               isDefault: true,
               default: ''
             },
             {
               filter: 'year',
-              label: 'Year',
+              label: <FormattedMessage id="global.year" />,
               type: 'text' // text or select
             }
           ]}
@@ -76,23 +78,23 @@ export default class TotalStatsManagement extends Component<Props> {
             },
             {
               key: 'name',
-              title: 'Name'
+              title: <FormattedMessage id="global.title" />
             },
             {
               key: 'year',
-              title: 'Year'
+              title: <FormattedMessage id="global.year" />
             },
             {
               key: 'value',
-              title: 'Value'
+              title: <FormattedMessage id="global.value" />
             },
             {
               key: 'username',
-              title: 'Username'
+              title: <FormattedMessage id="global.username" />
             },
             {
               key: 'action',
-              title: 'Actions'
+              title: <FormattedMessage id="global.actions" />
             }
           ]}
           indexCol="id"
