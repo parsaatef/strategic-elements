@@ -33,8 +33,8 @@ const TextInput = ({
         onChange={onChange.bind(null, handleChange)}
         isInvalid={!!error}
       />
+      <Control.Feedback type="invalid">{error}</Control.Feedback>
     </Col>
-    <Control.Feedback type="invalid">{error}</Control.Feedback>
   </Group>
 );
 export default TextInput;

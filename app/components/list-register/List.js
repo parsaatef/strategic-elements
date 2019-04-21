@@ -119,6 +119,19 @@ class ItemsList extends Component<Props> {
 
     variables = addStaticVariables(list, variables);
 
+    let bulkActionCol;
+    let bulkActionColWrap;
+    let ListFiltersCol;
+
+    if (bulkAction === 'delete') {
+      bulkActionCol = 8;
+      bulkActionColWrap = 4;
+      ListFiltersCol = 8;
+    } else {
+      bulkActionCol = 12;
+      bulkActionColWrap = 3;
+      ListFiltersCol = 9;
+    }
     return (
       <div>
         <PageHeading className="admin-list-heading" title={heading} />
@@ -129,9 +142,9 @@ class ItemsList extends Component<Props> {
             return (
               <section>
                 <Row className="tb-filter-wrap">
-                  <Col sm={4}>
+                  <Col sm={bulkActionColWrap}>
                     <Row>
-                      <Col sm={8}>
+                      <Col sm={bulkActionCol}>
                         <ReactSelect
                           value={bulkAction}
                           onChange={this.setBulkAction}
@@ -139,20 +152,20 @@ class ItemsList extends Component<Props> {
                           placeholder="Select"
                         />
                       </Col>
-                      <Col className="tb-btn-wrap" sm={4}>
-                        {bulkAction === 'delete' && (
+                      {bulkAction === 'delete' && (
+                        <Col className="tb-btn-wrap" sm={4}>
                           <MultiDeleteAction
                             ids={selectedItems}
                             resetSelectedItems={this.resetSelectedItems}
                             refetch={refetch}
                             query={query}
                           />
-                        )}
-                      </Col>
+                        </Col>
+                      )}
                     </Row>
                   </Col>
 
-                  <Col sm={8}>
+                  <Col sm={ListFiltersCol}>
                     <ListFilters
                       applyFilters={this.applyFilters}
                       autoApply={false}

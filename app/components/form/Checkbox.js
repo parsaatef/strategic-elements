@@ -23,8 +23,8 @@ const Checkbox = ({ name, value, handleChange, label, error }: Props) => (
         onChange={e => handleChange(name, e.target.checked)}
         isInvalid={!!error}
       />
+      <Control.Feedback type="invalid">{error}</Control.Feedback>
     </Col>
-    <Control.Feedback type="invalid">{error}</Control.Feedback>
   </Group>
 );
 
