@@ -3,12 +3,23 @@ import { connect } from 'react-redux';
 import { Query } from 'react-apollo';
 import { FormattedMessage } from 'react-intl';
 import ReactSelect from 'react-select';
+import { gql } from 'apollo-boost';
 import List from './List';
 import Register from './Register';
 import Tabs from '../General/Tabs/Tabs';
 import Tab from '../General/Tabs/Tab';
 import TabsContent from '../General/Tabs/TabsContent';
 import TabItems from '../General/Tabs/TabItems';
+import ConfirmBox from './ConfirmBox';
+
+const GET_ELEMENTS = gql`
+  query {
+    elements {
+      element
+      elementTitle
+    }
+  }
+`;
 
 class Page extends Component<Props> {
   constructor(props) {
@@ -21,9 +32,9 @@ class Page extends Component<Props> {
     this.setCurrentElement = this.setCurrentElement.bind(this);
   }
 
-  setCurrentElement(e) {
+  setCurrentElement(selected) {
     this.setState({
-      currentElement: e.target.value
+      currentElement: selected
     });
   }
 
@@ -65,28 +76,28 @@ class Page extends Component<Props> {
           <TabItems>
             {hasElementTab && (
               <Tab>
-                <ReactSelect
-                  onChange={this.setCurrentElement}
-                  value={currentElement}
-                  options={[
-                    {
-                      label: 'Contributor',
-                      value: 'contributor'
-                    },
-                    {
-                      label: 'Author',
-                      value: 'author'
-                    },
-                    {
-                      label: 'Editor',
-                      value: 'editor'
-                    },
-                    {
-                      label: 'Administrator',
-                      value: 'administrator'
+                <Query query={GET_ELEMENTS}>
+                  {({ data, loading, error }) => {
+                    console.log('----data-----', data, loading, error);
+                    if (loading) return 'loading.....';
+                    const options = [];
+                    if (data && data.elements) {
+                      data.elements.forEach(elem => {
+                        options.push({
+                          label: elem.elementTitle,
+                          value: elem.element
+                        });
+                      });
                     }
-                  ]}
-                />
+                    return (
+                      <ReactSelect
+                        onChange={this.setCurrentElement}
+                        value={currentElement}
+                        options={options}
+                      />
+                    );
+                  }}
+                </Query>
               </Tab>
             )}
             <Tab
@@ -183,6 +194,7 @@ class Page extends Component<Props> {
             </div>
           </TabsContent>
         </Tabs>
+        <ConfirmBox />
       </section>
     );
   }

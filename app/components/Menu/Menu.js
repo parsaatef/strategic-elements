@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {
   HOME,
-  ADD_NEW_ELEMENT,
   MINERALS_LIST,
   MINES_LIST,
   ELEMENTS_LIST,
@@ -24,9 +23,7 @@ import {
   UPSTREAM_INDUSTRY_LIST,
   THREATS_LIST,
   ENVIRONMENT_LIST,
-  ADD_NEW_ELEMENT_FCS,
   INFORMATION_OF_WORLD,
-  SECONDARY_SOURCE,
   ADD_NEW_USER,
   USERS_LIST,
   PROFILE,
@@ -194,20 +191,10 @@ class Menu extends Component<Props> {
                   <span>مدیریت کاربر</span>
                 </Link>
               </li>
-              <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link
-                  className="smfp-menu-link menu__link"
-                  data-submenu="submenu-3-2"
-                  aria-owns="submenu-3-2"
-                  to={ADD_NEW_ELEMENT}
-                >
-                  <span>مدیریت ماده معدنی</span>
-                </Link>
-              </li>
 
               <li className="smfp-menu-item menu__item" role="menuitem">
                 <Link className="smfp-menu-link menu__link" to={ELEMENTS_LIST}>
-                  <span>مدیریت عنصر ها</span>
+                  <span>مدیریت ماده معدنی</span>
                 </Link>
               </li>
 
@@ -398,50 +385,6 @@ class Menu extends Component<Props> {
               <li className="smfp-menu-item menu__item" role="menuitem">
                 <Link className="smfp-menu-link menu__link" to={PROFILE}>
                   <span>پروفایل</span>
-                </Link>
-              </li>
-            </ul>
-
-            <ul
-              data-menu="submenu-3-2"
-              id="submenu-3-2"
-              className="menu__level"
-              tabIndex="-1"
-              role="menu"
-              aria-label="مدیریت ماده معدنی"
-            >
-              <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link
-                  className="smfp-menu-link menu__link"
-                  to={ADD_NEW_ELEMENT}
-                >
-                  <span>افزودن ماده معدنی</span>
-                </Link>
-              </li>
-              <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link
-                  className="smfp-menu-link menu__link"
-                  to={ADD_NEW_ELEMENT_FCS}
-                >
-                  <span>افزودن اطلاعات ماده معدنی کشورها</span>
-                </Link>
-              </li>
-              <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link className="smfp-menu-link menu__link" to={HOME}>
-                  <span>صنایع پایین دستی</span>
-                </Link>
-              </li>
-              <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link
-                  className="smfp-menu-link menu__link"
-                  to={SECONDARY_SOURCE}
-                >
-                  <span>منابع ثانویه</span>
-                </Link>
-              </li>
-              <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link className="smfp-menu-link menu__link" to={HOME}>
-                  <span>محیط زیستی</span>
                 </Link>
               </li>
             </ul>

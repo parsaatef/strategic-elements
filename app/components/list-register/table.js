@@ -75,11 +75,14 @@ class Table extends Component<Props> {
               if (col && col.isCheck) {
                 return (
                   <th key={col.key} className="check-column">
-                    <Control
-                      onChange={checkAll.bind(null, allIds)}
-                      type="checkbox"
-                      checked={allIds.length === selectedItems.length}
-                    />
+                    <Form.Label className="checkbox-wrap">
+                      <Control
+                        onChange={checkAll.bind(null, allIds)}
+                        type="checkbox"
+                        checked={allIds.length === selectedItems.length}
+                      />
+                      <span className="checkmark" />
+                    </Form.Label>
                   </th>
                 );
               }
@@ -102,19 +105,22 @@ class Table extends Component<Props> {
                   if (col && col.isCheck) {
                     return (
                       <td key={col.key} className="check-column">
-                        <Control
-                          value={dbCol[indexCol]}
-                          onChange={this.checkItem}
-                          type="checkbox"
-                          checked={selectedItems.includes(dbCol[indexCol])}
-                        />
+                        <Form.Label className="checkbox-wrap">
+                          <Control
+                            value={dbCol[indexCol]}
+                            onChange={this.checkItem}
+                            type="checkbox"
+                            checked={selectedItems.includes(dbCol[indexCol])}
+                          />
+                          <span className="checkmark" />
+                        </Form.Label>
                       </td>
                     );
                   }
 
                   if (col && col.key === 'action') {
                     return (
-                      <td key={col.key}>
+                      <td className="list-actions" key={col.key}>
                         <ListActions
                           id={dbCol[indexCol]}
                           refetch={refetch}
