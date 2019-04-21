@@ -1,9 +1,22 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
+import { connect } from 'react-redux';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { addStaticVariables } from '../../utils/utility';
+import {
+  showModal,
+  setMessage,
+  applyConfirm,
+  hideModal
+} from '../../actions/confirmBox';
 
 class DeleteAction extends Component<Props> {
+  componentDidMount() {
+    const { dispatch } = this.props;
+
+    dispatch(setMessage('test.....'));
+  }
+
   remove(removeItem) {
     const { refetch, resetSelectedItems } = this.props;
 
@@ -24,6 +37,20 @@ class DeleteAction extends Component<Props> {
       });
   }
 
+  removeActionConfirm(removeItem) {
+    const { dispatch, handleShow, handleHide } = this.props;
+
+    handleShow();
+
+    dispatch(
+      applyConfirm(() => {
+        handleHide();
+
+        this.remove(removeItem);
+      })
+    );
+  }
+
   render() {
     const { id, query } = this.props;
 
@@ -40,7 +67,7 @@ class DeleteAction extends Component<Props> {
             role="toolbar"
             onKeyUp={e => console.log(e)}
             className="tb-icons tb-delete-icon"
-            onClick={this.remove.bind(this, removeItem)}
+            onClick={this.removeActionConfirm.bind(this, removeItem)}
           >
             <OverlayTrigger
               overlay={<Tooltip id="tb-delete-tooltip">Delete</Tooltip>}
@@ -56,4 +83,13 @@ class DeleteAction extends Component<Props> {
   }
 }
 
-export default DeleteAction;
+const mapDispatchToProps = dispatch => ({
+  handleShow: () => dispatch(showModal()),
+  handleHide: () => dispatch(hideModal()),
+  dispatch
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(DeleteAction);

@@ -8,6 +8,7 @@ import Tabs from '../General/Tabs/Tabs';
 import Tab from '../General/Tabs/Tab';
 import TabsContent from '../General/Tabs/TabsContent';
 import TabItems from '../General/Tabs/TabItems';
+import ConfirmBox from './ConfirmBox';
 
 class Page extends Component<Props> {
   constructor(props) {
@@ -176,6 +177,7 @@ class Page extends Component<Props> {
             </div>
           </TabsContent>
         </Tabs>
+        <ConfirmBox />
       </section>
     );
   }
