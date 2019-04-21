@@ -19,6 +19,7 @@ const Textarea = ({ name, value, handleChange, label, error, ...rest }) => (
         isInvalid={!!error}
         {...rest}
       />
+      <Control.Feedback type="invalid">{error}</Control.Feedback>
     </Col>
   </Group>
 );

@@ -54,8 +54,8 @@ const Select = ({
           isInvalid={!!error}
           {...rest}
         />
+        <Control.Feedback type="invalid">{error}</Control.Feedback>
       </Col>
-      <Control.Feedback type="invalid">{error}</Control.Feedback>
     </Group>
   );
 };

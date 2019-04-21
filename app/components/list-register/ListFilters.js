@@ -141,27 +141,25 @@ class ListFilters extends Component<Props> {
           </Col>
           {!autoApply ? (
             <>
-              <Col sm={5}>{filterType}</Col>
-              <Col className="tb-btn-wrap" sm={3}>
-                <Button
-                  onClick={this.handleSubmit}
-                  className="tb-btn-wrap"
-                  type="button"
-                >
+              <Col sm={4}>{filterType}</Col>
+              <Col className="tb-btn-wrap" sm={2}>
+                <Button onClick={this.handleSubmit} type="button">
                   Apply
                 </Button>
               </Col>
             </>
           ) : (
-            <Col sm={7}>{filterType}</Col>
+            <Col sm={5}>{filterType}</Col>
           )}
-          <Button
-            onClick={this.resetFilters}
-            className="tb-btn-wrap"
-            type="button"
-          >
-            Reset
-          </Button>
+          <Col sm={2} className="text-left">
+            <Button
+              onClick={this.resetFilters}
+              type="button"
+              variant="outline-danger"
+            >
+              Reset
+            </Button>
+          </Col>
         </Row>
       </div>
     );
