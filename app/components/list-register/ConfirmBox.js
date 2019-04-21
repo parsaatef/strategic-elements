@@ -20,7 +20,7 @@ class ConfirmBox extends Component<Props> {
       <div className="confirm-box-container">
         <Modal
           show={confirm}
-          onHide={this.handleHide}
+          onHide={handleHide}
           size="md"
           aria-labelledby="contained-modal-title-vcenter"
           centered

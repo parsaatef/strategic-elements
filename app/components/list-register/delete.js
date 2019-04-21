@@ -11,12 +11,6 @@ import {
 } from '../../actions/confirmBox';
 
 class DeleteAction extends Component<Props> {
-  componentDidMount() {
-    const { dispatch } = this.props;
-
-    dispatch(setMessage('test.....'));
-  }
-
   remove(removeItem) {
     const { refetch, resetSelectedItems } = this.props;
 
@@ -39,6 +33,8 @@ class DeleteAction extends Component<Props> {
 
   removeActionConfirm(removeItem) {
     const { dispatch, handleShow, handleHide } = this.props;
+
+    dispatch(setMessage('test.....'));
 
     handleShow();
 

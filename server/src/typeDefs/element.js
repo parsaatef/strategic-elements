@@ -3,7 +3,7 @@ import { gql } from 'apollo-server-express';
 export default gql`
   extend type Query {
     element(id: ID!): Element @auth
-    elements: [Element!]! @auth
+    elements: [Element!] @auth
     searchElement(
       ids: [ID!]
       elementTitle: String
