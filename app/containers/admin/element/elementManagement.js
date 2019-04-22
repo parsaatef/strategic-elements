@@ -30,9 +30,9 @@ export default class ElementManagement extends Component<Props> {
           registerRoute="/admin/element/register"
           listRoute="/admin/elements/list"
           editRoute="/admin/element/edit"
-          listTitle="Element List"
-          editTitle="Element Edit"
-          registerTitle="Add New User"
+          listTitle={<FormattedSimpleMsg id="global.elementsList" />}
+          editTitle={<FormattedSimpleMsg id="global.itemEdit" />}
+          registerTitle={<FormattedSimpleMsg id="global.addNew" />}
           query={{
             item: {
               gql: GET_ELEMENT,
@@ -63,23 +63,23 @@ export default class ElementManagement extends Component<Props> {
           filters={[
             {
               filter: 'elementTitle',
-              label: 'Element Title',
+              label: <FormattedMessage id="global.elementTitle" />,
               type: 'text', // text or select
               isDefault: true,
               default: ''
             },
             {
-              filter: 'phaseAtSTP',
-              label: 'Phase At STP',
+              filter: 'group',
+              label: <FormattedMessage id="global.group" />,
               type: 'select', // text or select
               options: [
                 {
-                  label: 'Soil',
-                  value: 'soil'
+                  label: 'Group1',
+                  value: 'group1'
                 },
                 {
-                  label: 'Boil',
-                  value: 'boil'
+                  label: 'Group2',
+                  value: 'group2'
                 }
               ]
             }

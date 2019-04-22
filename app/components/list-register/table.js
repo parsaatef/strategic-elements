@@ -3,7 +3,7 @@ import { Form } from 'react-bootstrap';
 import _ from 'underscore';
 import ListActions from './ListActions';
 
-const { Control } = Form;
+const { Control, Label } = Form;
 
 class Table extends Component<Props> {
   constructor(props) {
@@ -75,14 +75,14 @@ class Table extends Component<Props> {
               if (col && col.isCheck) {
                 return (
                   <th key={col.key} className="check-column">
-                    <Form.Label className="checkbox-wrap">
+                    <Label className="checkbox-wrap">
                       <Control
                         onChange={checkAll.bind(null, allIds)}
                         type="checkbox"
                         checked={allIds.length === selectedItems.length}
                       />
                       <span className="checkmark" />
-                    </Form.Label>
+                    </Label>
                   </th>
                 );
               }
@@ -105,7 +105,7 @@ class Table extends Component<Props> {
                   if (col && col.isCheck) {
                     return (
                       <td key={col.key} className="check-column">
-                        <Form.Label className="checkbox-wrap">
+                        <Label className="checkbox-wrap">
                           <Control
                             value={dbCol[indexCol]}
                             onChange={this.checkItem}
@@ -113,7 +113,7 @@ class Table extends Component<Props> {
                             checked={selectedItems.includes(dbCol[indexCol])}
                           />
                           <span className="checkmark" />
-                        </Form.Label>
+                        </Label>
                       </td>
                     );
                   }

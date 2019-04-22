@@ -1,5 +1,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import { FormattedMessage } from 'react-intl';
+import { FormattedSimpleMsg } from '../../../utils/utility';
 import AppForm from '../../../components/form/AppForm';
 import Field from '../../../components/form/Field';
 
@@ -22,53 +24,97 @@ const ElementForm = (props: Props) => {
       <Field
         type="select"
         name="element"
-        label="Element"
+        label={<FormattedMessage id="global.element" />}
         options={[
           { value: 'element1', label: 'Element 1' },
           { value: 'element2', label: 'Element 2' }
         ]}
-        placeholder="Select Element"
+        placeholder={<FormattedSimpleMsg id="global.selectElement" />}
       />
 
       <Field
         type="select"
         name="locationType"
-        label="Location Type"
+        label={<FormattedMessage id="global.locationType" />}
         options={[
-          { value: 'world', label: 'World' },
-          { value: 'iran', label: 'Iran' }
+          { value: 'world', label: <FormattedSimpleMsg id="global.world" /> },
+          { value: 'iran', label: <FormattedSimpleMsg id="global.iran" /> }
         ]}
-        placeholder="Select"
+        placeholder={<FormattedSimpleMsg id="global.select" />}
       />
 
-      <Field type="text" name="location" label="Location" />
+      <Field
+        type="text"
+        name="location"
+        label={<FormattedMessage id="global.location" />}
+      />
 
-      <Field type="number" name="year" label="Year" />
+      <Field
+        type="number"
+        name="year"
+        label={<FormattedMessage id="global.year" />}
+      />
 
-      <Field type="number" name="exportValue" label="Export Value" />
+      <Field
+        type="number"
+        name="exportValue"
+        label={<FormattedMessage id="global.exportValue" />}
+      />
 
-      <Field type="number" name="resourceValue" label="Resource Value" />
+      <Field
+        type="number"
+        name="resourceValue"
+        label={<FormattedMessage id="global.resourceValue" />}
+      />
 
-      <Field type="number" name="productionValue" label="Production Value" />
+      <Field
+        type="number"
+        name="productionValue"
+        label={<FormattedMessage id="global.productionValue" />}
+      />
 
-      <Field type="number" name="consumptionValue" label="Consumption Value" />
+      <Field
+        type="number"
+        name="consumptionValue"
+        label={<FormattedMessage id="global.consumptionValue" />}
+      />
 
-      <Field type="number" name="importValue" label="Import Value" />
+      <Field
+        type="number"
+        name="importValue"
+        label={<FormattedMessage id="global.importValue" />}
+      />
 
       <Field
         type="number"
         name="secondaryProductionValue"
-        label="Secondary Production Value"
+        label={<FormattedMessage id="global.secondaryProductionValue" />}
       />
 
-      <Field type="number" name="mineCount" label="Mine Count" />
+      <Field
+        type="number"
+        name="mineCount"
+        label={<FormattedMessage id="global.minesCount" />}
+      />
 
-      <Field type="text" name="unit" label="Unit" />
+      <Field
+        type="text"
+        name="unit"
+        label={<FormattedMessage id="global.unit" />}
+      />
 
-      <Field type="textarea" name="description" label="Description" />
+      <Field
+        type="textarea"
+        name="description"
+        label={<FormattedMessage id="global.description" />}
+      />
 
       <Button type="submit">
-        {formType === 'register' ? <>Add New Stats</> : <>Update Stats</>}
+        {formType === 'register' ? (
+          <FormattedMessage id="global.addNew" />
+        ) : (
+          <FormattedMessage id="global.update" />
+        )}
       </Button>
     </AppForm>
   );

@@ -73,7 +73,9 @@ export default class ExportManagement extends Component<Props> {
             {
               filter: 'year',
               label: <FormattedMessage id="global.year" />,
-              type: 'text' // text or select
+              type: 'text', // text or select
+              isDefault: true,
+              default: ''
             }
           ]}
           columns={[
