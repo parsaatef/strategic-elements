@@ -1,5 +1,41 @@
 import { gql } from 'apollo-boost';
 
+export const GET_ELEMENT_BY_NAME = gql`
+  query($element: String!) {
+    elementByName(element: $element) {
+      id
+      element
+      elementTitle
+      symbol
+      chemicalFormula
+      phaseAtSTP
+      density
+      meltingPoint
+      boilingPoint
+      hardness
+      toxicity
+      magneticProperty
+      electricalConductivity
+      group
+      period
+      atomicWeight
+      electronegativity
+      oxidationStates
+      electronConfiguration
+      atomicRadius
+      concentrationInEarthsCrust
+      description
+      relatedIndustryDesc
+      technologyLevelDesc
+      lowLevelIndustryDesc
+      threatyDesc
+      secondaryResourcesDesc
+      ecologyDesc
+      username
+    }
+  }
+`;
+
 export const GET_ELEMENT = gql`
   query($id: ID!) {
     element(id: $id) {

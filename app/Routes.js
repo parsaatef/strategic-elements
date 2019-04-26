@@ -66,8 +66,6 @@ import {
   ENVIRONMENT_REGISTER,
   ENVIRONMENT_LIST,
   ENVIRONMENT_EDIT,
-  ADD_NEW_ELEMENT,
-  ADD_NEW_ELEMENT_FCS,
   ELEMENT_DETAIL_FOR_WORLD,
   INFORMATION_OF_ELEMENT,
   SECONDARY_SOURCE,
@@ -85,10 +83,7 @@ import {
 const HomePage = lazy(() => import('./containers/HomePage'));
 const CounterPage = lazy(() => import('./containers/CounterPage'));
 const Signin = lazy(() => import('./components/Auth/Signin'));
-const AddNewElement = lazy(() => import('./components/Elements/AddNewElement'));
-const AddNewElementFCS = lazy(() =>
-  import('./components/Elements/AddNewElementFCS')
-);
+
 const ElementDetailForWorld = lazy(() =>
   import('./components/Elements/ElementDetailForWorld')
 );
@@ -201,16 +196,6 @@ const Routes = ({ session, refetch }: Props) => (
           component={CounterPage}
         />
         <Route path={SIGNIN} render={() => <Signin refetch={refetch} />} />
-        <RestrictedRoute
-          session={session}
-          path={ADD_NEW_ELEMENT}
-          component={AddNewElement}
-        />
-        <RestrictedRoute
-          session={session}
-          path={ADD_NEW_ELEMENT_FCS}
-          component={AddNewElementFCS}
-        />
         <RestrictedRoute
           session={session}
           path={ELEMENT_DETAIL_FOR_WORLD}

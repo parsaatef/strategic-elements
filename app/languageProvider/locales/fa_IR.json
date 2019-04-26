@@ -318,6 +318,9 @@
   "iran.Alborz": "البرز",
 
   "global.confirm": "تایید",
+  "global.select_element": "انتخاب ماده معدنی",
+  "global.map_page_heading": "نقشه منابع و ذخایر {element} در جهان",
+  "global.select_year": "انتخاب سال",
   "global.cancel": "کنسل",
   "global.alert": "هشدار",
   "global.usersList": "لیست کاربران",

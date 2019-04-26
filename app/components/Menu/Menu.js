@@ -25,7 +25,6 @@ import {
   ENVIRONMENT_LIST,
   INFORMATION_OF_WORLD,
   USERS_LIST,
-  PROFILE,
   ELEMENTS_STATS_LIST,
   USER_REGISTER
 } from '../../constants/routes';
@@ -148,7 +147,7 @@ class Menu extends Component<Props> {
                   className="smfp-menu-link menu__link"
                   data-submenu="submenu-3"
                   aria-owns="submenu-3"
-                  to={PROFILE}
+                  to={USERS_LIST}
                 >
                   <img src={item4} alt="img" />
                   <span className="title">ادمین</span>

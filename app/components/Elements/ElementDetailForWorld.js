@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
+import { Query } from 'react-apollo';
 import ImgButton from '../General/ImgButton';
 import item4 from '../../images/menu-item-4.jpg';
 import { SECONDARY_SOURCE } from '../../constants/routes';
 import ElementDetailItem from './ElementDetailItem';
 import PageHeading from '../General/PageHeading';
+import { GET_ELEMENT_STATS } from '../../queries/elementStats';
 
 export default class ElementDetailForWorld extends Component<Props> {
   render() {
+    const { matches } = this.props;
+
+    const { element } = matches;
+
     return (
       <div>
         <PageHeading
@@ -15,15 +21,67 @@ export default class ElementDetailForWorld extends Component<Props> {
           title="جزییات منابع و ذخایر طلا در جهان"
         />
 
-        <div className="main-detail-line">
-          <ElementDetailItem value="4200 تن" name="میزان منابع" />
+        <Query
+          query={GET_ELEMENT_STATS}
+          variables={{
+            locationType: 'world',
+            location: '',
+            year: 2019,
+            elements: [element]
+          }}
+        >
+          {({ data, loading, error, refetch }) => {
+            if (loading) return 'loading.....';
 
-          <ElementDetailItem value="4200 تن" name="مجموع تولید سالانه" />
+            console.log('data, error, refetch', data, error, refetch);
 
-          <ElementDetailItem value="4200 تن" name="مجموع مصرف سالانه" />
+            if (
+              data &&
+              data.searchElementStats &&
+              data.searchElementStats.elements &&
+              data.searchElementStats.elements.length === 1
+            ) {
+              const stats = data.searchElementStats.elements[0];
 
-          <ElementDetailItem value="4200 تن" name="تعداد معادن" />
-        </div>
+              const {
+                resourceValue,
+                productionValue,
+                consumptionValue,
+                mineCount,
+                exportValue,
+                importValue,
+                secondaryProductionValue
+              } = stats;
+
+              return (
+                <div className="main-detail-line">
+                  <ElementDetailItem value={resourceValue} name="میزان منابع" />
+
+                  <ElementDetailItem
+                    value={productionValue}
+                    name="مجموع تولید سالانه"
+                  />
+
+                  <ElementDetailItem
+                    value={consumptionValue}
+                    name="مجموع مصرف سالانه"
+                  />
+
+                  <ElementDetailItem value={mineCount} name="تعداد معادن" />
+
+                  <ElementDetailItem value={exportValue} name="تعداد معادن" />
+
+                  <ElementDetailItem value={importValue} name="تعداد معادن" />
+
+                  <ElementDetailItem
+                    value={secondaryProductionValue}
+                    name="تعداد معادن"
+                  />
+                </div>
+              );
+            }
+          }}
+        </Query>
 
         <Row>
           <Col sm={4}>

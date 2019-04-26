@@ -11,7 +11,7 @@ import {
   GET_ELEMENTS,
   DELETE_ELEMENT,
   MULTI_DELETE_ELEMENTS
-} from './query';
+} from '../../../queries/element';
 
 export default class ElementManagement extends Component<Props> {
   render() {

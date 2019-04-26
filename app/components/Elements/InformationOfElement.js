@@ -1,46 +1,60 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
-import { ELEMENT_DETAIL_FOR_WORLD } from '../../constants/routes';
+import { Query } from 'react-apollo';
+import {
+  INFORMATION_WORLD_DETAIL,
+  INFORMATION_IRAN_DETAIL
+} from '../../constants/routes';
 import ImgButton from '../General/ImgButton';
 import item4 from '../../images/menu-item-4.jpg';
 import PageHeading from '../General/PageHeading';
+import { GET_ELEMENT_BY_NAME } from '../../queries/element';
 
-export default class InformationOfElement extends Component<Props> {
+class InformationOfElement extends Component<Props> {
   render() {
+    const { matches } = this.props;
+
+    const { element } = matches;
+
     return (
       <div>
         <PageHeading className="text-center" title="عنصر طلا" />
 
-        <table className="table table-with-width table-striped table-bordered">
-          <tbody>
-            <tr>
-              <th>Company</th>
-              <th>Contact</th>
-            </tr>
-            <tr>
-              <td>Alfreds</td>
-              <td>Maria Anders</td>
-            </tr>
-            <tr>
-              <td>Berglunds</td>
-              <td>Christina Berglund</td>
-            </tr>
-            <tr>
-              <td>Centro</td>
-              <td>Francisco Chang</td>
-            </tr>
-            <tr>
-              <td>Ernst Handel</td>
-              <td>Roland Mendel</td>
-            </tr>
-          </tbody>
-        </table>
+        <Query
+          query={GET_ELEMENT_BY_NAME}
+          variables={{
+            element
+          }}
+        >
+          {({ data, loading, error, refetch }) => {
+            if (loading) return 'loading.....';
+
+            console.log('data, error, refetch', data, error, refetch);
+
+            return (
+              <>
+                {data && data.elementByName && (
+                  <table className="table table-with-width table-striped table-bordered">
+                    <tbody>
+                      {Object.keys(data.elementByName).map(feature => (
+                        <tr key={feature}>
+                          <td>{feature}</td>
+                          <td>{data.data.elementByName[feature]}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                )}
+              </>
+            );
+          }}
+        </Query>
 
         <Row>
           <Col sm={6}>
             <ImgButton
               className="main-detail-btn-wrap text-left"
-              link={ELEMENT_DETAIL_FOR_WORLD}
+              link={INFORMATION_WORLD_DETAIL.replace(':element', element)}
               src={item4}
               title="جزییات برای جهان"
             />
@@ -49,7 +63,7 @@ export default class InformationOfElement extends Component<Props> {
           <Col sm={6}>
             <ImgButton
               className="main-detail-btn-wrap text-right"
-              link={ELEMENT_DETAIL_FOR_WORLD}
+              link={INFORMATION_IRAN_DETAIL.replace(':element', element)}
               src={item4}
               title="جزییات برای ایران"
             />
@@ -59,3 +73,5 @@ export default class InformationOfElement extends Component<Props> {
     );
   }
 }
+
+export default InformationOfElement;

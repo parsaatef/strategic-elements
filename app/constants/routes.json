@@ -91,8 +91,6 @@
   "USERS_LIST": "/admin/users/list",
   "USER_EDIT": "/admin/user/edit/:id",
 
-  "ADD_NEW_ELEMENT": "/Add-new-element",
-  "ADD_NEW_ELEMENT_FCS": "/Add-new-element-fcs",
   "ELEMENT_DETAIL_FOR_WORLD": "/element-detail-for-world",
   "INFORMATION_OF_ELEMENT": "/information-of-element",
 
@@ -100,6 +98,9 @@
 
   "INFORMATION_OF_IRAN": "/information-of-iran",
   "INFORMATION_OF_WORLD": "/information-of-world",
-  "ADD_NEW_USER": "/Add-new-user",
-  "PROFILE": "/profile"
+
+  "INFORMATION": "/information/:type",
+  "ELEMENT_INFORMATION": "/information/element/:element",
+  "INFORMATION_WORLD_DETAIL": "/information/world/detail/:element",
+  "INFORMATION_IRAN_DETAIL": "/information/iran/detail/:element"
 }

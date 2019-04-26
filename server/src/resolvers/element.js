@@ -69,10 +69,13 @@ export default {
         filters.username = { $in: users };
       }
 
-      const query = Element.find(filters)
+      let query = Element.find(filters)
         .sort({ [sortBy]: sort })
-        .limit(offset)
         .skip(first);
+
+      if (offset && offset > -1) {
+        query = query.limit(offset);
+      }
 
       return {
         elements: query,
@@ -100,6 +103,7 @@ export default {
       }); */
     },
     elements: () => Element.find({}),
+    elementByName: (root, { element }) => Element.findOne({ element }),
     element: (root, { id }) => {
       // , context, info
       // TODO: projection, sanitization
