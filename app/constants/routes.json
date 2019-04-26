@@ -92,7 +92,6 @@
   "USER_EDIT": "/admin/user/edit/:id",
 
   "ELEMENT_DETAIL_FOR_WORLD": "/element-detail-for-world",
-  "INFORMATION_OF_ELEMENT": "/information-of-element",
 
   "SECONDARY_SOURCE": "/secondary-source",
 

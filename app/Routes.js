@@ -67,7 +67,7 @@ import {
   ENVIRONMENT_LIST,
   ENVIRONMENT_EDIT,
   ELEMENT_DETAIL_FOR_WORLD,
-  INFORMATION_OF_ELEMENT,
+  ELEMENT_INFORMATION,
   SECONDARY_SOURCE,
   INFORMATION_OF_IRAN,
   INFORMATION_OF_WORLD,
@@ -203,7 +203,7 @@ const Routes = ({ session, refetch }: Props) => (
         />
         <RestrictedRoute
           session={session}
-          path={INFORMATION_OF_ELEMENT}
+          path={ELEMENT_INFORMATION}
           component={InformationOfElement}
         />
 

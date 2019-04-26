@@ -3,6 +3,7 @@ import { Row, Col } from 'react-bootstrap';
 import * as d3 from 'd3';
 import { Query } from 'react-apollo';
 import { FormattedMessage } from 'react-intl';
+import _ from 'underscore';
 import { ELEMENT_INFORMATION } from '../../constants/routes';
 import Select from '../General/Select';
 import ImgButton from '../General/ImgButton';
@@ -54,7 +55,9 @@ class InformationOfWorld extends Component<Props> {
       year: 2019,
       elements: [],
       group: '',
-      currentElement: {}
+      currentElement: {},
+      elementDefault: {},
+      elementSelectRefresh: ''
     };
 
     this.onChangeElement = this.onChangeElement.bind(this);
@@ -75,8 +78,10 @@ class InformationOfWorld extends Component<Props> {
     });
   }
 
-  setGroupElements(newElements, selectedOption) {
+  setGroupElements(elementsObj, selectedOption) {
     const { group, elements } = this.state;
+
+    const newElements = elementsObj.map(elem => elem.element);
 
     if (group && (!selectedOption || !selectedOption.value)) {
       let isEqual = true;
@@ -93,9 +98,22 @@ class InformationOfWorld extends Component<Props> {
 
       if (!isEqual) {
         this.setState({
-          elements: [...newElements]
+          elements: [...newElements],
+          currentElement: {}
         });
       }
+    } else if (
+      !group &&
+      (!selectedOption || !selectedOption.value) &&
+      newElements.length > 0
+    ) {
+      this.setState({
+        elementDefault: {
+          label: elementsObj[0].elementTitle,
+          value: elementsObj[0].element
+        },
+        elementSelectRefresh: _.uniqueId('element_refresh_')
+      });
     }
   }
 
@@ -106,7 +124,9 @@ class InformationOfWorld extends Component<Props> {
       year,
       elements,
       group,
-      currentElement
+      currentElement,
+      elementDefault,
+      elementSelectRefresh
     } = this.state;
     let idName = 'world-map';
     let widthProps = '80%';
@@ -125,6 +145,10 @@ class InformationOfWorld extends Component<Props> {
       popupTemplateProps = popupTemplate;
       setProjectionProps = irnSetProjection;
     }
+
+    const currGroup = groupsOptions.find(grp => grp.value === group);
+
+    const currGroupLabel = currGroup && currGroup.label ? currGroup.label : '';
 
     return (
       <section>
@@ -153,6 +177,8 @@ class InformationOfWorld extends Component<Props> {
                 group={group}
                 onChangeElement={this.onChangeElement}
                 setGroupElements={this.setGroupElements}
+                elementDefault={elementDefault}
+                elementSelectRefresh={elementSelectRefresh}
               />
             </Col>
 
@@ -167,19 +193,19 @@ class InformationOfWorld extends Component<Props> {
           </Row>
         </div>
 
-        {elements.length === 1 && (
-          <PageHeading
-            className="text-center animated bounce faster"
-            title={
-              <FormattedMessage
-                id="global.map_page_heading"
-                values={{
-                  element: currentElement.elementTitle
-                }}
-              />
-            }
-          />
-        )}
+        <PageHeading
+          className="text-center animated bounce faster"
+          title={
+            <FormattedMessage
+              id="global.map_page_heading"
+              values={{
+                element: currentElement.value
+                  ? currentElement.label
+                  : currGroupLabel
+              }}
+            />
+          }
+        />
 
         <Query
           query={GET_ELEMENTS_STATS}
@@ -211,13 +237,10 @@ class InformationOfWorld extends Component<Props> {
           }}
         </Query>
 
-        {elements.length === 1 && (
+        {currentElement.value && (
           <ImgButton
             className="text-center btn-element-wrap"
-            link={ELEMENT_INFORMATION.replace(
-              ':element',
-              currentElement.element
-            )}
+            link={ELEMENT_INFORMATION.replace(':element', currentElement.value)}
             src={item4}
             title="نمایش اطلاعات عنصر"
           />

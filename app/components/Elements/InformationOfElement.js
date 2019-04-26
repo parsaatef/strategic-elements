@@ -12,9 +12,10 @@ import { GET_ELEMENT_BY_NAME } from '../../queries/element';
 
 class InformationOfElement extends Component<Props> {
   render() {
-    const { matches } = this.props;
+    const { match } = this.props;
 
-    const { element } = matches;
+    const { element } = match.params;
+    alert(element);
 
     return (
       <div>
@@ -39,7 +40,7 @@ class InformationOfElement extends Component<Props> {
                       {Object.keys(data.elementByName).map(feature => (
                         <tr key={feature}>
                           <td>{feature}</td>
-                          <td>{data.data.elementByName[feature]}</td>
+                          <td>{data.elementByName[feature]}</td>
                         </tr>
                       ))}
                     </tbody>

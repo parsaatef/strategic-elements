@@ -10,9 +10,10 @@ import { GET_ELEMENT_STATS } from '../../queries/elementStats';
 
 export default class ElementDetailForWorld extends Component<Props> {
   render() {
-    const { matches } = this.props;
+    const { match } = this.props;
 
-    const { element } = matches;
+    const { element } = match.params;
+    alert(element);
 
     return (
       <div>

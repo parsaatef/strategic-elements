@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactSelect from 'react-select';
 import { Query } from 'react-apollo';
+import _ from 'underscore';
 import { FormattedSimpleMsg } from '../../utils/utility';
 import { GET_ELEMENTS } from '../../queries/element';
 
@@ -26,14 +27,18 @@ class ElementsSelect extends Component<Props> {
   }
 
   componentDidUpdate(prevProps) {
-    const { group } = this.props;
+    const { group, elementSelectRefresh, elementDefault } = this.props;
 
     const self = this;
 
-    if (prevProps.group !== group) {
+    if (prevProps.group !== group && group) {
       self.setState({
         selectedOption: null
       });
+    }
+
+    if (prevProps.elementSelectRefresh !== elementSelectRefresh) {
+      self.handleChange(_.clone(elementDefault));
     }
   }
 
@@ -47,14 +52,21 @@ class ElementsSelect extends Component<Props> {
   render() {
     const { group } = this.props;
 
-    const { selectedOption } = this.state;
-
     return (
       <Query
         query={GET_ELEMENTS}
         variables={{
           group,
           offset: -1
+        }}
+        onCompleted={data => {
+          if (data && data.searchElement && data.searchElement.elements) {
+            const { setGroupElements } = this.props;
+
+            const { selectedOption } = this.state;
+
+            setGroupElements(data.searchElement.elements, selectedOption);
+          }
         }}
       >
         {({ data, loading, error }) => {
@@ -75,14 +87,9 @@ class ElementsSelect extends Component<Props> {
                 value: elem.element
               });
             });
-
-            const { setGroupElements } = this.props;
-
-            setGroupElements(
-              data.searchElement.elements.map(elem => elem.element),
-              selectedOption
-            );
           }
+
+          const { selectedOption } = this.state;
 
           return (
             <ReactSelect
