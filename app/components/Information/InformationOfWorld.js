@@ -8,6 +8,8 @@ import item4 from '../../images/menu-item-4.jpg';
 import PageHeading from '../General/PageHeading';
 import Datamaps from './datamaps';
 import irnTopo from './irn.topo.json';
+import bubblesWorld from '../../utils/world.json';
+import bubblesIran from '../../utils/iran.json';
 
 const MapOptions = [
   { value: 'map', label: 'انتخاب نقشه' },
@@ -35,51 +37,7 @@ const YearOptions = [
   { value: '2016', label: '2016' }
 ];
 
-const BubblesProps = [
-  {
-    name: 'Not a bomb, but centered on Brazil',
-    radius: 8,
-    centered: 'BRA',
-    country: 'USA',
-    yeild: 0,
-    fillKey: 'Default',
-    date: '1954-03-01'
-  },
-  {
-    name: 'Not a bomb',
-    radius: 5,
-    yeild: 0,
-    country: 'USA',
-    centered: 'USA',
-    date: '1986-06-05',
-    significance: 'Centered on US',
-    fillKey: 'Default'
-  },
-  {
-    name: 'Castle Bravo',
-    radius: 7,
-    yeild: 15000,
-    country: 'USA',
-    significance:
-      'First dry fusion fuel "staged" thermonuclear weapon; a serious nuclear fallout accident occurred',
-    fillKey: 'Default',
-    date: '1954-03-01',
-    latitude: 11.415,
-    longitude: 165.1619
-  },
-  {
-    name: 'Tsar Bomba',
-    radius: 18,
-    yeild: 50000,
-    country: 'USSR',
-    fillKey: 'Default',
-    significance:
-      'Largest thermonuclear weapon ever tested—scaled down from its initial 100 Mt design by 50%',
-    date: '1961-10-31',
-    latitude: 73.482,
-    longitude: 54.5854
-  }
-];
+const BubblesProps = bubblesWorld.bubbles;
 
 const popupTemplate = {
   popupTemplate: (geo, data) =>
@@ -88,7 +46,7 @@ const popupTemplate = {
       <ul>
         <li>
           <label class="country" id="country">کشور: </label>
-          <span class="" id="country-value">${data.country}</span>
+          <span class="" id="country-value">${data.name}</span>
         </li>
 
         <li>
@@ -110,30 +68,7 @@ const popupTemplate = {
 };
 const setProjection = null;
 
-const irnBubblesProps = [
-  {
-    name: 'a2',
-    radius: 8,
-    centered: 'IR.TH',
-    state: 'Tehran',
-    yeild: 0,
-    fillKey: 'Default',
-    date: '1954-03-01',
-    latitude: 35.6864,
-    longitude: 51.4328
-  },
-  {
-    name: 'a1',
-    radius: 6,
-    centered: 'IR.YA',
-    state: 'Yazd',
-    yeild: 0,
-    fillKey: 'Default',
-    date: '1954-03-01',
-    latitude: 31.8944,
-    longitude: 54.3695
-  }
-];
+const irnBubblesProps = bubblesIran.bubbles;
 
 const irnSetProjection = () => {
   const projectionD3 = d3.geo

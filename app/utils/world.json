@@ -1,0 +1,1615 @@
+{
+  "bubbles": [
+    {
+      "name": "Afghanistan",
+      "title": "<FormattedMessage id=\"world.Afghanistan\" />",
+      "id": "world.Afghanistan",
+      "country": "AFG",
+      "centered": "AFG",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Angola",
+      "title": "<FormattedMessage id=\"world.Angola\" />",
+      "id": "world.Angola",
+      "country": "AGO",
+      "centered": "AGO",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Albania",
+      "title": "<FormattedMessage id=\"world.Albania\" />",
+      "id": "world.Albania",
+      "country": "ALB",
+      "centered": "ALB",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "United Arab Emirates",
+      "title": "<FormattedMessage id=\"world.UnitedArabEmirates\" />",
+      "id": "world.UnitedArabEmirates",
+      "country": "ARE",
+      "centered": "ARE",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Argentina",
+      "title": "<FormattedMessage id=\"world.Argentina\" />",
+      "id": "world.Argentina",
+      "country": "ARG",
+      "centered": "ARG",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Armenia",
+      "title": "<FormattedMessage id=\"world.Armenia\" />",
+      "id": "world.Armenia",
+      "country": "ARM",
+      "centered": "ARM",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Antarctica",
+      "title": "<FormattedMessage id=\"world.Antarctica\" />",
+      "id": "world.Antarctica",
+      "country": "ATA",
+      "centered": "ATA",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "",
+      "title": "<FormattedMessage id=\"world.FrenchSouthernAndAntarcticLands\" />",
+      "id": "world.FrenchSouthernAndAntarcticLands",
+      "country": "ATF",
+      "centered": "ATF",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Australia",
+      "title": "<FormattedMessage id=\"world.Australia\" />",
+      "id": "world.Australia",
+      "country": "AUS",
+      "centered": "AUS",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Austria",
+      "title": "<FormattedMessage id=\"world.Austria\" />",
+      "id": "world.Austria",
+      "country": "AUT",
+      "centered": "AUT",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Azerbaijan",
+      "title": "<FormattedMessage id=\"world.Azerbaijan\" />",
+      "id": "world.Azerbaijan",
+      "country": "AZE",
+      "centered": "AZE",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Burundi",
+      "title": "<FormattedMessage id=\"world.Burundi\" />",
+      "id": "world.Burundi",
+      "country": "BDI",
+      "centered": "BDI",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Belgium",
+      "title": "<FormattedMessage id=\"world.Belgium\" />",
+      "id": "world.Belgium",
+      "country": "BEL",
+      "centered": "BEL",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Benin",
+      "title": "<FormattedMessage id=\"world.Benin\" />",
+      "id": "world.Benin",
+      "country": "BEN",
+      "centered": "BEN",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Burkina Faso",
+      "title": "<FormattedMessage id=\"world.BurkinaFaso\" />",
+      "id": "world.BurkinaFaso",
+      "country": "BFA",
+      "centered": "BFA",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Bangladesh",
+      "title": "<FormattedMessage id=\"world.Bangladesh\" />",
+      "id": "world.Bangladesh",
+      "country": "BGD",
+      "centered": "BGD",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Bulgaria",
+      "title": "<FormattedMessage id=\"world.Bulgaria\" />",
+      "id": "world.Bulgaria",
+      "country": "BGR",
+      "centered": "BGR",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "TheBahamas",
+      "title": "<FormattedMessage id=\"world.TheBahamas\" />",
+      "id": "world.TheBahamas",
+      "country": "BHS",
+      "centered": "BHS",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Bosnia and Herzegovina",
+      "title": "<FormattedMessage id=\"world.BosniaAndHerzegovina\" />",
+      "id": "world.BosniaAndHerzegovina",
+      "country": "BIH",
+      "centered": "BIH",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Belarus",
+      "title": "<FormattedMessage id=\"world.Belarus\" />",
+      "id": "world.Belarus",
+      "country": "BLR",
+      "centered": "BLR",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Belize",
+      "title": "<FormattedMessage id=\"world.Belize\" />",
+      "id": "world.Belize",
+      "country": "BLZ",
+      "centered": "BLZ",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Bolivia",
+      "title": "<FormattedMessage id=\"world.Bolivia\" />",
+      "id": "world.Bolivia",
+      "country": "BOL",
+      "centered": "BOL",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Brazil",
+      "title": "<FormattedMessage id=\"world.Brazil\" />",
+      "id": "world.Brazil",
+      "country": "BRA",
+      "centered": "BRA",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Brunei",
+      "title": "<FormattedMessage id=\"world.Brunei\" />",
+      "id": "world.Brunei",
+      "country": "BRN",
+      "centered": "BRN",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Bhutan",
+      "title": "<FormattedMessage id=\"world.Bhutan\" />",
+      "id": "world.Bhutan",
+      "country": "BTN",
+      "centered": "BTN",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Botswana",
+      "title": "<FormattedMessage id=\"world.Botswana\" />",
+      "id": "world.Botswana",
+      "country": "BWA",
+      "centered": "BWA",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Central African Republic",
+      "title": "<FormattedMessage id=\"world.CentralAfricanRepublic\" />",
+      "id": "world.CentralAfricanRepublic",
+      "country": "CAF",
+      "centered": "CAF",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Canada",
+      "title": "<FormattedMessage id=\"world.Canada\" />",
+      "id": "world.Canada",
+      "country": "CAN",
+      "centered": "CAN",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Switzerland",
+      "title": "<FormattedMessage id=\"world.Switzerland\" />",
+      "id": "world.Switzerland",
+      "country": "CHE",
+      "centered": "CHE",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Chile",
+      "title": "<FormattedMessage id=\"world.Chile\" />",
+      "id": "world.Chile",
+      "country": "CHL",
+      "centered": "CHL",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "China",
+      "title": "<FormattedMessage id=\"world.China\" />",
+      "id": "world.China",
+      "country": "CHN",
+      "centered": "CHN",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Ivory Coast",
+      "title": "<FormattedMessage id=\"world.IvoryCoast\" />",
+      "id": "world.IvoryCoast",
+      "country": "CIV",
+      "centered": "CIV",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Cameroon",
+      "title": "<FormattedMessage id=\"world.Cameroon\" />",
+      "id": "world.Cameroon",
+      "country": "CMR",
+      "centered": "CMR",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Democratic Republic of the Congo",
+      "title": "<FormattedMessage id=\"world.DemocraticRepublicOfTheCongo\" />",
+      "id": "world.DemocraticRepublicOfTheCongo",
+      "country": "COD",
+      "centered": "COD",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Republic of the Congo",
+      "title": "<FormattedMessage id=\"world.RepublicOfTheCongo\" />",
+      "id": "world.RepublicOfTheCongo",
+      "country": "COG",
+      "centered": "COG",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Colombia",
+      "title": "<FormattedMessage id=\"world.Colombia\" />",
+      "id": "world.Colombia",
+      "country": "COL",
+      "centered": "COL",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Costa Rica",
+      "title": "<FormattedMessage id=\"world.CostaRica\" />",
+      "id": "world.CostaRica",
+      "country": "CRI",
+      "centered": "CRI",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "",
+      "title": "<FormattedMessage id=\"world.\" />",
+      "id": "world.",
+      "country": "",
+      "centered": "",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Cuba",
+      "title": "<FormattedMessage id=\"world.Cuba\" />",
+      "id": "world.Cuba",
+      "country": "CUB",
+      "centered": "CUB",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Northern Cyprus",
+      "title": "<FormattedMessage id=\"world.NorthernCyprus\" />",
+      "id": "world.NorthernCyprus",
+      "country": "NNN",
+      "centered": "NNN",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Cyprus",
+      "title": "<FormattedMessage id=\"world.Cyprus\" />",
+      "id": "world.Cyprus",
+      "country": "CYP",
+      "centered": "CYP",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "",
+      "title": "<FormattedMessage id=\"world.CzechRepublic\" />",
+      "id": "world.CzechRepublic",
+      "country": "CZE",
+      "centered": "CZE",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Germany",
+      "title": "<FormattedMessage id=\"world.Germany\" />",
+      "id": "world.Germany",
+      "country": "DEU",
+      "centered": "DEU",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Djibouti",
+      "title": "<FormattedMessage id=\"world.Djibouti\" />",
+      "id": "world.Djibouti",
+      "country": "DJI",
+      "centered": "DJI",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Denmark",
+      "title": "<FormattedMessage id=\"world.Denmark\" />",
+      "id": "world.Denmark",
+      "country": "DNK",
+      "centered": "DNK",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Dominican Republic",
+      "title": "<FormattedMessage id=\"world.DominicanRepublic\" />",
+      "id": "world.DominicanRepublic",
+      "country": "DOM",
+      "centered": "DOM",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Algeria",
+      "title": "<FormattedMessage id=\"world.Algeria\" />",
+      "id": "world.Algeria",
+      "country": "DZA",
+      "centered": "DZA",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Ecuador",
+      "title": "<FormattedMessage id=\"world.Ecuador\" />",
+      "id": "world.Ecuador",
+      "country": "ECU",
+      "centered": "ECU",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Egypt",
+      "title": "<FormattedMessage id=\"world.Egypt\" />",
+      "id": "world.Egypt",
+      "country": "EGY",
+      "centered": "EGY",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Eritrea",
+      "title": "<FormattedMessage id=\"world.Eritrea\" />",
+      "id": "world.Eritrea",
+      "country": "ERI",
+      "centered": "ERI",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Spain",
+      "title": "<FormattedMessage id=\"world.Spain\" />",
+      "id": "world.Spain",
+      "country": "ESP",
+      "centered": "ESP",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Estonia",
+      "title": "<FormattedMessage id=\"world.Estonia\" />",
+      "id": "world.Estonia",
+      "country": "EST",
+      "centered": "EST",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Ethiopia",
+      "title": "<FormattedMessage id=\"world.Ethiopia\" />",
+      "id": "world.Ethiopia",
+      "country": "ETH",
+      "centered": "ETH",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Finland",
+      "title": "<FormattedMessage id=\"world.Finland\" />",
+      "id": "world.Finland",
+      "country": "FIN",
+      "centered": "FIN",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Fiji",
+      "title": "<FormattedMessage id=\"world.Fiji\" />",
+      "id": "world.Fiji",
+      "country": "FJI",
+      "centered": "FJI",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Falkland Islands",
+      "title": "<FormattedMessage id=\"world.FalklandIslands\" />",
+      "id": "world.FalklandIslands",
+      "country": "FLK",
+      "centered": "FLK",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "France",
+      "title": "<FormattedMessage id=\"world.France\" />",
+      "id": "world.France",
+      "country": "FRA",
+      "centered": "FRA",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "French Guiana",
+      "title": "<FormattedMessage id=\"world.FrenchGuiana\" />",
+      "id": "world.FrenchGuiana",
+      "country": "GUF",
+      "centered": "GUF",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Gabon",
+      "title": "<FormattedMessage id=\"world.Gabon\" />",
+      "id": "world.Gabon",
+      "country": "GAB",
+      "centered": "GAB",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "United Kingdom",
+      "title": "<FormattedMessage id=\"world.UnitedKingdom\" />",
+      "id": "world.UnitedKingdom",
+      "country": "GBR",
+      "centered": "GBR",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Georgia",
+      "title": "<FormattedMessage id=\"world.Georgia\" />",
+      "id": "world.Georgia",
+      "country": "GEO",
+      "centered": "GEO",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Ghana",
+      "title": "<FormattedMessage id=\"world.Ghana\" />",
+      "id": "world.Ghana",
+      "country": "GHA",
+      "centered": "GHA",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Guinea",
+      "title": "<FormattedMessage id=\"world.Guinea\" />",
+      "id": "world.Guinea",
+      "country": "GIN",
+      "centered": "GIN",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Gambia",
+      "title": "<FormattedMessage id=\"world.Gambia\" />",
+      "id": "world.Gambia",
+      "country": "GMB",
+      "centered": "GMB",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Guinea Bissau",
+      "title": "<FormattedMessage id=\"world.GuineaBissau\" />",
+      "id": "world.GuineaBissau",
+      "country": "GNB",
+      "centered": "GNB",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Equatorial Guinea",
+      "title": "<FormattedMessage id=\"world.EquatorialGuinea\" />",
+      "id": "world.EquatorialGuinea",
+      "country": "GNQ",
+      "centered": "GNQ",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Greece",
+      "title": "<FormattedMessage id=\"world.Greece\" />",
+      "id": "world.Greece",
+      "country": "GRC",
+      "centered": "GRC",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Greenland",
+      "title": "<FormattedMessage id=\"world.Greenland\" />",
+      "id": "world.Greenland",
+      "country": "GRL",
+      "centered": "GRL",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Guatemala",
+      "title": "<FormattedMessage id=\"world.Guatemala\" />",
+      "id": "world.Guatemala",
+      "country": "GTM",
+      "centered": "GTM",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Guyana",
+      "title": "<FormattedMessage id=\"world.Guyana\" />",
+      "id": "world.Guyana",
+      "country": "GUY",
+      "centered": "GUY",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Honduras",
+      "title": "<FormattedMessage id=\"world.Honduras\" />",
+      "id": "world.Honduras",
+      "country": "HND",
+      "centered": "HND",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Croatia",
+      "title": "<FormattedMessage id=\"world.Croatia\" />",
+      "id": "world.Croatia",
+      "country": "HRV",
+      "centered": "HRV",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Haiti",
+      "title": "<FormattedMessage id=\"world.Haiti\" />",
+      "id": "world.Haiti",
+      "country": "HTI",
+      "centered": "HTI",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Hungary",
+      "title": "<FormattedMessage id=\"world.Hungary\" />",
+      "id": "world.Hungary",
+      "country": "HUN",
+      "centered": "HUN",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Indonesia",
+      "title": "<FormattedMessage id=\"world.Indonesia\" />",
+      "id": "world.Indonesia",
+      "country": "IDN",
+      "centered": "IDN",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "India",
+      "title": "<FormattedMessage id=\"world.India\" />",
+      "id": "world.India",
+      "country": "IND",
+      "centered": "IND",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Ireland",
+      "title": "<FormattedMessage id=\"world.Ireland\" />",
+      "id": "world.Ireland",
+      "country": "IRL",
+      "centered": "IRL",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Iran",
+      "title": "<FormattedMessage id=\"world.Iran\" />",
+      "id": "world.Iran",
+      "country": "IRN",
+      "centered": "IRN",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Iraq",
+      "title": "<FormattedMessage id=\"world.Iraq\" />",
+      "id": "world.Iraq",
+      "country": "IRQ",
+      "centered": "IRQ",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Iceland",
+      "title": "<FormattedMessage id=\"world.Iceland\" />",
+      "id": "world.Iceland",
+      "country": "ISL",
+      "centered": "ISL",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Israel",
+      "title": "<FormattedMessage id=\"world.Israel\" />",
+      "id": "world.Israel",
+      "country": "ISR",
+      "centered": "ISR",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Italy",
+      "title": "<FormattedMessage id=\"world.Italy\" />",
+      "id": "world.Italy",
+      "country": "ITA",
+      "centered": "ITA",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Jamaica",
+      "title": "<FormattedMessage id=\"world.Jamaica\" />",
+      "id": "world.Jamaica",
+      "country": "JAM",
+      "centered": "JAM",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Jordan",
+      "title": "<FormattedMessage id=\"world.Jordan\" />",
+      "id": "world.Jordan",
+      "country": "JOR",
+      "centered": "JOR",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Japan",
+      "title": "<FormattedMessage id=\"world.Japan\" />",
+      "id": "world.Japan",
+      "country": "JPN",
+      "centered": "JPN",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Kazakhstan",
+      "title": "<FormattedMessage id=\"world.Kazakhstan\" />",
+      "id": "world.Kazakhstan",
+      "country": "KAZ",
+      "centered": "KAZ",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Kenya",
+      "title": "<FormattedMessage id=\"world.Kenya\" />",
+      "id": "world.Kenya",
+      "country": "KEN",
+      "centered": "KEN",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Kyrgyzstan",
+      "title": "<FormattedMessage id=\"world.Kyrgyzstan\" />",
+      "id": "world.Kyrgyzstan",
+      "country": "KGZ",
+      "centered": "KGZ",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Cambodia",
+      "title": "<FormattedMessage id=\"world.Cambodia\" />",
+      "id": "world.Cambodia",
+      "country": "KHM",
+      "centered": "KHM",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "South Korea",
+      "title": "<FormattedMessage id=\"world.SouthKorea\" />",
+      "id": "world.SouthKorea",
+      "country": "KOR",
+      "centered": "KOR",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Kosovo",
+      "title": "<FormattedMessage id=\"world.Kosovo\" />",
+      "id": "world.Kosovo",
+      "country": "KKK",
+      "centered": "KKK",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Kuwait",
+      "title": "<FormattedMessage id=\"world.Kuwait\" />",
+      "id": "world.Kuwait",
+      "country": "KWT",
+      "centered": "KWT",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Laos",
+      "title": "<FormattedMessage id=\"world.Laos\" />",
+      "id": "world.Laos",
+      "country": "LAO",
+      "centered": "LAO",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Lebanon",
+      "title": "<FormattedMessage id=\"world.Lebanon\" />",
+      "id": "world.Lebanon",
+      "country": "LBN",
+      "centered": "LBN",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Liberia",
+      "title": "<FormattedMessage id=\"world.Liberia\" />",
+      "id": "world.Liberia",
+      "country": "LBR",
+      "centered": "LBR",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Libya",
+      "title": "<FormattedMessage id=\"world.Libya\" />",
+      "id": "world.Libya",
+      "country": "LBY",
+      "centered": "LBY",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Sri Lanka",
+      "title": "<FormattedMessage id=\"world.SriLanka\" />",
+      "id": "world.SriLanka",
+      "country": "LKA",
+      "centered": "LKA",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Lesotho",
+      "title": "<FormattedMessage id=\"world.Lesotho\" />",
+      "id": "world.Lesotho",
+      "country": "LSO",
+      "centered": "LSO",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Lithuania",
+      "title": "<FormattedMessage id=\"world.Lithuania\" />",
+      "id": "world.Lithuania",
+      "country": "LTU",
+      "centered": "LTU",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Luxembourg",
+      "title": "<FormattedMessage id=\"world.Luxembourg\" />",
+      "id": "world.Luxembourg",
+      "country": "LUX",
+      "centered": "LUX",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Latvia",
+      "title": "<FormattedMessage id=\"world.Latvia\" />",
+      "id": "world.Latvia",
+      "country": "LVA",
+      "centered": "LVA",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Morocco",
+      "title": "<FormattedMessage id=\"world.Morocco\" />",
+      "id": "world.Morocco",
+      "country": "MAR",
+      "centered": "MAR",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Moldova",
+      "title": "<FormattedMessage id=\"world.Moldova\" />",
+      "id": "world.Moldova",
+      "country": "MDA",
+      "centered": "MDA",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Madagascar",
+      "title": "<FormattedMessage id=\"world.Madagascar\" />",
+      "id": "world.Madagascar",
+      "country": "MDG",
+      "centered": "MDG",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Mexico",
+      "title": "<FormattedMessage id=\"world.Mexico\" />",
+      "id": "world.Mexico",
+      "country": "MEX",
+      "centered": "MEX",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Macedonia",
+      "title": "<FormattedMessage id=\"world.Macedonia\" />",
+      "id": "world.Macedonia",
+      "country": "MKD",
+      "centered": "MKD",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Mali",
+      "title": "<FormattedMessage id=\"world.Mali\" />",
+      "id": "world.Mali",
+      "country": "MLI",
+      "centered": "MLI",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Myanmar",
+      "title": "<FormattedMessage id=\"world.Myanmar\" />",
+      "id": "world.Myanmar",
+      "country": "MMR",
+      "centered": "MMR",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Montenegro",
+      "title": "<FormattedMessage id=\"world.Montenegro\" />",
+      "id": "world.Montenegro",
+      "country": "MNE",
+      "centered": "MNE",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Mongolia",
+      "title": "<FormattedMessage id=\"world.Mongolia\" />",
+      "id": "world.Mongolia",
+      "country": "MNG",
+      "centered": "MNG",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Mozambique",
+      "title": "<FormattedMessage id=\"world.Mozambique\" />",
+      "id": "world.Mozambique",
+      "country": "MOZ",
+      "centered": "MOZ",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Mauritania",
+      "title": "<FormattedMessage id=\"world.Mauritania\" />",
+      "id": "world.Mauritania",
+      "country": "MRT",
+      "centered": "MRT",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Malawi",
+      "title": "<FormattedMessage id=\"world.Malawi\" />",
+      "id": "world.Malawi",
+      "country": "MWI",
+      "centered": "MWI",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Malaysia",
+      "title": "<FormattedMessage id=\"world.Malaysia\" />",
+      "id": "world.Malaysia",
+      "country": "MYS",
+      "centered": "MYS",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Namibia",
+      "title": "<FormattedMessage id=\"world.Namibia\" />",
+      "id": "world.Namibia",
+      "country": "NAM",
+      "centered": "NAM",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "New Caledonia",
+      "title": "<FormattedMessage id=\"world.NewCaledonia\" />",
+      "id": "world.NewCaledonia",
+      "country": "NCL",
+      "centered": "NCL",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Niger",
+      "title": "<FormattedMessage id=\"world.Niger\" />",
+      "id": "world.Niger",
+      "country": "NER",
+      "centered": "NER",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Nigeria",
+      "title": "<FormattedMessage id=\"world.Nigeria\" />",
+      "id": "world.Nigeria",
+      "country": "NGA",
+      "centered": "NGA",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Nicaragua",
+      "title": "<FormattedMessage id=\"world.Nicaragua\" />",
+      "id": "world.Nicaragua",
+      "country": "NIC",
+      "centered": "NIC",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Netherlands",
+      "title": "<FormattedMessage id=\"world.Netherlands\" />",
+      "id": "world.Netherlands",
+      "country": "NLD",
+      "centered": "NLD",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Norway",
+      "title": "<FormattedMessage id=\"world.Norway\" />",
+      "id": "world.Norway",
+      "country": "NOR",
+      "centered": "NOR",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Nepal",
+      "title": "<FormattedMessage id=\"world.Nepal\" />",
+      "id": "world.Nepal",
+      "country": "NPL",
+      "centered": "NPL",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "New Zealand",
+      "title": "<FormattedMessage id=\"world.NewZealand\" />",
+      "id": "world.NewZealand",
+      "country": "NZL",
+      "centered": "NZL",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Oman",
+      "title": "<FormattedMessage id=\"world.Oman\" />",
+      "id": "world.Oman",
+      "country": "OMN",
+      "centered": "OMN",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Pakistan",
+      "title": "<FormattedMessage id=\"world.Pakistan\" />",
+      "id": "world.Pakistan",
+      "country": "PAK",
+      "centered": "PAK",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Panama",
+      "title": "<FormattedMessage id=\"world.Panama\" />",
+      "id": "world.Panama",
+      "country": "PAN",
+      "centered": "PAN",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Peru",
+      "title": "<FormattedMessage id=\"world.Peru\" />",
+      "id": "world.Peru",
+      "country": "PER",
+      "centered": "PER",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Philippines",
+      "title": "<FormattedMessage id=\"world.Philippines\" />",
+      "id": "world.Philippines",
+      "country": "PHL",
+      "centered": "PHL",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Papua New Guinea",
+      "title": "<FormattedMessage id=\"world.PapuaNewGuinea\" />",
+      "id": "world.PapuaNewGuinea",
+      "country": "PNG",
+      "centered": "PNG",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Poland",
+      "title": "<FormattedMessage id=\"world.Poland\" />",
+      "id": "world.Poland",
+      "country": "POL",
+      "centered": "POL",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Puerto Rico",
+      "title": "<FormattedMessage id=\"world.PuertoRico\" />",
+      "id": "world.PuertoRico",
+      "country": "PRI",
+      "centered": "PRI",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "North Korea",
+      "title": "<FormattedMessage id=\"world.NorthKorea\" />",
+      "id": "world.NorthKorea",
+      "country": "PRK",
+      "centered": "PRK",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Portugal",
+      "title": "<FormattedMessage id=\"world.Portugal\" />",
+      "id": "world.Portugal",
+      "country": "PRT",
+      "centered": "PRT",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Paraguay",
+      "title": "<FormattedMessage id=\"world.Paraguay\" />",
+      "id": "world.Paraguay",
+      "country": "PRY",
+      "centered": "PRY",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Qatar",
+      "title": "<FormattedMessage id=\"world.Qatar\" />",
+      "id": "world.Qatar",
+      "country": "QAT",
+      "centered": "QAT",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Romania",
+      "title": "<FormattedMessage id=\"world.Romania\" />",
+      "id": "world.Romania",
+      "country": "ROU",
+      "centered": "ROU",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Russia",
+      "title": "<FormattedMessage id=\"world.Russia\" />",
+      "id": "world.Russia",
+      "country": "RUS",
+      "centered": "RUS",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Rwanda",
+      "title": "<FormattedMessage id=\"world.Rwanda\" />",
+      "id": "world.Rwanda",
+      "country": "RWA",
+      "centered": "RWA",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Western Sahara",
+      "title": "<FormattedMessage id=\"world.WesternSahara\" />",
+      "id": "world.WesternSahara",
+      "country": "ESH",
+      "centered": "ESH",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Saudi Arabia",
+      "title": "<FormattedMessage id=\"world.SaudiArabia\" />",
+      "id": "world.SaudiArabia",
+      "country": "SAU",
+      "centered": "SAU",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Sudan",
+      "title": "<FormattedMessage id=\"world.Sudan\" />",
+      "id": "world.Sudan",
+      "country": "SDN",
+      "centered": "SDN",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "South Sudan",
+      "title": "<FormattedMessage id=\"world.SouthSudan\" />",
+      "id": "world.SouthSudan",
+      "country": "SSD",
+      "centered": "SSD",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Senegal",
+      "title": "<FormattedMessage id=\"world.Senegal\" />",
+      "id": "world.Senegal",
+      "country": "SEN",
+      "centered": "SEN",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Solomon Islands",
+      "title": "<FormattedMessage id=\"world.SolomonIslands\" />",
+      "id": "world.SolomonIslands",
+      "country": "SLB",
+      "centered": "SLB",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Sierra Leone",
+      "title": "<FormattedMessage id=\"world.SierraLeone\" />",
+      "id": "world.SierraLeone",
+      "country": "SLE",
+      "centered": "SLE",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "El Salvador",
+      "title": "<FormattedMessage id=\"world.ElSalvador\" />",
+      "id": "world.ElSalvador",
+      "country": "SLV",
+      "centered": "SLV",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Somaliland",
+      "title": "<FormattedMessage id=\"world.Somaliland\" />",
+      "id": "world.Somaliland",
+      "country": "SSS",
+      "centered": "SSS",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Somalia",
+      "title": "<FormattedMessage id=\"world.Somalia\" />",
+      "id": "world.Somalia",
+      "country": "SOM",
+      "centered": "SOM",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Republic of Serbia",
+      "title": "<FormattedMessage id=\"world.RepublicOfSerbia\" />",
+      "id": "world.RepublicOfSerbia",
+      "country": "SRB",
+      "centered": "SRB",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Suriname",
+      "title": "<FormattedMessage id=\"world.Suriname\" />",
+      "id": "world.Suriname",
+      "country": "SUR",
+      "centered": "SUR",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Slovakia",
+      "title": "<FormattedMessage id=\"world.Slovakia\" />",
+      "id": "world.Slovakia",
+      "country": "SVK",
+      "centered": "SVK",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Slovenia",
+      "title": "<FormattedMessage id=\"world.Slovenia\" />",
+      "id": "world.Slovenia",
+      "country": "SVN",
+      "centered": "SVN",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Sweden",
+      "title": "<FormattedMessage id=\"world.Sweden\" />",
+      "id": "world.Sweden",
+      "country": "SWE",
+      "centered": "SWE",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Swaziland",
+      "title": "<FormattedMessage id=\"world.Swaziland\" />",
+      "id": "world.Swaziland",
+      "country": "SWZ",
+      "centered": "SWZ",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Syria",
+      "title": "<FormattedMessage id=\"world.Syria\" />",
+      "id": "world.Syria",
+      "country": "SYR",
+      "centered": "SYR",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Chad",
+      "title": "<FormattedMessage id=\"world.Chad\" />",
+      "id": "world.Chad",
+      "country": "TCD",
+      "centered": "TCD",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Togo",
+      "title": "<FormattedMessage id=\"world.Togo\" />",
+      "id": "world.Togo",
+      "country": "TGO",
+      "centered": "TGO",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Thailand",
+      "title": "<FormattedMessage id=\"world.Thailand\" />",
+      "id": "world.Thailand",
+      "country": "THA",
+      "centered": "THA",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Tajikistan",
+      "title": "<FormattedMessage id=\"world.Tajikistan\" />",
+      "id": "world.Tajikistan",
+      "country": "TJK",
+      "centered": "TJK",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Turkmenistan",
+      "title": "<FormattedMessage id=\"world.Turkmenistan\" />",
+      "id": "world.Turkmenistan",
+      "country": "TKM",
+      "centered": "TKM",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "East Timor",
+      "title": "<FormattedMessage id=\"world.EastTimor\" />",
+      "id": "world.EastTimor",
+      "country": "TLS",
+      "centered": "TLS",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Trinidad and Tobago",
+      "title": "<FormattedMessage id=\"world.TrinidadAndTobago\" />",
+      "id": "world.TrinidadAndTobago",
+      "country": "TTO",
+      "centered": "TTO",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Tunisia",
+      "title": "<FormattedMessage id=\"world.Tunisia\" />",
+      "id": "world.Tunisia",
+      "country": "TUN",
+      "centered": "TUN",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Turkey",
+      "title": "<FormattedMessage id=\"world.Turkey\" />",
+      "id": "world.Turkey",
+      "country": "TUR",
+      "centered": "TUR",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Taiwan",
+      "title": "<FormattedMessage id=\"world.Taiwan\" />",
+      "id": "world.Taiwan",
+      "country": "TWN",
+      "centered": "TWN",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "United Republic of Tanzania",
+      "title": "<FormattedMessage id=\"world.UnitedRepublicofTanzania\" />",
+      "id": "world.UnitedRepublicofTanzania",
+      "country": "TZA",
+      "centered": "TZA",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Uganda",
+      "title": "<FormattedMessage id=\"world.Uganda\" />",
+      "id": "world.Uganda",
+      "country": "UGA",
+      "centered": "UGA",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Ukraine",
+      "title": "<FormattedMessage id=\"world.Ukraine\" />",
+      "id": "world.Ukraine",
+      "country": "UKR",
+      "centered": "UKR",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Uruguay",
+      "title": "<FormattedMessage id=\"world.Uruguay\" />",
+      "id": "world.Uruguay",
+      "country": "URY",
+      "centered": "URY",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "United States of America",
+      "title": "<FormattedMessage id=\"world.UnitedStatesofAmerica\" />",
+      "id": "world.UnitedStatesofAmerica",
+      "country": "USA",
+      "centered": "USA",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Uzbekistan",
+      "title": "<FormattedMessage id=\"world.Uzbekistan\" />",
+      "id": "world.Uzbekistan",
+      "country": "UZB",
+      "centered": "UZB",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Venezuela",
+      "title": "<FormattedMessage id=\"world.Venezuela\" />",
+      "id": "world.Venezuela",
+      "country": "VEN",
+      "centered": "VEN",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Vietnam",
+      "title": "<FormattedMessage id=\"world.Vietnam\" />",
+      "id": "world.Vietnam",
+      "country": "VNM",
+      "centered": "VNM",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Vanuatu",
+      "title": "<FormattedMessage id=\"world.Vanuatu\" />",
+      "id": "world.Vanuatu",
+      "country": "VUT",
+      "centered": "VUT",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "West Bank",
+      "title": "<FormattedMessage id=\"world.WestBank\" />",
+      "id": "world.WestBank",
+      "country": "PSE",
+      "centered": "PSE",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Yemen",
+      "title": "<FormattedMessage id=\"world.Yemen\" />",
+      "id": "world.Yemen",
+      "country": "YEM",
+      "centered": "YEM",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "South Africa",
+      "title": "<FormattedMessage id=\"world.SouthAfrica\" />",
+      "id": "world.SouthAfrica",
+      "country": "ZAF",
+      "centered": "ZAF",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Zambia",
+      "title": "<FormattedMessage id=\"world.Zambia\" />",
+      "id": "world.Zambia",
+      "country": "ZMB",
+      "centered": "ZMB",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
+      "name": "Zimbabwe",
+      "title": "<FormattedMessage id=\"world.Zimbabwe\" />",
+      "id": "world.Zimbabwe",
+      "country": "ZWE",
+      "centered": "ZWE",
+      "fillKey": "Default",
+      "radius": "5"
+    }
+  ]
+}
