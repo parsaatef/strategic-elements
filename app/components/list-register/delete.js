@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import { connect } from 'react-redux';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { addStaticVariables } from '../../utils/utility';
@@ -33,9 +33,11 @@ class DeleteAction extends Component<Props> {
   }
 
   removeActionConfirm(removeItem) {
-    const { dispatch, handleShow, handleHide } = this.props;
+    const { dispatch, handleShow, handleHide, intl } = this.props;
 
-    dispatch(setMessage('test.....'));
+    const { formatMessage } = intl;
+
+    dispatch(setMessage(formatMessage({ id: 'global.deleteMessage' })));
 
     handleShow();
 
@@ -84,6 +86,10 @@ class DeleteAction extends Component<Props> {
   }
 }
 
+DeleteAction.propTypes = {
+  intl: intlShape.isRequired
+};
+
 const mapDispatchToProps = dispatch => ({
   handleShow: () => dispatch(showModal()),
   handleHide: () => dispatch(hideModal()),
@@ -93,4 +99,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   null,
   mapDispatchToProps
-)(DeleteAction);
+)(injectIntl(DeleteAction));

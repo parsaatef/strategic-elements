@@ -17,7 +17,7 @@ class Field extends Component {
       ...rest
     } = this.props;
 
-    if (type === 'text' || type === 'number') {
+    if (type === 'text' || type === 'number' || type === 'password') {
       return (
         <TextInput
           type={type}

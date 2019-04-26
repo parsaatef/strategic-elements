@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { HOME, INFORMATION_OF_WORLD, PROFILE } from '../constants/routes';
+import { HOME, INFORMATION_OF_WORLD, USERS_LIST } from '../constants/routes';
 import item1 from '../images/menu-item-1.jpg';
 import item3 from '../images/menu-item-3.jpg';
 import item4 from '../images/menu-item-4.jpg';
@@ -43,7 +43,7 @@ export default class Home extends Component<Props> {
                 </Link>
               </div>
               <div className="col-sm-4 col-xs-6">
-                <Link className="smfp-main-item-wrap" to={PROFILE}>
+                <Link className="smfp-main-item-wrap" to={USERS_LIST}>
                   <div className="img">
                     <img src={item4} alt="img" />
                   </div>

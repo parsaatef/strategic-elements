@@ -9,6 +9,15 @@
   "global.element": "عنصر",
   "global.elements": "عناصر",
   "global.username": "نام کاربری",
+  "global.name": "نام",
+  "global.email": "ایمیل",
+  "global.signUp": "ثبت کاربر",
+  "global.role": "نقش",
+  "global.select_role": "انتخاب نقش",
+  "global.user_role": "کاربر عادی",
+  "global.admin_role": "مدیر",
+  "global.password": "رمز عبور",
+  "global.passwordConfirmation": "تایید رمز عبور",
   "global.actions": "عملیات",
   "global.value": "مقدار",
   "global.veryHigh": "خیلی زیاد",
@@ -95,5 +104,11 @@
   "global.secondaryProductionList": "تولید ثانویه",
   "global.secondarySourceList": "منابع ثانویه",
   "global.totalStatsList": "آمار کلی",
-  "global.elementsStatsList": "آمار مواد معدنی"
+  "global.elementsStatsList": "آمار مواد معدنی",
+  "global.confirm": "تایید",
+  "global.cancel": "کنسل",
+  "global.alert": "هشدار",
+  "global.usersList": "لیست کاربران",
+  "global.deleteMessage": "آیا از حذف این آیتم مطمئن هستید؟",
+  "global.multiDeleteMessage": "آیا از حذف این آیتم ها مطمئن هستید؟"
 }

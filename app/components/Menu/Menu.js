@@ -24,10 +24,10 @@ import {
   THREATS_LIST,
   ENVIRONMENT_LIST,
   INFORMATION_OF_WORLD,
-  ADD_NEW_USER,
   USERS_LIST,
   PROFILE,
-  ELEMENTS_STATS_LIST
+  ELEMENTS_STATS_LIST,
+  USER_REGISTER
 } from '../../constants/routes';
 import logo from '../../images/logo.jpg';
 import item1 from '../../images/menu-item-1.jpg';
@@ -36,6 +36,7 @@ import item4 from '../../images/menu-item-4.jpg';
 import classie from '../../assets/js/MultiLevelMenu/classie';
 import MLMenu from '../../assets/js/MultiLevelMenu/main';
 import '../../assets/css/MultiLevelMenu/component.css';
+import withSession from '../HOC/withSession';
 // import Signout from '../Auth/Signout';
 
 class Menu extends Component<Props> {
@@ -82,6 +83,10 @@ class Menu extends Component<Props> {
   }
 
   render() {
+    const { session } = this.props;
+
+    const { getCurrentUser } = session;
+
     return (
       <div className="smfp-header-wrap">
         <header className="smfp-header">
@@ -186,7 +191,7 @@ class Menu extends Component<Props> {
                   className="smfp-menu-link menu__link"
                   data-submenu="submenu-3-1"
                   aria-owns="submenu-3-1"
-                  to={ADD_NEW_USER}
+                  to={USERS_LIST}
                 >
                   <span>مدیریت کاربر</span>
                 </Link>
@@ -373,7 +378,7 @@ class Menu extends Component<Props> {
               aria-label="مدیریت کاربر"
             >
               <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link className="smfp-menu-link menu__link" to={ADD_NEW_USER}>
+                <Link className="smfp-menu-link menu__link" to={USER_REGISTER}>
                   <span>افزودن کاربر</span>
                 </Link>
               </li>
@@ -383,7 +388,10 @@ class Menu extends Component<Props> {
                 </Link>
               </li>
               <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link className="smfp-menu-link menu__link" to={PROFILE}>
+                <Link
+                  className="smfp-menu-link menu__link"
+                  to={`/admin/user/edit/${getCurrentUser.id}`}
+                >
                   <span>پروفایل</span>
                 </Link>
               </li>
@@ -399,4 +407,4 @@ const mapStateToProps = state => ({
   location: state.router.location
 });
 
-export default connect(mapStateToProps)(Menu);
+export default connect(mapStateToProps)(withSession(Menu));

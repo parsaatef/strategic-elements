@@ -17,6 +17,11 @@ const name = Joi.string()
   .required()
   .label('Name');
 
+const role = Joi.string()
+  .max(40)
+  .required()
+  .label('Role');
+
 const password = Joi.string()
   .min(8)
   .max(50)
@@ -38,10 +43,18 @@ export const signUp = Joi.object().keys({
   email,
   username,
   name,
-  password
+  password,
+  role
 });
 
 export const signIn = Joi.object().keys({
   email,
   password
+});
+
+export const updateUser = Joi.object().keys({
+  email,
+  name,
+  password,
+  role
 });

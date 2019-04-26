@@ -73,12 +73,10 @@ import {
   SECONDARY_SOURCE,
   INFORMATION_OF_IRAN,
   INFORMATION_OF_WORLD,
-  ADD_NEW_USER,
   USERS_LIST,
   USER_REGISTER,
   USER_EDIT,
   SIGNIN,
-  PROFILE,
   ELEMENT_STATS_REGISTER,
   ELEMENTS_STATS_LIST,
   ELEMENT_STATS_EDIT
@@ -103,8 +101,7 @@ const InformationOfIran = lazy(() =>
 const InformationOfWorld = lazy(() =>
   import('./components/Information/InformationOfWorld')
 );
-const UsersList = lazy(() => import('./components/Users/UsersList'));
-const Profile = lazy(() => import('./components/Users/Profile'));
+
 const MineralManagement = lazy(() =>
   import('./containers/admin/mineral/mineralManagement')
 );
@@ -240,11 +237,6 @@ const Routes = ({ session, refetch }: Props) => (
           session={session}
           path={INFORMATION_OF_WORLD}
           component={InformationOfWorld}
-        />
-        <RestrictedRoute
-          session={session}
-          path={ADD_NEW_USER}
-          component={UsersList}
         />
 
         <RestrictedRoute
@@ -598,7 +590,6 @@ const Routes = ({ session, refetch }: Props) => (
           component={ElementStatsManagement}
         />
 
-        <RestrictedRoute session={session} path={PROFILE} component={Profile} />
         <Redirect to="/" />
       </Switch>
     </Suspense>

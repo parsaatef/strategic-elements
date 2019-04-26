@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import { Mutation } from 'react-apollo';
 import { Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
@@ -33,9 +33,11 @@ class MultiDeleteAction extends Component<Props> {
   }
 
   removeActionConfirm(multiRemoveItems) {
-    const { dispatch, handleShow, handleHide } = this.props;
+    const { dispatch, handleShow, handleHide, intl } = this.props;
 
-    dispatch(setMessage('test.....'));
+    const { formatMessage } = intl;
+
+    dispatch(setMessage(formatMessage({ id: 'global.multiDeleteMessage' })));
 
     handleShow();
 
@@ -75,6 +77,10 @@ class MultiDeleteAction extends Component<Props> {
   }
 }
 
+MultiDeleteAction.propTypes = {
+  intl: intlShape.isRequired
+};
+
 const mapDispatchToProps = dispatch => ({
   handleShow: () => dispatch(showModal()),
   handleHide: () => dispatch(hideModal()),
@@ -84,4 +90,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   null,
   mapDispatchToProps
-)(MultiDeleteAction);
+)(injectIntl(MultiDeleteAction));

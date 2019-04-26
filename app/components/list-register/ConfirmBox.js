@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { hideModal } from '../../actions/confirmBox';
+import { FormattedSimpleMsg } from '../../utils/utility';
 
 const { Header, Title, Body, Footer } = Modal;
 
@@ -26,14 +27,18 @@ class ConfirmBox extends Component<Props> {
           centered
         >
           <Header closeButton>
-            <Title id="contained-modal-title-vcenter">Delete</Title>
+            <Title id="contained-modal-title-vcenter">
+              <FormattedSimpleMsg id="global.alert" />
+            </Title>
           </Header>
           <Body>{message}</Body>
           <Footer>
             <Button variant="secondary" onClick={handleHide}>
-              Cancel
+              <FormattedSimpleMsg id="global.cancel" />
             </Button>
-            <Button onClick={confirmAction}>Confirm</Button>
+            <Button onClick={confirmAction}>
+              <FormattedSimpleMsg id="global.confirm" />
+            </Button>
           </Footer>
         </Modal>
       </div>
