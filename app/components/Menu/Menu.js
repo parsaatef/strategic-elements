@@ -85,7 +85,10 @@ class Menu extends Component<Props> {
   render() {
     const { session } = this.props;
 
-    const { getCurrentUser } = session;
+    const currentUserId =
+      session && session.getCurrentUser && session.getCurrentUser.id
+        ? session.getCurrentUser.id
+        : 0;
 
     return (
       <div className="smfp-header-wrap">
@@ -387,14 +390,16 @@ class Menu extends Component<Props> {
                   <span>لیست کاربران</span>
                 </Link>
               </li>
-              <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link
-                  className="smfp-menu-link menu__link"
-                  to={`/admin/user/edit/${getCurrentUser.id}`}
-                >
-                  <span>پروفایل</span>
-                </Link>
-              </li>
+              {currentUserId && (
+                <li className="smfp-menu-item menu__item" role="menuitem">
+                  <Link
+                    className="smfp-menu-link menu__link"
+                    to={`/admin/user/edit/${currentUserId}`}
+                  >
+                    <span>پروفایل</span>
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
         </nav>
