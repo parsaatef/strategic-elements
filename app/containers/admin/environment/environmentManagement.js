@@ -31,7 +31,7 @@ export default class EnvironmentManagement extends Component<Props> {
           id={id}
           form={ElementForm}
           schema={schema}
-          hasElementTab
+          hasElementTab={false}
           registerRoute={ENVIRONMENT_REGISTER}
           listRoute={ENVIRONMENT_LIST}
           editRoute={ENVIRONMENT_EDIT.replace('/:id', '')}
