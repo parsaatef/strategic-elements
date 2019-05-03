@@ -50,7 +50,7 @@ class InformationOfWorld extends Component<Props> {
     super(props);
 
     this.state = {
-      locationType: 'world',
+      locationType: 'iran',
       year: 2019,
       elements: [],
       group: '',

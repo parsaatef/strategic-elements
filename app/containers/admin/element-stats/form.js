@@ -4,6 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import {
   FormattedSimpleMsg,
   getCountries,
+  getStates,
   getYearOptions
 } from '../../../utils/utility';
 import AppForm from '../../../components/form/AppForm';
@@ -28,7 +29,19 @@ const ElementForm = (props: Props) => {
       schema={validationSchema}
     >
       {(values, errors) => {
-        console.log('--values, errors---', values, errors);
+        console.log(
+          '--values**************, errors---',
+          values.locationType,
+          errors
+        );
+
+        let locationOptions = getCountries();
+
+        if (values.locationType === 'iran') {
+          locationOptions = getStates();
+        } else {
+          locationOptions = getCountries();
+        }
 
         return (
           <>
@@ -55,7 +68,7 @@ const ElementForm = (props: Props) => {
               type="select"
               name="location"
               label={<FormattedMessage id="global.location" />}
-              options={getCountries()}
+              options={locationOptions}
               placeholder={<FormattedSimpleMsg id="global.location" />}
             />
 
