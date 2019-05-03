@@ -50,7 +50,6 @@ class InformationOfWorld extends Component<Props> {
     super(props);
 
     this.state = {
-      scope: 'world', // irn
       locationType: 'world',
       year: 2019,
       elements: [],
@@ -119,7 +118,6 @@ class InformationOfWorld extends Component<Props> {
 
   render() {
     const {
-      scope,
       locationType,
       year,
       elements,
@@ -128,6 +126,8 @@ class InformationOfWorld extends Component<Props> {
       elementDefault,
       elementSelectRefresh
     } = this.state;
+
+    let scopeProps = 'world';
     let idName = 'world-map';
     let widthProps = '80%';
     let heightProps = '65vh';
@@ -136,7 +136,8 @@ class InformationOfWorld extends Component<Props> {
     let popupTemplateProps = popupTemplate;
     let setProjectionProps = setProjection;
 
-    if (scope === 'irn') {
+    if (locationType === 'iran') {
+      scopeProps = 'irn';
       idName = 'iran-map';
       widthProps = '85%';
       heightProps = '65vh';
@@ -278,7 +279,7 @@ class InformationOfWorld extends Component<Props> {
                 idName={idName}
                 widthProps={widthProps}
                 heightProps={heightProps}
-                scopeProps={scope}
+                scopeProps={scopeProps}
                 dataUrlProps={dataUrlProps}
                 bubblesProps={Countries}
                 popupTemplateProps={popupTemplateProps}
