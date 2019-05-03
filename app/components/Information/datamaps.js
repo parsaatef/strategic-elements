@@ -15,7 +15,7 @@ export default class Datamaps extends Component<Props> {
       prevProps.scopeProps !== scopeProps ||
       prevProps.idName !== idName ||
       prevProps.dataUrlProps !== dataUrlProps ||
-      _.isEqual(prevProps.bubblesProps, bubblesProps)
+      !_.isEqual(prevProps.bubblesProps, bubblesProps)
     ) {
       this.createDataMap();
     }
@@ -30,6 +30,8 @@ export default class Datamaps extends Component<Props> {
       popupTemplateProps,
       setProjectionProps
     } = this.props;
+
+    document.getElementById(idName).innerHTML = '';
 
     const myMapTest = new Datamap({
       element: document.getElementById(idName),
