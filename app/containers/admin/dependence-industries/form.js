@@ -4,6 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import { FormattedSimpleMsg } from '../../../utils/utility';
 import AppForm from '../../../components/form/AppForm';
 import Field from '../../../components/form/Field';
+import ElementsSelect from '../../../components/form/ElementsSelect';
 
 const Options = [
   { value: 'very_high', label: <FormattedSimpleMsg id="global.veryHigh" /> },
@@ -43,16 +44,7 @@ const DependenceIndustriesForm = (props: Props) => {
         placeholder={<FormattedMessage id="global.dependentLevel" />}
       />
 
-      <Field
-        type="select"
-        name="element"
-        label={<FormattedMessage id="global.element" />}
-        options={[
-          { value: 'element1', label: 'Element 1' },
-          { value: 'element2', label: 'Element 2' }
-        ]}
-        placeholder={<FormattedSimpleMsg id="global.selectElement" />}
-      />
+      <ElementsSelect />
 
       <Button type="submit">
         {formType === 'register' ? (

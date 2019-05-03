@@ -4,6 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import { FormattedSimpleMsg } from '../../../utils/utility';
 import AppForm from '../../../components/form/AppForm';
 import Field from '../../../components/form/Field';
+import ElementsSelect from '../../../components/form/ElementsSelect';
 
 const AbundanceOptions = [
   { value: 'Abundance1', label: 'Abundance1' },
@@ -52,17 +53,7 @@ const MineralForm = (props: Props) => {
         label={<FormattedMessage id="global.color" />}
       />
 
-      <Field
-        multiple
-        type="select"
-        name="elements"
-        label={<FormattedMessage id="global.elements" />}
-        options={[
-          { value: 'element1', label: 'Element 1' },
-          { value: 'element2', label: 'Element 2' }
-        ]}
-        placeholder={<FormattedSimpleMsg id="global.selectElement" />}
-      />
+      <ElementsSelect />
 
       <Field
         type="textarea"

@@ -1,7 +1,11 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
-import { FormattedSimpleMsg, getCountries } from '../../../utils/utility';
+import {
+  FormattedSimpleMsg,
+  getCountries,
+  getYearOptions
+} from '../../../utils/utility';
 import AppForm from '../../../components/form/AppForm';
 import Field from '../../../components/form/Field';
 import ElementsSelect from '../../../components/form/ElementsSelect';
@@ -15,6 +19,7 @@ type Props = {
 
 const ElementForm = (props: Props) => {
   const { onSubmit, formType, initialValues, validationSchema } = props;
+  const yearOptions = getYearOptions(1950, 2050);
 
   return (
     <AppForm
@@ -40,21 +45,15 @@ const ElementForm = (props: Props) => {
         name="location"
         label={<FormattedMessage id="global.location" />}
         options={getCountries()}
-        placeholder={<FormattedSimpleMsg id="global.selectElement" />}
-      />
-
-      <Field
-        type="select"
-        name="location"
-        label={<FormattedMessage id="global.location" />}
-        options={getCountries()}
         placeholder={<FormattedSimpleMsg id="global.location" />}
       />
 
       <Field
-        type="number"
+        type="select"
         name="year"
         label={<FormattedMessage id="global.year" />}
+        options={yearOptions}
+        placeholder={<FormattedSimpleMsg id="global.year" />}
       />
 
       <Field
