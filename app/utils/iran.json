@@ -2,7 +2,7 @@
   "States": [
     {
       "name": "Kohgiluyeh and Buyer Ahmad",
-      "title": "<FormattedMessage id=\"iran.KohgiluyehAndBuyerAhmad\" />",
+      "title": "iran.KohgiluyehAndBuyerAhmad",
       "id": "iran.KohgiluyehAndBuyerAhmad",
       "state": "Kohgiluyeh and Buyer Ahmad",
       "centered": "IR.KB",
@@ -13,7 +13,7 @@
     },
     {
       "name": "Bushehr",
-      "title": "<FormattedMessage id=\"iran.Bushehr\" />",
+      "title": "iran.Bushehr",
       "id": "iran.Bushehr",
       "state": "Bushehr",
       "centered": "IR.BS",
@@ -24,7 +24,7 @@
     },
     {
       "name": "Esfahan",
-      "title": "<FormattedMessage id=\"iran.Esfahan\" />",
+      "title": "iran.Esfahan",
       "id": "iran.Esfahan",
       "state": "Esfahan",
       "centered": "IR.ES",
@@ -35,7 +35,7 @@
     },
     {
       "name": "Fars",
-      "title": "<FormattedMessage id=\"iran.Fars\" />",
+      "title": "iran.Fars",
       "id": "iran.Fars",
       "state": "Fars",
       "centered": "IR.FA",
@@ -46,7 +46,7 @@
     },
     {
       "name": "Golestan",
-      "title": "<FormattedMessage id=\"iran.Golestan\" />",
+      "title": "iran.Golestan",
       "id": "iran.Golestan",
       "state": "Golestan",
       "centered": "IR.GO",
@@ -57,7 +57,7 @@
     },
     {
       "name": "Mazandaran",
-      "title": "<FormattedMessage id=\"iran.Mazandaran\" />",
+      "title": "iran.Mazandaran",
       "id": "iran.Mazandaran",
       "state": "Mazandaran",
       "centered": "IR.MN",
@@ -68,7 +68,7 @@
     },
     {
       "name": "Semnan",
-      "title": "<FormattedMessage id=\"iran.Semnan\" />",
+      "title": "iran.Semnan",
       "id": "iran.Semnan",
       "state": "Semnan",
       "centered": "IR.SM",
@@ -79,7 +79,7 @@
     },
     {
       "name": "Tehran",
-      "title": "<FormattedMessage id=\"iran.Tehran\" />",
+      "title": "iran.Tehran",
       "id": "iran.Tehran",
       "state": "Tehran",
       "centered": "IR.TH",
@@ -90,7 +90,7 @@
     },
     {
       "name": "Yazd",
-      "title": "<FormattedMessage id=\"iran.Yazd\" />",
+      "title": "iran.Yazd",
       "id": "iran.Yazd",
       "state": "Yazd",
       "centered": "IR.YA",
@@ -101,7 +101,7 @@
     },
     {
       "name": "Chahar Mahall and Bakhtiari",
-      "title": "<FormattedMessage id=\"iran.ChaharMahallAndBakhtiari\" />",
+      "title": "iran.ChaharMahallAndBakhtiari",
       "id": "iran.ChaharMahallAndBakhtiari",
       "state": "Chahar Mahall and Bakhtiari",
       "centered": "IR.CM",
@@ -112,7 +112,7 @@
     },
     {
       "name": "Khuzestan",
-      "title": "<FormattedMessage id=\"iran.Khuzestan\" />",
+      "title": "iran.Khuzestan",
       "id": "iran.Khuzestan",
       "state": "Khuzestan",
       "centered": "IR.KZ",
@@ -123,7 +123,7 @@
     },
     {
       "name": "Lorestan",
-      "title": "<FormattedMessage id=\"iran.Lorestan\" />",
+      "title": "iran.Lorestan",
       "id": "iran.Lorestan",
       "state": "Lorestan",
       "centered": "IR.LO",
@@ -134,7 +134,7 @@
     },
     {
       "name": "Ilam",
-      "title": "<FormattedMessage id=\"iran.Ilam\" />",
+      "title": "iran.Ilam",
       "id": "iran.Ilam",
       "state": "Ilam",
       "centered": "IR.IL",
@@ -145,7 +145,7 @@
     },
     {
       "name": "Hormozgan",
-      "title": "<FormattedMessage id=\"iran.Hormozgan\" />",
+      "title": "iran.Hormozgan",
       "id": "iran.Hormozgan",
       "state": "Hormozgan",
       "centered": "IR.HG",
@@ -156,7 +156,7 @@
     },
     {
       "name": "Ardebil",
-      "title": "<FormattedMessage id=\"iran.Ardebil\" />",
+      "title": "iran.Ardebil",
       "id": "iran.Ardebil",
       "state": "Ardebil",
       "centered": "IR.AR",
@@ -167,7 +167,7 @@
     },
     {
       "name": "Markazi",
-      "title": "<FormattedMessage id=\"iran.Markazi\" />",
+      "title": "iran.Markazi",
       "id": "iran.Markazi",
       "state": "Markazi",
       "centered": "IR.MK",
@@ -178,7 +178,7 @@
     },
     {
       "name": "Qom",
-      "title": "<FormattedMessage id=\"iran.Qom\" />",
+      "title": "iran.Qom",
       "id": "iran.Qom",
       "state": "Qom",
       "centered": "IR.QM",
@@ -189,7 +189,7 @@
     },
     {
       "name": "Hamadan",
-      "title": "<FormattedMessage id=\"iran.Hamadan\" />",
+      "title": "iran.Hamadan",
       "id": "iran.Hamadan",
       "state": "Hamadan",
       "centered": "IR.HD",
@@ -200,7 +200,7 @@
     },
     {
       "name": "Zanjan",
-      "title": "<FormattedMessage id=\"iran.Zanjan\" />",
+      "title": "iran.Zanjan",
       "id": "iran.Zanjan",
       "state": "Zanjan",
       "centered": "IR.ZA",
@@ -211,7 +211,7 @@
     },
     {
       "name": "Qazvin",
-      "title": "<FormattedMessage id=\"iran.Qazvin\" />",
+      "title": "iran.Qazvin",
       "id": "iran.Qazvin",
       "state": "Qazvin",
       "centered": "IR.QZ",
@@ -222,7 +222,7 @@
     },
     {
       "name": "West Azarbaijan",
-      "title": "<FormattedMessage id=\"iran.WestAzarbaijan\" />",
+      "title": "iran.WestAzarbaijan",
       "id": "iran.WestAzarbaijan",
       "state": "West Azarbaijan",
       "centered": "IR.WA",
@@ -233,7 +233,7 @@
     },
     {
       "name": "East Azarbaijan",
-      "title": "<FormattedMessage id=\"iran.EastAzarbaijan\" />",
+      "title": "iran.EastAzarbaijan",
       "id": "iran.EastAzarbaijan",
       "state": "East Azarbaijan",
       "centered": "IR.EA",
@@ -244,7 +244,7 @@
     },
     {
       "name": "Kermanshah",
-      "title": "<FormattedMessage id=\"iran.Kermanshah\" />",
+      "title": "iran.Kermanshah",
       "id": "iran.Kermanshah",
       "state": "Kermanshah",
       "centered": "IR.BK",
@@ -255,7 +255,7 @@
     },
     {
       "name": "Gilan",
-      "title": "<FormattedMessage id=\"iran.Gilan\" />",
+      "title": "iran.Gilan",
       "id": "iran.Gilan",
       "state": "Gilan",
       "centered": "IR.GI",
@@ -266,7 +266,7 @@
     },
     {
       "name": "Kordestan",
-      "title": "<FormattedMessage id=\"iran.Kordestan\" />",
+      "title": "iran.Kordestan",
       "id": "iran.Kordestan",
       "state": "Kordestan",
       "centered": "IR.KD",
@@ -277,7 +277,7 @@
     },
     {
       "name": "South Khorasan",
-      "title": "<FormattedMessage id=\"iran.SouthKhorasan\" />",
+      "title": "iran.SouthKhorasan",
       "id": "iran.SouthKhorasan",
       "state": "South Khorasan",
       "centered": "IR.KJ",
@@ -288,7 +288,7 @@
     },
     {
       "name": "Razavi Khorasan",
-      "title": "<FormattedMessage id=\"iran.RazaviKhorasan\" />",
+      "title": "iran.RazaviKhorasan",
       "id": "iran.RazaviKhorasan",
       "state": "Razavi Khorasan",
       "centered": "IR.KV",
@@ -299,7 +299,7 @@
     },
     {
       "name": "North Khorasan",
-      "title": "<FormattedMessage id=\"iran.NorthKhorasan\" />",
+      "title": "iran.NorthKhorasan",
       "id": "iran.Nort Khorasan",
       "state": "North Khorasan",
       "centered": "IR.KS",
@@ -310,7 +310,7 @@
     },
     {
       "name": "Sistan and Baluchestan",
-      "title": "<FormattedMessage id=\"iran.SistanAndBaluchestan\" />",
+      "title": "iran.SistanAndBaluchestan",
       "id": "iran.SistanAndBaluchestan",
       "state": "Sistan and Baluchestan",
       "centered": "IR.SB",
@@ -321,7 +321,7 @@
     },
     {
       "name": "Kerman",
-      "title": "<FormattedMessage id=\"iran.Kerman\" />",
+      "title": "iran.Kerman",
       "id": "iran.Kerman",
       "state": "Kerman",
       "centered": "IR.KE",
@@ -332,7 +332,7 @@
     },
     {
       "name": "Alborz",
-      "title": "<FormattedMessage id=\"iran.Alborz\" />",
+      "title": "iran.Alborz",
       "id": "iran.Alborz",
       "state": "Alborz",
       "centered": "IR.AL",

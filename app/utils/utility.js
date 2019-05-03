@@ -56,7 +56,7 @@ export function getCountries() {
 
   countries.forEach(country => {
     options.push({
-      label: country.title,
+      label: <FormattedSimpleMsg id={country.title} />,
       value: country.country
     });
   });

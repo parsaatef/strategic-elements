@@ -2,7 +2,7 @@
   "Countries": [
     {
       "name": "Afghanistan",
-      "title": "<FormattedMessage id=\"world.Afghanistan\" />",
+      "title": "world.Afghanistan",
       "id": "world.Afghanistan",
       "country": "AFG",
       "centered": "AFG",
@@ -11,7 +11,7 @@
     },
     {
       "name": "Angola",
-      "title": "<FormattedMessage id=\"world.Angola\" />",
+      "title": "world.Angola",
       "id": "world.Angola",
       "country": "AGO",
       "centered": "AGO",
@@ -20,7 +20,7 @@
     },
     {
       "name": "Albania",
-      "title": "<FormattedMessage id=\"world.Albania\" />",
+      "title": "world.Albania",
       "id": "world.Albania",
       "country": "ALB",
       "centered": "ALB",
@@ -29,7 +29,7 @@
     },
     {
       "name": "United Arab Emirates",
-      "title": "<FormattedMessage id=\"world.UnitedArabEmirates\" />",
+      "title": "world.UnitedArabEmirates",
       "id": "world.UnitedArabEmirates",
       "country": "ARE",
       "centered": "ARE",
@@ -38,7 +38,7 @@
     },
     {
       "name": "Argentina",
-      "title": "<FormattedMessage id=\"world.Argentina\" />",
+      "title": "world.Argentina",
       "id": "world.Argentina",
       "country": "ARG",
       "centered": "ARG",
@@ -47,7 +47,7 @@
     },
     {
       "name": "Armenia",
-      "title": "<FormattedMessage id=\"world.Armenia\" />",
+      "title": "world.Armenia",
       "id": "world.Armenia",
       "country": "ARM",
       "centered": "ARM",
@@ -56,7 +56,7 @@
     },
     {
       "name": "Antarctica",
-      "title": "<FormattedMessage id=\"world.Antarctica\" />",
+      "title": "world.Antarctica",
       "id": "world.Antarctica",
       "country": "ATA",
       "centered": "ATA",
@@ -65,7 +65,7 @@
     },
     {
       "name": "",
-      "title": "<FormattedMessage id=\"world.FrenchSouthernAndAntarcticLands\" />",
+      "title": "world.FrenchSouthernAndAntarcticLands",
       "id": "world.FrenchSouthernAndAntarcticLands",
       "country": "ATF",
       "centered": "ATF",
@@ -74,7 +74,7 @@
     },
     {
       "name": "Australia",
-      "title": "<FormattedMessage id=\"world.Australia\" />",
+      "title": "world.Australia",
       "id": "world.Australia",
       "country": "AUS",
       "centered": "AUS",
@@ -83,7 +83,7 @@
     },
     {
       "name": "Austria",
-      "title": "<FormattedMessage id=\"world.Austria\" />",
+      "title": "world.Austria",
       "id": "world.Austria",
       "country": "AUT",
       "centered": "AUT",
@@ -92,7 +92,7 @@
     },
     {
       "name": "Azerbaijan",
-      "title": "<FormattedMessage id=\"world.Azerbaijan\" />",
+      "title": "world.Azerbaijan",
       "id": "world.Azerbaijan",
       "country": "AZE",
       "centered": "AZE",
@@ -101,7 +101,7 @@
     },
     {
       "name": "Burundi",
-      "title": "<FormattedMessage id=\"world.Burundi\" />",
+      "title": "world.Burundi",
       "id": "world.Burundi",
       "country": "BDI",
       "centered": "BDI",
@@ -110,7 +110,7 @@
     },
     {
       "name": "Belgium",
-      "title": "<FormattedMessage id=\"world.Belgium\" />",
+      "title": "world.Belgium",
       "id": "world.Belgium",
       "country": "BEL",
       "centered": "BEL",
@@ -119,7 +119,7 @@
     },
     {
       "name": "Benin",
-      "title": "<FormattedMessage id=\"world.Benin\" />",
+      "title": "world.Benin",
       "id": "world.Benin",
       "country": "BEN",
       "centered": "BEN",
@@ -128,7 +128,7 @@
     },
     {
       "name": "Burkina Faso",
-      "title": "<FormattedMessage id=\"world.BurkinaFaso\" />",
+      "title": "world.BurkinaFaso",
       "id": "world.BurkinaFaso",
       "country": "BFA",
       "centered": "BFA",
@@ -137,7 +137,7 @@
     },
     {
       "name": "Bangladesh",
-      "title": "<FormattedMessage id=\"world.Bangladesh\" />",
+      "title": "world.Bangladesh",
       "id": "world.Bangladesh",
       "country": "BGD",
       "centered": "BGD",
@@ -146,7 +146,7 @@
     },
     {
       "name": "Bulgaria",
-      "title": "<FormattedMessage id=\"world.Bulgaria\" />",
+      "title": "world.Bulgaria",
       "id": "world.Bulgaria",
       "country": "BGR",
       "centered": "BGR",
@@ -155,7 +155,7 @@
     },
     {
       "name": "TheBahamas",
-      "title": "<FormattedMessage id=\"world.TheBahamas\" />",
+      "title": "world.TheBahamas",
       "id": "world.TheBahamas",
       "country": "BHS",
       "centered": "BHS",
@@ -164,7 +164,7 @@
     },
     {
       "name": "Bosnia and Herzegovina",
-      "title": "<FormattedMessage id=\"world.BosniaAndHerzegovina\" />",
+      "title": "world.BosniaAndHerzegovina",
       "id": "world.BosniaAndHerzegovina",
       "country": "BIH",
       "centered": "BIH",
@@ -173,7 +173,7 @@
     },
     {
       "name": "Belarus",
-      "title": "<FormattedMessage id=\"world.Belarus\" />",
+      "title": "world.Belarus",
       "id": "world.Belarus",
       "country": "BLR",
       "centered": "BLR",
@@ -182,7 +182,7 @@
     },
     {
       "name": "Belize",
-      "title": "<FormattedMessage id=\"world.Belize\" />",
+      "title": "world.Belize",
       "id": "world.Belize",
       "country": "BLZ",
       "centered": "BLZ",
@@ -191,7 +191,7 @@
     },
     {
       "name": "Bolivia",
-      "title": "<FormattedMessage id=\"world.Bolivia\" />",
+      "title": "world.Bolivia",
       "id": "world.Bolivia",
       "country": "BOL",
       "centered": "BOL",
@@ -200,7 +200,7 @@
     },
     {
       "name": "Brazil",
-      "title": "<FormattedMessage id=\"world.Brazil\" />",
+      "title": "world.Brazil",
       "id": "world.Brazil",
       "country": "BRA",
       "centered": "BRA",
@@ -209,7 +209,7 @@
     },
     {
       "name": "Brunei",
-      "title": "<FormattedMessage id=\"world.Brunei\" />",
+      "title": "world.Brunei",
       "id": "world.Brunei",
       "country": "BRN",
       "centered": "BRN",
@@ -218,7 +218,7 @@
     },
     {
       "name": "Bhutan",
-      "title": "<FormattedMessage id=\"world.Bhutan\" />",
+      "title": "world.Bhutan",
       "id": "world.Bhutan",
       "country": "BTN",
       "centered": "BTN",
@@ -227,7 +227,7 @@
     },
     {
       "name": "Botswana",
-      "title": "<FormattedMessage id=\"world.Botswana\" />",
+      "title": "world.Botswana",
       "id": "world.Botswana",
       "country": "BWA",
       "centered": "BWA",
@@ -236,7 +236,7 @@
     },
     {
       "name": "Central African Republic",
-      "title": "<FormattedMessage id=\"world.CentralAfricanRepublic\" />",
+      "title": "world.CentralAfricanRepublic",
       "id": "world.CentralAfricanRepublic",
       "country": "CAF",
       "centered": "CAF",
@@ -245,7 +245,7 @@
     },
     {
       "name": "Canada",
-      "title": "<FormattedMessage id=\"world.Canada\" />",
+      "title": "world.Canada",
       "id": "world.Canada",
       "country": "CAN",
       "centered": "CAN",
@@ -254,7 +254,7 @@
     },
     {
       "name": "Switzerland",
-      "title": "<FormattedMessage id=\"world.Switzerland\" />",
+      "title": "world.Switzerland",
       "id": "world.Switzerland",
       "country": "CHE",
       "centered": "CHE",
@@ -263,7 +263,7 @@
     },
     {
       "name": "Chile",
-      "title": "<FormattedMessage id=\"world.Chile\" />",
+      "title": "world.Chile",
       "id": "world.Chile",
       "country": "CHL",
       "centered": "CHL",
@@ -272,7 +272,7 @@
     },
     {
       "name": "China",
-      "title": "<FormattedMessage id=\"world.China\" />",
+      "title": "world.China",
       "id": "world.China",
       "country": "CHN",
       "centered": "CHN",
@@ -281,7 +281,7 @@
     },
     {
       "name": "Ivory Coast",
-      "title": "<FormattedMessage id=\"world.IvoryCoast\" />",
+      "title": "world.IvoryCoast",
       "id": "world.IvoryCoast",
       "country": "CIV",
       "centered": "CIV",
@@ -290,7 +290,7 @@
     },
     {
       "name": "Cameroon",
-      "title": "<FormattedMessage id=\"world.Cameroon\" />",
+      "title": "world.Cameroon",
       "id": "world.Cameroon",
       "country": "CMR",
       "centered": "CMR",
@@ -299,7 +299,7 @@
     },
     {
       "name": "Democratic Republic of the Congo",
-      "title": "<FormattedMessage id=\"world.DemocraticRepublicOfTheCongo\" />",
+      "title": "world.DemocraticRepublicOfTheCongo",
       "id": "world.DemocraticRepublicOfTheCongo",
       "country": "COD",
       "centered": "COD",
@@ -308,7 +308,7 @@
     },
     {
       "name": "Republic of the Congo",
-      "title": "<FormattedMessage id=\"world.RepublicOfTheCongo\" />",
+      "title": "world.RepublicOfTheCongo",
       "id": "world.RepublicOfTheCongo",
       "country": "COG",
       "centered": "COG",
@@ -317,7 +317,7 @@
     },
     {
       "name": "Colombia",
-      "title": "<FormattedMessage id=\"world.Colombia\" />",
+      "title": "world.Colombia",
       "id": "world.Colombia",
       "country": "COL",
       "centered": "COL",
@@ -326,7 +326,7 @@
     },
     {
       "name": "Costa Rica",
-      "title": "<FormattedMessage id=\"world.CostaRica\" />",
+      "title": "world.CostaRica",
       "id": "world.CostaRica",
       "country": "CRI",
       "centered": "CRI",
@@ -335,7 +335,7 @@
     },
     {
       "name": "",
-      "title": "<FormattedMessage id=\"world.\" />",
+      "title": "world.",
       "id": "world.",
       "country": "",
       "centered": "",
@@ -344,7 +344,7 @@
     },
     {
       "name": "Cuba",
-      "title": "<FormattedMessage id=\"world.Cuba\" />",
+      "title": "world.Cuba",
       "id": "world.Cuba",
       "country": "CUB",
       "centered": "CUB",
@@ -353,7 +353,7 @@
     },
     {
       "name": "Northern Cyprus",
-      "title": "<FormattedMessage id=\"world.NorthernCyprus\" />",
+      "title": "world.NorthernCyprus",
       "id": "world.NorthernCyprus",
       "country": "NNN",
       "centered": "NNN",
@@ -362,7 +362,7 @@
     },
     {
       "name": "Cyprus",
-      "title": "<FormattedMessage id=\"world.Cyprus\" />",
+      "title": "world.Cyprus",
       "id": "world.Cyprus",
       "country": "CYP",
       "centered": "CYP",
@@ -371,7 +371,7 @@
     },
     {
       "name": "",
-      "title": "<FormattedMessage id=\"world.CzechRepublic\" />",
+      "title": "world.CzechRepublic",
       "id": "world.CzechRepublic",
       "country": "CZE",
       "centered": "CZE",
@@ -380,7 +380,7 @@
     },
     {
       "name": "Germany",
-      "title": "<FormattedMessage id=\"world.Germany\" />",
+      "title": "world.Germany",
       "id": "world.Germany",
       "country": "DEU",
       "centered": "DEU",
@@ -389,7 +389,7 @@
     },
     {
       "name": "Djibouti",
-      "title": "<FormattedMessage id=\"world.Djibouti\" />",
+      "title": "world.Djibouti",
       "id": "world.Djibouti",
       "country": "DJI",
       "centered": "DJI",
@@ -398,7 +398,7 @@
     },
     {
       "name": "Denmark",
-      "title": "<FormattedMessage id=\"world.Denmark\" />",
+      "title": "world.Denmark",
       "id": "world.Denmark",
       "country": "DNK",
       "centered": "DNK",
@@ -407,7 +407,7 @@
     },
     {
       "name": "Dominican Republic",
-      "title": "<FormattedMessage id=\"world.DominicanRepublic\" />",
+      "title": "world.DominicanRepublic",
       "id": "world.DominicanRepublic",
       "country": "DOM",
       "centered": "DOM",
@@ -416,7 +416,7 @@
     },
     {
       "name": "Algeria",
-      "title": "<FormattedMessage id=\"world.Algeria\" />",
+      "title": "world.Algeria",
       "id": "world.Algeria",
       "country": "DZA",
       "centered": "DZA",
@@ -425,7 +425,7 @@
     },
     {
       "name": "Ecuador",
-      "title": "<FormattedMessage id=\"world.Ecuador\" />",
+      "title": "world.Ecuador",
       "id": "world.Ecuador",
       "country": "ECU",
       "centered": "ECU",
@@ -434,7 +434,7 @@
     },
     {
       "name": "Egypt",
-      "title": "<FormattedMessage id=\"world.Egypt\" />",
+      "title": "world.Egypt",
       "id": "world.Egypt",
       "country": "EGY",
       "centered": "EGY",
@@ -443,7 +443,7 @@
     },
     {
       "name": "Eritrea",
-      "title": "<FormattedMessage id=\"world.Eritrea\" />",
+      "title": "world.Eritrea",
       "id": "world.Eritrea",
       "country": "ERI",
       "centered": "ERI",
@@ -452,7 +452,7 @@
     },
     {
       "name": "Spain",
-      "title": "<FormattedMessage id=\"world.Spain\" />",
+      "title": "world.Spain",
       "id": "world.Spain",
       "country": "ESP",
       "centered": "ESP",
@@ -461,7 +461,7 @@
     },
     {
       "name": "Estonia",
-      "title": "<FormattedMessage id=\"world.Estonia\" />",
+      "title": "world.Estonia",
       "id": "world.Estonia",
       "country": "EST",
       "centered": "EST",
@@ -470,7 +470,7 @@
     },
     {
       "name": "Ethiopia",
-      "title": "<FormattedMessage id=\"world.Ethiopia\" />",
+      "title": "world.Ethiopia",
       "id": "world.Ethiopia",
       "country": "ETH",
       "centered": "ETH",
@@ -479,7 +479,7 @@
     },
     {
       "name": "Finland",
-      "title": "<FormattedMessage id=\"world.Finland\" />",
+      "title": "world.Finland",
       "id": "world.Finland",
       "country": "FIN",
       "centered": "FIN",
@@ -488,7 +488,7 @@
     },
     {
       "name": "Fiji",
-      "title": "<FormattedMessage id=\"world.Fiji\" />",
+      "title": "world.Fiji",
       "id": "world.Fiji",
       "country": "FJI",
       "centered": "FJI",
@@ -497,7 +497,7 @@
     },
     {
       "name": "Falkland Islands",
-      "title": "<FormattedMessage id=\"world.FalklandIslands\" />",
+      "title": "world.FalklandIslands",
       "id": "world.FalklandIslands",
       "country": "FLK",
       "centered": "FLK",
@@ -506,7 +506,7 @@
     },
     {
       "name": "France",
-      "title": "<FormattedMessage id=\"world.France\" />",
+      "title": "world.France",
       "id": "world.France",
       "country": "FRA",
       "centered": "FRA",
@@ -515,7 +515,7 @@
     },
     {
       "name": "French Guiana",
-      "title": "<FormattedMessage id=\"world.FrenchGuiana\" />",
+      "title": "world.FrenchGuiana",
       "id": "world.FrenchGuiana",
       "country": "GUF",
       "centered": "GUF",
@@ -524,7 +524,7 @@
     },
     {
       "name": "Gabon",
-      "title": "<FormattedMessage id=\"world.Gabon\" />",
+      "title": "world.Gabon",
       "id": "world.Gabon",
       "country": "GAB",
       "centered": "GAB",
@@ -533,7 +533,7 @@
     },
     {
       "name": "United Kingdom",
-      "title": "<FormattedMessage id=\"world.UnitedKingdom\" />",
+      "title": "world.UnitedKingdom",
       "id": "world.UnitedKingdom",
       "country": "GBR",
       "centered": "GBR",
@@ -542,7 +542,7 @@
     },
     {
       "name": "Georgia",
-      "title": "<FormattedMessage id=\"world.Georgia\" />",
+      "title": "world.Georgia",
       "id": "world.Georgia",
       "country": "GEO",
       "centered": "GEO",
@@ -551,7 +551,7 @@
     },
     {
       "name": "Ghana",
-      "title": "<FormattedMessage id=\"world.Ghana\" />",
+      "title": "world.Ghana",
       "id": "world.Ghana",
       "country": "GHA",
       "centered": "GHA",
@@ -560,7 +560,7 @@
     },
     {
       "name": "Guinea",
-      "title": "<FormattedMessage id=\"world.Guinea\" />",
+      "title": "world.Guinea",
       "id": "world.Guinea",
       "country": "GIN",
       "centered": "GIN",
@@ -569,7 +569,7 @@
     },
     {
       "name": "Gambia",
-      "title": "<FormattedMessage id=\"world.Gambia\" />",
+      "title": "world.Gambia",
       "id": "world.Gambia",
       "country": "GMB",
       "centered": "GMB",
@@ -578,7 +578,7 @@
     },
     {
       "name": "Guinea Bissau",
-      "title": "<FormattedMessage id=\"world.GuineaBissau\" />",
+      "title": "world.GuineaBissau",
       "id": "world.GuineaBissau",
       "country": "GNB",
       "centered": "GNB",
@@ -587,7 +587,7 @@
     },
     {
       "name": "Equatorial Guinea",
-      "title": "<FormattedMessage id=\"world.EquatorialGuinea\" />",
+      "title": "world.EquatorialGuinea",
       "id": "world.EquatorialGuinea",
       "country": "GNQ",
       "centered": "GNQ",
@@ -596,7 +596,7 @@
     },
     {
       "name": "Greece",
-      "title": "<FormattedMessage id=\"world.Greece\" />",
+      "title": "world.Greece",
       "id": "world.Greece",
       "country": "GRC",
       "centered": "GRC",
@@ -605,7 +605,7 @@
     },
     {
       "name": "Greenland",
-      "title": "<FormattedMessage id=\"world.Greenland\" />",
+      "title": "world.Greenland",
       "id": "world.Greenland",
       "country": "GRL",
       "centered": "GRL",
@@ -614,7 +614,7 @@
     },
     {
       "name": "Guatemala",
-      "title": "<FormattedMessage id=\"world.Guatemala\" />",
+      "title": "world.Guatemala",
       "id": "world.Guatemala",
       "country": "GTM",
       "centered": "GTM",
@@ -623,7 +623,7 @@
     },
     {
       "name": "Guyana",
-      "title": "<FormattedMessage id=\"world.Guyana\" />",
+      "title": "world.Guyana",
       "id": "world.Guyana",
       "country": "GUY",
       "centered": "GUY",
@@ -632,7 +632,7 @@
     },
     {
       "name": "Honduras",
-      "title": "<FormattedMessage id=\"world.Honduras\" />",
+      "title": "world.Honduras",
       "id": "world.Honduras",
       "country": "HND",
       "centered": "HND",
@@ -641,7 +641,7 @@
     },
     {
       "name": "Croatia",
-      "title": "<FormattedMessage id=\"world.Croatia\" />",
+      "title": "world.Croatia",
       "id": "world.Croatia",
       "country": "HRV",
       "centered": "HRV",
@@ -650,7 +650,7 @@
     },
     {
       "name": "Haiti",
-      "title": "<FormattedMessage id=\"world.Haiti\" />",
+      "title": "world.Haiti",
       "id": "world.Haiti",
       "country": "HTI",
       "centered": "HTI",
@@ -659,7 +659,7 @@
     },
     {
       "name": "Hungary",
-      "title": "<FormattedMessage id=\"world.Hungary\" />",
+      "title": "world.Hungary",
       "id": "world.Hungary",
       "country": "HUN",
       "centered": "HUN",
@@ -668,7 +668,7 @@
     },
     {
       "name": "Indonesia",
-      "title": "<FormattedMessage id=\"world.Indonesia\" />",
+      "title": "world.Indonesia",
       "id": "world.Indonesia",
       "country": "IDN",
       "centered": "IDN",
@@ -677,7 +677,7 @@
     },
     {
       "name": "India",
-      "title": "<FormattedMessage id=\"world.India\" />",
+      "title": "world.India",
       "id": "world.India",
       "country": "IND",
       "centered": "IND",
@@ -686,7 +686,7 @@
     },
     {
       "name": "Ireland",
-      "title": "<FormattedMessage id=\"world.Ireland\" />",
+      "title": "world.Ireland",
       "id": "world.Ireland",
       "country": "IRL",
       "centered": "IRL",
@@ -695,7 +695,7 @@
     },
     {
       "name": "Iran",
-      "title": "<FormattedMessage id=\"world.Iran\" />",
+      "title": "world.Iran",
       "id": "world.Iran",
       "country": "IRN",
       "centered": "IRN",
@@ -704,7 +704,7 @@
     },
     {
       "name": "Iraq",
-      "title": "<FormattedMessage id=\"world.Iraq\" />",
+      "title": "world.Iraq",
       "id": "world.Iraq",
       "country": "IRQ",
       "centered": "IRQ",
@@ -713,7 +713,7 @@
     },
     {
       "name": "Iceland",
-      "title": "<FormattedMessage id=\"world.Iceland\" />",
+      "title": "world.Iceland",
       "id": "world.Iceland",
       "country": "ISL",
       "centered": "ISL",
@@ -722,7 +722,7 @@
     },
     {
       "name": "Israel",
-      "title": "<FormattedMessage id=\"world.Israel\" />",
+      "title": "world.Israel",
       "id": "world.Israel",
       "country": "ISR",
       "centered": "ISR",
@@ -731,7 +731,7 @@
     },
     {
       "name": "Italy",
-      "title": "<FormattedMessage id=\"world.Italy\" />",
+      "title": "world.Italy",
       "id": "world.Italy",
       "country": "ITA",
       "centered": "ITA",
@@ -740,7 +740,7 @@
     },
     {
       "name": "Jamaica",
-      "title": "<FormattedMessage id=\"world.Jamaica\" />",
+      "title": "world.Jamaica",
       "id": "world.Jamaica",
       "country": "JAM",
       "centered": "JAM",
@@ -749,7 +749,7 @@
     },
     {
       "name": "Jordan",
-      "title": "<FormattedMessage id=\"world.Jordan\" />",
+      "title": "world.Jordan",
       "id": "world.Jordan",
       "country": "JOR",
       "centered": "JOR",
@@ -758,7 +758,7 @@
     },
     {
       "name": "Japan",
-      "title": "<FormattedMessage id=\"world.Japan\" />",
+      "title": "world.Japan",
       "id": "world.Japan",
       "country": "JPN",
       "centered": "JPN",
@@ -767,7 +767,7 @@
     },
     {
       "name": "Kazakhstan",
-      "title": "<FormattedMessage id=\"world.Kazakhstan\" />",
+      "title": "world.Kazakhstan",
       "id": "world.Kazakhstan",
       "country": "KAZ",
       "centered": "KAZ",
@@ -776,7 +776,7 @@
     },
     {
       "name": "Kenya",
-      "title": "<FormattedMessage id=\"world.Kenya\" />",
+      "title": "world.Kenya",
       "id": "world.Kenya",
       "country": "KEN",
       "centered": "KEN",
@@ -785,7 +785,7 @@
     },
     {
       "name": "Kyrgyzstan",
-      "title": "<FormattedMessage id=\"world.Kyrgyzstan\" />",
+      "title": "world.Kyrgyzstan",
       "id": "world.Kyrgyzstan",
       "country": "KGZ",
       "centered": "KGZ",
@@ -794,7 +794,7 @@
     },
     {
       "name": "Cambodia",
-      "title": "<FormattedMessage id=\"world.Cambodia\" />",
+      "title": "world.Cambodia",
       "id": "world.Cambodia",
       "country": "KHM",
       "centered": "KHM",
@@ -803,7 +803,7 @@
     },
     {
       "name": "South Korea",
-      "title": "<FormattedMessage id=\"world.SouthKorea\" />",
+      "title": "world.SouthKorea",
       "id": "world.SouthKorea",
       "country": "KOR",
       "centered": "KOR",
@@ -812,7 +812,7 @@
     },
     {
       "name": "Kosovo",
-      "title": "<FormattedMessage id=\"world.Kosovo\" />",
+      "title": "world.Kosovo",
       "id": "world.Kosovo",
       "country": "KKK",
       "centered": "KKK",
@@ -821,7 +821,7 @@
     },
     {
       "name": "Kuwait",
-      "title": "<FormattedMessage id=\"world.Kuwait\" />",
+      "title": "world.Kuwait",
       "id": "world.Kuwait",
       "country": "KWT",
       "centered": "KWT",
@@ -830,7 +830,7 @@
     },
     {
       "name": "Laos",
-      "title": "<FormattedMessage id=\"world.Laos\" />",
+      "title": "world.Laos",
       "id": "world.Laos",
       "country": "LAO",
       "centered": "LAO",
@@ -839,7 +839,7 @@
     },
     {
       "name": "Lebanon",
-      "title": "<FormattedMessage id=\"world.Lebanon\" />",
+      "title": "world.Lebanon",
       "id": "world.Lebanon",
       "country": "LBN",
       "centered": "LBN",
@@ -848,7 +848,7 @@
     },
     {
       "name": "Liberia",
-      "title": "<FormattedMessage id=\"world.Liberia\" />",
+      "title": "world.Liberia",
       "id": "world.Liberia",
       "country": "LBR",
       "centered": "LBR",
@@ -857,7 +857,7 @@
     },
     {
       "name": "Libya",
-      "title": "<FormattedMessage id=\"world.Libya\" />",
+      "title": "world.Libya",
       "id": "world.Libya",
       "country": "LBY",
       "centered": "LBY",
@@ -866,7 +866,7 @@
     },
     {
       "name": "Sri Lanka",
-      "title": "<FormattedMessage id=\"world.SriLanka\" />",
+      "title": "world.SriLanka",
       "id": "world.SriLanka",
       "country": "LKA",
       "centered": "LKA",
@@ -875,7 +875,7 @@
     },
     {
       "name": "Lesotho",
-      "title": "<FormattedMessage id=\"world.Lesotho\" />",
+      "title": "world.Lesotho",
       "id": "world.Lesotho",
       "country": "LSO",
       "centered": "LSO",
@@ -884,7 +884,7 @@
     },
     {
       "name": "Lithuania",
-      "title": "<FormattedMessage id=\"world.Lithuania\" />",
+      "title": "world.Lithuania",
       "id": "world.Lithuania",
       "country": "LTU",
       "centered": "LTU",
@@ -893,7 +893,7 @@
     },
     {
       "name": "Luxembourg",
-      "title": "<FormattedMessage id=\"world.Luxembourg\" />",
+      "title": "world.Luxembourg",
       "id": "world.Luxembourg",
       "country": "LUX",
       "centered": "LUX",
@@ -902,7 +902,7 @@
     },
     {
       "name": "Latvia",
-      "title": "<FormattedMessage id=\"world.Latvia\" />",
+      "title": "world.Latvia",
       "id": "world.Latvia",
       "country": "LVA",
       "centered": "LVA",
@@ -911,7 +911,7 @@
     },
     {
       "name": "Morocco",
-      "title": "<FormattedMessage id=\"world.Morocco\" />",
+      "title": "world.Morocco",
       "id": "world.Morocco",
       "country": "MAR",
       "centered": "MAR",
@@ -920,7 +920,7 @@
     },
     {
       "name": "Moldova",
-      "title": "<FormattedMessage id=\"world.Moldova\" />",
+      "title": "world.Moldova",
       "id": "world.Moldova",
       "country": "MDA",
       "centered": "MDA",
@@ -929,7 +929,7 @@
     },
     {
       "name": "Madagascar",
-      "title": "<FormattedMessage id=\"world.Madagascar\" />",
+      "title": "world.Madagascar",
       "id": "world.Madagascar",
       "country": "MDG",
       "centered": "MDG",
@@ -938,7 +938,7 @@
     },
     {
       "name": "Mexico",
-      "title": "<FormattedMessage id=\"world.Mexico\" />",
+      "title": "world.Mexico",
       "id": "world.Mexico",
       "country": "MEX",
       "centered": "MEX",
@@ -947,7 +947,7 @@
     },
     {
       "name": "Macedonia",
-      "title": "<FormattedMessage id=\"world.Macedonia\" />",
+      "title": "world.Macedonia",
       "id": "world.Macedonia",
       "country": "MKD",
       "centered": "MKD",
@@ -956,7 +956,7 @@
     },
     {
       "name": "Mali",
-      "title": "<FormattedMessage id=\"world.Mali\" />",
+      "title": "world.Mali",
       "id": "world.Mali",
       "country": "MLI",
       "centered": "MLI",
@@ -965,7 +965,7 @@
     },
     {
       "name": "Myanmar",
-      "title": "<FormattedMessage id=\"world.Myanmar\" />",
+      "title": "world.Myanmar",
       "id": "world.Myanmar",
       "country": "MMR",
       "centered": "MMR",
@@ -974,7 +974,7 @@
     },
     {
       "name": "Montenegro",
-      "title": "<FormattedMessage id=\"world.Montenegro\" />",
+      "title": "world.Montenegro",
       "id": "world.Montenegro",
       "country": "MNE",
       "centered": "MNE",
@@ -983,7 +983,7 @@
     },
     {
       "name": "Mongolia",
-      "title": "<FormattedMessage id=\"world.Mongolia\" />",
+      "title": "world.Mongolia",
       "id": "world.Mongolia",
       "country": "MNG",
       "centered": "MNG",
@@ -992,7 +992,7 @@
     },
     {
       "name": "Mozambique",
-      "title": "<FormattedMessage id=\"world.Mozambique\" />",
+      "title": "world.Mozambique",
       "id": "world.Mozambique",
       "country": "MOZ",
       "centered": "MOZ",
@@ -1001,7 +1001,7 @@
     },
     {
       "name": "Mauritania",
-      "title": "<FormattedMessage id=\"world.Mauritania\" />",
+      "title": "world.Mauritania",
       "id": "world.Mauritania",
       "country": "MRT",
       "centered": "MRT",
@@ -1010,7 +1010,7 @@
     },
     {
       "name": "Malawi",
-      "title": "<FormattedMessage id=\"world.Malawi\" />",
+      "title": "world.Malawi",
       "id": "world.Malawi",
       "country": "MWI",
       "centered": "MWI",
@@ -1019,7 +1019,7 @@
     },
     {
       "name": "Malaysia",
-      "title": "<FormattedMessage id=\"world.Malaysia\" />",
+      "title": "world.Malaysia",
       "id": "world.Malaysia",
       "country": "MYS",
       "centered": "MYS",
@@ -1028,7 +1028,7 @@
     },
     {
       "name": "Namibia",
-      "title": "<FormattedMessage id=\"world.Namibia\" />",
+      "title": "world.Namibia",
       "id": "world.Namibia",
       "country": "NAM",
       "centered": "NAM",
@@ -1037,7 +1037,7 @@
     },
     {
       "name": "New Caledonia",
-      "title": "<FormattedMessage id=\"world.NewCaledonia\" />",
+      "title": "world.NewCaledonia",
       "id": "world.NewCaledonia",
       "country": "NCL",
       "centered": "NCL",
@@ -1046,7 +1046,7 @@
     },
     {
       "name": "Niger",
-      "title": "<FormattedMessage id=\"world.Niger\" />",
+      "title": "world.Niger",
       "id": "world.Niger",
       "country": "NER",
       "centered": "NER",
@@ -1055,7 +1055,7 @@
     },
     {
       "name": "Nigeria",
-      "title": "<FormattedMessage id=\"world.Nigeria\" />",
+      "title": "world.Nigeria",
       "id": "world.Nigeria",
       "country": "NGA",
       "centered": "NGA",
@@ -1064,7 +1064,7 @@
     },
     {
       "name": "Nicaragua",
-      "title": "<FormattedMessage id=\"world.Nicaragua\" />",
+      "title": "world.Nicaragua",
       "id": "world.Nicaragua",
       "country": "NIC",
       "centered": "NIC",
@@ -1073,7 +1073,7 @@
     },
     {
       "name": "Netherlands",
-      "title": "<FormattedMessage id=\"world.Netherlands\" />",
+      "title": "world.Netherlands",
       "id": "world.Netherlands",
       "country": "NLD",
       "centered": "NLD",
@@ -1082,7 +1082,7 @@
     },
     {
       "name": "Norway",
-      "title": "<FormattedMessage id=\"world.Norway\" />",
+      "title": "world.Norway",
       "id": "world.Norway",
       "country": "NOR",
       "centered": "NOR",
@@ -1091,7 +1091,7 @@
     },
     {
       "name": "Nepal",
-      "title": "<FormattedMessage id=\"world.Nepal\" />",
+      "title": "world.Nepal",
       "id": "world.Nepal",
       "country": "NPL",
       "centered": "NPL",
@@ -1100,7 +1100,7 @@
     },
     {
       "name": "New Zealand",
-      "title": "<FormattedMessage id=\"world.NewZealand\" />",
+      "title": "world.NewZealand",
       "id": "world.NewZealand",
       "country": "NZL",
       "centered": "NZL",
@@ -1109,7 +1109,7 @@
     },
     {
       "name": "Oman",
-      "title": "<FormattedMessage id=\"world.Oman\" />",
+      "title": "world.Oman",
       "id": "world.Oman",
       "country": "OMN",
       "centered": "OMN",
@@ -1118,7 +1118,7 @@
     },
     {
       "name": "Pakistan",
-      "title": "<FormattedMessage id=\"world.Pakistan\" />",
+      "title": "world.Pakistan",
       "id": "world.Pakistan",
       "country": "PAK",
       "centered": "PAK",
@@ -1127,7 +1127,7 @@
     },
     {
       "name": "Panama",
-      "title": "<FormattedMessage id=\"world.Panama\" />",
+      "title": "world.Panama",
       "id": "world.Panama",
       "country": "PAN",
       "centered": "PAN",
@@ -1136,7 +1136,7 @@
     },
     {
       "name": "Peru",
-      "title": "<FormattedMessage id=\"world.Peru\" />",
+      "title": "world.Peru",
       "id": "world.Peru",
       "country": "PER",
       "centered": "PER",
@@ -1145,7 +1145,7 @@
     },
     {
       "name": "Philippines",
-      "title": "<FormattedMessage id=\"world.Philippines\" />",
+      "title": "world.Philippines",
       "id": "world.Philippines",
       "country": "PHL",
       "centered": "PHL",
@@ -1154,7 +1154,7 @@
     },
     {
       "name": "Papua New Guinea",
-      "title": "<FormattedMessage id=\"world.PapuaNewGuinea\" />",
+      "title": "world.PapuaNewGuinea",
       "id": "world.PapuaNewGuinea",
       "country": "PNG",
       "centered": "PNG",
@@ -1163,7 +1163,7 @@
     },
     {
       "name": "Poland",
-      "title": "<FormattedMessage id=\"world.Poland\" />",
+      "title": "world.Poland",
       "id": "world.Poland",
       "country": "POL",
       "centered": "POL",
@@ -1172,7 +1172,7 @@
     },
     {
       "name": "Puerto Rico",
-      "title": "<FormattedMessage id=\"world.PuertoRico\" />",
+      "title": "world.PuertoRico",
       "id": "world.PuertoRico",
       "country": "PRI",
       "centered": "PRI",
@@ -1181,7 +1181,7 @@
     },
     {
       "name": "North Korea",
-      "title": "<FormattedMessage id=\"world.NorthKorea\" />",
+      "title": "world.NorthKorea",
       "id": "world.NorthKorea",
       "country": "PRK",
       "centered": "PRK",
@@ -1190,7 +1190,7 @@
     },
     {
       "name": "Portugal",
-      "title": "<FormattedMessage id=\"world.Portugal\" />",
+      "title": "world.Portugal",
       "id": "world.Portugal",
       "country": "PRT",
       "centered": "PRT",
@@ -1199,7 +1199,7 @@
     },
     {
       "name": "Paraguay",
-      "title": "<FormattedMessage id=\"world.Paraguay\" />",
+      "title": "world.Paraguay",
       "id": "world.Paraguay",
       "country": "PRY",
       "centered": "PRY",
@@ -1208,7 +1208,7 @@
     },
     {
       "name": "Qatar",
-      "title": "<FormattedMessage id=\"world.Qatar\" />",
+      "title": "world.Qatar",
       "id": "world.Qatar",
       "country": "QAT",
       "centered": "QAT",
@@ -1217,7 +1217,7 @@
     },
     {
       "name": "Romania",
-      "title": "<FormattedMessage id=\"world.Romania\" />",
+      "title": "world.Romania",
       "id": "world.Romania",
       "country": "ROU",
       "centered": "ROU",
@@ -1226,7 +1226,7 @@
     },
     {
       "name": "Russia",
-      "title": "<FormattedMessage id=\"world.Russia\" />",
+      "title": "world.Russia",
       "id": "world.Russia",
       "country": "RUS",
       "centered": "RUS",
@@ -1235,7 +1235,7 @@
     },
     {
       "name": "Rwanda",
-      "title": "<FormattedMessage id=\"world.Rwanda\" />",
+      "title": "world.Rwanda",
       "id": "world.Rwanda",
       "country": "RWA",
       "centered": "RWA",
@@ -1244,7 +1244,7 @@
     },
     {
       "name": "Western Sahara",
-      "title": "<FormattedMessage id=\"world.WesternSahara\" />",
+      "title": "world.WesternSahara",
       "id": "world.WesternSahara",
       "country": "ESH",
       "centered": "ESH",
@@ -1253,7 +1253,7 @@
     },
     {
       "name": "Saudi Arabia",
-      "title": "<FormattedMessage id=\"world.SaudiArabia\" />",
+      "title": "world.SaudiArabia",
       "id": "world.SaudiArabia",
       "country": "SAU",
       "centered": "SAU",
@@ -1262,7 +1262,7 @@
     },
     {
       "name": "Sudan",
-      "title": "<FormattedMessage id=\"world.Sudan\" />",
+      "title": "world.Sudan",
       "id": "world.Sudan",
       "country": "SDN",
       "centered": "SDN",
@@ -1271,7 +1271,7 @@
     },
     {
       "name": "South Sudan",
-      "title": "<FormattedMessage id=\"world.SouthSudan\" />",
+      "title": "world.SouthSudan",
       "id": "world.SouthSudan",
       "country": "SSD",
       "centered": "SSD",
@@ -1280,7 +1280,7 @@
     },
     {
       "name": "Senegal",
-      "title": "<FormattedMessage id=\"world.Senegal\" />",
+      "title": "world.Senegal",
       "id": "world.Senegal",
       "country": "SEN",
       "centered": "SEN",
@@ -1289,7 +1289,7 @@
     },
     {
       "name": "Solomon Islands",
-      "title": "<FormattedMessage id=\"world.SolomonIslands\" />",
+      "title": "world.SolomonIslands",
       "id": "world.SolomonIslands",
       "country": "SLB",
       "centered": "SLB",
@@ -1298,7 +1298,7 @@
     },
     {
       "name": "Sierra Leone",
-      "title": "<FormattedMessage id=\"world.SierraLeone\" />",
+      "title": "world.SierraLeone",
       "id": "world.SierraLeone",
       "country": "SLE",
       "centered": "SLE",
@@ -1307,7 +1307,7 @@
     },
     {
       "name": "El Salvador",
-      "title": "<FormattedMessage id=\"world.ElSalvador\" />",
+      "title": "world.ElSalvador",
       "id": "world.ElSalvador",
       "country": "SLV",
       "centered": "SLV",
@@ -1316,7 +1316,7 @@
     },
     {
       "name": "Somaliland",
-      "title": "<FormattedMessage id=\"world.Somaliland\" />",
+      "title": "world.Somaliland",
       "id": "world.Somaliland",
       "country": "SSS",
       "centered": "SSS",
@@ -1325,7 +1325,7 @@
     },
     {
       "name": "Somalia",
-      "title": "<FormattedMessage id=\"world.Somalia\" />",
+      "title": "world.Somalia",
       "id": "world.Somalia",
       "country": "SOM",
       "centered": "SOM",
@@ -1334,7 +1334,7 @@
     },
     {
       "name": "Republic of Serbia",
-      "title": "<FormattedMessage id=\"world.RepublicOfSerbia\" />",
+      "title": "world.RepublicOfSerbia",
       "id": "world.RepublicOfSerbia",
       "country": "SRB",
       "centered": "SRB",
@@ -1343,7 +1343,7 @@
     },
     {
       "name": "Suriname",
-      "title": "<FormattedMessage id=\"world.Suriname\" />",
+      "title": "world.Suriname",
       "id": "world.Suriname",
       "country": "SUR",
       "centered": "SUR",
@@ -1352,7 +1352,7 @@
     },
     {
       "name": "Slovakia",
-      "title": "<FormattedMessage id=\"world.Slovakia\" />",
+      "title": "world.Slovakia",
       "id": "world.Slovakia",
       "country": "SVK",
       "centered": "SVK",
@@ -1361,7 +1361,7 @@
     },
     {
       "name": "Slovenia",
-      "title": "<FormattedMessage id=\"world.Slovenia\" />",
+      "title": "world.Slovenia",
       "id": "world.Slovenia",
       "country": "SVN",
       "centered": "SVN",
@@ -1370,7 +1370,7 @@
     },
     {
       "name": "Sweden",
-      "title": "<FormattedMessage id=\"world.Sweden\" />",
+      "title": "world.Sweden",
       "id": "world.Sweden",
       "country": "SWE",
       "centered": "SWE",
@@ -1379,7 +1379,7 @@
     },
     {
       "name": "Swaziland",
-      "title": "<FormattedMessage id=\"world.Swaziland\" />",
+      "title": "world.Swaziland",
       "id": "world.Swaziland",
       "country": "SWZ",
       "centered": "SWZ",
@@ -1388,7 +1388,7 @@
     },
     {
       "name": "Syria",
-      "title": "<FormattedMessage id=\"world.Syria\" />",
+      "title": "world.Syria",
       "id": "world.Syria",
       "country": "SYR",
       "centered": "SYR",
@@ -1397,7 +1397,7 @@
     },
     {
       "name": "Chad",
-      "title": "<FormattedMessage id=\"world.Chad\" />",
+      "title": "world.Chad",
       "id": "world.Chad",
       "country": "TCD",
       "centered": "TCD",
@@ -1406,7 +1406,7 @@
     },
     {
       "name": "Togo",
-      "title": "<FormattedMessage id=\"world.Togo\" />",
+      "title": "world.Togo",
       "id": "world.Togo",
       "country": "TGO",
       "centered": "TGO",
@@ -1415,7 +1415,7 @@
     },
     {
       "name": "Thailand",
-      "title": "<FormattedMessage id=\"world.Thailand\" />",
+      "title": "world.Thailand",
       "id": "world.Thailand",
       "country": "THA",
       "centered": "THA",
@@ -1424,7 +1424,7 @@
     },
     {
       "name": "Tajikistan",
-      "title": "<FormattedMessage id=\"world.Tajikistan\" />",
+      "title": "world.Tajikistan",
       "id": "world.Tajikistan",
       "country": "TJK",
       "centered": "TJK",
@@ -1433,7 +1433,7 @@
     },
     {
       "name": "Turkmenistan",
-      "title": "<FormattedMessage id=\"world.Turkmenistan\" />",
+      "title": "world.Turkmenistan",
       "id": "world.Turkmenistan",
       "country": "TKM",
       "centered": "TKM",
@@ -1442,7 +1442,7 @@
     },
     {
       "name": "East Timor",
-      "title": "<FormattedMessage id=\"world.EastTimor\" />",
+      "title": "world.EastTimor",
       "id": "world.EastTimor",
       "country": "TLS",
       "centered": "TLS",
@@ -1451,7 +1451,7 @@
     },
     {
       "name": "Trinidad and Tobago",
-      "title": "<FormattedMessage id=\"world.TrinidadAndTobago\" />",
+      "title": "world.TrinidadAndTobago",
       "id": "world.TrinidadAndTobago",
       "country": "TTO",
       "centered": "TTO",
@@ -1460,7 +1460,7 @@
     },
     {
       "name": "Tunisia",
-      "title": "<FormattedMessage id=\"world.Tunisia\" />",
+      "title": "world.Tunisia",
       "id": "world.Tunisia",
       "country": "TUN",
       "centered": "TUN",
@@ -1469,7 +1469,7 @@
     },
     {
       "name": "Turkey",
-      "title": "<FormattedMessage id=\"world.Turkey\" />",
+      "title": "world.Turkey",
       "id": "world.Turkey",
       "country": "TUR",
       "centered": "TUR",
@@ -1478,7 +1478,7 @@
     },
     {
       "name": "Taiwan",
-      "title": "<FormattedMessage id=\"world.Taiwan\" />",
+      "title": "world.Taiwan",
       "id": "world.Taiwan",
       "country": "TWN",
       "centered": "TWN",
@@ -1487,7 +1487,7 @@
     },
     {
       "name": "United Republic of Tanzania",
-      "title": "<FormattedMessage id=\"world.UnitedRepublicofTanzania\" />",
+      "title": "world.UnitedRepublicofTanzania",
       "id": "world.UnitedRepublicofTanzania",
       "country": "TZA",
       "centered": "TZA",
@@ -1496,7 +1496,7 @@
     },
     {
       "name": "Uganda",
-      "title": "<FormattedMessage id=\"world.Uganda\" />",
+      "title": "world.Uganda",
       "id": "world.Uganda",
       "country": "UGA",
       "centered": "UGA",
@@ -1505,7 +1505,7 @@
     },
     {
       "name": "Ukraine",
-      "title": "<FormattedMessage id=\"world.Ukraine\" />",
+      "title": "world.Ukraine",
       "id": "world.Ukraine",
       "country": "UKR",
       "centered": "UKR",
@@ -1514,7 +1514,7 @@
     },
     {
       "name": "Uruguay",
-      "title": "<FormattedMessage id=\"world.Uruguay\" />",
+      "title": "world.Uruguay",
       "id": "world.Uruguay",
       "country": "URY",
       "centered": "URY",
@@ -1523,7 +1523,7 @@
     },
     {
       "name": "United States of America",
-      "title": "<FormattedMessage id=\"world.UnitedStatesofAmerica\" />",
+      "title": "world.UnitedStatesofAmerica",
       "id": "world.UnitedStatesofAmerica",
       "country": "USA",
       "centered": "USA",
@@ -1532,7 +1532,7 @@
     },
     {
       "name": "Uzbekistan",
-      "title": "<FormattedMessage id=\"world.Uzbekistan\" />",
+      "title": "world.Uzbekistan",
       "id": "world.Uzbekistan",
       "country": "UZB",
       "centered": "UZB",
@@ -1541,7 +1541,7 @@
     },
     {
       "name": "Venezuela",
-      "title": "<FormattedMessage id=\"world.Venezuela\" />",
+      "title": "world.Venezuela",
       "id": "world.Venezuela",
       "country": "VEN",
       "centered": "VEN",
@@ -1550,7 +1550,7 @@
     },
     {
       "name": "Vietnam",
-      "title": "<FormattedMessage id=\"world.Vietnam\" />",
+      "title": "world.Vietnam",
       "id": "world.Vietnam",
       "country": "VNM",
       "centered": "VNM",
@@ -1559,7 +1559,7 @@
     },
     {
       "name": "Vanuatu",
-      "title": "<FormattedMessage id=\"world.Vanuatu\" />",
+      "title": "world.Vanuatu",
       "id": "world.Vanuatu",
       "country": "VUT",
       "centered": "VUT",
@@ -1568,7 +1568,7 @@
     },
     {
       "name": "West Bank",
-      "title": "<FormattedMessage id=\"world.WestBank\" />",
+      "title": "world.WestBank",
       "id": "world.WestBank",
       "country": "PSE",
       "centered": "PSE",
@@ -1577,7 +1577,7 @@
     },
     {
       "name": "Yemen",
-      "title": "<FormattedMessage id=\"world.Yemen\" />",
+      "title": "world.Yemen",
       "id": "world.Yemen",
       "country": "YEM",
       "centered": "YEM",
@@ -1586,7 +1586,7 @@
     },
     {
       "name": "South Africa",
-      "title": "<FormattedMessage id=\"world.SouthAfrica\" />",
+      "title": "world.SouthAfrica",
       "id": "world.SouthAfrica",
       "country": "ZAF",
       "centered": "ZAF",
@@ -1595,7 +1595,7 @@
     },
     {
       "name": "Zambia",
-      "title": "<FormattedMessage id=\"world.Zambia\" />",
+      "title": "world.Zambia",
       "id": "world.Zambia",
       "country": "ZMB",
       "centered": "ZMB",
@@ -1604,7 +1604,7 @@
     },
     {
       "name": "Zimbabwe",
-      "title": "<FormattedMessage id=\"world.Zimbabwe\" />",
+      "title": "world.Zimbabwe",
       "id": "world.Zimbabwe",
       "country": "ZWE",
       "centered": "ZWE",
