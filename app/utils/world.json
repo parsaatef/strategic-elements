@@ -1,6 +1,15 @@
 {
   "Countries": [
     {
+      "name": "",
+      "title": "global.select_country",
+      "id": "world.",
+      "country": "",
+      "centered": "",
+      "fillKey": "Default",
+      "radius": "5"
+    },
+    {
       "name": "Afghanistan",
       "title": "world.Afghanistan",
       "id": "world.Afghanistan",
@@ -330,15 +339,6 @@
       "id": "world.CostaRica",
       "country": "CRI",
       "centered": "CRI",
-      "fillKey": "Default",
-      "radius": "5"
-    },
-    {
-      "name": "",
-      "title": "world.",
-      "id": "world.",
-      "country": "",
-      "centered": "",
       "fillKey": "Default",
       "radius": "5"
     },
