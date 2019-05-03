@@ -48,6 +48,14 @@ const ElementForm = (props: Props) => {
         name="location"
         label={<FormattedMessage id="global.location" />}
         options={getCountries()}
+        placeholder={<FormattedSimpleMsg id="global.selectElement" />}
+      />
+
+      <Field
+        type="select"
+        name="location"
+        label={<FormattedMessage id="global.location" />}
+        options={getCountries()}
         placeholder={<FormattedSimpleMsg id="global.location" />}
       />
 
