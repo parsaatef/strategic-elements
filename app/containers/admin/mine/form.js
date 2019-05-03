@@ -4,6 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import AppForm from '../../../components/form/AppForm';
 import Field from '../../../components/form/Field';
 import ElementsSelect from '../../../components/form/ElementsSelect';
+import { FormattedSimpleMsg, getUnit } from '../../../utils/utility';
 
 type Props = {
   formType: string,
@@ -42,9 +43,11 @@ const MineForm = (props: Props) => {
       />
 
       <Field
-        type="text"
+        type="select"
         name="unit"
         label={<FormattedMessage id="global.unit" />}
+        options={getUnit()}
+        placeholder={<FormattedSimpleMsg id="global.select" />}
       />
 
       <Field

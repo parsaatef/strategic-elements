@@ -50,6 +50,15 @@ export function getElementsGroups() {
   ];
 }
 
+export function getUnit() {
+  return [
+    { value: '', label: 'انتخاب واحد' },
+    { value: 'unit1', label: 'تن' },
+    { value: 'unit2', label: 'تن1' },
+    { value: 'unit3', label: 'تن2' }
+  ];
+}
+
 export function getCountries() {
   const countries = World.Countries;
   const options = [];

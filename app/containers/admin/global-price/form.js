@@ -1,7 +1,11 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
-import { FormattedSimpleMsg, getYearOptions } from '../../../utils/utility';
+import {
+  FormattedSimpleMsg,
+  getUnit,
+  getYearOptions
+} from '../../../utils/utility';
 import AppForm from '../../../components/form/AppForm';
 import Field from '../../../components/form/Field';
 import ElementsSelect from '../../../components/form/ElementsSelect';
@@ -40,9 +44,11 @@ const GlobalPriceForm = (props: Props) => {
       />
 
       <Field
-        type="text"
+        type="select"
         name="unit"
         label={<FormattedMessage id="global.unit" />}
+        options={getUnit()}
+        placeholder={<FormattedSimpleMsg id="global.select" />}
       />
 
       <Field

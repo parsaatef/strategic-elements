@@ -162,7 +162,7 @@ class InformationOfWorld extends Component<Props> {
       <section>
         <div className="info-select-group">
           <Row>
-            <Col sm={3} xs={6}>
+            <Col sm={3} xs={6} className="animated flipInX faster">
               <Select
                 options={MapOptions}
                 placeholder="انتخاب نقشه"
@@ -171,7 +171,7 @@ class InformationOfWorld extends Component<Props> {
               />
             </Col>
 
-            <Col sm={3} xs={6}>
+            <Col sm={3} xs={6} className="animated flipInX fast">
               <Select
                 options={groupsOptions}
                 placeholder="انتخاب دسته"
@@ -180,7 +180,7 @@ class InformationOfWorld extends Component<Props> {
               />
             </Col>
 
-            <Col sm={3} xs={6}>
+            <Col sm={3} xs={6} className="animated flipInX slow">
               <ElementsSelect
                 group={group}
                 onChangeElement={this.onChangeElement}
@@ -190,7 +190,7 @@ class InformationOfWorld extends Component<Props> {
               />
             </Col>
 
-            <Col sm={3} xs={6}>
+            <Col sm={3} xs={6} className="animated flipInX slower">
               <Select
                 options={yearOptions}
                 placeholder="انتخاب سال"
@@ -202,7 +202,7 @@ class InformationOfWorld extends Component<Props> {
         </div>
 
         <PageHeading
-          className="text-center animated bounce faster"
+          className="text-center animated flash slow"
           title={
             <FormattedMessage
               id="global.map_page_heading"
@@ -248,7 +248,7 @@ class InformationOfWorld extends Component<Props> {
             };
 
             let maxValue = 0;
-            let minValue = 10000000000000000000000000000000000000;
+            let minValue = 100000000;
 
             data.searchElementStats.elementsStats.forEach(elem => {
               if (elem.productionValue < minValue) {
@@ -351,7 +351,7 @@ class InformationOfWorld extends Component<Props> {
 
             return (
               <Datamaps
-                className="smfp-datamaps-wrap"
+                className="smfp-datamaps-wrap animated fadeInUp fast"
                 idName={idName}
                 widthProps={widthProps}
                 heightProps={heightProps}
@@ -367,7 +367,7 @@ class InformationOfWorld extends Component<Props> {
 
         {currentElement.value && (
           <ImgButton
-            className="text-center btn-element-wrap"
+            className="text-center btn-element-wrap animated fadeInUpBig slow"
             link={ELEMENT_INFORMATION.replace(':element', currentElement.value)}
             src={item4}
             title="نمایش اطلاعات عنصر"

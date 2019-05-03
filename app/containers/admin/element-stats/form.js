@@ -5,7 +5,8 @@ import {
   FormattedSimpleMsg,
   getCountries,
   getStates,
-  getYearOptions
+  getYearOptions,
+  getUnit
 } from '../../../utils/utility';
 import AppForm from '../../../components/form/AppForm';
 import Field from '../../../components/form/Field';
@@ -119,9 +120,11 @@ const ElementForm = (props: Props) => {
             />
 
             <Field
-              type="text"
+              type="select"
               name="unit"
               label={<FormattedMessage id="global.unit" />}
+              options={getUnit()}
+              placeholder={<FormattedSimpleMsg id="global.select" />}
             />
 
             <Field
