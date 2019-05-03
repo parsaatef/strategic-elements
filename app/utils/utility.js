@@ -64,6 +64,19 @@ export function getCountries() {
   return options;
 }
 
+export function getCountry(country) {
+  const countries = World.Countries;
+  let label = 'null';
+
+  countries.forEach(el => {
+    if (el.country === country) {
+      label = el.title;
+    }
+  });
+
+  return label;
+}
+
 export function getStates() {
   const states = Iran.States;
   const options = [];
