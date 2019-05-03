@@ -219,16 +219,29 @@ class InformationOfWorld extends Component<Props> {
             elements
           }}
         >
-          {({ data, loading, error, refetch }) => {
+          {({ data, loading }) => {
             if (loading) return 'loading.....';
 
-            console.log('data, error, refetch', data, error, refetch);
-            console.log(
-              'data ::::::::::::',
-              data.searchElementStats.elementsStats
-            );
-
             const Countries = [];
+
+            const labels = {
+              title: formatMessage({ id: 'global.title' }),
+              resourceValue: formatMessage({
+                id: 'global.resourceValue'
+              }),
+              productionValue: formatMessage({
+                id: 'global.productionValue'
+              }),
+              consumptionValue: formatMessage({
+                id: 'global.consumptionValue'
+              }),
+              exportValue: formatMessage({ id: 'global.exportValue' }),
+              importValue: formatMessage({ id: 'global.importValue' }),
+              secondaryProductionValue: formatMessage({
+                id: 'global.secondaryProductionValue'
+              }),
+              mineCount: formatMessage({ id: 'global.mineCount' })
+            };
 
             data.searchElementStats.elementsStats.forEach(elem => {
               const country = bubblesProps.find(
@@ -236,41 +249,55 @@ class InformationOfWorld extends Component<Props> {
               );
 
               if (country) {
-                Countries.push({
-                  ...country,
-                  labels: {
-                    title: formatMessage({ id: 'global.title' }),
-                    resourceValue: formatMessage({
-                      id: 'global.resourceValue'
-                    }),
-                    productionValue: formatMessage({
-                      id: 'global.productionValue'
-                    }),
-                    consumptionValue: formatMessage({
-                      id: 'global.consumptionValue'
-                    }),
-                    exportValue: formatMessage({ id: 'global.exportValue' }),
-                    importValue: formatMessage({ id: 'global.importValue' }),
-                    secondaryProductionValue: formatMessage({
-                      id: 'global.secondaryProductionValue'
-                    }),
-                    mineCount: formatMessage({ id: 'global.mineCount' })
-                  },
-                  title: formatMessage({ id: country.title }),
-                  resourceValue: elem.resourceValue,
-                  productionValue: elem.productionValue,
-                  consumptionValue: elem.consumptionValue,
-                  exportValue: elem.exportValue,
-                  importValue: elem.importValue,
-                  secondaryProductionValue: elem.secondaryProductionValue,
-                  mineCount: elem.mineCount
-                  // radius                    : elem.resourceValue
-                });
+                const prevCountry = Countries.find(
+                  cnty => cnty.country === elem.location
+                );
+
+                if (!prevCountry) {
+                  Countries.push({
+                    ...country,
+                    title: formatMessage({ id: country.title }),
+                    resourceValue: elem.resourceValue,
+                    productionValue: elem.productionValue,
+                    consumptionValue: elem.consumptionValue,
+                    exportValue: elem.exportValue,
+                    importValue: elem.importValue,
+                    secondaryProductionValue: elem.secondaryProductionValue,
+                    mineCount: elem.mineCount,
+                    labels
+                    // radius                    : elem.resourceValue
+                  });
+                } else {
+                  const prevCountryIndex = Countries.findIndex(
+                    cnty => cnty.country === elem.location
+                  );
+
+                  const {
+                    resourceValue,
+                    productionValue,
+                    consumptionValue,
+                    exportValue,
+                    importValue,
+                    secondaryProductionValue,
+                    mineCount
+                  } = prevCountry;
+
+                  // .
+                  Countries[prevCountryIndex] = {
+                    ...prevCountry,
+                    resourceValue: resourceValue + elem.resourceValue,
+                    productionValue: productionValue + elem.productionValue,
+                    consumptionValue: consumptionValue + elem.consumptionValue,
+                    exportValue: exportValue + elem.exportValue,
+                    importValue: importValue + elem.importValue,
+                    secondaryProductionValue:
+                      secondaryProductionValue + elem.secondaryProductionValue,
+                    mineCount: mineCount + elem.mineCount
+                    // radius                    : elem.resourceValue
+                  };
+                }
               }
             });
-
-            console.log('options ::::::::::::', Countries);
-            // console.log('options ::::::::::::', bubblesProps);
 
             return (
               <Datamaps
