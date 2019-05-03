@@ -27,96 +27,110 @@ const ElementForm = (props: Props) => {
       initialValues={initialValues}
       schema={validationSchema}
     >
-      <ElementsSelect />
+      {(values, errors) => {
+        console.log('--values, errors---', values, errors);
 
-      <Field
-        type="select"
-        name="locationType"
-        label={<FormattedMessage id="global.locationType" />}
-        options={[
-          { value: 'world', label: <FormattedSimpleMsg id="global.world" /> },
-          { value: 'iran', label: <FormattedSimpleMsg id="global.iran" /> }
-        ]}
-        placeholder={<FormattedSimpleMsg id="global.select" />}
-      />
+        return (
+          <>
+            <ElementsSelect />
 
-      <Field
-        type="select"
-        name="location"
-        label={<FormattedMessage id="global.location" />}
-        options={getCountries()}
-        placeholder={<FormattedSimpleMsg id="global.location" />}
-      />
+            <Field
+              type="select"
+              name="locationType"
+              label={<FormattedMessage id="global.locationType" />}
+              options={[
+                {
+                  value: 'world',
+                  label: <FormattedSimpleMsg id="global.world" />
+                },
+                {
+                  value: 'iran',
+                  label: <FormattedSimpleMsg id="global.iran" />
+                }
+              ]}
+              placeholder={<FormattedSimpleMsg id="global.select" />}
+            />
 
-      <Field
-        type="select"
-        name="year"
-        label={<FormattedMessage id="global.year" />}
-        options={yearOptions}
-        placeholder={<FormattedSimpleMsg id="global.year" />}
-      />
+            <Field
+              type="select"
+              name="location"
+              label={<FormattedMessage id="global.location" />}
+              options={getCountries()}
+              placeholder={<FormattedSimpleMsg id="global.location" />}
+            />
 
-      <Field
-        type="number"
-        name="exportValue"
-        label={<FormattedMessage id="global.exportValue" />}
-      />
+            <Field
+              type="select"
+              name="year"
+              label={<FormattedMessage id="global.year" />}
+              options={yearOptions}
+              placeholder={<FormattedSimpleMsg id="global.year" />}
+            />
 
-      <Field
-        type="number"
-        name="resourceValue"
-        label={<FormattedMessage id="global.resourceValue" />}
-      />
+            <Field
+              type="number"
+              name="exportValue"
+              label={<FormattedMessage id="global.exportValue" />}
+            />
 
-      <Field
-        type="number"
-        name="productionValue"
-        label={<FormattedMessage id="global.productionValue" />}
-      />
+            <Field
+              type="number"
+              name="resourceValue"
+              label={<FormattedMessage id="global.resourceValue" />}
+            />
 
-      <Field
-        type="number"
-        name="consumptionValue"
-        label={<FormattedMessage id="global.consumptionValue" />}
-      />
+            <Field
+              type="number"
+              name="productionValue"
+              label={<FormattedMessage id="global.productionValue" />}
+            />
 
-      <Field
-        type="number"
-        name="importValue"
-        label={<FormattedMessage id="global.importValue" />}
-      />
+            <Field
+              type="number"
+              name="consumptionValue"
+              label={<FormattedMessage id="global.consumptionValue" />}
+            />
 
-      <Field
-        type="number"
-        name="secondaryProductionValue"
-        label={<FormattedMessage id="global.secondaryProductionValue" />}
-      />
+            <Field
+              type="number"
+              name="importValue"
+              label={<FormattedMessage id="global.importValue" />}
+            />
 
-      <Field
-        type="number"
-        name="mineCount"
-        label={<FormattedMessage id="global.minesCount" />}
-      />
+            <Field
+              type="number"
+              name="secondaryProductionValue"
+              label={<FormattedMessage id="global.secondaryProductionValue" />}
+            />
 
-      <Field
-        type="text"
-        name="unit"
-        label={<FormattedMessage id="global.unit" />}
-      />
+            <Field
+              type="number"
+              name="mineCount"
+              label={<FormattedMessage id="global.minesCount" />}
+            />
 
-      <Field
-        type="textarea"
-        name="description"
-        label={<FormattedMessage id="global.description" />}
-      />
+            <Field
+              type="text"
+              name="unit"
+              label={<FormattedMessage id="global.unit" />}
+            />
 
-      <Button type="submit">
-        {formType === 'register' ? (
-          <FormattedMessage id="global.addNew" />
-        ) : (
-          <FormattedMessage id="global.update" />
-        )}
-      </Button>
+            <Field
+              type="textarea"
+              name="description"
+              label={<FormattedMessage id="global.description" />}
+            />
+
+            <Button type="submit">
+              {formType === 'register' ? (
+                <FormattedMessage id="global.addNew" />
+              ) : (
+                <FormattedMessage id="global.update" />
+              )}
+            </Button>
+          </>
+        );
+      }}
     </AppForm>
   );
 };

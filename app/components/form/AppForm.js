@@ -149,11 +149,37 @@ class AppForm extends Component<Props> {
     });
   }
 
+  mapChildren(children) {
+    const { values, errors } = this.state;
+
+    return React.Children.map(children, child => {
+      if (
+        child &&
+        child.type &&
+        (child.type.displayName === 'Field' ||
+          child.type.displayName === 'ElementsSelect')
+      ) {
+        return React.cloneElement(child, {
+          value:
+            child.props.name && !_.isUndefined(values[child.props.name])
+              ? values[child.props.name]
+              : '', // child.props.default
+          handleChange: this.handleChange,
+          error:
+            child.props.name && !_.isUndefined(errors[child.props.name])
+              ? errors[child.props.name]
+              : ''
+        });
+      }
+
+      return child;
+    });
+  }
+
   render() {
     const { children } = this.props;
 
     const { values, errors } = this.state;
-    console.log('-------values-----', values);
 
     return (
       <Form
@@ -161,28 +187,9 @@ class AppForm extends Component<Props> {
         onSubmit={this.handleSubmit}
         className="smfp-form-container"
       >
-        {React.Children.map(children, child => {
-          if (
-            child &&
-            child.type &&
-            (child.type.displayName === 'Field' ||
-              child.type.displayName === 'ElementsSelect')
-          ) {
-            return React.cloneElement(child, {
-              value:
-                child.props.name && !_.isUndefined(values[child.props.name])
-                  ? values[child.props.name]
-                  : '', // child.props.default
-              handleChange: this.handleChange,
-              error:
-                child.props.name && !_.isUndefined(errors[child.props.name])
-                  ? errors[child.props.name]
-                  : ''
-            });
-          }
-
-          return child;
-        })}
+        {!_.isFunction(children)
+          ? this.mapChildren(children)
+          : this.mapChildren(children(values, errors).props.children)}
       </Form>
     );
   }
