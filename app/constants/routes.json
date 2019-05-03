@@ -91,8 +91,6 @@
   "USERS_LIST": "/admin/users/list",
   "USER_EDIT": "/admin/user/edit/:id",
 
-  "ELEMENT_DETAIL_FOR_WORLD": "/element-detail-for-world",
-
   "SECONDARY_SOURCE": "/secondary-source",
 
   "INFORMATION_OF_IRAN": "/information-of-iran",

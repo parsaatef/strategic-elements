@@ -6,14 +6,13 @@ import item4 from '../../images/menu-item-4.jpg';
 import { SECONDARY_SOURCE } from '../../constants/routes';
 import ElementDetailItem from './ElementDetailItem';
 import PageHeading from '../General/PageHeading';
-import { GET_ELEMENT_STATS } from '../../queries/elementStats';
+import { GET_ELEMENTS_STATS } from '../../queries/elementStats';
 
 export default class ElementDetailForWorld extends Component<Props> {
   render() {
     const { match } = this.props;
 
     const { element } = match.params;
-    alert(element);
 
     return (
       <div>
@@ -23,7 +22,7 @@ export default class ElementDetailForWorld extends Component<Props> {
         />
 
         <Query
-          query={GET_ELEMENT_STATS}
+          query={GET_ELEMENTS_STATS}
           variables={{
             locationType: 'world',
             location: '',
@@ -39,10 +38,10 @@ export default class ElementDetailForWorld extends Component<Props> {
             if (
               data &&
               data.searchElementStats &&
-              data.searchElementStats.elements &&
-              data.searchElementStats.elements.length === 1
+              data.searchElementStats.elementsStats &&
+              data.searchElementStats.elementsStats.length === 1
             ) {
-              const stats = data.searchElementStats.elements[0];
+              const stats = data.searchElementStats.elementsStats[0];
 
               const {
                 resourceValue,
@@ -81,6 +80,8 @@ export default class ElementDetailForWorld extends Component<Props> {
                 </div>
               );
             }
+
+            return null;
           }}
         </Query>
 
