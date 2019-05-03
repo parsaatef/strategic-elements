@@ -1,8 +1,27 @@
 import React, { Component } from 'react';
 import Datamap from 'datamaps';
+import _ from 'underscore';
 
 export default class Datamaps extends Component<Props> {
   componentDidMount() {
+    this.createDataMap();
+  }
+
+  componentDidUpdate(prevProps) {
+    const { idName, scopeProps, dataUrlProps, bubblesProps } = this.props;
+    console.log('---this.props-----', this.props);
+
+    if (
+      prevProps.scopeProps !== scopeProps ||
+      prevProps.idName !== idName ||
+      prevProps.dataUrlProps !== dataUrlProps ||
+      _.isEqual(prevProps.bubblesProps, bubblesProps)
+    ) {
+      this.createDataMap();
+    }
+  }
+
+  createDataMap() {
     const {
       idName,
       scopeProps,

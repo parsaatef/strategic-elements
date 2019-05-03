@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
-import D3 from 'd3';
+import * as d3 from 'd3';
 import { Query } from 'react-apollo';
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import _ from 'underscore';
@@ -10,13 +10,14 @@ import ImgButton from '../General/ImgButton';
 import item4 from '../../images/menu-item-4.jpg';
 import PageHeading from '../General/PageHeading';
 import Datamaps from './datamaps';
-import irnTopo from './irn.topo.json';
 import World from '../../utils/world.json';
 import Iran from '../../utils/iran.json';
 import { GET_ELEMENTS_STATS } from '../../queries/elementStats';
 import popupTemplate from './popupTemplate';
 import { getYearOptions, getElementsGroups } from '../../utils/utility';
 import ElementsSelect from './ElementsSelect';
+
+window.d3 = d3;
 
 const MapOptions = [
   { value: 'world', label: 'جهان' },
@@ -34,11 +35,11 @@ const setProjection = null;
 const irnBubblesProps = Iran.States;
 
 const irnSetProjection = () => {
-  const projectionD3 = D3.geo
+  const projectionD3 = d3.geo
     .mercator()
     .center([57.688, 32.4279]) // always in [East Latitude, North Longitude]
     .scale(1400);
-  const pathD3 = D3.geo.path().projection(projectionD3);
+  const pathD3 = d3.geo.path().projection(projectionD3);
   return {
     path: pathD3,
     projection: projectionD3
@@ -141,7 +142,7 @@ class InformationOfWorld extends Component<Props> {
       idName = 'iran-map';
       widthProps = '85%';
       heightProps = '65vh';
-      dataUrlProps = irnTopo;
+      dataUrlProps = 'components/Information/irn.topo.json';
       bubblesProps = irnBubblesProps;
       popupTemplateProps = popupTemplate;
       setProjectionProps = irnSetProjection;
