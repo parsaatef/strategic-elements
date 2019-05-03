@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import D3 from 'd3';
 import { Query } from 'react-apollo';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import _ from 'underscore';
 import { ELEMENT_INFORMATION } from '../../constants/routes';
 import Select from '../General/Select';
@@ -150,6 +150,10 @@ class InformationOfWorld extends Component<Props> {
 
     const currGroupLabel = currGroup && currGroup.label ? currGroup.label : '';
 
+    const { intl } = this.props;
+
+    const { formatMessage } = intl;
+
     return (
       <section>
         <div className="info-select-group">
@@ -225,17 +229,24 @@ class InformationOfWorld extends Component<Props> {
             );
 
             const Countries = [];
+
             data.searchElementStats.elementsStats.forEach(elem => {
-              if (elem.element === currentElement.value) {
+              const country = bubblesProps.find(
+                cnty => cnty.country === elem.location
+              );
+
+              if (country) {
                 Countries.push({
-                  title: elem.location,
-                  country: elem.location,
-                  centered: elem.location,
+                  ...country,
+                  title: formatMessage({ id: country.title }),
                   resourceValue: elem.resourceValue,
                   productionValue: elem.productionValue,
                   consumptionValue: elem.consumptionValue,
-                  fillKey: 'Default',
-                  radius: 5
+                  exportValue: elem.exportValue,
+                  importValue: elem.importValue,
+                  secondaryProductionValue: elem.secondaryProductionValue,
+                  mineCount: elem.mineCount
+                  // radius                    : elem.resourceValue
                 });
               }
             });
@@ -272,4 +283,8 @@ class InformationOfWorld extends Component<Props> {
   }
 }
 
-export default InformationOfWorld;
+InformationOfWorld.propTypes = {
+  intl: intlShape.isRequired
+};
+
+export default injectIntl(InformationOfWorld);
