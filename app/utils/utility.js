@@ -70,7 +70,7 @@ export function getStates() {
 
   states.forEach(state => {
     options.push({
-      label: state.title,
+      label: <FormattedSimpleMsg id={state.title} />,
       value: state.state
     });
   });
