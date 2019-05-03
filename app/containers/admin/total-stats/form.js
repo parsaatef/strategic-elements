@@ -1,9 +1,10 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
-import { FormattedSimpleMsg } from '../../../utils/utility';
+import { FormattedSimpleMsg, getYearOptions } from '../../../utils/utility';
 import AppForm from '../../../components/form/AppForm';
 import Field from '../../../components/form/Field';
+import ElementsSelect from '../../../components/form/ElementsSelect';
 
 type Props = {
   formType: string,
@@ -14,6 +15,7 @@ type Props = {
 
 const TotalStatsForm = (props: Props) => {
   const { onSubmit, formType, initialValues, validationSchema } = props;
+  const yearOptions = getYearOptions(1950, 2050);
 
   return (
     <AppForm
@@ -21,16 +23,7 @@ const TotalStatsForm = (props: Props) => {
       initialValues={initialValues}
       schema={validationSchema}
     >
-      <Field
-        type="select"
-        name="element"
-        label={<FormattedMessage id="global.element" />}
-        options={[
-          { value: 'element1', label: 'Element 1' },
-          { value: 'element2', label: 'Element 2' }
-        ]}
-        placeholder={<FormattedSimpleMsg id="global.selectElement" />}
-      />
+      <ElementsSelect />
 
       <Field
         type="text"
@@ -39,9 +32,11 @@ const TotalStatsForm = (props: Props) => {
       />
 
       <Field
-        type="number"
+        type="select"
         name="year"
         label={<FormattedMessage id="global.year" />}
+        options={yearOptions}
+        placeholder={<FormattedSimpleMsg id="global.year" />}
       />
 
       <Field
