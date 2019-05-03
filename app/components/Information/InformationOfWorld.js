@@ -238,6 +238,24 @@ class InformationOfWorld extends Component<Props> {
               if (country) {
                 Countries.push({
                   ...country,
+                  labels: {
+                    title: formatMessage({ id: 'global.title' }),
+                    resourceValue: formatMessage({
+                      id: 'global.resourceValue'
+                    }),
+                    productionValue: formatMessage({
+                      id: 'global.productionValue'
+                    }),
+                    consumptionValue: formatMessage({
+                      id: 'global.consumptionValue'
+                    }),
+                    exportValue: formatMessage({ id: 'global.exportValue' }),
+                    importValue: formatMessage({ id: 'global.importValue' }),
+                    secondaryProductionValue: formatMessage({
+                      id: 'global.secondaryProductionValue'
+                    }),
+                    mineCount: formatMessage({ id: 'global.mineCount' })
+                  },
                   title: formatMessage({ id: country.title }),
                   resourceValue: elem.resourceValue,
                   productionValue: elem.productionValue,
@@ -252,7 +270,7 @@ class InformationOfWorld extends Component<Props> {
             });
 
             console.log('options ::::::::::::', Countries);
-            console.log('options ::::::::::::', bubblesProps);
+            // console.log('options ::::::::::::', bubblesProps);
 
             return (
               <Datamaps

@@ -1,26 +1,26 @@
 const popupTemplate = {
   popupTemplate: (geo, data) =>
     `<div id="popover" class="hoverinfo">
-        <div class="close" />
-        <ul>
-          <li>
-            <span class="title">title:</span>
-            <span class="value">${data.title}</span>
-          </li>
-          <li>
-            <span class="title">resourceValue:</span>
-            <span class="value">${data.resourceValue}</span>
-          </li>
-          <li>
-            <span class="title">productionValue:</span>
-            <span class="value">${data.productionValue}</span>
-          </li>
-          <li>
-            <span class="title">consumptionValue:</span>
-            <span class="value">${data.consumptionValue}</span>
-          </li>
-        </ul>
-      </div>`
+      <div class="close"></div>
+      <ul>
+        <li>
+          <label class="title">${data.labels.title}</label>
+          <span class="value">${data.title}</span>
+        </li>
+        <li>
+          <label class="title">${data.labels.resourceValue}:</label>
+          <span class="value">${data.resourceValue}</span>
+        </li>
+        <li>
+          <label class="title">${data.labels.productionValue}:</label>
+          <span class="value">${data.productionValue}</span>
+        </li>
+        <li>
+          <label class="title">${data.labels.consumptionValue}:</label>
+          <span class="value">${data.consumptionValue}</span>
+        </li>
+      </ul>
+    </div>`
 };
 
 export default popupTemplate;
