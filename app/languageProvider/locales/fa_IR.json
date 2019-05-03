@@ -35,6 +35,8 @@
   "global.list": "لیست",
   "global.select": "انتخاب",
   "global.selectElement": "انتخاب عنصر",
+  "global.selectCountry": "انتخاب کشور",
+  "global.selectState": "انتخاب استان",
   "global.deleteSelectedItems": "حذف موارد انتخاب شده",
   "global.locationType": "نوع مکان",
   "global.location": "مکان",

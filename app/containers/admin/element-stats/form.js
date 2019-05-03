@@ -29,11 +29,7 @@ const ElementForm = (props: Props) => {
       schema={validationSchema}
     >
       {(values, errors) => {
-        console.log(
-          '--values**************, errors---',
-          values.locationType,
-          errors
-        );
+        console.log('--values, errors---', values, errors);
 
         let locationOptions = getCountries();
 
@@ -69,7 +65,7 @@ const ElementForm = (props: Props) => {
               name="location"
               label={<FormattedMessage id="global.location" />}
               options={locationOptions}
-              placeholder={<FormattedSimpleMsg id="global.location" />}
+              placeholder={<FormattedSimpleMsg id="global.select" />}
             />
 
             <Field

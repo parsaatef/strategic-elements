@@ -28,11 +28,11 @@ const groupsOptions = getElementsGroups();
 
 const yearOptions = getYearOptions(1990, 2030);
 
-const BubblesProps = World.Countries;
+const CountriesOptions = World.Countries;
 
 const setProjection = null;
 
-const irnBubblesProps = Iran.States;
+const StatesOptions = Iran.States;
 
 const irnSetProjection = () => {
   const projectionD3 = d3.geo
@@ -51,7 +51,7 @@ class InformationOfWorld extends Component<Props> {
     super(props);
 
     this.state = {
-      locationType: 'iran',
+      locationType: 'world',
       year: 2019,
       elements: [],
       group: '',
@@ -133,7 +133,8 @@ class InformationOfWorld extends Component<Props> {
     let widthProps = '80%';
     let heightProps = '65vh';
     let dataUrlProps = null;
-    let bubblesProps = BubblesProps;
+    let LocationOptions = CountriesOptions;
+    let LocationsType = 'country';
     let popupTemplateProps = popupTemplate;
     let setProjectionProps = setProjection;
 
@@ -143,7 +144,8 @@ class InformationOfWorld extends Component<Props> {
       widthProps = '85%';
       heightProps = '65vh';
       dataUrlProps = 'components/Information/irn.topo.json';
-      bubblesProps = irnBubblesProps;
+      LocationOptions = StatesOptions;
+      LocationsType = 'state';
       popupTemplateProps = popupTemplate;
       setProjectionProps = irnSetProjection;
     }
@@ -224,7 +226,7 @@ class InformationOfWorld extends Component<Props> {
           {({ data, loading }) => {
             if (loading) return 'loading.....';
 
-            const Countries = [];
+            const LocationProps = [];
 
             const labels = {
               title: formatMessage({ id: 'global.title' }),
@@ -245,20 +247,58 @@ class InformationOfWorld extends Component<Props> {
               mineCount: formatMessage({ id: 'global.mineCount' })
             };
 
-            data.searchElementStats.elementsStats.forEach(elem => {
-              const country = bubblesProps.find(
-                cnty => cnty.country === elem.location
-              );
+            let maxValue = 0;
+            let minValue = 10000000000000000000000000000000000000;
 
-              if (country) {
-                const prevCountry = Countries.find(
+            data.searchElementStats.elementsStats.forEach(elem => {
+              if (elem.productionValue < minValue) {
+                minValue = elem.productionValue;
+              }
+              if (elem.productionValue > maxValue) {
+                maxValue = elem.productionValue;
+              }
+            });
+
+            const subValue = maxValue - minValue;
+
+            data.searchElementStats.elementsStats.forEach(elem => {
+              let radiusOfLocation =
+                Math.round(
+                  ((elem.productionValue - minValue) / subValue) * 10
+                ) + 5;
+
+              if (!radiusOfLocation) {
+                radiusOfLocation = 5;
+              }
+
+              let locations;
+
+              if (LocationsType === 'country') {
+                locations = LocationOptions.find(
                   cnty => cnty.country === elem.location
                 );
+              } else {
+                locations = LocationOptions.find(
+                  stt => stt.state === elem.location
+                );
+              }
+
+              if (locations) {
+                let prevCountry;
+                if (LocationsType === 'country') {
+                  prevCountry = LocationProps.find(
+                    cnty => cnty.country === elem.location
+                  );
+                } else {
+                  prevCountry = LocationProps.find(
+                    stt => stt.state === elem.location
+                  );
+                }
 
                 if (!prevCountry) {
-                  Countries.push({
-                    ...country,
-                    title: formatMessage({ id: country.title }),
+                  LocationProps.push({
+                    ...locations,
+                    title: formatMessage({ id: locations.title }),
                     resourceValue: elem.resourceValue,
                     productionValue: elem.productionValue,
                     consumptionValue: elem.consumptionValue,
@@ -266,13 +306,20 @@ class InformationOfWorld extends Component<Props> {
                     importValue: elem.importValue,
                     secondaryProductionValue: elem.secondaryProductionValue,
                     mineCount: elem.mineCount,
+                    radius: radiusOfLocation,
                     labels
-                    // radius                    : elem.resourceValue
                   });
                 } else {
-                  const prevCountryIndex = Countries.findIndex(
-                    cnty => cnty.country === elem.location
-                  );
+                  let prevCountryIndex;
+                  if (LocationsType === 'country') {
+                    prevCountryIndex = LocationProps.findIndex(
+                      cnty => cnty.country === elem.location
+                    );
+                  } else {
+                    prevCountryIndex = LocationProps.findIndex(
+                      stt => stt.state === elem.location
+                    );
+                  }
 
                   const {
                     resourceValue,
@@ -281,11 +328,12 @@ class InformationOfWorld extends Component<Props> {
                     exportValue,
                     importValue,
                     secondaryProductionValue,
-                    mineCount
+                    mineCount,
+                    radius
                   } = prevCountry;
 
                   // .
-                  Countries[prevCountryIndex] = {
+                  LocationProps[prevCountryIndex] = {
                     ...prevCountry,
                     resourceValue: resourceValue + elem.resourceValue,
                     productionValue: productionValue + elem.productionValue,
@@ -294,8 +342,8 @@ class InformationOfWorld extends Component<Props> {
                     importValue: importValue + elem.importValue,
                     secondaryProductionValue:
                       secondaryProductionValue + elem.secondaryProductionValue,
-                    mineCount: mineCount + elem.mineCount
-                    // radius                    : elem.resourceValue
+                    mineCount: mineCount + elem.mineCount,
+                    radius: radius - 5 + radiusOfLocation
                   };
                 }
               }
@@ -309,7 +357,7 @@ class InformationOfWorld extends Component<Props> {
                 heightProps={heightProps}
                 scopeProps={scopeProps}
                 dataUrlProps={dataUrlProps}
-                bubblesProps={Countries}
+                bubblesProps={LocationProps}
                 popupTemplateProps={popupTemplateProps}
                 setProjectionProps={setProjectionProps}
               />
