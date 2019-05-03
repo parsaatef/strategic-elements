@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
-import * as d3 from 'd3';
+import D3 from 'd3';
 import { Query } from 'react-apollo';
 import { FormattedMessage } from 'react-intl';
 import _ from 'underscore';
@@ -11,8 +11,8 @@ import item4 from '../../images/menu-item-4.jpg';
 import PageHeading from '../General/PageHeading';
 import Datamaps from './datamaps';
 import irnTopo from './irn.topo.json';
-import bubblesWorld from '../../utils/world.json';
-import bubblesIran from '../../utils/iran.json';
+import World from '../../utils/world.json';
+import Iran from '../../utils/iran.json';
 import { GET_ELEMENTS_STATS } from '../../queries/elementStats';
 import popupTemplate from './popupTemplate';
 import { getYearOptions, getElementsGroups } from '../../utils/utility';
@@ -27,18 +27,18 @@ const groupsOptions = getElementsGroups();
 
 const yearOptions = getYearOptions(1990, 2030);
 
-const BubblesProps = bubblesWorld.bubbles;
+const BubblesProps = World.Countries;
 
 const setProjection = null;
 
-const irnBubblesProps = bubblesIran.bubbles;
+const irnBubblesProps = Iran.States;
 
 const irnSetProjection = () => {
-  const projectionD3 = d3.geo
+  const projectionD3 = D3.geo
     .mercator()
     .center([57.688, 32.4279]) // always in [East Latitude, North Longitude]
     .scale(1400);
-  const pathD3 = d3.geo.path().projection(projectionD3);
+  const pathD3 = D3.geo.path().projection(projectionD3);
   return {
     path: pathD3,
     projection: projectionD3
@@ -220,6 +220,9 @@ class InformationOfWorld extends Component<Props> {
             if (loading) return 'loading.....';
 
             console.log('data, error, refetch', data, error, refetch);
+            console.log('data ::::::::::::', data);
+            console.log('error ::::::::::::', error);
+            console.log('refetch ::::::::::::', refetch);
 
             return (
               <Datamaps

@@ -1,6 +1,8 @@
 import React from 'react';
 import _ from 'underscore';
 import { FormattedMessage } from 'react-intl';
+import World from './world.json';
+import Iran from './iran.json';
 
 /**
  * for queries on list-register
@@ -46,4 +48,32 @@ export function getElementsGroups() {
     { value: 'Group2', label: 'فلزات گرانبها' },
     { value: 'Group3', label: 'عناصر نادر خاکی' }
   ];
+}
+
+export function getCountries() {
+  const countries = World.Countries;
+  const options = [];
+
+  countries.forEach(country => {
+    options.push({
+      label: country.title,
+      value: country.country
+    });
+  });
+
+  return options;
+}
+
+export function getStates() {
+  const states = Iran.States;
+  const options = [];
+
+  states.forEach(state => {
+    options.push({
+      label: state.title,
+      value: state.state
+    });
+  });
+
+  return options;
 }

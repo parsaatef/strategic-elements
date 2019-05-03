@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
-import { FormattedSimpleMsg } from '../../../utils/utility';
+import { FormattedSimpleMsg, getCountries } from '../../../utils/utility';
 import AppForm from '../../../components/form/AppForm';
 import Field from '../../../components/form/Field';
 
@@ -44,9 +44,11 @@ const ElementForm = (props: Props) => {
       />
 
       <Field
-        type="text"
+        type="select"
         name="location"
         label={<FormattedMessage id="global.location" />}
+        options={getCountries()}
+        placeholder={<FormattedSimpleMsg id="global.location" />}
       />
 
       <Field
