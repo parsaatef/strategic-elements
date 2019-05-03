@@ -4,23 +4,20 @@ const popupTemplate = {
       <div class="close"></div>
       <ul>
         <li>
-          <label class="country" id="country">کشور: </label>
-          <span class="" id="country-value">${data.name}</span>
+          <label class="title">title:</label>
+          <span class="value">${data.title}</span>
         </li>
-
         <li>
-          <label class="Rating" id="Rating">رتبه: </label>
-          <span class="" id="Rating-value">33</span>
+          <label class="title">resourceValue:</label>
+          <span class="value">${data.resourceValue}</span>
         </li>
-
         <li>
-          <label class="GDP" id="GDP"> GDP: </label>
-          <span class="" id="GDP-value">33</span>
+          <label class="title">productionValue:</label>
+          <span class="value">${data.productionValue}</span>
         </li>
-
         <li>
-          <label class="turnover" id="turnover"> turnover: </label>
-          <span class="" id="turnover-value">33</span>
+          <label class="title">consumptionValue:</label>
+          <span class="value">${data.consumptionValue}</span>
         </li>
       </ul>
     </div>`

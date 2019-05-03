@@ -212,17 +212,36 @@ class InformationOfWorld extends Component<Props> {
           variables={{
             locationType,
             year,
-            elements,
-            offset: -1
+            elements
           }}
         >
           {({ data, loading, error, refetch }) => {
             if (loading) return 'loading.....';
 
             console.log('data, error, refetch', data, error, refetch);
-            console.log('data ::::::::::::', data);
-            console.log('error ::::::::::::', error);
-            console.log('refetch ::::::::::::', refetch);
+            console.log(
+              'data ::::::::::::',
+              data.searchElementStats.elementsStats
+            );
+
+            const Countries = [];
+            data.searchElementStats.elementsStats.forEach(elem => {
+              if (elem.element === currentElement.value) {
+                Countries.push({
+                  title: elem.location,
+                  country: elem.location,
+                  centered: elem.location,
+                  resourceValue: elem.resourceValue,
+                  productionValue: elem.productionValue,
+                  consumptionValue: elem.consumptionValue,
+                  fillKey: 'Default',
+                  radius: 5
+                });
+              }
+            });
+
+            console.log('options ::::::::::::', Countries);
+            console.log('options ::::::::::::', bubblesProps);
 
             return (
               <Datamaps
@@ -232,7 +251,7 @@ class InformationOfWorld extends Component<Props> {
                 heightProps={heightProps}
                 scopeProps={scope}
                 dataUrlProps={dataUrlProps}
-                bubblesProps={bubblesProps}
+                bubblesProps={Countries}
                 popupTemplateProps={popupTemplateProps}
                 setProjectionProps={setProjectionProps}
               />

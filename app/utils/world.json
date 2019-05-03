@@ -2,8 +2,8 @@
   "Countries": [
     {
       "name": "",
-      "title": "global.select_country",
-      "id": "world.",
+      "title": "global.selectCountry",
+      "id": "world.selectCountry",
       "country": "",
       "centered": "",
       "fillKey": "Default",
