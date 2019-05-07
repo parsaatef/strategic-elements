@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { Query } from 'react-apollo';
 import { FormattedMessage } from 'react-intl';
-import {
-  INFORMATION_WORLD_DETAIL,
-  INFORMATION_IRAN_DETAIL
-} from '../../constants/routes';
+import { INFORMATION_STATS_DETAIL } from '../../constants/routes';
 import ImgButton from '../General/ImgButton';
 import item4 from '../../images/menu-item-4.jpg';
 import PageHeading from '../General/PageHeading';
@@ -32,8 +29,6 @@ class InformationOfElement extends Component<Props> {
 
     return (
       <div>
-        <PageHeading className="text-center" title="عنصر طلا" />
-
         <Query
           query={GET_ELEMENT_BY_NAME}
           variables={{
@@ -48,48 +43,64 @@ class InformationOfElement extends Component<Props> {
             return (
               <>
                 {data && data.elementByName && (
-                  <table className="table table-with-width table-striped table-bordered">
-                    <tbody>
-                      {Object.keys(data.elementByName)
-                        .filter(
-                          feature =>
-                            !notNeedFeaturesForDisplay.includes(feature)
-                        )
-                        .map(feature => (
-                          <tr key={feature}>
-                            <td>
-                              <FormattedMessage id={`global.${feature}`} />
-                            </td>
-                            <td>{data.elementByName[feature]}</td>
-                          </tr>
-                        ))}
-                    </tbody>
-                  </table>
+                  <>
+                    <PageHeading
+                      className="text-center"
+                      title={`عنصر ${data.elementByName.elementTitle}`}
+                    />
+
+                    <table className="table table-with-width table-striped table-bordered">
+                      <tbody>
+                        {Object.keys(data.elementByName)
+                          .filter(
+                            feature =>
+                              !notNeedFeaturesForDisplay.includes(feature)
+                          )
+                          .map(feature => (
+                            <tr key={feature}>
+                              <td>
+                                <FormattedMessage id={`global.${feature}`} />
+                              </td>
+                              <td>{data.elementByName[feature]}</td>
+                            </tr>
+                          ))}
+                      </tbody>
+                    </table>
+                    <Row>
+                      <Col sm={6}>
+                        <ImgButton
+                          className="main-detail-btn-wrap text-left"
+                          link={INFORMATION_STATS_DETAIL.replace(
+                            ':type',
+                            'world'
+                          )
+                            .replace(':element', element)
+                            .replace(':title', data.elementByName.elementTitle)}
+                          src={item4}
+                          title="جزییات برای جهان"
+                        />
+                      </Col>
+
+                      <Col sm={6}>
+                        <ImgButton
+                          className="main-detail-btn-wrap text-right"
+                          link={INFORMATION_STATS_DETAIL.replace(
+                            ':type',
+                            'iran'
+                          )
+                            .replace(':element', element)
+                            .replace(':title', data.elementByName.elementTitle)}
+                          src={item4}
+                          title="جزییات برای ایران"
+                        />
+                      </Col>
+                    </Row>
+                  </>
                 )}
               </>
             );
           }}
         </Query>
-
-        <Row>
-          <Col sm={6}>
-            <ImgButton
-              className="main-detail-btn-wrap text-left"
-              link={INFORMATION_WORLD_DETAIL.replace(':element', element)}
-              src={item4}
-              title="جزییات برای جهان"
-            />
-          </Col>
-
-          <Col sm={6}>
-            <ImgButton
-              className="main-detail-btn-wrap text-right"
-              link={INFORMATION_IRAN_DETAIL.replace(':element', element)}
-              src={item4}
-              title="جزییات برای ایران"
-            />
-          </Col>
-        </Row>
       </div>
     );
   }

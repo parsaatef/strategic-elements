@@ -86,6 +86,7 @@
   "global.ecologyDesc": "محیط زیست",
   "global.reset1": "",
   "global.mineCount": "تعداد معادن",
+  "global.information_detail_title": "جزییات منابع و ذخایر {{element}} در {{location}}",
 
   "global.elementsList": "لیست عناصر",
   "global.exportListIran": "لیست صادرات ایران",

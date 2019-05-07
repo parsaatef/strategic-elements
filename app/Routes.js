@@ -66,7 +66,7 @@ import {
   ENVIRONMENT_REGISTER,
   ENVIRONMENT_LIST,
   ENVIRONMENT_EDIT,
-  INFORMATION_WORLD_DETAIL,
+  INFORMATION_STATS_DETAIL,
   ELEMENT_INFORMATION,
   SECONDARY_SOURCE,
   INFORMATION_OF_IRAN,
@@ -198,7 +198,7 @@ const Routes = ({ session, refetch }: Props) => (
         <Route path={SIGNIN} render={() => <Signin refetch={refetch} />} />
         <RestrictedRoute
           session={session}
-          path={INFORMATION_WORLD_DETAIL}
+          path={INFORMATION_STATS_DETAIL}
           component={ElementDetailForWorld}
         />
         <RestrictedRoute

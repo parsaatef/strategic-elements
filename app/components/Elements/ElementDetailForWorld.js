@@ -7,26 +7,88 @@ import { SECONDARY_SOURCE } from '../../constants/routes';
 import ElementDetailItem from './ElementDetailItem';
 import PageHeading from '../General/PageHeading';
 import { GET_ELEMENTS_STATS } from '../../queries/elementStats';
+import { getYearOptions, getCountries, getStates } from '../../utils/utility';
+import Select from '../General/Select';
+
+const yearOptions = getYearOptions(1990, 2030);
+
+const countryOptions = getCountries();
+
+const statesOptions = getStates();
 
 export default class ElementDetailForWorld extends Component<Props> {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      year: 2002,
+      location: ''
+    };
+  }
+
+  changeOptions(type, selectedOption) {
+    this.setState({
+      [type]: selectedOption.value
+    });
+  }
+
   render() {
     const { match } = this.props;
 
-    const { element } = match.params;
+    const { element, type, title } = match.params;
+
+    const { year, location } = this.state;
+
+    const locationOptions = type === 'world' ? countryOptions : statesOptions;
+
+    // const locationOption = locationOptions.find(option => option.value === location);
+
+    // const locationLabel = locationOption ? locationOption.label : "جهان";
+
+    const locationLabel = type === 'world' ? 'جهان' : 'ایران';
+
+    let heading = `جزییات منابع و ذخایر {{element}} در {{location}}`;
+
+    heading = heading
+      .replace('{{location}}', locationLabel)
+      .replace('{{element}}', title);
 
     return (
       <div>
-        <PageHeading
-          className="text-center"
-          title="جزییات منابع و ذخایر طلا در جهان"
-        />
+        <PageHeading className="text-center" title={heading} />
+
+        <div className="filters">
+          <Row>
+            <Col sm={3} xs={6} className="animated flipInX faster" />
+
+            <Col sm={3} xs={6} className="animated flipInX fast">
+              <Select
+                options={yearOptions}
+                placeholder="انتخاب سال"
+                onChange={this.changeOptions.bind(this, 'year')}
+                defaultValue={year}
+              />
+            </Col>
+
+            <Col sm={3} xs={6} className="animated flipInX slow">
+              <Select
+                options={locationOptions}
+                placeholder={type === 'world' ? 'انتخاب کشور' : 'انتخاب استان'}
+                onChange={this.changeOptions.bind(this, 'location')}
+                defaultValue={location}
+              />
+            </Col>
+
+            <Col sm={3} xs={6} className="animated flipInX slower" />
+          </Row>
+        </div>
 
         <Query
           query={GET_ELEMENTS_STATS}
           variables={{
-            locationType: 'world',
-            location: '',
-            year: 2019,
+            locationType: type,
+            location,
+            year,
             elements: [element]
           }}
         >
@@ -69,13 +131,13 @@ export default class ElementDetailForWorld extends Component<Props> {
 
                   <ElementDetailItem value={mineCount} name="تعداد معادن" />
 
-                  <ElementDetailItem value={exportValue} name="تعداد معادن" />
+                  <ElementDetailItem value={exportValue} name="میزان صادرات" />
 
-                  <ElementDetailItem value={importValue} name="تعداد معادن" />
+                  <ElementDetailItem value={importValue} name="تعداد واردات" />
 
                   <ElementDetailItem
                     value={secondaryProductionValue}
-                    name="تعداد معادن"
+                    name="میزان تولید ثانویه"
                   />
                 </div>
               );
@@ -127,7 +189,7 @@ export default class ElementDetailForWorld extends Component<Props> {
               className="main-detail-btn-wrap text-center"
               link={SECONDARY_SOURCE}
               src={item4}
-              title="فهرست منابع"
+              title="صنایع وابسته"
             />
           </Col>
 
@@ -136,7 +198,34 @@ export default class ElementDetailForWorld extends Component<Props> {
               className="main-detail-btn-wrap text-center"
               link={SECONDARY_SOURCE}
               src={item4}
-              title="شرکتهای تولید کننده"
+              title="سطح تکنولوژی"
+            />
+          </Col>
+
+          <Col sm={4}>
+            <ImgButton
+              className="main-detail-btn-wrap text-center"
+              link={SECONDARY_SOURCE}
+              src={item4}
+              title="فهرست کانی ها"
+            />
+          </Col>
+
+          <Col sm={4}>
+            <ImgButton
+              className="main-detail-btn-wrap text-center"
+              link={SECONDARY_SOURCE}
+              src={item4}
+              title="تهدیدات"
+            />
+          </Col>
+
+          <Col sm={4}>
+            <ImgButton
+              className="main-detail-btn-wrap text-center"
+              link={SECONDARY_SOURCE}
+              src={item4}
+              title="قیمت جهانی"
             />
           </Col>
         </Row>

@@ -98,6 +98,5 @@
 
   "INFORMATION": "/information/:type",
   "ELEMENT_INFORMATION": "/information/element/:element",
-  "INFORMATION_WORLD_DETAIL": "/information/world/detail/:element",
-  "INFORMATION_IRAN_DETAIL": "/information/iran/detail/:element"
+  "INFORMATION_STATS_DETAIL": "/information/detail/:type/:element/:title"
 }
