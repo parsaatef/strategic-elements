@@ -18,11 +18,11 @@ class Mineral extends Component<Props> {
   render() {
     const { match } = this.props;
 
-    const { element } = match.params;
+    const { element, title } = match.params;
 
     return (
       <div>
-        <h4>کانی ها {element}</h4>
+        <h4>کانی ها {title}</h4>
 
         <Query
           query={GET_MINERALS}

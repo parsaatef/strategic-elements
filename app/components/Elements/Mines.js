@@ -18,17 +18,17 @@ class Mines extends Component<Props> {
   render() {
     const { match } = this.props;
 
-    const { element } = match.params;
+    const { element, title } = match.params;
 
     return (
       <div>
-        <h4>معادن {element}</h4>
+        <h4>معادن {title}</h4>
 
         <Query
           query={GET_MINES}
           variables={{
             elements: [element],
-            offset: -1
+            offset: 999
           }}
         >
           {({ data, loading }) => {

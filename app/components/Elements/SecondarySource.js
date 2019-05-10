@@ -18,11 +18,11 @@ class SecondarySource extends Component<Props> {
   render() {
     const { match } = this.props;
 
-    const { element } = match.params;
+    const { element, title } = match.params;
 
     return (
       <div>
-        <h4>منابع ثانویه {element}</h4>
+        <h4>منابع ثانویه {title}</h4>
 
         <Query
           query={GET_SECONDARY_SOURCES}

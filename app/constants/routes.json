@@ -97,13 +97,13 @@
   "INFORMATION": "/information/:type",
   "ELEMENT_INFORMATION": "/information/element/:element",
   "INFORMATION_STATS_DETAIL": "/information/detail/:type/:element/:title",
-  "SECONDARY_SOURCE": "/information/:element/secondary-source",
-  "UPSTREAM_INDUSTRY": "/information/:element/upstream-industry",
-  "ENVIRONMENT": "/information/:element/environment",
-  "THREAT": "/information/:element/threat",
-  "TECHNOLOGICAL_LEVEL": "/information/:element/technology-level",
-  "DEPENDENCE_INDUSTRIES": "/information/:element/dependence-industries",
-  "MINE": "/information/:element/mines",
-  "MINERAL": "/information/:element/mineral",
-  "GLOBAL_PRICE": "/information/:element/global-price"
+  "SECONDARY_SOURCE": "/information/:element/:title/secondary-source",
+  "UPSTREAM_INDUSTRY": "/information/:element/:title/upstream-industry",
+  "ENVIRONMENT": "/information/:element/:title/environment",
+  "THREAT": "/information/:element/:title/threat",
+  "TECHNOLOGICAL_LEVEL": "/information/:element/:title/technology-level",
+  "DEPENDENCE_INDUSTRIES": "/information/:element/:title/dependence-industries",
+  "MINE": "/information/:element/:title/mines",
+  "MINERAL": "/information/:element/:title/mineral",
+  "GLOBAL_PRICE": "/information/:element/:title/global-price"
 }

@@ -18,11 +18,11 @@ class UpstreamIndustry extends Component<Props> {
   render() {
     const { match } = this.props;
 
-    const { element } = match.params;
+    const { element, title } = match.params;
 
     return (
       <div>
-        <h4>صنایع پایین دستی {element}</h4>
+        <h4>صنایع پایین دستی {title}</h4>
 
         <Query
           query={GET_OPTIONS}

@@ -161,7 +161,10 @@ export default class ElementDetailForWorld extends Component<Props> {
           <Col sm={4}>
             <ImgButton
               className="main-detail-btn-wrap text-center"
-              link={SECONDARY_SOURCE.replace(':element', element)}
+              link={SECONDARY_SOURCE.replace(':element', element).replace(
+                ':title',
+                title
+              )}
               src={item4}
               title="منابع ثانویه"
             />
@@ -170,7 +173,10 @@ export default class ElementDetailForWorld extends Component<Props> {
           <Col sm={4}>
             <ImgButton
               className="main-detail-btn-wrap text-center"
-              link={UPSTREAM_INDUSTRY.replace(':element', element)}
+              link={UPSTREAM_INDUSTRY.replace(':element', element).replace(
+                ':title',
+                title
+              )}
               src={item4}
               title="صنایع پایین دستی"
             />
@@ -179,7 +185,10 @@ export default class ElementDetailForWorld extends Component<Props> {
           <Col sm={4}>
             <ImgButton
               className="main-detail-btn-wrap text-center"
-              link={ENVIRONMENT.replace(':element', element)}
+              link={ENVIRONMENT.replace(':element', element).replace(
+                ':title',
+                title
+              )}
               src={item4}
               title="محیط زیستی"
             />
@@ -188,7 +197,7 @@ export default class ElementDetailForWorld extends Component<Props> {
           <Col sm={4}>
             <ImgButton
               className="main-detail-btn-wrap text-center"
-              link={MINE.replace(':element', element)}
+              link={MINE.replace(':element', element).replace(':title', title)}
               src={item4}
               title="فهرست معادن"
             />
@@ -197,7 +206,10 @@ export default class ElementDetailForWorld extends Component<Props> {
           <Col sm={4}>
             <ImgButton
               className="main-detail-btn-wrap text-center"
-              link={DEPENDENCE_INDUSTRIES.replace(':element', element)}
+              link={DEPENDENCE_INDUSTRIES.replace(':element', element).replace(
+                ':title',
+                title
+              )}
               src={item4}
               title="صنایع وابسته"
             />
@@ -206,7 +218,10 @@ export default class ElementDetailForWorld extends Component<Props> {
           <Col sm={4}>
             <ImgButton
               className="main-detail-btn-wrap text-center"
-              link={TECHNOLOGICAL_LEVEL.replace(':element', element)}
+              link={TECHNOLOGICAL_LEVEL.replace(':element', element).replace(
+                ':title',
+                title
+              )}
               src={item4}
               title="سطح تکنولوژی"
             />
@@ -215,7 +230,10 @@ export default class ElementDetailForWorld extends Component<Props> {
           <Col sm={4}>
             <ImgButton
               className="main-detail-btn-wrap text-center"
-              link={MINERAL.replace(':element', element)}
+              link={MINERAL.replace(':element', element).replace(
+                ':title',
+                title
+              )}
               src={item4}
               title="فهرست کانی ها"
             />
@@ -224,7 +242,10 @@ export default class ElementDetailForWorld extends Component<Props> {
           <Col sm={4}>
             <ImgButton
               className="main-detail-btn-wrap text-center"
-              link={THREAT.replace(':element', element)}
+              link={THREAT.replace(':element', element).replace(
+                ':title',
+                title
+              )}
               src={item4}
               title="تهدیدات"
             />
@@ -233,7 +254,10 @@ export default class ElementDetailForWorld extends Component<Props> {
           <Col sm={4}>
             <ImgButton
               className="main-detail-btn-wrap text-center"
-              link={GLOBAL_PRICE.replace(':element', element)}
+              link={GLOBAL_PRICE.replace(':element', element).replace(
+                ':title',
+                title
+              )}
               src={item4}
               title="قیمت جهانی"
             />

@@ -18,11 +18,11 @@ class Environment extends Component<Props> {
   render() {
     const { match } = this.props;
 
-    const { element } = match.params;
+    const { element, title } = match.params;
 
     return (
       <div>
-        <h4>محیط زیست {element}</h4>
+        <h4>محیط زیست {title}</h4>
 
         <Query
           query={GET_OPTIONS}

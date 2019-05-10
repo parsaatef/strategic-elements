@@ -18,11 +18,11 @@ class TechnologicalLevel extends Component<Props> {
   render() {
     const { match } = this.props;
 
-    const { element } = match.params;
+    const { element, title } = match.params;
 
     return (
       <div>
-        <h4>سطح تکنولوژی {element}</h4>
+        <h4>سطح تکنولوژی {title}</h4>
 
         <Query
           query={GET_OPTIONS}

@@ -18,17 +18,17 @@ class GlobalPrice extends Component<Props> {
   render() {
     const { match } = this.props;
 
-    const { element } = match.params;
+    const { element, title } = match.params;
 
     return (
       <div>
-        <h4>قیمت جهانی {element}</h4>
+        <h4>قیمت جهانی {title}</h4>
 
         <Query
           query={GET_GLOBAL_PRICES}
           variables={{
             elements: [element],
-            offset: -1
+            offset: 999
           }}
         >
           {({ data, loading }) => {
