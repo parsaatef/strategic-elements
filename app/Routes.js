@@ -12,6 +12,7 @@ import {
   MINE_REGISTER,
   MINES_LIST,
   MINE_EDIT,
+  MINE,
   ELEMENT_REGISTER,
   ELEMENTS_LIST,
   ELEMENT_EDIT,
@@ -51,21 +52,26 @@ import {
   DEPENDENCE_INDUSTRIES_REGISTER,
   DEPENDENCE_INDUSTRIES_LIST,
   DEPENDENCE_INDUSTRIES_EDIT,
+  DEPENDENCE_INDUSTRIES,
   TECHNOLOGICAL_LEVEL_REGISTER,
   TECHNOLOGICAL_LEVEL_LIST,
   TECHNOLOGICAL_LEVEL_EDIT,
+  TECHNOLOGICAL_LEVEL,
   SECONDARY_PRODUCTION_REGISTER,
   SECONDARY_PRODUCTION_LIST,
   SECONDARY_PRODUCTION_EDIT,
   UPSTREAM_INDUSTRY_REGISTER,
   UPSTREAM_INDUSTRY_LIST,
   UPSTREAM_INDUSTRY_EDIT,
+  UPSTREAM_INDUSTRY,
   THREAT_REGISTER,
   THREATS_LIST,
   THREAT_EDIT,
+  THREAT,
   ENVIRONMENT_REGISTER,
   ENVIRONMENT_LIST,
   ENVIRONMENT_EDIT,
+  ENVIRONMENT,
   INFORMATION_STATS_DETAIL,
   ELEMENT_INFORMATION,
   SECONDARY_SOURCE,
@@ -160,9 +166,29 @@ const ThreatManagement = lazy(() =>
 const EnvironmentManagement = lazy(() =>
   import('./containers/admin/environment/environmentManagement')
 );
+
 const SecondarySource = lazy(() =>
   import('./components/Elements/SecondarySource')
 );
+
+const UpstreamIndustry = lazy(() =>
+  import('./components/Elements/UpstreamIndustry')
+);
+
+const Environment = lazy(() => import('./components/Elements/Environment'));
+
+const Threat = lazy(() => import('./components/Elements/Threat'));
+
+const TechnologicalLevel = lazy(() =>
+  import('./components/Elements/TechnologicalLevel')
+);
+
+const DependenceIndustries = lazy(() =>
+  import('./components/Elements/DependenceIndustries')
+);
+
+const Mine = lazy(() => import('./components/Elements/Mines'));
+
 const ElementStatsManagement = lazy(() =>
   import('./containers/admin/element-stats/ElementStatsManagement')
 );
@@ -270,6 +296,8 @@ const Routes = ({ session, refetch }: Props) => (
           path={MINE_EDIT}
           component={MineManagement}
         />
+
+        <RestrictedRoute session={session} path={MINE} component={Mine} />
 
         <RestrictedRoute
           session={session}
@@ -481,6 +509,12 @@ const Routes = ({ session, refetch }: Props) => (
 
         <RestrictedRoute
           session={session}
+          path={DEPENDENCE_INDUSTRIES}
+          component={DependenceIndustries}
+        />
+
+        <RestrictedRoute
+          session={session}
           path={TECHNOLOGICAL_LEVEL_REGISTER}
           component={TechnologicalLevelManagement}
         />
@@ -493,6 +527,12 @@ const Routes = ({ session, refetch }: Props) => (
           session={session}
           path={TECHNOLOGICAL_LEVEL_EDIT}
           component={TechnologicalLevelManagement}
+        />
+
+        <RestrictedRoute
+          session={session}
+          path={TECHNOLOGICAL_LEVEL}
+          component={TechnologicalLevel}
         />
 
         <RestrictedRoute
@@ -529,6 +569,12 @@ const Routes = ({ session, refetch }: Props) => (
 
         <RestrictedRoute
           session={session}
+          path={UPSTREAM_INDUSTRY}
+          component={UpstreamIndustry}
+        />
+
+        <RestrictedRoute
+          session={session}
           path={THREAT_REGISTER}
           component={ThreatManagement}
         />
@@ -542,6 +588,8 @@ const Routes = ({ session, refetch }: Props) => (
           path={THREAT_EDIT}
           component={ThreatManagement}
         />
+
+        <RestrictedRoute session={session} path={THREAT} component={Threat} />
 
         <RestrictedRoute
           session={session}
@@ -557,6 +605,12 @@ const Routes = ({ session, refetch }: Props) => (
           session={session}
           path={ENVIRONMENT_EDIT}
           component={EnvironmentManagement}
+        />
+
+        <RestrictedRoute
+          session={session}
+          path={ENVIRONMENT}
+          component={Environment}
         />
 
         <RestrictedRoute

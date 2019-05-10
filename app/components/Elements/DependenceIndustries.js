@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 import { gql } from 'apollo-boost';
-import { GET_SECONDARY_SOURCES } from '../../queries/secondarySource';
+import { GET_OPTIONS } from '../../queries/option';
 
 export const GET_ELEMENT_BY_NAME = gql`
   query($element: String!) {
@@ -9,12 +9,12 @@ export const GET_ELEMENT_BY_NAME = gql`
       id
       element
       elementTitle
-      secondaryResourcesDesc
+      relatedIndustryDesc
     }
   }
 `;
 
-class SecondarySource extends Component<Props> {
+class DependenceIndustries extends Component<Props> {
   render() {
     const { match } = this.props;
 
@@ -22,35 +22,30 @@ class SecondarySource extends Component<Props> {
 
     return (
       <div>
-        <h4>منابع ثانویه {element}</h4>
+        <h4>محیط زیست {element}</h4>
 
         <Query
-          query={GET_SECONDARY_SOURCES}
+          query={GET_OPTIONS}
           variables={{
-            elements: [element],
-            offset: -1
+            element,
+            type: 'dependence-industries',
+            offset: 999
           }}
         >
           {({ data, loading }) => {
             if (loading) return 'loading.....';
 
-            if (
-              data &&
-              data.searchSecondarySource &&
-              data.searchSecondarySource.secondarySources
-            ) {
+            if (data && data.searchOptions && data.searchOptions.options) {
               return (
                 <div>
                   <table className="table table-with-width table-striped table-bordered">
                     <tbody>
-                      {data.searchSecondarySource.secondarySources.map(
-                        source => (
-                          <tr key={source.id}>
-                            <td>{source.title}</td>
-                            <td>{source.value}</td>
-                          </tr>
-                        )
-                      )}
+                      {data.searchOptions.options.map(option => (
+                        <tr key={option.id}>
+                          <td>{option.name}</td>
+                          <td>{option.value}</td>
+                        </tr>
+                      ))}
                     </tbody>
                   </table>
                 </div>
@@ -76,7 +71,7 @@ class SecondarySource extends Component<Props> {
                   {data && data.elementByName && (
                     <div
                       dangerouslySetInnerHTML={{
-                        __html: data.elementByName.secondaryResourcesDesc
+                        __html: data.elementByName.relatedIndustryDesc
                       }}
                     />
                   )}
@@ -90,4 +85,4 @@ class SecondarySource extends Component<Props> {
   }
 }
 
-export default SecondarySource;
+export default DependenceIndustries;

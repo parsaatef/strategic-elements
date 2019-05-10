@@ -155,37 +155,37 @@ const ElementForm = (props: Props) => {
       />
 
       <Field
-        type="text"
+        type="editor"
         name="relatedIndustryDesc"
         label={<FormattedMessage id="global.relatedIndustryDesc" />}
       />
 
       <Field
-        type="text"
+        type="editor"
         name="technologyLevelDesc"
         label={<FormattedMessage id="global.technologyLevelDesc" />}
       />
 
       <Field
-        type="text"
+        type="editor"
         name="lowLevelIndustryDesc"
         label={<FormattedMessage id="global.lowLevelIndustryDesc" />}
       />
 
       <Field
-        type="text"
+        type="editor"
         name="threatyDesc"
         label={<FormattedMessage id="global.threatyDesc" />}
       />
 
       <Field
-        type="text"
+        type="editor"
         name="secondaryResourcesDesc"
         label={<FormattedMessage id="global.secondaryResourcesDesc" />}
       />
 
       <Field
-        type="text"
+        type="editor"
         name="ecologyDesc"
         label={<FormattedMessage id="global.ecologyDesc" />}
       />

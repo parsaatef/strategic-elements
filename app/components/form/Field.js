@@ -3,6 +3,7 @@ import TextInput from './TextInput';
 import Select from './Select';
 import Textarea from './Textarea';
 import Checkbox from './Checkbox';
+import TextEditor from './TextEditor';
 
 class Field extends Component {
   render() {
@@ -61,6 +62,19 @@ class Field extends Component {
     if (type === 'textarea') {
       return (
         <Textarea
+          name={name}
+          value={value}
+          handleChange={handleChange}
+          label={label}
+          error={error}
+          {...rest}
+        />
+      );
+    }
+
+    if (type === 'editor') {
+      return (
+        <TextEditor
           name={name}
           value={value}
           handleChange={handleChange}

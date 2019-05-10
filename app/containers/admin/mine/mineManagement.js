@@ -11,7 +11,7 @@ import {
   GET_MINES,
   DELETE_MINE,
   MULTI_DELETE_MINES
-} from './query';
+} from '../../../queries/mine';
 
 export default class MineManagement extends Component<Props> {
   render() {

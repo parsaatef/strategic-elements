@@ -3,7 +3,15 @@ import { Row, Col } from 'react-bootstrap';
 import { Query } from 'react-apollo';
 import ImgButton from '../General/ImgButton';
 import item4 from '../../images/menu-item-4.jpg';
-import { SECONDARY_SOURCE } from '../../constants/routes';
+import {
+  SECONDARY_SOURCE,
+  UPSTREAM_INDUSTRY,
+  ENVIRONMENT,
+  THREAT,
+  TECHNOLOGICAL_LEVEL,
+  DEPENDENCE_INDUSTRIES,
+  MINE
+} from '../../constants/routes';
 import ElementDetailItem from './ElementDetailItem';
 import PageHeading from '../General/PageHeading';
 import { GET_ELEMENTS_STATS } from '../../queries/elementStats';
@@ -151,7 +159,7 @@ export default class ElementDetailForWorld extends Component<Props> {
           <Col sm={4}>
             <ImgButton
               className="main-detail-btn-wrap text-center"
-              link={SECONDARY_SOURCE}
+              link={SECONDARY_SOURCE.replace(':element', element)}
               src={item4}
               title="منابع ثانویه"
             />
@@ -160,7 +168,7 @@ export default class ElementDetailForWorld extends Component<Props> {
           <Col sm={4}>
             <ImgButton
               className="main-detail-btn-wrap text-center"
-              link={SECONDARY_SOURCE}
+              link={UPSTREAM_INDUSTRY.replace(':element', element)}
               src={item4}
               title="صنایع پایین دستی"
             />
@@ -169,7 +177,7 @@ export default class ElementDetailForWorld extends Component<Props> {
           <Col sm={4}>
             <ImgButton
               className="main-detail-btn-wrap text-center"
-              link={SECONDARY_SOURCE}
+              link={ENVIRONMENT.replace(':element', element)}
               src={item4}
               title="محیط زیستی"
             />
@@ -178,7 +186,7 @@ export default class ElementDetailForWorld extends Component<Props> {
           <Col sm={4}>
             <ImgButton
               className="main-detail-btn-wrap text-center"
-              link={SECONDARY_SOURCE}
+              link={MINE.replace(':element', element)}
               src={item4}
               title="فهرست معادن"
             />
@@ -187,7 +195,7 @@ export default class ElementDetailForWorld extends Component<Props> {
           <Col sm={4}>
             <ImgButton
               className="main-detail-btn-wrap text-center"
-              link={SECONDARY_SOURCE}
+              link={DEPENDENCE_INDUSTRIES.replace(':element', element)}
               src={item4}
               title="صنایع وابسته"
             />
@@ -196,7 +204,7 @@ export default class ElementDetailForWorld extends Component<Props> {
           <Col sm={4}>
             <ImgButton
               className="main-detail-btn-wrap text-center"
-              link={SECONDARY_SOURCE}
+              link={TECHNOLOGICAL_LEVEL.replace(':element', element)}
               src={item4}
               title="سطح تکنولوژی"
             />
@@ -214,7 +222,7 @@ export default class ElementDetailForWorld extends Component<Props> {
           <Col sm={4}>
             <ImgButton
               className="main-detail-btn-wrap text-center"
-              link={SECONDARY_SOURCE}
+              link={THREAT.replace(':element', element)}
               src={item4}
               title="تهدیدات"
             />

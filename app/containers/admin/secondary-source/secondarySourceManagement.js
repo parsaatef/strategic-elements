@@ -11,7 +11,7 @@ import {
   GET_SECONDARY_SOURCES,
   DELETE_SOURCE,
   MULTI_DELETE_SOURCES
-} from './query';
+} from '../../../queries/secondarySource';
 
 export default class SecondarySourceManagement extends Component<Props> {
   render() {
