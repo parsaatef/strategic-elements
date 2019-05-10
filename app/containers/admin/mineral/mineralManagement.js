@@ -11,7 +11,7 @@ import {
   GET_MINERALS,
   DELETE_MINERAL,
   MULTI_DELETE_MINERALS
-} from './query';
+} from '../../../queries/mineral';
 
 export default class MineralManagement extends Component<Props> {
   render() {

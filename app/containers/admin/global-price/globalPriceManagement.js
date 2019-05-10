@@ -11,7 +11,7 @@ import {
   GET_GLOBAL_PRICES,
   DELETE_PRICE,
   MULTI_DELETE_PRICES
-} from './query';
+} from '../../../queries/global-price';
 
 export default class GlobalPriceManagement extends Component<Props> {
   render() {

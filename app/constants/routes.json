@@ -103,5 +103,7 @@
   "THREAT": "/information/:element/threat",
   "TECHNOLOGICAL_LEVEL": "/information/:element/technology-level",
   "DEPENDENCE_INDUSTRIES": "/information/:element/dependence-industries",
-  "MINE": "/information/:element/mines"
+  "MINE": "/information/:element/mines",
+  "MINERAL": "/information/:element/mineral",
+  "GLOBAL_PRICE": "/information/:element/global-price"
 }

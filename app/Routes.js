@@ -9,6 +9,7 @@ import {
   MINERAL_REGISTER,
   MINERALS_LIST,
   MINERAL_EDIT,
+  MINERAL,
   MINE_REGISTER,
   MINES_LIST,
   MINE_EDIT,
@@ -19,6 +20,7 @@ import {
   GLOBAL_PRICE_REGISTER,
   GLOBAL_PRICES_LIST,
   GLOBAL_PRICE_EDIT,
+  GLOBAL_PRICE,
   SECONDARY_SOURCE_REGISTER,
   SECONDARY_SOURCES_LIST,
   SECONDARY_SOURCE_EDIT,
@@ -189,6 +191,10 @@ const DependenceIndustries = lazy(() =>
 
 const Mine = lazy(() => import('./components/Elements/Mines'));
 
+const Mineral = lazy(() => import('./components/Elements/Mineral'));
+
+const GlobalPrice = lazy(() => import('./components/Elements/GlobalPrice'));
+
 const ElementStatsManagement = lazy(() =>
   import('./containers/admin/element-stats/ElementStatsManagement')
 );
@@ -281,11 +287,15 @@ const Routes = ({ session, refetch }: Props) => (
           path={MINERAL_EDIT}
           component={MineralManagement}
         />
+
+        <RestrictedRoute session={session} path={MINERAL} component={Mineral} />
+
         <RestrictedRoute
           session={session}
           path={MINE_REGISTER}
           component={MineManagement}
         />
+
         <RestrictedRoute
           session={session}
           path={MINES_LIST}
@@ -329,6 +339,11 @@ const Routes = ({ session, refetch }: Props) => (
           session={session}
           path={GLOBAL_PRICE_EDIT}
           component={GlobalPriceManagement}
+        />
+        <RestrictedRoute
+          session={session}
+          path={GLOBAL_PRICE}
+          component={GlobalPrice}
         />
 
         <RestrictedRoute

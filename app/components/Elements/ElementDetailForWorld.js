@@ -10,7 +10,9 @@ import {
   THREAT,
   TECHNOLOGICAL_LEVEL,
   DEPENDENCE_INDUSTRIES,
-  MINE
+  MINE,
+  MINERAL,
+  GLOBAL_PRICE
 } from '../../constants/routes';
 import ElementDetailItem from './ElementDetailItem';
 import PageHeading from '../General/PageHeading';
@@ -213,7 +215,7 @@ export default class ElementDetailForWorld extends Component<Props> {
           <Col sm={4}>
             <ImgButton
               className="main-detail-btn-wrap text-center"
-              link={SECONDARY_SOURCE}
+              link={MINERAL.replace(':element', element)}
               src={item4}
               title="فهرست کانی ها"
             />
@@ -231,7 +233,7 @@ export default class ElementDetailForWorld extends Component<Props> {
           <Col sm={4}>
             <ImgButton
               className="main-detail-btn-wrap text-center"
-              link={SECONDARY_SOURCE}
+              link={GLOBAL_PRICE.replace(':element', element)}
               src={item4}
               title="قیمت جهانی"
             />
