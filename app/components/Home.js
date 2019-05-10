@@ -1,7 +1,12 @@
 // @flow
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { HOME, INFORMATION_OF_WORLD, USERS_LIST } from '../constants/routes';
+import {
+  HOME,
+  INFORMATION_ANALYSIS,
+  INFORMATION_OF_WORLD,
+  ADMIN
+} from '../constants/routes';
 import item1 from '../images/menu-item-1.jpg';
 import item3 from '../images/menu-item-3.jpg';
 import item4 from '../images/menu-item-4.jpg';
@@ -28,12 +33,12 @@ export default class Home extends Component<Props> {
                     <img src={item1} alt="img" />
                   </div>
                   <div className="title">
-                    <h2>منابع و ذخایر</h2>
+                    <h2>اطلاعات مصور</h2>
                   </div>
                 </Link>
               </div>
               <div className="col-sm-4 col-xs-6">
-                <Link className="smfp-main-item-wrap" to={HOME}>
+                <Link className="smfp-main-item-wrap" to={INFORMATION_ANALYSIS}>
                   <div className="img">
                     <img src={item3} alt="img" />
                   </div>
@@ -43,7 +48,7 @@ export default class Home extends Component<Props> {
                 </Link>
               </div>
               <div className="col-sm-4 col-xs-6">
-                <Link className="smfp-main-item-wrap" to={USERS_LIST}>
+                <Link className="smfp-main-item-wrap" to={ADMIN}>
                   <div className="img">
                     <img src={item4} alt="img" />
                   </div>
@@ -56,7 +61,7 @@ export default class Home extends Component<Props> {
 
             <div className="site-info">
               <Link className="imprint" to={HOME}>
-                تمامی حقوق مادی و معنوی این اپ مطعلق به سامانه مدیریتی فناورانه
+                تمامی حقوق مادی و معنوی این اپ متعلق به سامانه مدیریتی فناورانه
                 پویا میباشد.
               </Link>
             </div>

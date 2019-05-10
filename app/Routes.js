@@ -77,7 +77,6 @@ import {
   INFORMATION_STATS_DETAIL,
   ELEMENT_INFORMATION,
   SECONDARY_SOURCE,
-  INFORMATION_OF_IRAN,
   INFORMATION_OF_WORLD,
   USERS_LIST,
   USER_REGISTER,
@@ -85,12 +84,23 @@ import {
   SIGNIN,
   ELEMENT_STATS_REGISTER,
   ELEMENTS_STATS_LIST,
-  ELEMENT_STATS_EDIT
+  ELEMENT_STATS_EDIT,
+  INFORMATION_ANALYSIS,
+  ADMIN
 } from './constants/routes';
 
+/**
+ * Front End Routers
+ */
 const HomePage = lazy(() => import('./containers/HomePage'));
 const CounterPage = lazy(() => import('./containers/CounterPage'));
 const Signin = lazy(() => import('./components/Auth/Signin'));
+
+const InformationAnalysis = lazy(() =>
+  import('./containers/InformationAnalysis')
+);
+
+const Admin = lazy(() => import('./containers/admin/Admin'));
 
 const ElementDetailForWorld = lazy(() =>
   import('./components/Elements/ElementDetailForWorld')
@@ -98,13 +108,44 @@ const ElementDetailForWorld = lazy(() =>
 const InformationOfElement = lazy(() =>
   import('./components/Elements/InformationOfElement')
 );
-const InformationOfIran = lazy(() =>
-  import('./components/Information/InformationOfIran')
-);
+
 const InformationOfWorld = lazy(() =>
   import('./components/Information/InformationOfWorld')
 );
 
+const EnvironmentManagement = lazy(() =>
+  import('./containers/admin/environment/environmentManagement')
+);
+
+const SecondarySource = lazy(() =>
+  import('./components/Elements/SecondarySource')
+);
+
+const UpstreamIndustry = lazy(() =>
+  import('./components/Elements/UpstreamIndustry')
+);
+
+const Environment = lazy(() => import('./components/Elements/Environment'));
+
+const Threat = lazy(() => import('./components/Elements/Threat'));
+
+const TechnologicalLevel = lazy(() =>
+  import('./components/Elements/TechnologicalLevel')
+);
+
+const DependenceIndustries = lazy(() =>
+  import('./components/Elements/DependenceIndustries')
+);
+
+const Mine = lazy(() => import('./components/Elements/Mines'));
+
+const Mineral = lazy(() => import('./components/Elements/Mineral'));
+
+const GlobalPrice = lazy(() => import('./components/Elements/GlobalPrice'));
+
+/**
+ * Admin Routers
+ */
 const MineralManagement = lazy(() =>
   import('./containers/admin/mineral/mineralManagement')
 );
@@ -165,36 +206,6 @@ const UpstreamIndustryManagement = lazy(() =>
 const ThreatManagement = lazy(() =>
   import('./containers/admin/threat/threatManagement')
 );
-const EnvironmentManagement = lazy(() =>
-  import('./containers/admin/environment/environmentManagement')
-);
-
-const SecondarySource = lazy(() =>
-  import('./components/Elements/SecondarySource')
-);
-
-const UpstreamIndustry = lazy(() =>
-  import('./components/Elements/UpstreamIndustry')
-);
-
-const Environment = lazy(() => import('./components/Elements/Environment'));
-
-const Threat = lazy(() => import('./components/Elements/Threat'));
-
-const TechnologicalLevel = lazy(() =>
-  import('./components/Elements/TechnologicalLevel')
-);
-
-const DependenceIndustries = lazy(() =>
-  import('./components/Elements/DependenceIndustries')
-);
-
-const Mine = lazy(() => import('./components/Elements/Mines'));
-
-const Mineral = lazy(() => import('./components/Elements/Mineral'));
-
-const GlobalPrice = lazy(() => import('./components/Elements/GlobalPrice'));
-
 const ElementStatsManagement = lazy(() =>
   import('./containers/admin/element-stats/ElementStatsManagement')
 );
@@ -245,11 +256,6 @@ const Routes = ({ session, refetch }: Props) => (
           component={SecondarySource}
         />
 
-        <RestrictedRoute
-          session={session}
-          path={INFORMATION_OF_IRAN}
-          component={InformationOfIran}
-        />
         <RestrictedRoute
           session={session}
           path={INFORMATION_OF_WORLD}
@@ -638,11 +644,20 @@ const Routes = ({ session, refetch }: Props) => (
           path={ELEMENTS_STATS_LIST}
           component={ElementStatsManagement}
         />
+
         <RestrictedRoute
           session={session}
           path={ELEMENT_STATS_EDIT}
           component={ElementStatsManagement}
         />
+
+        <RestrictedRoute
+          session={session}
+          path={INFORMATION_ANALYSIS}
+          component={InformationAnalysis}
+        />
+
+        <RestrictedRoute session={session} path={ADMIN} component={Admin} />
 
         <Redirect to="/" />
       </Switch>

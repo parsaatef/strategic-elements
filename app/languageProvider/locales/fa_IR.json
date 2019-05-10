@@ -86,6 +86,8 @@
   "global.ecologyDesc": "محیط زیست",
   "global.reset1": "",
   "global.mineCount": "تعداد معادن",
+  "global.dashboard": "داشبورد",
+  "global.home": "خانه",
   "global.open_editor": "باز کردن ویرایشگر",
   "global.information_detail_title": "جزییات منابع و ذخایر {{element}} در {{location}}",
 

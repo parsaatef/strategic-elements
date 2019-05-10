@@ -3,6 +3,26 @@
   "SIGNIN": "/signin",
   "COUNTER": "/counter",
 
+  "INFORMATION_OF_WORLD": "/information-of-world",
+
+  "INFORMATION": "/information/:type",
+
+  "INFORMATION_ANALYSIS": "/information/analysis",
+
+  "ELEMENT_INFORMATION": "/information/element/:element",
+  "INFORMATION_STATS_DETAIL": "/information/detail/:type/:element/:title",
+  "SECONDARY_SOURCE": "/information/:element/:title/secondary-source",
+  "UPSTREAM_INDUSTRY": "/information/:element/:title/upstream-industry",
+  "ENVIRONMENT": "/information/:element/:title/environment",
+  "THREAT": "/information/:element/:title/threat",
+  "TECHNOLOGICAL_LEVEL": "/information/:element/:title/technology-level",
+  "DEPENDENCE_INDUSTRIES": "/information/:element/:title/dependence-industries",
+  "MINE": "/information/:element/:title/mines",
+  "MINERAL": "/information/:element/:title/mineral",
+  "GLOBAL_PRICE": "/information/:element/:title/global-price",
+
+  "ADMIN": "/admin",
+
   "MINERAL_REGISTER": "/admin/mineral/register",
   "MINERALS_LIST": "/admin/minerals/list",
   "MINERAL_EDIT": "/admin/mineral/edit/:id",
@@ -89,21 +109,5 @@
 
   "USER_REGISTER": "/admin/user/register",
   "USERS_LIST": "/admin/users/list",
-  "USER_EDIT": "/admin/user/edit/:id",
-
-  "INFORMATION_OF_IRAN": "/information-of-iran",
-  "INFORMATION_OF_WORLD": "/information-of-world",
-
-  "INFORMATION": "/information/:type",
-  "ELEMENT_INFORMATION": "/information/element/:element",
-  "INFORMATION_STATS_DETAIL": "/information/detail/:type/:element/:title",
-  "SECONDARY_SOURCE": "/information/:element/:title/secondary-source",
-  "UPSTREAM_INDUSTRY": "/information/:element/:title/upstream-industry",
-  "ENVIRONMENT": "/information/:element/:title/environment",
-  "THREAT": "/information/:element/:title/threat",
-  "TECHNOLOGICAL_LEVEL": "/information/:element/:title/technology-level",
-  "DEPENDENCE_INDUSTRIES": "/information/:element/:title/dependence-industries",
-  "MINE": "/information/:element/:title/mines",
-  "MINERAL": "/information/:element/:title/mineral",
-  "GLOBAL_PRICE": "/information/:element/:title/global-price"
+  "USER_EDIT": "/admin/user/edit/:id"
 }
