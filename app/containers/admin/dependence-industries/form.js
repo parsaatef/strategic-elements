@@ -44,7 +44,7 @@ const DependenceIndustriesForm = (props: Props) => {
         placeholder={<FormattedMessage id="global.dependentLevel" />}
       />
 
-      <ElementsSelect />
+      <ElementsSelect name="element" />
 
       <Button type="submit">
         {formType === 'register' ? (

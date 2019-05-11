@@ -71,10 +71,13 @@ export default {
         filters.role = role;
       }
 
-      const query = User.find(filters)
+      let query = User.find(filters)
         .sort({ [sortBy]: sort })
-        .limit(offset)
         .skip(first);
+
+      if (offset && offset > -1) {
+        query = query.limit(offset);
+      }
 
       return {
         users: query,

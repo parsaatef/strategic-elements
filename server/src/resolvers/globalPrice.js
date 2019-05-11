@@ -60,10 +60,13 @@ export default {
         filters.username = { $in: users };
       }
 
-      const query = GlobalPrice.find(filters)
+      let query = GlobalPrice.find(filters)
         .sort({ [sortBy]: sort })
-        .limit(offset)
         .skip(first);
+
+      if (offset && offset > -1) {
+        query = query.limit(offset);
+      }
 
       return {
         globalPrices: query,

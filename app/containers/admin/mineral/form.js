@@ -53,7 +53,7 @@ const MineralForm = (props: Props) => {
         label={<FormattedMessage id="global.color" />}
       />
 
-      <ElementsSelect />
+      <ElementsSelect name="element" multiple />
 
       <Field
         type="textarea"

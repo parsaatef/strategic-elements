@@ -56,10 +56,13 @@ export default {
 
       console.log('---------is Valid----------');
 
-      const query = Mineral.find(filters)
+      let query = Mineral.find(filters)
         .sort({ [sortBy]: sort })
-        .limit(offset)
         .skip(first);
+
+      if (offset && offset > -1) {
+        query = query.limit(offset);
+      }
 
       return {
         minerals: query,

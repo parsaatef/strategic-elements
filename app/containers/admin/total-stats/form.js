@@ -27,7 +27,7 @@ const TotalStatsForm = (props: Props) => {
       initialValues={initialValues}
       schema={validationSchema}
     >
-      <ElementsSelect />
+      <ElementsSelect name="element" />
 
       <Field
         type="text"

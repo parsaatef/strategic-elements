@@ -52,8 +52,6 @@ class AppForm extends Component<Props> {
   }
 
   handleChange(name, value) {
-    console.log('--------name, value-----', name, value);
-    console.log('---type--', typeof value);
     this.setState(
       state => {
         const newValues = _.clone(state.values);

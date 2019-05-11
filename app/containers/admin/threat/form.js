@@ -44,7 +44,7 @@ const ThreatForm = (props: Props) => {
         placeholder={<FormattedMessage id="global.select" />}
       />
 
-      <ElementsSelect />
+      <ElementsSelect name="element" />
 
       <Button type="submit">
         {formType === 'register' ? (

@@ -49,10 +49,13 @@ export default {
         filters.username = { $in: users };
       }
 
-      const query = Mine.find(filters)
+      let query = Mine.find(filters)
         .sort({ [sortBy]: sort })
-        .limit(offset)
         .skip(first);
+
+      if (offset && offset > -1) {
+        query = query.limit(offset);
+      }
 
       return {
         mines: query,

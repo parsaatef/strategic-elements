@@ -42,7 +42,7 @@ const ElementForm = (props: Props) => {
 
         return (
           <>
-            <ElementsSelect />
+            <ElementsSelect name="element" />
 
             <Field
               type="select"
