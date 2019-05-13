@@ -29,7 +29,7 @@ class TechnologicalLevel extends Component<Props> {
           variables={{
             element,
             type: 'technology-level',
-            offset: 999
+            offset: -1
           }}
         >
           {({ data, loading }) => {

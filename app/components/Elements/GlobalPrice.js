@@ -28,7 +28,7 @@ class GlobalPrice extends Component<Props> {
           query={GET_GLOBAL_PRICES}
           variables={{
             elements: [element],
-            offset: 999
+            offset: -1
           }}
         >
           {({ data, loading }) => {

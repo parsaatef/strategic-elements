@@ -29,7 +29,7 @@ class Threat extends Component<Props> {
           variables={{
             element,
             type: 'threat',
-            offset: 999
+            offset: -1
           }}
         >
           {({ data, loading }) => {
@@ -61,10 +61,8 @@ class Threat extends Component<Props> {
               element
             }}
           >
-            {({ data, loading, error, refetch }) => {
+            {({ data, loading }) => {
               if (loading) return 'loading.....';
-
-              console.log('data, error, refetch', data, error, refetch);
 
               return (
                 <>

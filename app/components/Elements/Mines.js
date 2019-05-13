@@ -28,7 +28,7 @@ class Mines extends Component<Props> {
           query={GET_MINES}
           variables={{
             elements: [element],
-            offset: 999
+            offset: -1
           }}
         >
           {({ data, loading }) => {

@@ -26,8 +26,6 @@ class Register extends Component {
       () => {
         register()
           .then(async ({ data }) => {
-            console.log('-----------data--------', data);
-
             const { history, listRoute } = this.props;
 
             history.push(listRoute);

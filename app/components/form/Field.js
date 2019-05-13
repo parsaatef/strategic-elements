@@ -6,6 +6,12 @@ import Checkbox from './Checkbox';
 import TextEditor from './TextEditor';
 
 class Field extends Component {
+  shouldComponentUpdate(nextProps) {
+    const { value, error } = this.props;
+
+    return nextProps.error !== error || nextProps.value !== value;
+  }
+
   render() {
     const {
       type,

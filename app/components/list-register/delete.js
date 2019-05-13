@@ -17,8 +17,6 @@ class DeleteAction extends Component<Props> {
 
     removeItem()
       .then(async ({ data }) => {
-        console.log('-----------data--------', data);
-
         /**
          * refetch the list
          */

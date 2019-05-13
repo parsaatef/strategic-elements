@@ -29,7 +29,7 @@ class DependenceIndustries extends Component<Props> {
           variables={{
             element,
             type: 'dependence-industries',
-            offset: 999
+            offset: -1
           }}
         >
           {({ data, loading }) => {

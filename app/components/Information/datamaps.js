@@ -9,7 +9,6 @@ export default class Datamaps extends Component<Props> {
 
   componentDidUpdate(prevProps) {
     const { idName, scopeProps, dataUrlProps, bubblesProps } = this.props;
-    console.log('---this.props-----', this.props);
 
     if (
       prevProps.scopeProps !== scopeProps ||

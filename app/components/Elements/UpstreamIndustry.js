@@ -29,7 +29,7 @@ class UpstreamIndustry extends Component<Props> {
           variables={{
             element,
             type: 'upstream-Industry',
-            offset: 999
+            offset: -1
           }}
         >
           {({ data, loading }) => {

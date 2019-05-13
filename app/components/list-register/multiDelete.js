@@ -17,8 +17,6 @@ class MultiDeleteAction extends Component<Props> {
 
     multiRemoveItems()
       .then(async ({ data }) => {
-        console.log('-----------data--------', data);
-
         /**
          * refetch the list
          */

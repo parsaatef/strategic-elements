@@ -24,7 +24,7 @@ class ItemsList extends Component<Props> {
       refetchStatus: 'default',
       searchBy: '',
       searchValue: '',
-      limit: 2,
+      limit: 10,
       firstItem: 0,
       bulkAction: '',
       selectedItems: []

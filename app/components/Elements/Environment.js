@@ -29,7 +29,7 @@ class Environment extends Component<Props> {
           variables={{
             element,
             type: 'environment',
-            offset: 999
+            offset: -1
           }}
         >
           {({ data, loading }) => {

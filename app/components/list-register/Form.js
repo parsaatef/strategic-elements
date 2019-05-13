@@ -18,8 +18,6 @@ class FormElement extends Component<Props> {
 
     // delete initialValues.id;
 
-    console.log('-----------initialValues----------', initialValues);
-
     return (
       <section className="form-wrapper">
         <FormComponent

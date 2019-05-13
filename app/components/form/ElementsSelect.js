@@ -13,7 +13,7 @@ const ElementsSelect = props => (
     }}
   >
     {({ data, loading, error }) => {
-      console.log('----data-----', data, loading, error);
+      if (error) console.error(error);
       if (loading) return 'loading.....';
 
       const options = [
