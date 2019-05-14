@@ -86,10 +86,10 @@ class Menu extends Component<Props> {
   render() {
     const { session } = this.props;
 
-    const currentUserId =
-      session && session.getCurrentUser && session.getCurrentUser.id
-        ? session.getCurrentUser.id
-        : 0;
+    const currentUser =
+      session && session.getCurrentUser ? session.getCurrentUser : {};
+
+    const currentUserId = currentUser && currentUser.id ? currentUser.id : 0;
 
     return (
       <div className="smfp-header-wrap">
@@ -147,17 +147,19 @@ class Menu extends Component<Props> {
                   <span className="title">تحلیل اطلاعات</span>
                 </Link>
               </li>
-              <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link
-                  className="smfp-menu-link menu__link"
-                  data-submenu="submenu-3"
-                  aria-owns="submenu-3"
-                  to={ADMIN}
-                >
-                  <img src={item4} alt="img" />
-                  <span className="title">ادمین</span>
-                </Link>
-              </li>
+              {currentUser && currentUser.role === 'admin' && (
+                <li className="smfp-menu-item menu__item" role="menuitem">
+                  <Link
+                    className="smfp-menu-link menu__link"
+                    data-submenu="submenu-3"
+                    aria-owns="submenu-3"
+                    to={ADMIN}
+                  >
+                    <img src={item4} alt="img" />
+                    <span className="title">ادمین</span>
+                  </Link>
+                </li>
+              )}
             </ul>
 
             <ul
@@ -194,123 +196,131 @@ class Menu extends Component<Props> {
               </li>
             </ul>
 
-            <ul
-              data-menu="submenu-3"
-              id="submenu-3"
-              className="menu__level"
-              tabIndex="-1"
-              role="menu"
-              aria-label="ادمین"
-            >
-              <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link
-                  className="smfp-menu-link menu__link"
-                  data-submenu="submenu-3-1"
-                  aria-owns="submenu-3-1"
-                  to={USERS_LIST}
-                >
-                  <span>مدیریت کاربر</span>
-                </Link>
-              </li>
+            {currentUser && currentUser.role === 'admin' && (
+              <ul
+                data-menu="submenu-3"
+                id="submenu-3"
+                className="menu__level"
+                tabIndex="-1"
+                role="menu"
+                aria-label="ادمین"
+              >
+                <li className="smfp-menu-item menu__item" role="menuitem">
+                  <Link
+                    className="smfp-menu-link menu__link"
+                    data-submenu="submenu-3-1"
+                    aria-owns="submenu-3-1"
+                    to={USERS_LIST}
+                  >
+                    <span>مدیریت کاربر</span>
+                  </Link>
+                </li>
 
-              <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link className="smfp-menu-link menu__link" to={ELEMENTS_LIST}>
-                  <span>مدیریت ماده معدنی</span>
-                </Link>
-              </li>
+                <li className="smfp-menu-item menu__item" role="menuitem">
+                  <Link
+                    className="smfp-menu-link menu__link"
+                    to={ELEMENTS_LIST}
+                  >
+                    <span>مدیریت ماده معدنی</span>
+                  </Link>
+                </li>
 
-              <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link
-                  className="smfp-menu-link menu__link"
-                  data-submenu="submenu-3-2"
-                  aria-owns="submenu-3-2"
-                  to={ELEMENTS_STATS_LIST}
-                >
-                  <span>مدیریت آمار مواد معدنی</span>
-                </Link>
-              </li>
+                <li className="smfp-menu-item menu__item" role="menuitem">
+                  <Link
+                    className="smfp-menu-link menu__link"
+                    data-submenu="submenu-3-2"
+                    aria-owns="submenu-3-2"
+                    to={ELEMENTS_STATS_LIST}
+                  >
+                    <span>مدیریت آمار مواد معدنی</span>
+                  </Link>
+                </li>
 
-              <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link className="smfp-menu-link menu__link" to={MINERALS_LIST}>
-                  <span>مدیریت کانی ها</span>
-                </Link>
-              </li>
+                <li className="smfp-menu-item menu__item" role="menuitem">
+                  <Link
+                    className="smfp-menu-link menu__link"
+                    to={MINERALS_LIST}
+                  >
+                    <span>مدیریت کانی ها</span>
+                  </Link>
+                </li>
 
-              <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link className="smfp-menu-link menu__link" to={MINES_LIST}>
-                  <span>مدیریت معادن</span>
-                </Link>
-              </li>
+                <li className="smfp-menu-item menu__item" role="menuitem">
+                  <Link className="smfp-menu-link menu__link" to={MINES_LIST}>
+                    <span>مدیریت معادن</span>
+                  </Link>
+                </li>
 
-              <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link
-                  className="smfp-menu-link menu__link"
-                  to={GLOBAL_PRICES_LIST}
-                >
-                  <span>مدیریت قیمت جهانی</span>
-                </Link>
-              </li>
+                <li className="smfp-menu-item menu__item" role="menuitem">
+                  <Link
+                    className="smfp-menu-link menu__link"
+                    to={GLOBAL_PRICES_LIST}
+                  >
+                    <span>مدیریت قیمت جهانی</span>
+                  </Link>
+                </li>
 
-              <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link
-                  className="smfp-menu-link menu__link"
-                  to={SECONDARY_SOURCES_LIST}
-                >
-                  <span>مدیریت منابع ثانویه</span>
-                </Link>
-              </li>
+                <li className="smfp-menu-item menu__item" role="menuitem">
+                  <Link
+                    className="smfp-menu-link menu__link"
+                    to={SECONDARY_SOURCES_LIST}
+                  >
+                    <span>مدیریت منابع ثانویه</span>
+                  </Link>
+                </li>
 
-              <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link
-                  className="smfp-menu-link menu__link"
-                  to={TOTAL_STATS_LIST}
-                >
-                  <span>مدیریت آمار کلی</span>
-                </Link>
-              </li>
+                <li className="smfp-menu-item menu__item" role="menuitem">
+                  <Link
+                    className="smfp-menu-link menu__link"
+                    to={TOTAL_STATS_LIST}
+                  >
+                    <span>مدیریت آمار کلی</span>
+                  </Link>
+                </li>
 
-              <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link
-                  className="smfp-menu-link menu__link"
-                  to={DEPENDENCE_INDUSTRIES_LIST}
-                >
-                  <span>مدیریت صنایع وابسته</span>
-                </Link>
-              </li>
+                <li className="smfp-menu-item menu__item" role="menuitem">
+                  <Link
+                    className="smfp-menu-link menu__link"
+                    to={DEPENDENCE_INDUSTRIES_LIST}
+                  >
+                    <span>مدیریت صنایع وابسته</span>
+                  </Link>
+                </li>
 
-              <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link
-                  className="smfp-menu-link menu__link"
-                  to={TECHNOLOGICAL_LEVEL_LIST}
-                >
-                  <span>مدیریت سطح تکنولوژی</span>
-                </Link>
-              </li>
+                <li className="smfp-menu-item menu__item" role="menuitem">
+                  <Link
+                    className="smfp-menu-link menu__link"
+                    to={TECHNOLOGICAL_LEVEL_LIST}
+                  >
+                    <span>مدیریت سطح تکنولوژی</span>
+                  </Link>
+                </li>
 
-              <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link
-                  className="smfp-menu-link menu__link"
-                  to={UPSTREAM_INDUSTRY_LIST}
-                >
-                  <span>مدیریت صنایع پایین‌ دستی</span>
-                </Link>
-              </li>
+                <li className="smfp-menu-item menu__item" role="menuitem">
+                  <Link
+                    className="smfp-menu-link menu__link"
+                    to={UPSTREAM_INDUSTRY_LIST}
+                  >
+                    <span>مدیریت صنایع پایین‌ دستی</span>
+                  </Link>
+                </li>
 
-              <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link className="smfp-menu-link menu__link" to={THREATS_LIST}>
-                  <span>مدیریت تهدیدات</span>
-                </Link>
-              </li>
+                <li className="smfp-menu-item menu__item" role="menuitem">
+                  <Link className="smfp-menu-link menu__link" to={THREATS_LIST}>
+                    <span>مدیریت تهدیدات</span>
+                  </Link>
+                </li>
 
-              <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link
-                  className="smfp-menu-link menu__link"
-                  to={ENVIRONMENT_LIST}
-                >
-                  <span>مدیریت محیط‌زیست</span>
-                </Link>
-              </li>
-            </ul>
+                <li className="smfp-menu-item menu__item" role="menuitem">
+                  <Link
+                    className="smfp-menu-link menu__link"
+                    to={ENVIRONMENT_LIST}
+                  >
+                    <span>مدیریت محیط‌زیست</span>
+                  </Link>
+                </li>
+              </ul>
+            )}
 
             <ul
               data-menu="submenu-3-1"

@@ -107,6 +107,7 @@ class ListFilters extends Component<Props> {
 
   render() {
     const { currentFilter, searchBy, searchValue } = this.state;
+    console.log('----currentFilter---', currentFilter);
     const { autoApply } = this.props;
 
     let filterType;
