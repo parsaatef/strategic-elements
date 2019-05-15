@@ -60,14 +60,14 @@ export default class TotalStatsManagement extends Component<Props> {
           filters={[
             {
               filter: 'name',
-              label: <FormattedMessage id="global.title" />,
+              label: 'global.title',
               type: 'text', // text or select
               isDefault: true,
               default: ''
             },
             {
               filter: 'year',
-              label: <FormattedMessage id="global.year" />,
+              label: 'global.year',
               type: 'text' // text or select
             }
           ]}

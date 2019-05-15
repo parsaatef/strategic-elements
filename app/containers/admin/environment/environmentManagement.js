@@ -83,14 +83,14 @@ export default class EnvironmentManagement extends Component<Props> {
           filters={[
             {
               filter: 'name',
-              label: <FormattedSimpleMsg id="global.title" />,
+              label: 'global.title',
               type: 'text', // text or select
               isDefault: true,
               default: ''
             },
             {
               filter: 'value',
-              label: <FormattedSimpleMsg id="global.problem" />,
+              label: 'global.problem',
               type: 'text', // text or select
               isDefault: true,
               default: ''

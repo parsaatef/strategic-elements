@@ -60,14 +60,14 @@ export default class MineManagement extends Component<Props> {
           filters={[
             {
               filter: 'title',
-              label: <FormattedSimpleMsg id="global.title" />,
+              label: 'global.title',
               type: 'text', // text or select
               isDefault: true,
               default: ''
             },
             {
               filter: 'activeMines',
-              label: <FormattedSimpleMsg id="global.activeMines" />,
+              label: 'global.activeMines',
               type: 'text', // text or select
               isDefault: true,
               default: ''

@@ -85,14 +85,14 @@ export default class DependenceIndustriesManagement extends Component<Props> {
           filters={[
             {
               filter: 'name',
-              label: <FormattedSimpleMsg id="global.title" />,
+              label: 'global.title',
               type: 'text', // text or select
               isDefault: true,
               default: ''
             },
             {
               filter: 'value',
-              label: <FormattedSimpleMsg id="global.dependentLevel" />,
+              label: 'global.dependentLevel',
               type: 'text' // text or select
             }
           ]}

@@ -1,8 +1,8 @@
 /* eslint-disable radix */
 import mongoose from 'mongoose';
 import express from 'express';
-import session from 'express-session';
-import connectRedis from 'connect-redis';
+/* import session from 'express-session';
+import connectRedis from 'connect-redis'; */
 import { ApolloServer } from 'apollo-server-express';
 import cors from 'cors';
 import jwt from 'jsonwebtoken';
@@ -17,12 +17,12 @@ import {
   DB_HOST,
   DB_PORT,
   DB_NAME,
-  SESS_NAME,
+  /* SESS_NAME,
   SESS_SECRET,
   SESS_LIFETIME,
   REDIS_HOST,
   REDIS_PORT,
-  REDIS_PASSWORD,
+  REDIS_PASSWORD, */
   JWT_SECRET
 } from './config';
 
@@ -44,7 +44,7 @@ import {
 
     app.use(cors(corsOptions));
 
-    const RedisStore = connectRedis(session);
+    /* const RedisStore = connectRedis(session);
 
     const store = new RedisStore({
       host: REDIS_HOST,
@@ -66,7 +66,7 @@ import {
           secure: IN_PROD
         }
       })
-    );
+    ); */
 
     app.use(async (req, res, next) => {
       const token = req.headers.authorization;

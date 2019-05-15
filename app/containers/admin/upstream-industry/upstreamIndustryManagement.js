@@ -83,14 +83,14 @@ export default class UpstreamIndustryManagement extends Component<Props> {
           filters={[
             {
               filter: 'name',
-              label: <FormattedSimpleMsg id="global.title" />,
+              label: 'global.title',
               type: 'text', // text or select
               isDefault: true,
               default: ''
             },
             {
               filter: 'value',
-              label: <FormattedSimpleMsg id="global.priority" />,
+              label: 'global.priority',
               type: 'text', // text or select
               isDefault: true,
               default: ''

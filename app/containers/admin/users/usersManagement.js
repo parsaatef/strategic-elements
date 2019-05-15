@@ -62,24 +62,24 @@ export default class ElementManagement extends Component<Props> {
           filters={[
             {
               filter: 'username',
-              label: <FormattedMessage id="global.username" />,
+              label: 'global.username',
               type: 'text', // text or select
               isDefault: true,
               default: ''
             },
             {
               filter: 'name',
-              label: <FormattedMessage id="global.name" />,
+              label: 'global.name',
               type: 'text' // text or select
             },
             {
               filter: 'email',
-              label: <FormattedMessage id="global.email" />,
+              label: 'global.email',
               type: 'text' // text or select
             },
             {
               filter: 'role',
-              label: <FormattedMessage id="global.role" />,
+              label: 'global.role',
               type: 'select', // text or select
               options: [
                 {

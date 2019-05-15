@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
-import { FormattedSimpleMsg } from '../../../utils/utility';
+import { FormattedSimpleMsg, getElementsGroups } from '../../../utils/utility';
 import AppForm from '../../../components/form/AppForm';
 import Field from '../../../components/form/Field';
 
@@ -99,10 +99,7 @@ const ElementForm = (props: Props) => {
         type="select"
         name="group"
         label={<FormattedMessage id="global.group" />}
-        options={[
-          { value: 'group-1', label: 'Group 1' },
-          { value: 'group-2', label: 'Group 2' }
-        ]}
+        options={getElementsGroups()}
         placeholder=<FormattedSimpleMsg id="global.group" />
       />
 

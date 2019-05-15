@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import ReactSelect from 'react-select';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import _ from 'underscore';
@@ -22,10 +22,14 @@ class ListFilters extends Component<Props> {
 
     this.searchOptions = [];
 
+    const { intl } = this.props;
+
+    const { formatMessage } = intl;
+
     for (let i = 0; i < filters.length; i += 1) {
       const option = {
         value: filters[i].filter,
-        label: filters[i].label
+        label: formatMessage({ id: filters[i].label })
       };
 
       this.searchOptions.push(option);
@@ -107,8 +111,10 @@ class ListFilters extends Component<Props> {
 
   render() {
     const { currentFilter, searchBy, searchValue } = this.state;
-    console.log('----currentFilter---', currentFilter);
-    const { autoApply } = this.props;
+
+    const { autoApply, intl } = this.props;
+
+    const { formatMessage } = intl;
 
     let filterType;
 
@@ -118,7 +124,7 @@ class ListFilters extends Component<Props> {
           value={searchValue}
           type="text"
           onChange={this.handleChange}
-          placeholder={currentFilter.label}
+          placeholder={formatMessage({ id: currentFilter.label })}
         />
       );
     } else {
@@ -168,4 +174,8 @@ class ListFilters extends Component<Props> {
   }
 }
 
-export default ListFilters;
+ListFilters.propTypes = {
+  intl: intlShape.isRequired
+};
+
+export default injectIntl(ListFilters);

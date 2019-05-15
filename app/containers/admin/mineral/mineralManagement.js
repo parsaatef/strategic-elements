@@ -60,14 +60,14 @@ export default class MineralManagement extends Component<Props> {
           filters={[
             {
               filter: 'title',
-              label: <FormattedMessage id="global.title" />,
+              label: 'global.title',
               type: 'text', // text or select
               isDefault: true,
               default: ''
             },
             {
               filter: 'color',
-              label: <FormattedMessage id="global.color" />,
+              label: 'global.color',
               type: 'text', // text or select
               isDefault: true,
               default: ''

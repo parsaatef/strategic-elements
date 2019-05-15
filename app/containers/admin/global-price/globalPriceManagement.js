@@ -60,14 +60,14 @@ export default class GlobalPriceManagement extends Component<Props> {
           filters={[
             {
               filter: 'year',
-              label: <FormattedSimpleMsg id="global.year" />,
+              label: 'global.year',
               type: 'text', // text or select
               isDefault: true,
               default: ''
             },
             {
               filter: 'price',
-              label: <FormattedSimpleMsg id="global.price" />,
+              label: 'global.price',
               type: 'text', // text or select
               isDefault: true,
               default: ''

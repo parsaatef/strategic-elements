@@ -65,14 +65,14 @@ export default class ExportManagement extends Component<Props> {
           filters={[
             {
               filter: 'location',
-              label: <FormattedMessage id="global.location" />,
+              label: 'global.location',
               type: 'text', // text or select
               isDefault: true,
               default: ''
             },
             {
               filter: 'year',
-              label: <FormattedMessage id="global.year" />,
+              label: 'global.year',
               type: 'text', // text or select
               isDefault: true,
               default: ''

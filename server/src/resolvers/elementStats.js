@@ -85,7 +85,7 @@ export default {
       newArgs.username = req.currentUser.username;
       await Joi.validate(newArgs, registerElementStats, { abortEarly: false });
 
-      const elementStats = await ElementStats.create(args);
+      const elementStats = await ElementStats.create(newArgs);
       console.log('-----elementStats----', elementStats);
 
       return elementStats;

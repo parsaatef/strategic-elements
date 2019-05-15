@@ -60,14 +60,14 @@ export default class SecondarySourceManagement extends Component<Props> {
           filters={[
             {
               filter: 'title',
-              label: <FormattedMessage id="global.title" />,
+              label: 'global.title',
               type: 'text', // text or select
               isDefault: true,
               default: ''
             },
             {
               filter: 'value',
-              label: <FormattedMessage id="global.value" />,
+              label: 'global.value',
               type: 'text', // text or select
               isDefault: true,
               default: ''

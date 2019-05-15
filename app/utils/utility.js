@@ -44,9 +44,9 @@ export function getYearOptions(from, to) {
 export function getElementsGroups() {
   return [
     { value: '', label: 'انتخاب دسته' },
-    { value: 'Group1', label: 'فلزات پایه' },
-    { value: 'Group2', label: 'فلزات گرانبها' },
-    { value: 'Group3', label: 'عناصر نادر خاکی' }
+    { value: 'group1', label: 'فلزات پایه' },
+    { value: 'group2', label: 'فلزات گرانبها' },
+    { value: 'group3', label: 'عناصر نادر خاکی' }
   ];
 }
 
