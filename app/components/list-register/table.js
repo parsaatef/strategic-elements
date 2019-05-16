@@ -137,7 +137,11 @@ class Table extends Component<Props> {
 
                   return (
                     <td key={col.key}>
-                      <span>{dbCol[col.key]}</span>
+                      <span>
+                        {col && col.item && _.isFunction(col.item)
+                          ? col.item(dbCol)
+                          : dbCol[col.key]}
+                      </span>
                     </td>
                   );
                 })}

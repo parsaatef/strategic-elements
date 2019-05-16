@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
-import { FormattedSimpleMsg } from '../../../utils/utility';
+import { FormattedSimpleMsg, getYearOptions } from '../../../utils/utility';
 import Page from '../../../components/list-register/Page';
 import ElementForm from './form';
 import schema from './schema';
@@ -68,13 +68,18 @@ export default class TotalStatsManagement extends Component<Props> {
             {
               filter: 'year',
               label: 'global.year',
-              type: 'text' // text or select
+              type: 'select', // text or select
+              options: getYearOptions(1990, 2030)
             }
           ]}
           columns={[
             {
               key: 'id',
               isCheck: true
+            },
+            {
+              key: 'element',
+              title: <FormattedMessage id="global.element" />
             },
             {
               key: 'name',

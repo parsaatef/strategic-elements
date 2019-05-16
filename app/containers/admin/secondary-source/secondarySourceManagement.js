@@ -66,17 +66,19 @@ export default class SecondarySourceManagement extends Component<Props> {
               default: ''
             },
             {
-              filter: 'value',
-              label: 'global.value',
-              type: 'text', // text or select
-              isDefault: true,
-              default: ''
+              filter: 'description',
+              label: 'global.description',
+              type: 'text' // text or select
             }
           ]}
           columns={[
             {
               key: 'id',
               isCheck: true
+            },
+            {
+              key: 'element',
+              title: <FormattedMessage id="global.element" />
             },
             {
               key: 'title',

@@ -59,7 +59,7 @@ export const REGISTER_MINE = gql`
     $activeMines: Int!
     $productionValue: Int!
     $unit: String!
-    $description: String!
+    $description: String
     $element: String!
   ) {
     registerMine(
@@ -82,7 +82,7 @@ export const UPDATE_MINE = gql`
     $activeMines: Int!
     $productionValue: Int!
     $unit: String!
-    $description: String!
+    $description: String
     $element: String!
   ) {
     updateMine(

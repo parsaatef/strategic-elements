@@ -89,7 +89,8 @@ class ElementManagement extends Component<Props> {
             },
             {
               key: 'group',
-              title: <FormattedMessage id="global.group" />
+              title: <FormattedMessage id="global.group" />,
+              item: dbCol => getElementsGroups('option', dbCol.group)
             },
             {
               key: 'username',

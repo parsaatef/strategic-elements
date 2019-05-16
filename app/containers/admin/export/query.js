@@ -23,6 +23,7 @@ export const GET_EXPORTS = gql`
     $year: Int
     $users: [String!]
     $elements: [String!]
+    $type: String
     $sort: String
     $sortBy: String
     $first: Int
@@ -35,6 +36,7 @@ export const GET_EXPORTS = gql`
       year: $year
       users: $users
       elements: $elements
+      type: $type
       sort: $sort
       sortBy: $sortBy
       first: $first

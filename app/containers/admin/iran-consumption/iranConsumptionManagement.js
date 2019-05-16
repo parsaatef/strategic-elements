@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
-import { FormattedSimpleMsg } from '../../../utils/utility';
+import {
+  FormattedSimpleMsg,
+  getStates,
+  getYearOptions
+} from '../../../utils/utility';
 import List from '../../../components/list-register/List';
 import {
   DELETE_ELEMENT_STATS,
   MULTI_DELETE_ELEMENTS_STATS
 } from '../../../queries/elementStats';
 import { GET_CONSUMPTION, GET_CONSUMPTIONS } from './query';
+import { ELEMENT_STATS_EDIT } from '../../../constants/routes';
 
 export default class IranConsumptionManagement extends Component<Props> {
   render() {
     return (
       <div>
         <List
-          editRoute="/admin/export/edit"
+          editRoute={ELEMENT_STATS_EDIT.replace('/:id', '')}
           heading={<FormattedSimpleMsg id="global.consumptionListIran" />}
           query={{
             item: {
@@ -25,7 +30,7 @@ export default class IranConsumptionManagement extends Component<Props> {
               func: 'searchElementStats',
               items: 'elementsStats',
               variables: {
-                type: 'consumption',
+                type: 'consumptionValue',
                 locationType: 'iran'
               }
             },
@@ -41,15 +46,17 @@ export default class IranConsumptionManagement extends Component<Props> {
           filters={[
             {
               filter: 'location',
-              label: 'global.location',
-              type: 'text', // text or select
+              label: 'global.state',
+              type: 'select', // text or select
+              options: getStates(),
               isDefault: true,
               default: ''
             },
             {
               filter: 'year',
               label: 'global.year',
-              type: 'text' // text or select
+              type: 'select', // text or select
+              options: getYearOptions(1990, 2030)
             }
           ]}
           columns={[
@@ -58,8 +65,17 @@ export default class IranConsumptionManagement extends Component<Props> {
               isCheck: true
             },
             {
+              key: 'element',
+              title: <FormattedMessage id="global.element" />
+            },
+            {
               key: 'location',
-              title: <FormattedMessage id="global.location" />
+              title: <FormattedMessage id="global.location" />,
+              item: dbCol => {
+                const value = getStates('option', dbCol.location);
+
+                return value ? <FormattedSimpleMsg id={value} /> : '';
+              }
             },
             {
               key: 'year',

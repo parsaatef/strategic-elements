@@ -24,7 +24,7 @@ export default gql`
       formula: String!
       color: String!
       abundance: String!
-      description: String!
+      description: String
       elements: [String!]
     ): Mineral @auth
     updateMineral(
@@ -33,7 +33,7 @@ export default gql`
       formula: String!
       color: String!
       abundance: String!
-      description: String!
+      description: String
       elements: [String!]
     ): Result @auth
     removeMineral(id: ID!): Result @auth
@@ -51,7 +51,7 @@ export default gql`
     formula: String!
     color: String!
     abundance: String!
-    description: String!
+    description: String
     username: String
     elements: [String!]
     createdAt: String!

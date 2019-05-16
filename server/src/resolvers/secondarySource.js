@@ -62,8 +62,8 @@ export default {
         totalCount: SecondarySource.count(filters).exec()
       };
     },
-    minerals: () => SecondarySource.find({}),
-    mineral: (root, { id }) => {
+    secondarySources: () => SecondarySource.find({}),
+    secondarySource: (root, { id }) => {
       // , context, info
       // TODO: projection, sanitization
       if (!mongoose.Types.ObjectId.isValid(id)) {

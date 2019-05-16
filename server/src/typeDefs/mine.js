@@ -23,7 +23,7 @@ export default gql`
       activeMines: Int!
       productionValue: Int!
       unit: String!
-      description: String!
+      description: String
       element: String!
     ): Mine @auth
     updateMine(
@@ -32,7 +32,7 @@ export default gql`
       activeMines: Int!
       productionValue: Int!
       unit: String!
-      description: String!
+      description: String
       element: String!
     ): Result @auth
     removeMine(id: ID!): Result @auth
@@ -50,7 +50,7 @@ export default gql`
     activeMines: Int!
     productionValue: Int!
     unit: String!
-    description: String!
+    description: String
     username: String!
     element: String!
     createdAt: String!

@@ -20,6 +20,7 @@ export default {
         year,
         users,
         elements,
+        type,
         sort = 'desc',
         sortBy = 'createdAt',
         first = 0,
@@ -52,6 +53,10 @@ export default {
 
       if (elements) {
         filters.element = { $in: elements };
+      }
+
+      if (type) {
+        filters[type] = { $gt: 0 };
       }
 
       let query = ElementStats.find(filters)

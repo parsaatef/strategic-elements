@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
-import { FormattedSimpleMsg } from '../../../utils/utility';
+import {
+  FormattedSimpleMsg,
+  getYearOptions,
+  getLocationType,
+  getCountries,
+  getStates
+} from '../../../utils/utility';
 import Page from '../../../components/list-register/Page';
 import {
   ELEMENT_STATS_REGISTER,
@@ -64,19 +70,31 @@ export default class ExportManagement extends Component<Props> {
           }}
           filters={[
             {
-              filter: 'location',
-              label: 'global.location',
-              type: 'text', // text or select
+              filter: 'locationType',
+              label: 'global.locationType',
+              type: 'select', // text or select
               isDefault: true,
-              default: ''
+              default: '',
+              options: getLocationType()
             },
             {
               filter: 'year',
               label: 'global.year',
-              type: 'text', // text or select
-              isDefault: true,
-              default: ''
+              type: 'select', // text or select
+              options: getYearOptions(1990, 2030)
             }
+            /* {
+              filter: 'location',
+              label: 'global.country',
+              type: 'select', // text or select
+              options: getCountries()
+            },
+            {
+              filter: 'location',
+              label: 'global.state',
+              type: 'select', // text or select
+              options: getStates()
+            } */
           ]}
           columns={[
             {
@@ -84,8 +102,20 @@ export default class ExportManagement extends Component<Props> {
               isCheck: true
             },
             {
+              key: 'element',
+              title: <FormattedMessage id="global.element" />
+            },
+            {
               key: 'location',
-              title: <FormattedMessage id="global.location" />
+              title: <FormattedMessage id="global.location" />,
+              item: dbCol => {
+                const value =
+                  dbCol.locationType === 'iran'
+                    ? getStates('option', dbCol.location)
+                    : getCountries('option', dbCol.location);
+
+                return value ? <FormattedSimpleMsg id={value} /> : '';
+              }
             },
             {
               key: 'year',

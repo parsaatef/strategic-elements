@@ -5,7 +5,7 @@ export const GET_RESOURCE = gql`
     elementStats(id: $id) {
       id
       location
-      productionValue
+      resourceValue
       year
       unit
       description
@@ -43,7 +43,7 @@ export const GET_RESOURCES = gql`
       elementsStats {
         id
         location
-        productionValue
+        resourceValue
         year
         unit
         description

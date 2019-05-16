@@ -43,7 +43,7 @@ export default {
       }
 
       if (color) {
-        filters.color = color;
+        filters.color = new RegExp(color, 'i');
       }
 
       if (elements) {
@@ -73,10 +73,11 @@ export default {
     mineral: (root, { id }) => {
       // , context, info
       // TODO: projection, sanitization
-      console.log('---------is Valid----------');
+
       if (!mongoose.Types.ObjectId.isValid(id)) {
         throw new UserInputError(`${id} is not a valid Mineral ID.`);
       }
+      console.log('---------is Valid----------', Mineral.findById(id));
       return Mineral.findById(id);
     }
   },

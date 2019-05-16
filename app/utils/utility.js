@@ -41,12 +41,28 @@ export function getYearOptions(from, to) {
   return YearOptions;
 }
 
-export function getElementsGroups() {
-  return [
+export function getElementsGroups(type = 'all', by) {
+  const options = [
     { value: '', label: 'انتخاب دسته' },
     { value: 'group1', label: 'فلزات پایه' },
     { value: 'group2', label: 'فلزات گرانبها' },
     { value: 'group3', label: 'عناصر نادر خاکی' }
+  ];
+
+  if (type === 'all') {
+    return options;
+  }
+
+  const foundedOption = options.find(option => option.value === by);
+
+  return foundedOption ? foundedOption.label : '';
+}
+
+export function getLocationType() {
+  return [
+    { value: '', label: 'انتخاب نوع' },
+    { value: 'world', label: <FormattedSimpleMsg id="global.world" /> },
+    { value: 'iran', label: <FormattedSimpleMsg id="global.iran" /> }
   ];
 }
 
@@ -59,9 +75,49 @@ export function getUnit() {
   ];
 }
 
-export function getCountries() {
+export function getPriceUnit(type = 'all', by) {
+  const options = [
+    { value: '', label: 'انتخاب واحد' },
+    { value: 'dollar', label: 'دلار' },
+    { value: 'euro', label: 'یورو' }
+  ];
+
+  if (type === 'all') {
+    return options;
+  }
+
+  const foundedOption = options.find(option => option.value === by);
+
+  return foundedOption ? foundedOption.label : '';
+}
+
+export function getQualityLevel(type = 'all', by) {
+  const options = [
+    { value: 'very_high', label: <FormattedSimpleMsg id="global.veryHigh" /> },
+    { value: 'high', label: <FormattedSimpleMsg id="global.high" /> },
+    { value: 'medium', label: <FormattedSimpleMsg id="global.medium" /> },
+    { value: 'low', label: <FormattedSimpleMsg id="global.low" /> },
+    { value: 'very_low', label: <FormattedSimpleMsg id="global.veryLow" /> }
+  ];
+
+  if (type === 'all') {
+    return options;
+  }
+
+  const foundedOption = options.find(option => option.value === by);
+
+  return foundedOption ? foundedOption.label : '';
+}
+
+export function getCountries(type = 'all', by) {
   const countries = World.Countries;
   const options = [];
+
+  if (type === 'option') {
+    const foundedOption = countries.find(country => country.country === by);
+
+    return foundedOption ? foundedOption.title : '';
+  }
 
   countries.forEach(country => {
     options.push({
@@ -73,9 +129,15 @@ export function getCountries() {
   return options;
 }
 
-export function getStates() {
+export function getStates(type = 'all', by) {
   const states = Iran.States;
   const options = [];
+
+  if (type === 'option') {
+    const foundedOption = states.find(state => state.state === by);
+
+    return foundedOption ? foundedOption.title : '';
+  }
 
   states.forEach(state => {
     options.push({

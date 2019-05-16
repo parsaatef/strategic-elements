@@ -23,7 +23,7 @@ export default gql`
       price: Int!
       year: Int!
       unit: String!
-      description: String!
+      description: String
       element: String!
     ): GlobalPrice @auth
     updatePrice(
@@ -31,7 +31,7 @@ export default gql`
       price: Int!
       year: Int!
       unit: String!
-      description: String!
+      description: String
       element: String!
     ): Result @auth
     removePrice(id: ID!): Result @auth
@@ -48,7 +48,7 @@ export default gql`
     price: Int!
     year: Int!
     unit: String!
-    description: String!
+    description: String
     username: String!
     element: String!
     createdAt: String!

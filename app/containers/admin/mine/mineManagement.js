@@ -66,18 +66,9 @@ export default class MineManagement extends Component<Props> {
               default: ''
             },
             {
-              filter: 'activeMines',
-              label: 'global.activeMines',
-              type: 'text', // text or select
-              isDefault: true,
-              default: ''
-            },
-            {
-              filter: 'productionValue',
-              label: <FormattedSimpleMsg id="global.production" />,
-              type: 'text', // text or select
-              isDefault: true,
-              default: ''
+              filter: 'description',
+              label: 'global.description',
+              type: 'text' // text or select
             }
           ]}
           columns={[
@@ -88,6 +79,10 @@ export default class MineManagement extends Component<Props> {
             {
               key: 'title',
               title: <FormattedMessage id="global.title" />
+            },
+            {
+              key: 'element',
+              title: <FormattedMessage id="global.element" />
             },
             {
               key: 'activeMines',

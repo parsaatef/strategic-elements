@@ -56,7 +56,7 @@ export const REGISTER_SOURCE = gql`
     $title: String!
     $value: Int!
     $unit: String!
-    $description: String!
+    $description: String
     $element: String!
   ) {
     registerSecondarySource(
@@ -77,7 +77,7 @@ export const UPDATE_SOURCE = gql`
     $title: String!
     $value: Int!
     $unit: String!
-    $description: String!
+    $description: String
     $element: String!
   ) {
     updateSecondarySource(

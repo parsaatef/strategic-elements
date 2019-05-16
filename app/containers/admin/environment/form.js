@@ -1,18 +1,12 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
-import { FormattedSimpleMsg } from '../../../utils/utility';
+import { getQualityLevel } from '../../../utils/utility';
 import AppForm from '../../../components/form/AppForm';
 import Field from '../../../components/form/Field';
 import ElementsSelect from '../../../components/form/ElementsSelect';
 
-const Options = [
-  { value: 'very_high', label: <FormattedSimpleMsg id="global.veryHigh" /> },
-  { value: 'high', label: <FormattedSimpleMsg id="global.high" /> },
-  { value: 'medium', label: <FormattedSimpleMsg id="global.medium" /> },
-  { value: 'low', label: <FormattedSimpleMsg id="global.low" /> },
-  { value: 'very_low', label: <FormattedSimpleMsg id="global.veryLow" /> }
-];
+const options = getQualityLevel();
 
 type Props = {
   formType: string,
@@ -40,7 +34,7 @@ const MineralForm = (props: Props) => {
         type="select"
         name="value"
         label={<FormattedMessage id="global.problem" />}
-        options={Options}
+        options={options}
         placeholder={<FormattedMessage id="global.select" />}
       />
 

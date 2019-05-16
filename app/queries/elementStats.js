@@ -82,7 +82,7 @@ export const REGISTER_ELEMENT_STATS = gql`
     $mineCount: Int!
     $year: Int!
     $unit: String!
-    $description: String!
+    $description: String
     $element: String!
   ) {
     registerElementStats(
@@ -119,7 +119,7 @@ export const UPDATE_ELEMENT_STATS = gql`
     $mineCount: Int!
     $year: Int!
     $unit: String!
-    $description: String!
+    $description: String
     $element: String!
   ) {
     updateElementStats(

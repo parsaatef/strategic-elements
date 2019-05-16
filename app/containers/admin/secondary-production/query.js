@@ -5,7 +5,7 @@ export const GET_SECONDARY_PRODUCTION = gql`
     elementStats(id: $id) {
       id
       location
-      exportValue
+      secondaryProductionValue
       year
       unit
       description
@@ -43,7 +43,7 @@ export const GET_SECONDARY_PRODUCTIONS = gql`
       elementsStats {
         id
         location
-        exportValue
+        secondaryProductionValue
         year
         unit
         description

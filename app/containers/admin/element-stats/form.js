@@ -19,9 +19,14 @@ type Props = {
   onSubmit: () => void
 };
 
+const states = getStates();
+
+const countries = getCountries();
+
+const yearOptions = getYearOptions(1990, 2030);
+
 const ElementForm = (props: Props) => {
   const { onSubmit, formType, initialValues, validationSchema } = props;
-  const yearOptions = getYearOptions(1950, 2050);
 
   return (
     <AppForm
@@ -31,14 +36,6 @@ const ElementForm = (props: Props) => {
     >
       {(values, errors) => {
         console.log('--values, errors---', values, errors);
-
-        let locationOptions = getCountries();
-
-        if (values.locationType === 'iran') {
-          locationOptions = getStates();
-        } else {
-          locationOptions = getCountries();
-        }
 
         return (
           <>
@@ -61,13 +58,25 @@ const ElementForm = (props: Props) => {
               placeholder={<FormattedSimpleMsg id="global.select" />}
             />
 
-            <Field
-              type="select"
-              name="location"
-              label={<FormattedMessage id="global.location" />}
-              options={locationOptions}
-              placeholder={<FormattedSimpleMsg id="global.select" />}
-            />
+            {values.locationType === 'world' && (
+              <Field
+                type="select"
+                name="location"
+                label={<FormattedMessage id="global.country" />}
+                options={countries}
+                placeholder={<FormattedSimpleMsg id="global.select_country" />}
+              />
+            )}
+
+            {values.locationType === 'iran' && (
+              <Field
+                type="select"
+                name="location"
+                label={<FormattedMessage id="global.state" />}
+                options={states}
+                placeholder={<FormattedSimpleMsg id="global.select_state" />}
+              />
+            )}
 
             <Field
               type="select"

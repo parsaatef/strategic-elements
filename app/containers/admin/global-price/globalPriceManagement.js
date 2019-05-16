@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
-import { FormattedSimpleMsg } from '../../../utils/utility';
+import {
+  FormattedSimpleMsg,
+  getPriceUnit,
+  getYearOptions
+} from '../../../utils/utility';
 import Page from '../../../components/list-register/Page';
 import ElementForm from './form';
 import schema from './schema';
@@ -61,14 +65,8 @@ export default class GlobalPriceManagement extends Component<Props> {
             {
               filter: 'year',
               label: 'global.year',
-              type: 'text', // text or select
-              isDefault: true,
-              default: ''
-            },
-            {
-              filter: 'price',
-              label: 'global.price',
-              type: 'text', // text or select
+              type: 'select', // text or select
+              options: getYearOptions(1990, 2030),
               isDefault: true,
               default: ''
             }
@@ -77,6 +75,10 @@ export default class GlobalPriceManagement extends Component<Props> {
             {
               key: 'id',
               isCheck: true
+            },
+            {
+              key: 'element',
+              title: <FormattedMessage id="global.element" />
             },
             {
               key: 'year',
@@ -88,7 +90,8 @@ export default class GlobalPriceManagement extends Component<Props> {
             },
             {
               key: 'unit',
-              title: <FormattedMessage id="global.unit" />
+              title: <FormattedMessage id="global.unit" />,
+              item: dbCol => getPriceUnit('option', dbCol.unit)
             },
             {
               key: 'description',

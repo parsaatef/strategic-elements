@@ -11,6 +11,7 @@ export default gql`
       year: Int
       users: [String!]
       elements: [String!]
+      type: String
       sort: String
       sortBy: String
       first: Int
@@ -31,7 +32,7 @@ export default gql`
       mineCount: Int!
       year: Int!
       unit: String!
-      description: String!
+      description: String
       element: String!
     ): ElementStats @auth
     updateElementStats(
@@ -47,7 +48,7 @@ export default gql`
       mineCount: Int!
       year: Int!
       unit: String!
-      description: String!
+      description: String
       element: String!
     ): Result @auth
     removeElementStats(id: ID!): Result @auth
@@ -76,7 +77,7 @@ export default gql`
     mineCount: Int!
     year: Int!
     unit: String!
-    description: String!
+    description: String
     username: String!
     element: String!
     createdAt: String!

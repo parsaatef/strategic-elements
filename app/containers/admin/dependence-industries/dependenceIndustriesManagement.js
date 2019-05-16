@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
-import { FormattedSimpleMsg } from '../../../utils/utility';
+import { FormattedSimpleMsg, getQualityLevel } from '../../../utils/utility';
 import Page from '../../../components/list-register/Page';
 import {
   DEPENDENCE_INDUSTRIES_REGISTER,
@@ -93,7 +93,8 @@ export default class DependenceIndustriesManagement extends Component<Props> {
             {
               filter: 'value',
               label: 'global.dependentLevel',
-              type: 'text' // text or select
+              type: 'select', // text or select
+              options: getQualityLevel()
             }
           ]}
           columns={[
@@ -106,8 +107,13 @@ export default class DependenceIndustriesManagement extends Component<Props> {
               title: <FormattedMessage id="global.title" />
             },
             {
+              key: 'element',
+              title: <FormattedMessage id="global.element" />
+            },
+            {
               key: 'value',
-              title: <FormattedMessage id="global.dependentLevel" />
+              title: <FormattedMessage id="global.dependentLevel" />,
+              item: dbCol => getQualityLevel('option', dbCol.value)
             },
             {
               key: 'username',

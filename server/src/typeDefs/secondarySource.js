@@ -22,7 +22,7 @@ export default gql`
       title: String!
       value: Int!
       unit: String!
-      description: String!
+      description: String
       element: String!
     ): SecondarySource @auth
     updateSecondarySource(
@@ -30,7 +30,7 @@ export default gql`
       title: String!
       value: Int!
       unit: String!
-      description: String!
+      description: String
       element: String!
     ): Result @auth
     removeSecondarySource(id: ID!): Result @auth
@@ -47,7 +47,7 @@ export default gql`
     title: String!
     value: Int!
     unit: String!
-    description: String!
+    description: String
     username: String!
     element: String!
     createdAt: String!

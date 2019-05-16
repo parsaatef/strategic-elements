@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
-import { FormattedSimpleMsg } from '../../../utils/utility';
+import { FormattedSimpleMsg, getQualityLevel } from '../../../utils/utility';
 import Page from '../../../components/list-register/Page';
 import {
   UPSTREAM_INDUSTRY_REGISTER,
@@ -91,9 +91,8 @@ export default class UpstreamIndustryManagement extends Component<Props> {
             {
               filter: 'value',
               label: 'global.priority',
-              type: 'text', // text or select
-              isDefault: true,
-              default: ''
+              type: 'select', // text or select
+              options: getQualityLevel()
             }
           ]}
           columns={[
@@ -106,8 +105,13 @@ export default class UpstreamIndustryManagement extends Component<Props> {
               title: <FormattedMessage id="global.title" />
             },
             {
+              key: 'element',
+              title: <FormattedMessage id="global.element" />
+            },
+            {
               key: 'value',
-              title: <FormattedMessage id="global.priority" />
+              title: <FormattedMessage id="global.priority" />,
+              item: dbCol => getQualityLevel('option', dbCol.value)
             },
             {
               key: 'username',

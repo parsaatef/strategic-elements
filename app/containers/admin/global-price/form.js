@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
 import {
   FormattedSimpleMsg,
-  getUnit,
+  getPriceUnit,
   getYearOptions
 } from '../../../utils/utility';
 import AppForm from '../../../components/form/AppForm';
@@ -47,7 +47,7 @@ const GlobalPriceForm = (props: Props) => {
         type="select"
         name="unit"
         label={<FormattedMessage id="global.unit" />}
-        options={getUnit()}
+        options={getPriceUnit()}
         placeholder={<FormattedSimpleMsg id="global.select" />}
       />
 

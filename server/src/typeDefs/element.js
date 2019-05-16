@@ -119,7 +119,7 @@ export default gql`
     threatyDesc: String
     secondaryResourcesDesc: String
     ecologyDesc: String
-    username: String
+    username: String!
     createdAt: String!
     updatedAt: String!
   }

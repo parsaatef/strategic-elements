@@ -58,7 +58,7 @@ export const REGISTER_PRICE = gql`
     $price: Int!
     $year: Int!
     $unit: String!
-    $description: String!
+    $description: String
     $element: String!
   ) {
     registerPrice(
@@ -79,7 +79,7 @@ export const UPDATE_PRICE = gql`
     $price: Int!
     $year: Int!
     $unit: String!
-    $description: String!
+    $description: String
     $element: String!
   ) {
     updatePrice(

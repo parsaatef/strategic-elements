@@ -116,7 +116,7 @@ class ItemsList extends Component<Props> {
       first: firstItem
     };
 
-    if (searchBy) {
+    if (searchBy && searchValue) {
       variables[searchBy] = searchValue;
     }
 

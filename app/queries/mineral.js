@@ -61,7 +61,7 @@ export const REGISTER_MINERAL = gql`
     $formula: String!
     $color: String!
     $abundance: String!
-    $description: String!
+    $description: String
     $elements: [String!]
   ) {
     registerMineral(
@@ -84,7 +84,7 @@ export const UPDATE_MINERAL = gql`
     $formula: String!
     $color: String!
     $abundance: String!
-    $description: String!
+    $description: String
     $elements: [String!]
   ) {
     updateMineral(
