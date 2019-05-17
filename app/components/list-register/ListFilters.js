@@ -3,6 +3,7 @@ import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import ReactSelect from 'react-select';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import _ from 'underscore';
+import ElementsSelect from '../form/ElementsSelect';
 
 const { Control } = Form;
 
@@ -62,7 +63,8 @@ class ListFilters extends Component<Props> {
 
     const { applyFilters, autoApply } = this.props;
 
-    const value = currentFilter.type === 'select' ? e.value : e.target.value;
+    const value = currentFilter.type !== 'text' ? e.value : e.target.value;
+    console.log('----e---', e);
 
     this.setState(
       {
@@ -118,48 +120,69 @@ class ListFilters extends Component<Props> {
 
     let filterType;
 
-    if (currentFilter.type === 'text') {
-      filterType = (
-        <Control
-          value={searchValue}
-          type="text"
-          onChange={this.handleChange}
-          placeholder={formatMessage({ id: currentFilter.label })}
-        />
-      );
-    } else {
-      filterType = (
-        <ReactSelect
-          value={getSelectValue(searchValue, currentFilter.options)}
-          onChange={this.handleChange}
-          options={currentFilter.options}
-        />
-      );
+    switch (currentFilter.type) {
+      case 'text':
+      default:
+        filterType = (
+          <Control
+            value={searchValue}
+            type="text"
+            onChange={this.handleChange}
+            placeholder={formatMessage({ id: currentFilter.label })}
+          />
+        );
+        break;
+
+      case 'select':
+        filterType = (
+          <ReactSelect
+            value={getSelectValue(searchValue, currentFilter.options)}
+            onChange={this.handleChange}
+            options={currentFilter.options}
+          />
+        );
+
+        break;
+
+      case 'element':
+        filterType = (
+          <ElementsSelect
+            name="element"
+            fieldType="filter"
+            value={searchValue}
+            onChange={this.handleChange}
+          />
+        );
+
+        break;
     }
 
     return (
       <div>
         <Row>
-          <Col sm={!autoApply ? 4 : 5}>
+          <Col sm={!autoApply ? 1 : 2} />
+
+          <Col sm={4}>
             <ReactSelect
               value={getSelectValue(searchBy, this.searchOptions)}
               onChange={this.searchByChange}
               options={this.searchOptions}
             />
           </Col>
-          {!autoApply ? (
-            <>
-              <Col sm={4}>{filterType}</Col>
-              <Col className="tb-btn-wrap" sm={2}>
-                <Button onClick={this.handleSubmit} type="button">
-                  <FormattedMessage id="global.apply" />
-                </Button>
-              </Col>
-            </>
-          ) : (
-            <Col sm={5}>{filterType}</Col>
-          )}
-          <Col sm={2} className="text-left">
+
+          <Col sm={4}>{filterType}</Col>
+
+          <Col sm={!autoApply ? 3 : 2} className="text-left">
+            {!autoApply && (
+              <Button
+                style={{ marginLeft: '6px' }}
+                onClick={this.handleSubmit}
+                type="button"
+              >
+                <FormattedMessage id="global.apply" />
+              </Button>
+            )}
+
             <Button
               onClick={this.resetFilters}
               type="button"

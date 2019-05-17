@@ -61,14 +61,19 @@ export default class SecondarySourceManagement extends Component<Props> {
             {
               filter: 'title',
               label: 'global.title',
-              type: 'text', // text or select
-              isDefault: true,
-              default: ''
+              type: 'text' // text or select
             },
             {
               filter: 'description',
               label: 'global.description',
               type: 'text' // text or select
+            },
+            {
+              filter: 'elements',
+              label: 'global.element',
+              type: 'element', // text or select
+              isDefault: true,
+              default: ''
             }
           ]}
           columns={[
@@ -90,7 +95,8 @@ export default class SecondarySourceManagement extends Component<Props> {
             },
             {
               key: 'unit',
-              title: <FormattedMessage id="global.unit" />
+              title: <FormattedMessage id="global.unit" />,
+              isUnit: true
             },
             {
               key: 'description',

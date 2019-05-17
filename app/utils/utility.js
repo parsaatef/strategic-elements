@@ -66,13 +66,19 @@ export function getLocationType() {
   ];
 }
 
-export function getUnit() {
-  return [
+export function getUnit(type = 'all', by) {
+  const options = [
     { value: '', label: 'انتخاب واحد' },
-    { value: 'unit1', label: 'تن' },
-    { value: 'unit2', label: 'تن1' },
-    { value: 'unit3', label: 'تن2' }
+    { value: 'ton', label: 'تن' }
   ];
+
+  if (type === 'all') {
+    return options;
+  }
+
+  const foundedOption = options.find(option => option.value === by);
+
+  return foundedOption ? foundedOption.label : '';
 }
 
 export function getPriceUnit(type = 'all', by) {
@@ -147,4 +153,42 @@ export function getStates(type = 'all', by) {
   });
 
   return options;
+}
+
+export function getPhaseAtSTPOptions(type = 'all', by) {
+  const options = [
+    { value: '', label: 'انتخاب حالت' },
+    { value: 'solid', label: 'جامد' },
+    { value: 'liquid', label: 'مایع' },
+    { value: 'gas', label: 'گاز' }
+  ];
+
+  if (type === 'all') {
+    return options;
+  }
+
+  const foundedOption = options.find(option => option.value === by);
+
+  return foundedOption ? foundedOption.label : '';
+}
+
+export function getElementPeriod(type = 'all', by) {
+  const options = [
+    { value: '6', label: 6 },
+    { value: '8', label: 8 },
+    { value: '12', label: 12 },
+    { value: '16', label: 16 }
+  ];
+
+  if (type === 'all') {
+    return options;
+  }
+
+  const foundedOption = options.find(option => option.value === by);
+
+  return foundedOption ? foundedOption.label : '';
+}
+
+export function getElCOptions(type = 'all', by) {
+  return getQualityLevel(type, by);
 }

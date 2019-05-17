@@ -1,7 +1,13 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
-import { FormattedSimpleMsg, getElementsGroups } from '../../../utils/utility';
+import {
+  FormattedSimpleMsg,
+  getPhaseAtSTPOptions,
+  getElCOptions,
+  getElementPeriod,
+  getElementsGroups
+} from '../../../utils/utility';
 import AppForm from '../../../components/form/AppForm';
 import Field from '../../../components/form/Field';
 
@@ -48,9 +54,11 @@ const ElementForm = (props: Props) => {
       />
 
       <Field
-        type="text"
+        type="select"
         name="phaseAtSTP"
         label={<FormattedMessage id="global.phaseAtSTP" />}
+        options={getPhaseAtSTPOptions()}
+        placeholder=<FormattedSimpleMsg id="global.phaseAtSTP" />
       />
 
       <Field
@@ -90,9 +98,11 @@ const ElementForm = (props: Props) => {
       />
 
       <Field
-        type="text"
+        type="select"
         name="electricalConductivity"
         label={<FormattedMessage id="global.electricalConductivity" />}
+        options={getElCOptions()}
+        placeholder=<FormattedSimpleMsg id="global.electricalConductivity" />
       />
 
       <Field
@@ -104,9 +114,11 @@ const ElementForm = (props: Props) => {
       />
 
       <Field
-        type="text"
+        type="select"
         name="period"
         label={<FormattedMessage id="global.period" />}
+        options={getElementPeriod()}
+        placeholder=<FormattedSimpleMsg id="global.period" />
       />
 
       <Field

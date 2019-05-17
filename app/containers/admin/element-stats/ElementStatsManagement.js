@@ -73,8 +73,6 @@ export default class ExportManagement extends Component<Props> {
               filter: 'locationType',
               label: 'global.locationType',
               type: 'select', // text or select
-              isDefault: true,
-              default: '',
               options: getLocationType()
             },
             {
@@ -82,6 +80,13 @@ export default class ExportManagement extends Component<Props> {
               label: 'global.year',
               type: 'select', // text or select
               options: getYearOptions(1990, 2030)
+            },
+            {
+              filter: 'elements',
+              label: 'global.element',
+              type: 'element', // text or select
+              isDefault: true,
+              default: ''
             }
             /* {
               filter: 'location',

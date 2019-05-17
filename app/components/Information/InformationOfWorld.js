@@ -225,7 +225,12 @@ class InformationOfWorld extends Component<Props> {
         >
           {({ data, loading }) => {
             if (loading) return 'loading.....';
-
+            if (
+              !data ||
+              !data.searchElementStats ||
+              !data.searchElementStats.elementsStats
+            )
+              return null;
             const LocationProps = [];
 
             const labels = {

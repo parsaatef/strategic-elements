@@ -66,7 +66,12 @@ export default class GlobalPriceManagement extends Component<Props> {
               filter: 'year',
               label: 'global.year',
               type: 'select', // text or select
-              options: getYearOptions(1990, 2030),
+              options: getYearOptions(1990, 2030)
+            },
+            {
+              filter: 'elements',
+              label: 'global.element',
+              type: 'element', // text or select
               isDefault: true,
               default: ''
             }

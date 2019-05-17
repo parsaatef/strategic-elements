@@ -117,7 +117,8 @@ class ItemsList extends Component<Props> {
     };
 
     if (searchBy && searchValue) {
-      variables[searchBy] = searchValue;
+      variables[searchBy] =
+        searchBy === 'elements' ? [searchValue] : searchValue;
     }
 
     variables = addStaticVariables(list, variables);
@@ -128,12 +129,12 @@ class ItemsList extends Component<Props> {
 
     if (bulkAction === 'delete') {
       bulkActionCol = 8;
-      bulkActionColWrap = 4;
-      ListFiltersCol = 8;
+      bulkActionColWrap = 3;
+      ListFiltersCol = 6;
     } else {
       bulkActionCol = 12;
-      bulkActionColWrap = 3;
-      ListFiltersCol = 9;
+      bulkActionColWrap = 2;
+      ListFiltersCol = 7;
     }
     return (
       <div>
@@ -167,6 +168,8 @@ class ItemsList extends Component<Props> {
                       )}
                     </Row>
                   </Col>
+
+                  <Col sm={3} />
 
                   <Col sm={ListFiltersCol}>
                     <ListFilters

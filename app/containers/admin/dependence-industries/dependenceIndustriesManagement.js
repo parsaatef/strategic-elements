@@ -86,15 +86,20 @@ export default class DependenceIndustriesManagement extends Component<Props> {
             {
               filter: 'name',
               label: 'global.title',
-              type: 'text', // text or select
-              isDefault: true,
-              default: ''
+              type: 'text' // text or select
             },
             {
               filter: 'value',
               label: 'global.dependentLevel',
               type: 'select', // text or select
               options: getQualityLevel()
+            },
+            {
+              filter: 'element',
+              label: 'global.element',
+              type: 'element', // text or select
+              isDefault: true,
+              default: ''
             }
           ]}
           columns={[

@@ -84,15 +84,20 @@ export default class TechnologicalLevelManagement extends Component<Props> {
             {
               filter: 'name',
               label: 'global.title',
-              type: 'text', // text or select
-              isDefault: true,
-              default: ''
+              type: 'text' // text or select
             },
             {
               filter: 'value',
               label: 'global.level',
               type: 'select', // text or select
               options: getQualityLevel()
+            },
+            {
+              filter: 'element',
+              label: 'global.element',
+              type: 'element', // text or select
+              isDefault: true,
+              default: ''
             }
           ]}
           columns={[

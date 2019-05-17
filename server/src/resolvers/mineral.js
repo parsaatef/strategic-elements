@@ -46,8 +46,11 @@ export default {
         filters.color = new RegExp(color, 'i');
       }
 
+      /**
+       * TODO: need to change and fix
+       */
       if (elements) {
-        filters.element = { $in: elements };
+        filters.elements = { $in: elements };
       }
 
       if (users) {

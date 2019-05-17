@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, Row, Col } from 'react-bootstrap';
 
-const { Control, Group, Check, Label } = Form;
+const { Control, Group, Label } = Form;
 
 type Props = {
   name: string,
@@ -12,18 +12,18 @@ type Props = {
 };
 
 const Checkbox = ({ name, value, handleChange, label, error }: Props) => (
-  <Group as={Row} controlId={`field_${name}`}>
+  <Group className="checkbox-field-group" as={Row} controlId={`field_${name}`}>
     <Col sm={12}>
       <Label className="checkbox-wrap">
-        <Check
-          custom
+        <Control
           type="checkbox"
-          label={label}
           name={name}
-          value={value}
+          value="on"
+          checked={value}
           onChange={e => handleChange(name, e.target.checked)}
           isInvalid={!!error}
         />
+        {label}
         <span className="checkmark" />
       </Label>
       <Control.Feedback type="invalid">{error}</Control.Feedback>

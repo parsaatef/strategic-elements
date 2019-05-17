@@ -61,15 +61,20 @@ export default class TotalStatsManagement extends Component<Props> {
             {
               filter: 'name',
               label: 'global.title',
-              type: 'text', // text or select
-              isDefault: true,
-              default: ''
+              type: 'text' // text or select
             },
             {
               filter: 'year',
               label: 'global.year',
               type: 'select', // text or select
               options: getYearOptions(1990, 2030)
+            },
+            {
+              filter: 'elements',
+              label: 'global.element',
+              type: 'element', // text or select
+              isDefault: true,
+              default: ''
             }
           ]}
           columns={[

@@ -48,15 +48,20 @@ export default class SecondaryProductionManagement extends Component<Props> {
               filter: 'location',
               label: 'global.country',
               type: 'select', // text or select
-              options: getCountries(),
-              isDefault: true,
-              default: ''
+              options: getCountries()
             },
             {
               filter: 'year',
               label: 'global.year',
               type: 'select', // text or select
               options: getYearOptions(1990, 2030)
+            },
+            {
+              filter: 'elements',
+              label: 'global.element',
+              type: 'element', // text or select
+              isDefault: true,
+              default: ''
             }
           ]}
           columns={[
@@ -87,7 +92,8 @@ export default class SecondaryProductionManagement extends Component<Props> {
             },
             {
               key: 'unit',
-              title: <FormattedMessage id="global.unit" />
+              title: <FormattedMessage id="global.unit" />,
+              isUnit: true
             },
             {
               key: 'description',

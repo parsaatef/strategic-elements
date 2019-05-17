@@ -48,15 +48,20 @@ export default class ExportManagement extends Component<Props> {
               filter: 'location',
               label: 'global.state',
               type: 'select', // text or select
-              options: getStates(),
-              isDefault: true,
-              default: ''
+              options: getStates()
             },
             {
               filter: 'year',
               label: 'global.year',
               type: 'select', // text or select
               options: getYearOptions(1990, 2030)
+            },
+            {
+              filter: 'elements',
+              label: 'global.element',
+              type: 'element', // text or select
+              isDefault: true,
+              default: ''
             }
           ]}
           columns={[
@@ -87,7 +92,8 @@ export default class ExportManagement extends Component<Props> {
             },
             {
               key: 'unit',
-              title: <FormattedMessage id="global.unit" />
+              title: <FormattedMessage id="global.unit" />,
+              isUnit: true
             },
             {
               key: 'description',

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form } from 'react-bootstrap';
 import _ from 'underscore';
 import ListActions from './ListActions';
+import { getUnit } from '../../utils/utility';
 
 const { Control, Label } = Form;
 
@@ -131,6 +132,14 @@ class Table extends Component<Props> {
                           keyCol={keyCol}
                           titleCol={titleCol}
                         />
+                      </td>
+                    );
+                  }
+
+                  if (col && col.key === 'unit' && col.isUnit) {
+                    return (
+                      <td key={col.key}>
+                        <span>{getUnit('option', dbCol.unit)}</span>
                       </td>
                     );
                   }

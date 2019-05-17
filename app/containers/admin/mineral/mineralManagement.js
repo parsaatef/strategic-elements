@@ -61,14 +61,17 @@ export default class MineralManagement extends Component<Props> {
             {
               filter: 'title',
               label: 'global.title',
-              type: 'text', // text or select
-              isDefault: true,
-              default: ''
+              type: 'text' // text or select
             },
             {
               filter: 'color',
               label: 'global.color',
-              type: 'text', // text or select
+              type: 'text' // text or select
+            },
+            {
+              filter: 'elements',
+              label: 'global.element',
+              type: 'element', // text or select
               isDefault: true,
               default: ''
             }
