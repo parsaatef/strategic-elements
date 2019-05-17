@@ -7,13 +7,14 @@ import {
   INFORMATION_OF_WORLD,
   ADMIN
 } from '../constants/routes';
+import PanelItem from './General/PanelItem';
 import item1 from '../images/menu-item-1.jpg';
 import item3 from '../images/menu-item-3.jpg';
 import item4 from '../images/menu-item-4.jpg';
 
 type Props = {};
 
-export default class Home extends Component<Props> {
+class Home extends Component<Props> {
   props: Props;
 
   render() {
@@ -27,36 +28,26 @@ export default class Home extends Component<Props> {
             </div>
 
             <div className="row smfp-intro-content">
-              <div className="col-sm-4 col-xs-6">
-                <Link className="smfp-main-item-wrap" to={INFORMATION_OF_WORLD}>
-                  <div className="img">
-                    <img src={item1} alt="img" />
-                  </div>
-                  <div className="title">
-                    <h2>اطلاعات مصور</h2>
-                  </div>
-                </Link>
-              </div>
-              <div className="col-sm-4 col-xs-6">
-                <Link className="smfp-main-item-wrap" to={INFORMATION_ANALYSIS}>
-                  <div className="img">
-                    <img src={item3} alt="img" />
-                  </div>
-                  <div className="title">
-                    <h2>تحلیل اطلاعات</h2>
-                  </div>
-                </Link>
-              </div>
-              <div className="col-sm-4 col-xs-6">
-                <Link className="smfp-main-item-wrap" to={ADMIN}>
-                  <div className="img">
-                    <img src={item4} alt="img" />
-                  </div>
-                  <div className="title">
-                    <h2>ادمین</h2>
-                  </div>
-                </Link>
-              </div>
+              <PanelItem
+                className="col-sm-4 col-xs-6"
+                link={INFORMATION_OF_WORLD}
+                icon={item1}
+                title="اطلاعات مصور"
+              />
+
+              <PanelItem
+                className="col-sm-4 col-xs-6"
+                link={INFORMATION_ANALYSIS}
+                icon={item3}
+                title="تحلیل اطلاعات"
+              />
+
+              <PanelItem
+                className="col-sm-4 col-xs-6"
+                link={ADMIN}
+                icon={item4}
+                title="ادمین"
+              />
             </div>
 
             <div className="site-info">
@@ -71,3 +62,5 @@ export default class Home extends Component<Props> {
     );
   }
 }
+
+export default Home;
