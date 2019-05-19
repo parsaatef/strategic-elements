@@ -25,11 +25,15 @@ export default class Admin extends Component<Props> {
   render() {
     return (
       <section>
-        <div className="smfp-intro-wrap">
-          <div className="smfp-intro-wrap-inner">
-            <div className="smfp-intro-heading">
-              <h1>مدیریت سامانه</h1>
-              <h3 className="sub-title">به قسمت مدیریت خوش آمدید</h3>
+        <div className="smfp-admin-wrap">
+          <div className="smfp-admin-wrap-inner">
+            <div className="smfp-admin-heading text-center">
+              <h1 className="animated bounceInDown slow delay-0-5s">
+                مدیریت سامانه
+              </h1>
+              <h3 className="sub-title animated bounceInDown slow">
+                به قسمت مدیریت خوش آمدید
+              </h3>
             </div>
 
             <div className="smfp-admin-content">

@@ -42,7 +42,11 @@ class TextEditor extends React.Component<Props> {
     const { name, value, handleChange, label, error } = this.props;
 
     return (
-      <Group as={Row} controlId={`field_${name}`}>
+      <Group
+        className="animated fadeInUpBig slow animation-auto-delay"
+        as={Row}
+        controlId={`field_${name}`}
+      >
         <Label column sm={3}>
           {label}
         </Label>

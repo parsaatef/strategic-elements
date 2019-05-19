@@ -12,7 +12,11 @@ type Props = {
 };
 
 const Checkbox = ({ name, value, handleChange, label, error }: Props) => (
-  <Group className="checkbox-field-group" as={Row} controlId={`field_${name}`}>
+  <Group
+    className="checkbox-field-group animated fadeInUpBig slow animation-auto-delay"
+    as={Row}
+    controlId={`field_${name}`}
+  >
     <Col sm={12}>
       <Label className="checkbox-wrap">
         <Control

@@ -5,7 +5,11 @@ import onChange from './onChange';
 const { Control, Group, Label } = Form;
 
 const Textarea = ({ name, value, handleChange, label, error, ...rest }) => (
-  <Group as={Row} controlId={`field_${name}`}>
+  <Group
+    className="animated fadeInUpBig slow animation-auto-delay"
+    as={Row}
+    controlId={`field_${name}`}
+  >
     <Label column sm={3}>
       {label}
     </Label>

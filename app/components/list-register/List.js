@@ -145,7 +145,7 @@ class ItemsList extends Component<Props> {
             console.log('----data-----', data, loading, error);
             return (
               <section>
-                <Row className="tb-filter-wrap">
+                <Row className="tb-filter-wrap animated fadeInUpBig slow delay-1-5s">
                   <Col sm={bulkActionColWrap}>
                     <Row>
                       <Col sm={bulkActionCol}>
