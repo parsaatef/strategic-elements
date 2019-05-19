@@ -6,6 +6,7 @@ import { INFORMATION_ANALYSIS } from '../constants/routes';
 import item1 from '../images/menu-item-1.jpg';
 import item3 from '../images/menu-item-3.jpg';
 import item4 from '../images/menu-item-4.jpg';
+import InformationAnalysisManagement from '../components/bubble/InformationAnalysisManagement';
 
 type Props = {};
 
@@ -45,6 +46,8 @@ export default class InformationAnalysis extends Component<Props> {
                   title="تحلیل محیط زیستی"
                 />
               </Row>
+
+              <InformationAnalysisManagement />
             </div>
           </div>
         </div>
