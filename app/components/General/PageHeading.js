@@ -5,7 +5,7 @@ export default class PageHeading extends Component<Props> {
     const { className, title } = this.props;
 
     return (
-      <div className={className}>
+      <div className={`animated bounceInDown slow ${className}`}>
         <h4>{title}</h4>
       </div>
     );

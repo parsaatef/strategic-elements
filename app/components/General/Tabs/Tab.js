@@ -18,7 +18,9 @@ export default class Tab extends React.Component<Props> {
       return (
         <Link
           to={link}
-          className={`smfp-ht-tabs-item${isActive ? ' active' : ''}`}
+          className={`smfp-ht-tabs-item animated lightSpeedIn slow delay-0-5s${
+            isActive ? ' active' : ''
+          }`}
         >
           {children}
         </Link>
@@ -26,7 +28,11 @@ export default class Tab extends React.Component<Props> {
     }
 
     return (
-      <div className={`smfp-ht-tabs-item${isActive ? ' active' : ''}`}>
+      <div
+        className={`smfp-ht-tabs-item  animated lightSpeedIn slow delay-0-5s${
+          isActive ? ' active' : ''
+        }`}
+      >
         {children}
       </div>
     );

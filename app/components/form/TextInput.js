@@ -21,7 +21,11 @@ const TextInput = ({
   label,
   error
 }: Props) => (
-  <Group as={Row} controlId={`field_${name}`}>
+  <Group
+    as={Row}
+    className="animated fadeInUpBig slow animation-auto-delay"
+    controlId={`field_${name}`}
+  >
     <Label column sm={3}>
       {label}
     </Label>

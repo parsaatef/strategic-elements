@@ -162,7 +162,11 @@ class InformationOfWorld extends Component<Props> {
       <section>
         <div className="info-select-group">
           <Row>
-            <Col sm={3} xs={6} className="animated flipInX faster">
+            <Col
+              sm={3}
+              xs={6}
+              className="animated flipInX slow animation-fill-mode-backwards"
+            >
               <Select
                 options={MapOptions}
                 placeholder="انتخاب نقشه"
@@ -171,7 +175,11 @@ class InformationOfWorld extends Component<Props> {
               />
             </Col>
 
-            <Col sm={3} xs={6} className="animated flipInX fast">
+            <Col
+              sm={3}
+              xs={6}
+              className="animated flipInX slow delay-0-5s animation-fill-mode-backwards"
+            >
               <Select
                 options={groupsOptions}
                 placeholder="انتخاب دسته"
@@ -180,7 +188,11 @@ class InformationOfWorld extends Component<Props> {
               />
             </Col>
 
-            <Col sm={3} xs={6} className="animated flipInX slow">
+            <Col
+              sm={3}
+              xs={6}
+              className="animated flipInX slow delay-1s animation-fill-mode-backwards"
+            >
               <ElementsSelect
                 group={group}
                 onChangeElement={this.onChangeElement}
@@ -190,7 +202,11 @@ class InformationOfWorld extends Component<Props> {
               />
             </Col>
 
-            <Col sm={3} xs={6} className="animated flipInX slower">
+            <Col
+              sm={3}
+              xs={6}
+              className="animated flipInX slow delay-1-5s animation-fill-mode-backwards"
+            >
               <Select
                 options={yearOptions}
                 placeholder="انتخاب سال"
@@ -202,7 +218,7 @@ class InformationOfWorld extends Component<Props> {
         </div>
 
         <PageHeading
-          className="text-center animated flash slow"
+          className="text-center animated bounceInUp slow delay-2s"
           title={
             <FormattedMessage
               id="global.map_page_heading"
@@ -356,7 +372,7 @@ class InformationOfWorld extends Component<Props> {
 
             return (
               <Datamaps
-                className="smfp-datamaps-wrap animated fadeInUp fast"
+                className="smfp-datamaps-wrap animated fadeInUp slow  delay-2-5s"
                 idName={idName}
                 widthProps={widthProps}
                 heightProps={heightProps}
