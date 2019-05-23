@@ -27,7 +27,7 @@ import {
   USERS_LIST,
   ELEMENTS_STATS_LIST,
   USER_REGISTER,
-  INFORMATION_ANALYSIS,
+  ANALYSIS_INTRO,
   ADMIN
 } from '../../constants/routes';
 import logo from '../../images/logo.jpg';
@@ -141,7 +141,7 @@ class Menu extends Component<Props> {
                   className="smfp-menu-link menu__link"
                   data-submenu="submenu-2"
                   aria-owns="submenu-2"
-                  to={INFORMATION_ANALYSIS}
+                  to={ANALYSIS_INTRO}
                 >
                   <img src={item3} alt="img" />
                   <span className="title">تحلیل اطلاعات</span>
@@ -171,26 +171,17 @@ class Menu extends Component<Props> {
               aria-label="تحلیل اطلاعات"
             >
               <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link
-                  className="smfp-menu-link menu__link"
-                  to={INFORMATION_ANALYSIS}
-                >
+                <Link className="smfp-menu-link menu__link" to={ANALYSIS_INTRO}>
                   <span>اقتصادی</span>
                 </Link>
               </li>
               <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link
-                  className="smfp-menu-link menu__link"
-                  to={INFORMATION_ANALYSIS}
-                >
+                <Link className="smfp-menu-link menu__link" to={ANALYSIS_INTRO}>
                   <span>راهبردی</span>
                 </Link>
               </li>
               <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link
-                  className="smfp-menu-link menu__link"
-                  to={INFORMATION_ANALYSIS}
-                >
+                <Link className="smfp-menu-link menu__link" to={ANALYSIS_INTRO}>
                   <span>محیط زیستی</span>
                 </Link>
               </li>

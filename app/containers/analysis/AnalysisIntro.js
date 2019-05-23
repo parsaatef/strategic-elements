@@ -1,16 +1,15 @@
 // @flow
 import React, { Component } from 'react';
 import { Row } from 'react-bootstrap';
-import PanelItem from '../components/General/PanelItem';
-import { INFORMATION_ANALYSIS } from '../constants/routes';
-import item1 from '../images/menu-item-1.jpg';
-import item3 from '../images/menu-item-3.jpg';
-import item4 from '../images/menu-item-4.jpg';
-import InformationAnalysisManagement from '../components/bubble/InformationAnalysisManagement';
+import PanelItem from '../../components/General/PanelItem';
+import { ANALYSIS_FACTOR } from '../../constants/routes';
+import item1 from '../../images/menu-item-1.jpg';
+import item3 from '../../images/menu-item-3.jpg';
+import item4 from '../../images/menu-item-4.jpg';
 
 type Props = {};
 
-export default class InformationAnalysis extends Component<Props> {
+export default class AnalysisIntro extends Component<Props> {
   props: Props;
 
   render() {
@@ -27,27 +26,25 @@ export default class InformationAnalysis extends Component<Props> {
               <Row>
                 <PanelItem
                   className="col-sm-4 col-xs-6"
-                  link={INFORMATION_ANALYSIS}
+                  link={ANALYSIS_FACTOR.replace(':type', 'economic')}
                   icon={item1}
                   title="تحلیل اقتصادی"
                 />
 
                 <PanelItem
                   className="col-sm-4 col-xs-6"
-                  link={INFORMATION_ANALYSIS}
+                  link={ANALYSIS_FACTOR.replace(':type', 'strategic')}
                   icon={item3}
                   title="تحلیل راهبردی"
                 />
 
                 <PanelItem
                   className="col-sm-4 col-xs-6"
-                  link={INFORMATION_ANALYSIS}
+                  link={ANALYSIS_FACTOR.replace(':type', 'environment')}
                   icon={item4}
                   title="تحلیل محیط زیستی"
                 />
               </Row>
-
-              <InformationAnalysisManagement />
             </div>
           </div>
         </div>
