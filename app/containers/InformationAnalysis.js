@@ -3,9 +3,6 @@ import React, { Component } from 'react';
 import { Row } from 'react-bootstrap';
 import PanelItem from '../components/General/PanelItem';
 import { INFORMATION_ANALYSIS } from '../constants/routes';
-import item1 from '../images/menu-item-1.jpg';
-import item3 from '../images/menu-item-3.jpg';
-import item4 from '../images/menu-item-4.jpg';
 
 type Props = {};
 
@@ -27,21 +24,21 @@ export default class InformationAnalysis extends Component<Props> {
                 <PanelItem
                   className="col-sm-4 col-xs-6"
                   link={INFORMATION_ANALYSIS}
-                  icon={item1}
+                  icon="smfpIcon smfpIcon-economical-analysis"
                   title="تحلیل اقتصادی"
                 />
 
                 <PanelItem
                   className="col-sm-4 col-xs-6"
                   link={INFORMATION_ANALYSIS}
-                  icon={item3}
+                  icon="smfpIcon smfpIcon-strategic-analysis"
                   title="تحلیل راهبردی"
                 />
 
                 <PanelItem
                   className="col-sm-4 col-xs-6"
                   link={INFORMATION_ANALYSIS}
-                  icon={item4}
+                  icon="smfpIcon smfpIcon-environment-analysis"
                   title="تحلیل محیط زیستی"
                 />
               </Row>

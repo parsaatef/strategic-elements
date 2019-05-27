@@ -13,8 +13,8 @@ const PanelItem = ({ className, link, icon, title }: Props) => (
     className={`panel-item-container animated flipInX slow animation-auto-delay ${className}`}
   >
     <Link className="smfp-main-item-wrap" to={link}>
-      <div className="img">
-        <img src={icon} alt="img" />
+      <div className="icon">
+        <i className={icon} />
       </div>
       <div className="title">
         <h2>{title}</h2>

@@ -31,9 +31,6 @@ import {
   ADMIN
 } from '../../constants/routes';
 import logo from '../../images/logo.jpg';
-import item1 from '../../images/menu-item-1.jpg';
-import item3 from '../../images/menu-item-3.jpg';
-import item4 from '../../images/menu-item-4.jpg';
 import classie from '../../assets/js/MultiLevelMenu/classie';
 import MLMenu from '../../assets/js/MultiLevelMenu/main';
 import '../../assets/css/MultiLevelMenu/component.css';
@@ -132,7 +129,9 @@ class Menu extends Component<Props> {
                   className="smfp-menu-link menu__link"
                   to={INFORMATION_OF_WORLD}
                 >
-                  <img src={item1} alt="img" />
+                  <div className="icon-wrap">
+                    <i className="smfpIcon smfpIcon-illustrated-information" />
+                  </div>
                   <span className="title">اطلاعات مصور</span>
                 </Link>
               </li>
@@ -143,11 +142,13 @@ class Menu extends Component<Props> {
                   aria-owns="submenu-2"
                   to={INFORMATION_ANALYSIS}
                 >
-                  <img src={item3} alt="img" />
+                  <div className="icon-wrap">
+                    <i className="smfpIcon smfpIcon-information-analysis" />
+                  </div>
                   <span className="title">تحلیل اطلاعات</span>
                 </Link>
               </li>
-              {currentUser && currentUser.role === 'admin' && (
+              {currentUser && (
                 <li className="smfp-menu-item menu__item" role="menuitem">
                   <Link
                     className="smfp-menu-link menu__link"
@@ -155,7 +156,9 @@ class Menu extends Component<Props> {
                     aria-owns="submenu-3"
                     to={ADMIN}
                   >
-                    <img src={item4} alt="img" />
+                    <div className="icon-wrap">
+                      <i className="smfpIcon smfpIcon-admin" />
+                    </div>
                     <span className="title">ادمین</span>
                   </Link>
                 </li>

@@ -8,9 +8,6 @@ import {
   ADMIN
 } from '../constants/routes';
 import PanelItem from './General/PanelItem';
-import item1 from '../images/menu-item-1.jpg';
-import item3 from '../images/menu-item-3.jpg';
-import item4 from '../images/menu-item-4.jpg';
 
 type Props = {};
 
@@ -35,21 +32,21 @@ class Home extends Component<Props> {
               <PanelItem
                 className="col-sm-4 col-xs-6 delay-1s"
                 link={INFORMATION_OF_WORLD}
-                icon={item1}
+                icon="smfpIcon smfpIcon-illustrated-information"
                 title="اطلاعات مصور"
               />
 
               <PanelItem
                 className="col-sm-4 col-xs-6 delay-1-5s"
                 link={INFORMATION_ANALYSIS}
-                icon={item3}
+                icon="smfpIcon smfpIcon-information-analysis"
                 title="تحلیل اطلاعات"
               />
 
               <PanelItem
                 className="col-sm-4 col-xs-6 delay-2s"
                 link={ADMIN}
-                icon={item4}
+                icon="smfpIcon smfpIcon-admin"
                 title="ادمین"
               />
             </div>
