@@ -3,12 +3,12 @@
   "SIGNIN": "/signin",
   "COUNTER": "/counter",
 
-  "INFORMATION_OF_WORLD": "/information-of-world",
+  "ANALYSIS_INTRO": "/analysis/intro",
+  "ANALYSIS_FACTOR": "/analysis/:type",
+  "ANALYSIS_ELEMENT": "/analysis/:type/:element/:title",
 
   "INFORMATION": "/information/:type",
-
-  "INFORMATION_ANALYSIS": "/information/analysis",
-
+  "INFORMATION_OF_WORLD": "/information-of-world",
   "ELEMENT_INFORMATION": "/information/element/:element",
   "INFORMATION_STATS_DETAIL": "/information/detail/:type/:element/:title",
   "SECONDARY_SOURCE": "/information/:element/:title/secondary-source",

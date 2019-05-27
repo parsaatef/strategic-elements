@@ -85,7 +85,9 @@ import {
   ELEMENT_STATS_REGISTER,
   ELEMENTS_STATS_LIST,
   ELEMENT_STATS_EDIT,
-  INFORMATION_ANALYSIS,
+  ANALYSIS_INTRO,
+  ANALYSIS_FACTOR,
+  ANALYSIS_ELEMENT,
   ADMIN
 } from './constants/routes';
 
@@ -96,8 +98,14 @@ const HomePage = lazy(() => import('./containers/HomePage'));
 const CounterPage = lazy(() => import('./containers/CounterPage'));
 const Signin = lazy(() => import('./components/Auth/Signin'));
 
-const InformationAnalysis = lazy(() =>
-  import('./containers/InformationAnalysis')
+const AnalysisIntro = lazy(() => import('./containers/analysis/AnalysisIntro'));
+
+const AnalysisFactor = lazy(() =>
+  import('./containers/analysis/AnalysisFactor')
+);
+
+const AnalysisElement = lazy(() =>
+  import('./containers/analysis/AnalysisElement')
 );
 
 const Admin = lazy(() => import('./containers/admin/Admin'));
@@ -653,8 +661,22 @@ const Routes = ({ session, refetch }: Props) => (
 
         <RestrictedRoute
           session={session}
-          path={INFORMATION_ANALYSIS}
-          component={InformationAnalysis}
+          path={ANALYSIS_INTRO}
+          component={AnalysisIntro}
+        />
+
+        <RestrictedRoute
+          exact
+          session={session}
+          path={ANALYSIS_FACTOR}
+          component={AnalysisFactor}
+        />
+
+        <RestrictedRoute
+          exact
+          session={session}
+          path={ANALYSIS_ELEMENT}
+          component={AnalysisElement}
         />
 
         <RestrictedRoute session={session} path={ADMIN} component={Admin} />

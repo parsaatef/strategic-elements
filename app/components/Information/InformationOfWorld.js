@@ -17,7 +17,7 @@ import popupTemplate from './popupTemplate';
 import { getYearOptions, getElementsGroups } from '../../utils/utility';
 import ElementsSelect from './ElementsSelect';
 
-window.d3 = d3;
+// window.d3 = d3;
 
 const MapOptions = [
   { value: 'world', label: 'جهان' },
