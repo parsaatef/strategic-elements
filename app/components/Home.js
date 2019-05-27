@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import {
   HOME,
-  INFORMATION_ANALYSIS,
+  ANALYSIS_INTRO,
   INFORMATION_OF_WORLD,
   ADMIN
 } from '../constants/routes';
@@ -38,7 +38,7 @@ class Home extends Component<Props> {
 
               <PanelItem
                 className="col-sm-4 col-xs-6 delay-1-5s"
-                link={INFORMATION_ANALYSIS}
+                link={ANALYSIS_INTRO}
                 icon="smfpIcon smfpIcon-information-analysis"
                 title="تحلیل اطلاعات"
               />
