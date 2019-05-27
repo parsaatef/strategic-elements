@@ -41,6 +41,7 @@ type Props = {
 
 class BubbleCloud extends React.Component<Props> {
   componentDidMount() {
+    console.log('------process.env-----', process.env);
     this.renderCloud();
   }
 
@@ -80,7 +81,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'library',
         name: 'D3',
         value: 30,
-        icon: 'https://naustud.io/tech-stack/img/d3.svg',
+        icon: './images/img/AC.png',
+        isImage: true,
         desc: `
 				D3.js (or just D3 for Data-Driven Documents) is a JavaScript library for
 				producing dynamic, interactive data visualizations in web browsers.
@@ -92,7 +94,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'library',
         name: 'Raphaël',
         value: 10,
-        icon: 'https://naustud.io/tech-stack/img/raphael.svg',
+        icon: './images/img/AG.png',
+        isImage: true,
         desc: `
 				Raphaël is a cross-browser JavaScript library that draws Vector graphics for web sites.
 				It will use SVG for most browsers, but will use VML for older versions of Internet Explorer.
@@ -102,7 +105,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'library',
         name: 'Relay',
         value: 70,
-        icon: 'https://naustud.io/tech-stack/img/relay.svg',
+        icon: './images/img/AL.png',
+        isImage: true,
         desc: `
 				A JavaScript framework for building data-driven React applications.
 				It uses GraphQL as the query language to exchange data between app and server efficiently.
@@ -114,7 +118,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'library',
         name: 'Three.js',
         value: 40,
-        icon: 'https://naustud.io/tech-stack/img/threejs.png',
+        icon: './images/img/AM.png',
+        isImage: true,
         desc: `
 				Three.js allows the creation of GPU-accelerated 3D animations using
 				the JavaScript language as part of a website without relying on
@@ -122,37 +127,41 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'library sub',
+        cat: 'فلزات قلیایی خاکی',
         name: 'Lodash',
         value: 30,
-        icon: 'https://naustud.io/tech-stack/img/lodash.svg',
+        icon: './images/img/AR.png',
+        isImage: true,
         desc: `
 				Lodash is a JavaScript library which provides <strong>utility functions</strong> for
 				common programming tasks using the functional programming paradigm.`
       },
       {
-        cat: 'library sub',
+        cat: 'فلزات قلیایی خاکی',
         name: 'Moment JS',
         value: 30,
-        icon: 'https://naustud.io/tech-stack/img/momentjs.png',
+        icon: './images/img/AS.png',
+        isImage: true,
         desc: `
 				Handy and resourceful JavaScript library to parse, validate, manipulate, and display dates and times.
 			`
       },
       {
-        cat: 'library sub',
+        cat: 'فلزات قلیایی خاکی',
         name: 'Numeral.js',
         value: 20,
-        icon: 'Numeral.js',
+        icon: './images/img/AT.png',
+        isImage: true,
         desc: `
 				A javascript library for formatting and manipulating numbers.
 			`
       },
       {
-        cat: 'library sub',
+        cat: 'فلزات قلیایی خاکی',
         name: 'Redux',
         value: 80,
-        icon: 'https://naustud.io/tech-stack/img/redux.svg',
+        icon: './images/img/AU.png',
+        isImage: true,
         desc: `
 				Redux is an open-source JavaScript library designed for managing
 				application state. It is primarily used together with React for building user interfaces.
@@ -163,7 +172,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'framework',
         name: 'Angular 2.0',
         value: 30,
-        icon: 'https://naustud.io/tech-stack/img/angular2.svg',
+        icon: './images/img/B.png',
+        isImage: true,
         desc: `
 				Angular (commonly referred to as 'Angular 2+' or 'Angular 2') is a TypeScript-based
 				open-source front-end web application platform led by the Angular Team at Google and
@@ -178,7 +188,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'framework',
         name: 'Bootstrap CSS',
         value: 50,
-        icon: 'https://naustud.io/tech-stack/img/bootstrap.svg',
+        icon: './images/img/BA.png',
+        isImage: true,
         desc: `
 				Bootstrap is a free and open-source front-end web framework for designing websites
 				and web applications. It contains HTML-and CSS-based design templates for typography,
@@ -189,7 +200,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'framework',
         name: 'Ember JS',
         value: 10,
-        icon: 'https://naustud.io/tech-stack/img/ember.png',
+        icon: './images/img/BE.png',
+        isImage: true,
         desc: `
 				Ember.js is an open-source JavaScript web framework, based on the Model–view–viewmodel
 				(MVVM) pattern. It allows developers to create scalable single-page web applications by
@@ -200,7 +212,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'framework',
         name: 'ExpressJS',
         value: 30,
-        icon: 'https://naustud.io/tech-stack/img/expressjs.png',
+        icon: './images/img/BH.png',
+        isImage: true,
         desc: `
 				Express.js, or simply Express, is a JavaScript framework designed for building web applications and APIs.
 				It is the de facto server framework for Node.js.
@@ -213,7 +226,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'framework',
         name: 'Hexo',
         value: 50,
-        icon: 'https://naustud.io/tech-stack/img/hexo.png',
+        icon: './images/img/BI.png',
+        isImage: true,
         desc: `
 				A fast, simple & powerful blog-aware <strong>static website</strong> generator, powered by Node.js.
 			`
@@ -222,7 +236,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'framework',
         name: 'ReactJS',
         value: 100,
-        icon: 'https://naustud.io/tech-stack/img/react.png',
+        icon: './images/img/BK.png',
+        isImage: true,
         desc: `
 				React (sometimes written React.js or ReactJS) is an open-source JavaScript framework maintained by Facebook for building user interfaces.
 				React processes only user interface in applications and can be used in combination with other JavaScript libraries
@@ -236,7 +251,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'tooling',
         name: 'Atom',
         value: 10,
-        icon: 'https://naustud.io/tech-stack/img/atom.png',
+        icon: './images/img/BR.png',
+        isImage: true,
         desc: `
 				Atom is a free and open-source text and source code editor for macOS, Linux, and Windows with support
 				for plug-ins written in Node.js, and embedded Git Control, developed by GitHub.
@@ -247,7 +263,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'tooling',
         name: 'Google Chrome & Devtool',
         value: 70,
-        icon: 'https://naustud.io/tech-stack/img/chrome-devtools.svg',
+        icon: './images/img/C.png',
+        isImage: true,
         desc: `
 				<strong>Web development tools (devtool)</strong> allow web developers to test and debug their code.
 				At Nau, we use the one come with Google Chrome to debug our apps. It is one the the most powerful
@@ -258,7 +275,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'tooling',
         name: 'Jenkins CI',
         value: 30,
-        icon: 'https://naustud.io/tech-stack/img/jenkins.png',
+        icon: './images/img/CA.png',
+        isImage: true,
         desc: `
 				Jenkins is an open source automation server. Jenkins helps to automate the non-human part of
 				the whole software development process, with now common things like continuous integration,
@@ -269,7 +287,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'tooling',
         name: 'Sublime Text 3',
         value: 100,
-        icon: 'https://naustud.io/tech-stack/img/sublimetext.png',
+        icon: './images/img/CD.png',
+        isImage: true,
         desc: `
 				Sublime Text 3 is a powerful and cross-platform source code editor. It is well-known for
 				introducing the concept of multi-cursor and lots of text editing command. Besides, its
@@ -280,7 +299,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'tooling',
         name: 'Visual Studio Code',
         value: 50,
-        icon: 'https://naustud.io/tech-stack/img/vscode.png',
+        icon: './images/img/CE.png',
+        isImage: true,
         desc: `
 				Visual Studio Code is a cross-platform source code editor developed by Microsoft.
 				It includes support for debugging, embedded Git control, syntax highlighting,
@@ -292,7 +312,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'tooling',
         name: 'Performance Tooling',
         value: 30,
-        icon: 'Performance;Tooling',
+        icon: './images/img/CF.png',
+        isImage: true,
         desc: `
 				At Nau, web performance is our top priority when development web sites and applications.
 				We're practicing code optimization and Front End delivery optimization from day 1.
@@ -304,7 +325,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'tooling',
         name: 'Yeoman generator for Nau Workflow',
         value: 20,
-        icon: 'https://naustud.io/tech-stack/img/yeoman.png',
+        icon: './images/img/CI.png',
+        isImage: true,
         desc: `
 				Yeoman is an open source, command-line interface set of tools mainly used to generate
 				structure and scaffolding for new projects, especially in JavaScript and Node.js.
@@ -316,7 +338,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'tooling',
         name: 'live-server',
         value: 30,
-        icon: 'live-server',
+        icon: './images/img/CM.png',
+        isImage: true,
         desc: `
 				A Node.js-based developer web server for quickly test apps and web pages with some
 				magic of 'auto-reload' on the browser.
@@ -326,7 +349,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'tooling',
         name: 'PostCSS',
         value: 30,
-        icon: 'https://naustud.io/tech-stack/img/postcss.svg',
+        icon: './images/img/CN.png',
+        isImage: true,
         desc: `
 				PostCSS is a software development tool that uses JavaScript-based plugins to automate routine CSS operations.<br>
 				We use PostCSS mainly for auto-vendor-prefixing, but very soon we'll use it for NextCSS compilation.
@@ -336,7 +360,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'backend',
         name: 'Elastic Search',
         value: 10,
-        icon: 'Elastic;Search',
+        icon: './images/img/CO.png',
+        isImage: true,
         desc: `
 				A specialized database software for high performance search queries.
 			`
@@ -345,7 +370,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'backend',
         name: 'Keystone CMS',
         value: 50,
-        icon: 'https://naustud.io/tech-stack/img/keystonejs.png',
+        icon: './images/img/CR.png',
+        isImage: true,
         desc: `
 				The de-facto CMS system for website built with Node.js. It can be compared with
 				Wordpress of PHP language.
@@ -355,7 +381,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'backend',
         name: 'KoaJS',
         value: 10,
-        icon: 'https://naustud.io/tech-stack/img/koajs.png',
+        icon: './images/img/CS.png',
+        isImage: true,
         desc: `
 				The advanced and improved version of ExpressJS, with leaner middlewares architecture
 				thanks to the avent of ES6 generators.
@@ -365,7 +392,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'backend',
         name: 'Loopback',
         value: 30,
-        icon: 'https://naustud.io/tech-stack/img/loopback.svg',
+        icon: './images/img/CU.png',
+        isImage: true,
         desc: `
 				Powerful API-focused web framework built for Node.js. It feature easy to use configurations
 				and auto API documentation page.
@@ -375,7 +403,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'backend',
         name: 'Restify',
         value: 20,
-        icon: 'https://naustud.io/tech-stack/img/restify.png',
+        icon: './images/img/DB.png',
+        isImage: true,
         desc: `
 				High performance API development framework, built for Node.js. It has some convenient wrapper
 				to automatically generate admin backoffice site and API documentation page.
@@ -385,7 +414,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'backend',
         name: 'MongoDB',
         value: 70,
-        icon: 'https://naustud.io/tech-stack/img/mongodb.png',
+        icon: './images/img/ER.png',
+        isImage: true,
         desc: `
 				The de-facto Database solution for JavaScript and Node.js applications. It is a light weight,
 				high performance NoSQL database and can be used for small and large websites.
@@ -395,7 +425,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'backend',
         name: 'NodeJS',
         value: 100,
-        icon: 'https://naustud.io/tech-stack/img/nodejs.svg',
+        icon: './images/img/ES.png',
+        isImage: true,
         desc: `
 				Node.js is a cross-platform JavaScript runtime environment.
 				Node.js allows creation of high performance and high concurrency websites with smaller footprint compared to
@@ -407,7 +438,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'platform',
         name: 'Docker Platform',
         value: 10,
-        icon: 'https://naustud.io/tech-stack/img/docker.svg',
+        icon: './images/img/EU.png',
+        isImage: true,
         desc: `
 				Docker is an open-source project that automates the deployment of applications inside software containers.
 				At Nau, we're still learning this technology to later facilitate easy web app deployments.
@@ -417,7 +449,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'platform',
         name: 'MeteorJS',
         value: 80,
-        icon: 'https://naustud.io/tech-stack/img/meteor.svg',
+        icon: './images/img/F.png',
+        isImage: true,
         desc: `
 				MeteorJS is a free and open-source JavaScript web framework written using Node.js.
 				Meteor allows for rapid prototyping and produces cross-platform (Android, iOS, Web) code.
@@ -430,7 +463,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'platform',
         name: 'Phonegap',
         value: 50,
-        icon: 'https://naustud.io/tech-stack/img/phonegap.png',
+        icon: './images/img/FE.png',
+        isImage: true,
         desc: `
 				A platform, library and tool for building hybrid mobile app.
 			`
@@ -439,7 +473,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'platform',
         name: 'Reaction Commerce',
         value: 20,
-        icon: 'https://naustud.io/tech-stack/img/reactioncommerce.png',
+        icon: './images/img/FI.png',
+        isImage: true,
         desc: `
 				Reaction Commerce is the first open source, real-time platform to
 				combine the flexibility developers and designers want with the stability
@@ -450,7 +485,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'platform',
         name: 'ReactNative',
         value: 10,
-        icon: 'https://naustud.io/tech-stack/img/reactnative.png',
+        icon: './images/img/FM.png',
+        isImage: true,
         desc: `
 				React Native lets you build mobile apps using only JavaScript.
 				It uses the same design as React, letting us compose a rich
@@ -461,7 +497,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'platform',
         name: 'SquareSpace',
         value: 30,
-        icon: 'https://naustud.io/tech-stack/img/squarespace.svg',
+        icon: './images/img/FR.png',
+        isImage: true,
         desc: `
 				Squarespace is a SaaS-based content management system-integrated ecommerce-aware website builder and blogging platform.
 				At Nau, we have built a website for Squarespace using their low-level API which allowed fully customization
@@ -472,7 +509,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'language',
         name: 'HTML5 & CSS3',
         value: 100,
-        icon: 'https://naustud.io/tech-stack/img/html5-css3.png',
+        icon: './images/img/GA.png',
+        isImage: true,
         desc: `
 				The languages of the Web Front End. At Nau, they are in our blood and with them we can build
 				world-class websites with any kind of visual effects or designs requested.
@@ -482,7 +520,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'language',
         name: 'JavaScript',
         value: 100,
-        icon: 'https://naustud.io/tech-stack/img/javascript.png',
+        icon: './images/img/GD.png',
+        isImage: true,
         desc: `
 				JavaScript is the heart of modern Web front end development and essential element of any Single Page
 				Applications. In Nau, we invest a good deal in training developers to have good control of this universal language
@@ -493,7 +532,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'language',
         name: 'CSS Next',
         value: 10,
-        icon: 'https://naustud.io/tech-stack/img/cssnext.png',
+        icon: './images/img/GE.png',
+        isImage: true,
         desc: `
 				The CSS language specs of the future but with the help of PostCSS (like Babel for ES6),
 				we can use CSS Next today.
@@ -503,7 +543,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'language',
         name: 'GraphQL',
         value: 50,
-        icon: 'https://naustud.io/tech-stack/img/graphql.svg',
+        icon: './images/img/H.png',
+        isImage: true,
         desc: `
 				GraphQL is a data query language developed by Facebook publicly released in 2015.
 				It provides an alternative to REST and ad-hoc webservice architectures. In combination
@@ -514,7 +555,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'language',
         name: 'LESS CSS',
         value: 20,
-        icon: 'https://naustud.io/tech-stack/img/less.svg',
+        icon: './images/img/HE.png',
+        isImage: true,
         desc: `
 				A preprocessor language to be compiled to CSS. This language is not as popular nowadays and we
 				only use them when requested.
@@ -524,7 +566,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'language',
         name: 'SASS (SCSS flavor)',
         value: 70,
-        icon: 'https://naustud.io/tech-stack/img/sass.png',
+        icon: './images/img/HF.png',
+        isImage: true,
         desc: `
 				This is our main CSS preprocessor language helping us lay structured foundation to CSS as well
 				as assisting on writing more convenient BEM anotations.
@@ -534,7 +577,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'language',
         name: 'TypeScript 2',
         value: 30,
-        icon: 'https://naustud.io/tech-stack/img/typescript.png',
+        icon: './images/img/HG.png',
+        isImage: true,
         desc: `
 				The strict-typing flavor of ECMAScript, always requires a compiler to compile to vanilla JavaScript
 				but the type checking and other syntactical sugar are exceptional. Right now, we only use it for
@@ -545,7 +589,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'workflow',
         name: 'code.naustud.io',
         value: 100,
-        icon: 'https://naustud.io/tech-stack/img/naustudio.svg',
+        icon: './images/img/HO.png',
+        isImage: true,
         desc: `
 				A set of guidelines, presets, configs and stadard documentation for Nau developers.
 				Please visit the document site at: <a href='http://code.naustud.io' target='_blank'>code.naustud.io</a>
@@ -555,7 +600,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'workflow',
         name: 'Mobile First',
         value: 100,
-        icon: 'Mobile First',
+        icon: './images/img/HS.png',
+        isImage: true,
         desc: `
 				This is one of our most important principle for web and mobile development.
 				More details will be discussed in blog later.
@@ -565,7 +611,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'workflow',
         name: 'BabelJS',
         value: 50,
-        icon: 'https://naustud.io/tech-stack/img/babel.png',
+        icon: './images/img/I.png',
+        isImage: true,
         desc: `
 				The de-facto tool to work with ECMAScript 6 and ReactJS nowadays.
 			`
@@ -577,7 +624,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'workflow',
         name: 'CSS BEM Notation',
         value: 70,
-        icon: 'CSS BEM Notation',
+        icon: './images/img/IN.png',
+        isImage: true,
         desc: `
 				Our naming standard for CSS, which enhance collaboration, documentation and reusability of
 				CSS rules.
@@ -587,7 +635,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'workflow',
         name: 'Front End Code Guide',
         value: 30,
-        icon: 'Front End;Code Guide',
+        icon: './images/img/IR.png',
+        isImage: true,
         desc: `
 				Based on an existing best practice document for HTML and CSS. We're adopting it as our standards
 				and guideline.
@@ -597,7 +646,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'workflow',
         name: 'ESLint',
         value: 20,
-        icon: 'https://naustud.io/tech-stack/img/eslint.svg',
+        icon: './images/img/K.png',
+        isImage: true,
         desc: `
 				The tool to check and validate JavaScript code when we develop and prevent potential issues with code.
 			`
@@ -606,7 +656,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'workflow',
         name: 'Gitflow Workflow',
         value: 70,
-        icon: 'https://naustud.io/tech-stack/img/gitflow.png',
+        icon: './images/img/KR.png',
+        isImage: true,
         desc: `
 				Our code version control tool is Git, and Gitflow is one of its workflow standard which
 				ensure good collaboration and avoid conflict-resolving efforts. For more info, visit: code.naustud.io
@@ -616,7 +667,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'workflow',
         name: 'GulpJS',
         value: 50,
-        icon: 'https://naustud.io/tech-stack/img/gulp.png',
+        icon: './images/img/LA.png',
+        isImage: true,
         desc: `
 				GulpJS is a task automation tools written for Node.js. It is among the most popular
 				Front End and Node project automation tools nowadays
@@ -626,7 +678,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'workflow',
         name: 'Nau Code Styles',
         value: 50,
-        icon: 'Nau Code Styles',
+        icon: './images/img/LI.png',
+        isImage: true,
         desc: `
 				Based on AirBnB's well-defined JavaScript code styles. Our derivation has some different standards such as
 				TAB indentation. This code style has an accompanied ESLint config.
@@ -636,7 +689,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'workflow',
         name: 'Stylelint',
         value: 50,
-        icon: 'https://naustud.io/tech-stack/img/stylelint.svg',
+        icon: './images/img/LR.png',
+        isImage: true,
         desc: `
 				Our on-stop tool to validate both CSS and SCSS with a set of conventions and guidelines from our best practice.
 			`
@@ -645,7 +699,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'workflow',
         name: 'SystemJS',
         value: 20,
-        icon: 'SystemJS',
+        icon: './images/img/LU.png',
+        isImage: true,
         desc: `
 				A module loader library that come along Angular 2. Its use is scarce, however.
 			`
@@ -654,7 +709,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'workflow',
         name: 'Webpack',
         value: 30,
-        icon: 'https://naustud.io/tech-stack/img/webpack.svg',
+        icon: './images/img/MD.png',
+        isImage: true,
         desc: `
 				A module bundler library that is becoming de-facto tool to use in ReactJS or SPA apps nowadays.
 			`
@@ -663,7 +719,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'legacy',
         name: 'AngularJS 1',
         value: 10,
-        icon: 'https://naustud.io/tech-stack/img/angular1.png',
+        icon: './images/img/MG.png',
+        isImage: true,
         desc: `
 				Angular 1. Deprecated
 			`
@@ -672,7 +729,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'legacy',
         name: 'Backbone',
         value: 30,
-        icon: 'https://naustud.io/tech-stack/img/backbone.png',
+        icon: './images/img/MN.png',
+        isImage: true,
         desc: `
 				A Model-View library. Deprecated
 			`
@@ -681,7 +739,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'legacy',
         name: 'Grunt & Automation Stack',
         value: 30,
-        icon: 'https://naustud.io/tech-stack/img/grunt.svg',
+        icon: './images/img/MO.png',
+        isImage: true,
         desc: `
 				Grunt task automation tool. Deprecated
 			`
@@ -690,7 +749,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'legacy',
         name: 'jQuery',
         value: 50,
-        icon: 'https://naustud.io/tech-stack/img/jquery.png',
+        icon: './images/img/N.png',
+        isImage: true,
         desc: `
 				Deprecated, because <a href='http://youmightnotneedjquery.com/' target='_blank'>youmightnotneedjquery.com</a>
 			`
@@ -699,7 +759,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'legacy',
         name: 'RequireJS & AMD',
         value: 30,
-        icon: 'https://naustud.io/tech-stack/img/requirejs.svg',
+        icon: './images/img/NA.png',
+        isImage: true,
         desc: `
 				AMD module loader. Deprecated and replaced by ES module and Webpack.
 			`
@@ -708,7 +769,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'legacy tooling',
         name: 'Browser Sync',
         value: 40,
-        icon: 'Browser Sync',
+        icon: './images/img/NB.png',
+        isImage: true,
         desc: `
 				Web development server popular among gulp/grunt web apps. No deprecated and replaced by live-server
 				or webpackDevServer.
@@ -718,7 +780,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'legacy tooling',
         name: 'Git Pre-commit',
         value: 30,
-        icon: 'Git;Pre-commit',
+        icon: './images/img/ND.png',
+        isImage: true,
         desc: `
 				Pre-commit hook for git, now deprecated due to slow commit time. Code validation should be done
 				in the code editor.
@@ -728,7 +791,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'legacy tooling',
         name: 'http-server',
         value: 20,
-        icon: 'http-server',
+        icon: './images/img/NE.png',
+        isImage: true,
         desc: `
 				A quick test web server based on Node.js, deprecated and replaced by live-server.
 			`
@@ -737,7 +801,8 @@ class BubbleCloud extends React.Component<Props> {
         cat: 'legacy tooling',
         name: 'LiveReload',
         value: 20,
-        icon: 'Live;Reload',
+        icon: './images/img/NI.png',
+        isImage: true,
         desc: `
 				A propritery auto-reload solution for web developers, now deprecated in favor of live-server and
 				hot module reload in Webpack.
@@ -795,10 +860,18 @@ class BubbleCloud extends React.Component<Props> {
           name: newData.name,
           value: newData.value,
           icon: newData.icon,
-          desc: newData.desc
+          desc: newData.desc,
+          isImage: newData.isImage
         };
       });
-    simulation.nodes(nodes).on('tick', ticked);
+
+    simulation.nodes(nodes).on('tick', () => {
+      node
+        .attr('transform', d => `translate(${d.x},${d.y})`)
+        .select('circle')
+        .attr('r', d => d.r);
+    });
+
     // svg.style('background-color', '#eee');
 
     const node = svg
@@ -853,9 +926,13 @@ class BubbleCloud extends React.Component<Props> {
 
     // display text as circle icon
     node
-      .filter(
-        d => !String(d.icon).includes('https://naustud.io/tech-stack/img/')
-      )
+      .filter(d => {
+        console.log('---consoe.log--d.isImage--', d.isImage, d);
+        return (
+          !String(d.icon).includes('https://naustud.io/tech-stack/img/') &&
+          !d.isImage
+        );
+      })
       .append('text')
       .classed('node-icon', true)
       .attr('clip-path', d => `url(#clip-${d.id})`)
@@ -872,8 +949,10 @@ class BubbleCloud extends React.Component<Props> {
 
     // display image as circle icon
     node
-      .filter(d =>
-        String(d.icon).includes('https://naustud.io/tech-stack/img/')
+      .filter(
+        d =>
+          String(d.icon).includes('https://naustud.io/tech-stack/img/') ||
+          d.isImage === true
       )
       .append('image')
       .classed('node-icon', true)
@@ -888,34 +967,43 @@ class BubbleCloud extends React.Component<Props> {
 
     const legendOrdinal = D3legendColor()
       .scale(scaleColor)
-      .shape('circle'); // console.log( "--------legendOrdinal----" , legendOrdinal );
+      .shape('circle')
+      .shapePadding(10); // console.log( "--------legendOrdinal----" , legendOrdinal );
 
-    // const legend =
+    /**
+     * legend 1
+     */
     svg
       .append('g')
       .classed('legend-color', true)
-      .attr('text-anchor', 'start')
-      .attr('transform', 'translate(20,30)')
+      .attr('text-anchor', 'end')
+      .attr('transform', 'translate(30,30)')
       .style('font-size', '12px')
+      .style('fill', '#FFFFFF')
+      .style('font-family', 'IranSans')
       .call(legendOrdinal);
 
     const sizeScale = D3scaleOrdinal()
-      .domain(['less use', 'more use'])
+      .domain(['امتیاز کمتر', 'امتیاز بیشتر'])
       .range([5, 10]);
 
     const legendSize = D3legendSize()
       .scale(sizeScale)
       .shape('circle')
-      .shapePadding(20)
-      .labelAlign('end');
+      .shapePadding(10)
+      .labelAlign('start');
 
-    // const legend2 =
+    /**
+     * legend 2
+     */
     svg
       .append('g')
       .classed('legend-size', true)
-      .attr('text-anchor', 'start')
-      .attr('transform', 'translate(150, 25)')
+      .attr('text-anchor', 'end')
+      .attr('transform', 'translate(180, 25)')
       .style('font-size', '12px')
+      .style('fill', '#FFFFFF')
+      .style('font-family', 'IranSans')
       .call(legendSize);
 
     /*
@@ -1054,18 +1142,15 @@ class BubbleCloud extends React.Component<Props> {
         d3SelectAll('.node-icon').classed('node-icon--faded', false);
       }
     });
-    function ticked() {
-      node
-        .attr('transform', d => `translate(${d.x},${d.y})`)
-        .select('circle')
-        .attr('r', d => d.r);
-    }
   }
 
   render() {
     return (
       <div className="tech-stack-container bg">
         <svg
+          xmlns="http://www.w3.org/2000/svg"
+          direction="rtl"
+          xmlLang="fa"
           id="teck-stack-svg"
           width="100%"
           height="700"

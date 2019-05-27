@@ -328,6 +328,10 @@
   "iran.Kerman": "کرمان",
   "iran.Alborz": "البرز",
 
+  "analysis.element_economic": "تحلیل اقتصادی مواد معدنی",
+  "analysis.element_strategic": "تحلیل راهبردی مواد معدنی",
+  "analysis.element_environment": "تحلیل محیط زیست مواد معدنی",
+
   "global.confirm": "تایید",
   "global.select_element": "انتخاب ماده معدنی",
   "global.map_page_heading": "نقشه منابع و ذخایر {element} در جهان",
