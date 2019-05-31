@@ -328,9 +328,14 @@
   "iran.Kerman": "کرمان",
   "iran.Alborz": "البرز",
 
-  "analysis.element_economic": "تحلیل اقتصادی مواد معدنی",
-  "analysis.element_strategic": "تحلیل راهبردی مواد معدنی",
-  "analysis.element_environment": "تحلیل محیط زیست مواد معدنی",
+  "analysis.element_economic": "تحلیل از دیدگاه اهمیت اقتصادی",
+  "analysis.element_politic": "تحلیل از دیدگاه اهمیت سیاسی",
+  "analysis.element_socialist": "تحلیل از دیدگاه عوامل اجتماعی",
+  "analysis.element_technology": "تحلیل از دیدگاه دسترسی به تکنولوژی",
+  "analysis.element_environment": "تحلیل از دیدگاه اثرات محیط زیست",
+  "analysis.element_law_issue": "تحلیل از دیدگاه مسائل قانونی",
+  "analysis.select_affected_factor": "انتخاب شاخص تاثیرگذار",
+  "analysis.select_effect_value": "انتخاب میزان تاثیر",
 
   "global.confirm": "تایید",
   "global.select_element": "انتخاب ماده معدنی",

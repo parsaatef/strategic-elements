@@ -28,7 +28,8 @@ import {
   ELEMENTS_STATS_LIST,
   USER_REGISTER,
   ANALYSIS_INTRO,
-  ADMIN
+  ADMIN,
+  ANALYSIS_FACTOR
 } from '../../constants/routes';
 import logo from '../../images/logo.jpg';
 import classie from '../../assets/js/MultiLevelMenu/classie';
@@ -175,17 +176,55 @@ class Menu extends Component<Props> {
             >
               <li className="smfp-menu-item menu__item" role="menuitem">
                 <Link className="smfp-menu-link menu__link" to={ANALYSIS_INTRO}>
-                  <span>اقتصادی</span>
+                  <span>داشبورد</span>
                 </Link>
               </li>
               <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link className="smfp-menu-link menu__link" to={ANALYSIS_INTRO}>
-                  <span>راهبردی</span>
+                <Link
+                  className="smfp-menu-link menu__link"
+                  to={ANALYSIS_FACTOR.replace(':type', 'economic')}
+                >
+                  <span>اهمیت اقتصادی</span>
                 </Link>
               </li>
               <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link className="smfp-menu-link menu__link" to={ANALYSIS_INTRO}>
-                  <span>محیط زیستی</span>
+                <Link
+                  className="smfp-menu-link menu__link"
+                  to={ANALYSIS_FACTOR.replace(':type', 'politic')}
+                >
+                  <span>اهمیت سیاسی</span>
+                </Link>
+              </li>
+              <li className="smfp-menu-item menu__item" role="menuitem">
+                <Link
+                  className="smfp-menu-link menu__link"
+                  to={ANALYSIS_FACTOR.replace(':type', 'socialist')}
+                >
+                  <span>عوامل اجتماعی</span>
+                </Link>
+              </li>
+              <li className="smfp-menu-item menu__item" role="menuitem">
+                <Link
+                  className="smfp-menu-link menu__link"
+                  to={ANALYSIS_FACTOR.replace(':type', 'technology')}
+                >
+                  <span>دسترسی به تکنولوژی</span>
+                </Link>
+              </li>
+              <li className="smfp-menu-item menu__item" role="menuitem">
+                <Link
+                  className="smfp-menu-link menu__link"
+                  to={ANALYSIS_FACTOR.replace(':type', 'environment')}
+                >
+                  <span>اثرات محیط زیستی</span>
+                </Link>
+              </li>
+              <li className="smfp-menu-item menu__item" role="menuitem">
+                <Link
+                  className="smfp-menu-link menu__link"
+                  to={ANALYSIS_FACTOR.replace(':type', 'law_issue')}
+                >
+                  <span>مسائل قانونی</span>
                 </Link>
               </li>
             </ul>

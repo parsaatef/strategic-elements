@@ -4,6 +4,9 @@
 import React from 'react';
 import { Query } from 'react-apollo';
 import { withRouter } from 'react-router-dom';
+import ReactSelect from 'react-select';
+import { Button, Row, Col } from 'react-bootstrap';
+import { FormattedMessage } from 'react-intl';
 import { GET_ELEMENTS } from '../../queries/element';
 import BubbleCloud from '../../components/bubble/BubbleCloud';
 import { ANALYSIS_ELEMENT } from '../../constants/routes';
@@ -20,11 +23,16 @@ class AnalysisFactor extends React.Component<Props> {
   constructor(props) {
     super(props);
 
-    /* this.state = {
-      currentElement: ''
-    }; */
+    this.state = {
+      // currentElement: '' ,
+      currentFactor: {},
+      currentFactorVal: {}
+    };
 
     this.sourceClick = this.sourceClick.bind(this);
+    this.changeFactor = this.changeFactor.bind(this);
+    this.changeFactorValue = this.changeFactorValue.bind(this);
+    this.recalculateData = this.recalculateData.bind(this);
   }
 
   getData(stats) {
@@ -62,10 +70,28 @@ class AnalysisFactor extends React.Component<Props> {
     }); */
   }
 
+  changeFactor(option) {
+    this.setState({
+      currentFactor: option
+    });
+  }
+
+  changeFactorValue(option) {
+    this.setState({
+      currentFactorVal: option
+    });
+  }
+
+  recalculateData() {
+    console.log('-----this.state------', this.state);
+  }
+
   render() {
     const { match } = this.props;
 
     const { type } = match.params;
+
+    const { currentFactor, currentFactorVal } = this.state;
 
     return (
       <div className="information-analysis-container">
@@ -93,6 +119,50 @@ class AnalysisFactor extends React.Component<Props> {
                   icon="smfpIcon smfpIcon-illustrated-information"
                   title={<FormattedSimpleMsg id={`analysis.element_${type}`} />}
                 />
+
+                <Row>
+                  <Col sm={2} className="text-left text-row-padding">
+                    <FormattedMessage id="analysis.select_affected_factor" />
+                  </Col>
+
+                  <Col sm={3}>
+                    <ReactSelect
+                      name="affected_factor"
+                      value={currentFactor}
+                      onChange={this.changeFactor}
+                      options={[]}
+                    />
+                  </Col>
+
+                  <Col sm={2} className="text-left text-row-padding">
+                    <FormattedMessage id="analysis.select_effect_value" />
+                  </Col>
+
+                  <Col sm={3}>
+                    <div className="effect-value-field">
+                      <ReactSelect
+                        name="effect_value"
+                        value={currentFactorVal}
+                        onChange={this.changeFactorValue}
+                        options={[]}
+                      />
+                    </div>
+                  </Col>
+
+                  <Col sm={2} className="text-right">
+                    <Button
+                      style={{ marginLeft: '6px' }}
+                      onClick={this.recalculateData}
+                      type="button"
+                    >
+                      <FormattedMessage id="global.apply" />
+                    </Button>
+
+                    <Button type="button" variant="outline-danger">
+                      <FormattedMessage id="global.reset" />
+                    </Button>
+                  </Col>
+                </Row>
 
                 <BubbleCloud
                   inputData={inputData}

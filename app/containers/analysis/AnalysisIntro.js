@@ -25,21 +25,42 @@ export default class AnalysisIntro extends Component<Props> {
                   className="col-sm-4 col-xs-6"
                   link={ANALYSIS_FACTOR.replace(':type', 'economic')}
                   icon="smfpIcon smfpIcon-economical-analysis"
-                  title="تحلیل اقتصادی"
+                  title="اهمیت اقتصادی"
                 />
 
                 <PanelItem
                   className="col-sm-4 col-xs-6"
-                  link={ANALYSIS_FACTOR.replace(':type', 'strategic')}
-                  icon="smfpIcon smfpIcon-strategic-analysis"
-                  title="تحلیل راهبردی"
+                  link={ANALYSIS_FACTOR.replace(':type', 'politic')}
+                  icon="smfpIcon smfpIcon-political-analysis"
+                  title="اهمیت سیاسی"
+                />
+
+                <PanelItem
+                  className="col-sm-4 col-xs-6"
+                  link={ANALYSIS_FACTOR.replace(':type', 'socialist')}
+                  icon="smfpIcon smfpIcon-social-analysis"
+                  title="عوامل اجتماعی"
+                />
+
+                <PanelItem
+                  className="col-sm-4 col-xs-6"
+                  link={ANALYSIS_FACTOR.replace(':type', 'technology')}
+                  icon="smfpIcon smfpIcon-technology-analysis"
+                  title="دسترسی به تکنولوژی"
                 />
 
                 <PanelItem
                   className="col-sm-4 col-xs-6"
                   link={ANALYSIS_FACTOR.replace(':type', 'environment')}
                   icon="smfpIcon smfpIcon-environment-analysis"
-                  title="تحلیل محیط زیستی"
+                  title="اثرات محیط زیستی"
+                />
+
+                <PanelItem
+                  className="col-sm-4 col-xs-6"
+                  link={ANALYSIS_FACTOR.replace(':type', 'law_issue')}
+                  icon="smfpIcon smfpIcon-legal-analysis"
+                  title="مسائل قانونی"
                 />
               </Row>
             </div>
