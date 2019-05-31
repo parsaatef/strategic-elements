@@ -50,7 +50,7 @@ class DetailAction extends Component<Props> {
                   variant="link"
                   onClick={this.handleShow}
                 >
-                  <span className="fal fa-file" />
+                  <span className="smfpIcon smfpIcon-details" />
                 </Button>
               </OverlayTrigger>
 

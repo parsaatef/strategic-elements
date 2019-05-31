@@ -74,7 +74,7 @@ class DeleteAction extends Component<Props> {
               }
             >
               <span className="tb-tooltip-btn">
-                <span className="fal fa-trash" />
+                <span className="smfpIcon smfpIcon-remove" />
               </span>
             </OverlayTrigger>
           </div>

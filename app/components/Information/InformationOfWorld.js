@@ -8,7 +8,7 @@ import { ELEMENT_INFORMATION } from '../../constants/routes';
 import Select from '../General/Select';
 import ImgButton from '../General/ImgButton';
 import item4 from '../../images/menu-item-4.jpg';
-import PageHeading from '../General/PageHeading';
+import PageHeadingIcon from '../General/PageHeadingIcon';
 import Datamaps from './datamaps';
 import World from '../../utils/world.json';
 import Iran from '../../utils/iran.json';
@@ -161,6 +161,21 @@ class InformationOfWorld extends Component<Props> {
     return (
       <section>
         <div className="info-select-group">
+          <PageHeadingIcon
+            className="animated bounceInUp slow delay-2s"
+            icon="smfpIcon smfpIcon-illustrated-information"
+            title={
+              <FormattedMessage
+                id="global.map_page_heading"
+                values={{
+                  element: currentElement.value
+                    ? currentElement.label
+                    : currGroupLabel
+                }}
+              />
+            }
+          />
+
           <Row>
             <Col
               sm={3}
@@ -216,20 +231,6 @@ class InformationOfWorld extends Component<Props> {
             </Col>
           </Row>
         </div>
-
-        <PageHeading
-          className="text-center animated bounceInUp slow delay-2s"
-          title={
-            <FormattedMessage
-              id="global.map_page_heading"
-              values={{
-                element: currentElement.value
-                  ? currentElement.label
-                  : currGroupLabel
-              }}
-            />
-          }
-        />
 
         <Query
           query={GET_ELEMENTS_STATS}

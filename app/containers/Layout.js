@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { ApolloConsumer } from 'react-apollo';
 import Sidebar from './Sidebar';
 import Content from './Content';
 import Routes from '../Routes';
 import FullPageLayout from './FullPageLayout';
+import { SIGNIN } from '../constants/routes';
 
 type Props = {
   location: object,
@@ -22,6 +24,14 @@ class Layout extends Component<Props> {
   goForward = () => {
     const { history } = this.props;
     history.goForward();
+  };
+
+  signOut = client => {
+    const { history } = this.props;
+    // store.dispatch(actions.signOut());
+    localStorage.setItem('token', '');
+    client.resetStore();
+    history.push(SIGNIN);
   };
 
   render() {
@@ -45,11 +55,25 @@ class Layout extends Component<Props> {
             <div className="col-sm-9">
               <Content>
                 <div className="app-top-header">
+                  <ApolloConsumer>
+                    {client => (
+                      <span
+                        role="toolbar"
+                        onKeyUp={e => console.log('onKeyUp', e)}
+                        onClick={this.signOut.bind(this, client)}
+                        className="logout-button toolbar-icon"
+                        data-tid="logoutButton"
+                      >
+                        <i className="fa fa-user-times fa-2x" />
+                      </span>
+                    )}
+                  </ApolloConsumer>
+
                   <span
                     role="toolbar"
                     onKeyUp={e => console.log('onKeyUp', e)}
                     onClick={this.goBack}
-                    className="back-button"
+                    className="back-button toolbar-icon"
                     data-tid="backButton"
                   >
                     <i className="fa fa-arrow-right fa-2x" />
@@ -58,7 +82,7 @@ class Layout extends Component<Props> {
                     role="toolbar"
                     onKeyUp={e => console.log('onKeyUp', e)}
                     onClick={this.goForward}
-                    className="forward-button"
+                    className="forward-button toolbar-icon"
                     data-tid="forwardButton"
                   >
                     <i className="fa fa-arrow-left fa-2x" />

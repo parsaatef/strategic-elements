@@ -9,6 +9,7 @@ import BubbleCloud from '../../components/bubble/BubbleCloud';
 import { ANALYSIS_ELEMENT } from '../../constants/routes';
 import item4 from '../../images/menu-item-4.jpg';
 import { FormattedSimpleMsg } from '../../utils/utility';
+import PageHeadingIcon from '../../components/General/PageHeadingIcon';
 
 type Props = {
   history: object,
@@ -87,11 +88,11 @@ class AnalysisFactor extends React.Component<Props> {
 
             return (
               <section className="analysis-factor-wrapper">
-                <div className="smfp-intro-heading text-center">
-                  <h1>
-                    <FormattedSimpleMsg id={`analysis.element_${type}`} />
-                  </h1>
-                </div>
+                <PageHeadingIcon
+                  className="animated bounceInUp slow delay-2s"
+                  icon="smfpIcon smfpIcon-illustrated-information"
+                  title={<FormattedSimpleMsg id={`analysis.element_${type}`} />}
+                />
 
                 <BubbleCloud
                   inputData={inputData}

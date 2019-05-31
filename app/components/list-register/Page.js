@@ -105,7 +105,7 @@ class Page extends Component<Props> {
               isActive={this.activeRoute(registerRoute)}
             >
               <div className="icon">
-                <span className="fal fa-th-list" />
+                <span className="smfpIcon smfpIcon-register-form" />
               </div>
               <div className="title">
                 <span>
@@ -126,7 +126,7 @@ class Page extends Component<Props> {
             {isEdit && (
               <Tab isActive={isEdit}>
                 <div className="icon">
-                  <span className="fal fa-th-list" />
+                  <span className="smfpIcon smfpIcon-edit" />
                 </div>
                 <div className="title">
                   <span>

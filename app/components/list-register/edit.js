@@ -19,7 +19,7 @@ const EditAction = ({ id, editRoute }: Props) => (
     >
       <Link to={`${editRoute}/${id}`}>
         <span className="tb-tooltip-btn">
-          <span className="fal fa-edit" />
+          <span className="smfpIcon smfpIcon-edit" />
         </span>
       </Link>
     </OverlayTrigger>

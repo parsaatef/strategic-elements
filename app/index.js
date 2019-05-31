@@ -24,8 +24,17 @@ const client = new ApolloClient({
     });
   },
   onError: ({ graphQLErrors, networkError }) => {
+    let isAuthError = false;
+
     if (graphQLErrors) {
-      graphQLErrors.forEach(({ message, locations, path }) => {
+      graphQLErrors.forEach(({ message, locations, path, extensions }) => {
+        if (
+          extensions &&
+          extensions.code &&
+          extensions.code === 'UNAUTHENTICATED'
+        ) {
+          isAuthError = true;
+        }
         console.log(
           `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
         );
@@ -33,13 +42,17 @@ const client = new ApolloClient({
     }
 
     if (networkError && networkError.statusCode === 401) {
+      isAuthError = true;
+    } else {
+      console.log('Network Error', networkError);
+    }
+
+    if (isAuthError === true && history.location.pathname !== SIGNIN) {
       // remove cached token on 401 from the server
       // store.dispatch(actions.signOut());
       localStorage.setItem('token', '');
       client.resetStore();
       history.push(SIGNIN);
-    } else {
-      console.log('Network Error', networkError);
     }
 
     // if (networkError.statusCode === 400) { localStorage.removeItem('token'); }

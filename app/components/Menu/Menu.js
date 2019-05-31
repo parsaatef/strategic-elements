@@ -76,7 +76,7 @@ class Menu extends Component<Props> {
     const { location } = this.props;
 
     if (prevProps.location.pathname !== location.pathname) {
-      this.mlMenu.setCurrentMenu(location);
+      this.mlMenu.setCurrentMenu(location, true);
     }
   }
 
@@ -199,6 +199,12 @@ class Menu extends Component<Props> {
                 role="menu"
                 aria-label="ادمین"
               >
+                <li className="smfp-menu-item menu__item" role="menuitem">
+                  <Link className="smfp-menu-link menu__link" to={ADMIN}>
+                    <span>داشبورد</span>
+                  </Link>
+                </li>
+
                 <li className="smfp-menu-item menu__item" role="menuitem">
                   <Link
                     className="smfp-menu-link menu__link"
