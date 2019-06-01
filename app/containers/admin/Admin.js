@@ -25,10 +25,10 @@ export default class Admin extends Component<Props> {
         <div className="smfp-admin-wrap">
           <div className="smfp-admin-wrap-inner">
             <div className="smfp-admin-heading text-center">
-              <h1 className="animated bounceInDown slow delay-0-5s">
+              <h1 className="animated bounceInDown fast delay-0-5s">
                 مدیریت سامانه
               </h1>
-              <h3 className="sub-title animated bounceInDown slow">
+              <h3 className="sub-title animated bounceInDown fast">
                 به قسمت مدیریت خوش آمدید
               </h3>
             </div>
@@ -39,63 +39,63 @@ export default class Admin extends Component<Props> {
                   className="col-sm-4 col-xs-6"
                   link={USERS_LIST}
                   icon="smfpIcon smfpIcon-user"
-                  title="مدیریت کاربر"
+                  title="کاربر"
                 />
 
                 <PanelItem
                   className="col-sm-4 col-xs-6"
                   link={ELEMENTS_LIST}
                   icon="smfpIcon smfpIcon-element"
-                  title="مدیریت ماده معدنی"
+                  title="ماده معدنی"
                 />
 
                 <PanelItem
                   className="col-sm-4 col-xs-6"
                   link={ELEMENTS_STATS_LIST}
                   icon="smfpIcon smfpIcon-element-stats"
-                  title="مدیریت آمار مواد معدنی"
+                  title="آمار مواد معدنی"
                 />
 
                 <PanelItem
                   className="col-sm-4 col-xs-6"
                   link={MINERALS_LIST}
                   icon="smfpIcon smfpIcon-mineral"
-                  title="مدیریت کانی ها"
+                  title="کانی ها"
                 />
 
                 <PanelItem
                   className="col-sm-4 col-xs-6"
                   link={MINES_LIST}
                   icon="smfpIcon smfpIcon-mine"
-                  title="مدیریت معادن"
+                  title="معادن"
                 />
 
                 <PanelItem
                   className="col-sm-4 col-xs-6"
                   link={GLOBAL_PRICES_LIST}
                   icon="smfpIcon smfpIcon-global-price"
-                  title="مدیریت قیمت جهانی"
+                  title="قیمت جهانی"
                 />
 
                 <PanelItem
                   className="col-sm-4 col-xs-6"
                   link={SECONDARY_SOURCES_LIST}
                   icon="smfpIcon smfpIcon-secondary-sources"
-                  title="مدیریت منابع ثانویه"
+                  title="منابع ثانویه"
                 />
 
                 <PanelItem
                   className="col-sm-4 col-xs-6"
                   link={TECHNOLOGICAL_LEVEL_LIST}
                   icon="smfpIcon smfpIcon-technological-level"
-                  title="مدیریت سطح تکنولوژی"
+                  title="سطح تکنولوژی"
                 />
 
                 <PanelItem
                   className="col-sm-4 col-xs-6"
                   link={ENVIRONMENT_LIST}
                   icon="smfpIcon smfpIcon-environment"
-                  title="مدیریت محیط‌زیست"
+                  title="محیط‌زیست"
                 />
               </Row>
             </div>

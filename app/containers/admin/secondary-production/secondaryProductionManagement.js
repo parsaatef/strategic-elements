@@ -20,6 +20,7 @@ export default class SecondaryProductionManagement extends Component<Props> {
         <List
           editRoute={ELEMENT_STATS_EDIT.replace('/:id', '')}
           heading={<FormattedSimpleMsg id="global.secondaryProductionList" />}
+          icon="smfpIcon smfpIcon-secondary-production"
           query={{
             item: {
               gql: GET_SECONDARY_PRODUCTION,

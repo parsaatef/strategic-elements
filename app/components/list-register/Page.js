@@ -61,7 +61,8 @@ class Page extends Component<Props> {
       keyCol,
       titleCol,
       registerTitle,
-      editTitle
+      editTitle,
+      pageIcon
     } = this.props;
 
     const { item } = query;
@@ -142,6 +143,7 @@ class Page extends Component<Props> {
               {this.activeRoute(listRoute) && (
                 <List
                   heading={listTitle}
+                  icon={pageIcon}
                   query={query}
                   filters={filters}
                   columns={columns}
@@ -161,6 +163,7 @@ class Page extends Component<Props> {
                   listRoute={listRoute}
                   query={query}
                   heading={registerTitle}
+                  icon={pageIcon}
                 />
               )}
 

@@ -35,6 +35,9 @@ export default class ThreatManagement extends Component<Props> {
           listRoute={THREATS_LIST}
           editRoute={THREAT_EDIT.replace('/:id', '')}
           listTitle={<FormattedSimpleMsg id="global.threatsList" />}
+          editTitle={<FormattedSimpleMsg id="global.itemEdit" />}
+          registerTitle={<FormattedSimpleMsg id="global.addNew" />}
+          pageIcon="smfpIcon smfpIcon-threats"
           query={{
             item: {
               gql: GET_OPTION,

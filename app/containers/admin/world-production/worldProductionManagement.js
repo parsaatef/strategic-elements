@@ -13,13 +13,14 @@ import {
 import { GET_PRODUCTION, GET_PRODUCTIONS } from '../iran-production/query';
 import { ELEMENT_STATS_EDIT } from '../../../constants/routes';
 
-export default class ExportManagement extends Component<Props> {
+export default class worldProductionManagement extends Component<Props> {
   render() {
     return (
       <div>
         <List
           editRoute={ELEMENT_STATS_EDIT.replace('/:id', '')}
           heading={<FormattedSimpleMsg id="global.productionListWorld" />}
+          icon="smfpIcon smfpIcon-world-production"
           query={{
             item: {
               gql: GET_PRODUCTION,

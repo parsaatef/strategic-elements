@@ -162,7 +162,6 @@ class InformationOfWorld extends Component<Props> {
       <section>
         <div className="info-select-group">
           <PageHeadingIcon
-            className="animated bounceInUp slow delay-2s"
             icon="smfpIcon smfpIcon-illustrated-information"
             title={
               <FormattedMessage
@@ -180,7 +179,7 @@ class InformationOfWorld extends Component<Props> {
             <Col
               sm={3}
               xs={6}
-              className="animated flipInX slow animation-fill-mode-backwards"
+              className="animated flipInX fast animation-fill-mode-backwards"
             >
               <Select
                 options={MapOptions}
@@ -193,7 +192,7 @@ class InformationOfWorld extends Component<Props> {
             <Col
               sm={3}
               xs={6}
-              className="animated flipInX slow delay-0-5s animation-fill-mode-backwards"
+              className="animated flipInX fast delay-0-5s animation-fill-mode-backwards"
             >
               <Select
                 options={groupsOptions}
@@ -206,7 +205,7 @@ class InformationOfWorld extends Component<Props> {
             <Col
               sm={3}
               xs={6}
-              className="animated flipInX slow delay-1s animation-fill-mode-backwards"
+              className="animated flipInX fast delay-1s animation-fill-mode-backwards"
             >
               <ElementsSelect
                 group={group}
@@ -220,7 +219,7 @@ class InformationOfWorld extends Component<Props> {
             <Col
               sm={3}
               xs={6}
-              className="animated flipInX slow delay-1-5s animation-fill-mode-backwards"
+              className="animated flipInX fast delay-1-5s animation-fill-mode-backwards"
             >
               <Select
                 options={yearOptions}
@@ -232,164 +231,168 @@ class InformationOfWorld extends Component<Props> {
           </Row>
         </div>
 
-        <Query
-          query={GET_ELEMENTS_STATS}
-          variables={{
-            locationType,
-            year,
-            elements
-          }}
-        >
-          {({ data, loading }) => {
-            if (loading) return 'loading.....';
-            if (
-              !data ||
-              !data.searchElementStats ||
-              !data.searchElementStats.elementsStats
-            )
-              return null;
-            const LocationProps = [];
+        <div className="smfp-datamaps-wrap-outer animated fadeInUp fast delay-2s">
+          <Query
+            query={GET_ELEMENTS_STATS}
+            variables={{
+              locationType,
+              year,
+              elements
+            }}
+          >
+            {({ data, loading }) => {
+              if (loading) return 'loading.....';
+              if (
+                !data ||
+                !data.searchElementStats ||
+                !data.searchElementStats.elementsStats
+              )
+                return null;
+              const LocationProps = [];
 
-            const labels = {
-              title: formatMessage({ id: 'global.title' }),
-              resourceValue: formatMessage({
-                id: 'global.resourceValue'
-              }),
-              productionValue: formatMessage({
-                id: 'global.productionValue'
-              }),
-              consumptionValue: formatMessage({
-                id: 'global.consumptionValue'
-              }),
-              exportValue: formatMessage({ id: 'global.exportValue' }),
-              importValue: formatMessage({ id: 'global.importValue' }),
-              secondaryProductionValue: formatMessage({
-                id: 'global.secondaryProductionValue'
-              }),
-              mineCount: formatMessage({ id: 'global.mineCount' })
-            };
+              const labels = {
+                title: formatMessage({ id: 'global.title' }),
+                resourceValue: formatMessage({
+                  id: 'global.resourceValue'
+                }),
+                productionValue: formatMessage({
+                  id: 'global.productionValue'
+                }),
+                consumptionValue: formatMessage({
+                  id: 'global.consumptionValue'
+                }),
+                exportValue: formatMessage({ id: 'global.exportValue' }),
+                importValue: formatMessage({ id: 'global.importValue' }),
+                secondaryProductionValue: formatMessage({
+                  id: 'global.secondaryProductionValue'
+                }),
+                mineCount: formatMessage({ id: 'global.mineCount' })
+              };
 
-            let maxValue = 0;
-            let minValue = 100000000;
+              let maxValue = 0;
+              let minValue = 100000000;
 
-            data.searchElementStats.elementsStats.forEach(elem => {
-              if (elem.productionValue < minValue) {
-                minValue = elem.productionValue;
-              }
-              if (elem.productionValue > maxValue) {
-                maxValue = elem.productionValue;
-              }
-            });
+              data.searchElementStats.elementsStats.forEach(elem => {
+                if (elem.productionValue < minValue) {
+                  minValue = elem.productionValue;
+                }
+                if (elem.productionValue > maxValue) {
+                  maxValue = elem.productionValue;
+                }
+              });
 
-            const subValue = maxValue - minValue;
+              const subValue = maxValue - minValue;
 
-            data.searchElementStats.elementsStats.forEach(elem => {
-              let radiusOfLocation =
-                Math.round(
-                  ((elem.productionValue - minValue) / subValue) * 10
-                ) + 5;
+              data.searchElementStats.elementsStats.forEach(elem => {
+                let radiusOfLocation =
+                  Math.round(
+                    ((elem.productionValue - minValue) / subValue) * 10
+                  ) + 5;
 
-              if (!radiusOfLocation) {
-                radiusOfLocation = 5;
-              }
+                if (!radiusOfLocation) {
+                  radiusOfLocation = 5;
+                }
 
-              let locations;
+                let locations;
 
-              if (LocationsType === 'country') {
-                locations = LocationOptions.find(
-                  cnty => cnty.country === elem.location
-                );
-              } else {
-                locations = LocationOptions.find(
-                  stt => stt.state === elem.location
-                );
-              }
-
-              if (locations) {
-                let prevCountry;
                 if (LocationsType === 'country') {
-                  prevCountry = LocationProps.find(
+                  locations = LocationOptions.find(
                     cnty => cnty.country === elem.location
                   );
                 } else {
-                  prevCountry = LocationProps.find(
+                  locations = LocationOptions.find(
                     stt => stt.state === elem.location
                   );
                 }
 
-                if (!prevCountry) {
-                  LocationProps.push({
-                    ...locations,
-                    title: formatMessage({ id: locations.title }),
-                    resourceValue: elem.resourceValue,
-                    productionValue: elem.productionValue,
-                    consumptionValue: elem.consumptionValue,
-                    exportValue: elem.exportValue,
-                    importValue: elem.importValue,
-                    secondaryProductionValue: elem.secondaryProductionValue,
-                    mineCount: elem.mineCount,
-                    radius: radiusOfLocation,
-                    labels
-                  });
-                } else {
-                  let prevCountryIndex;
+                if (locations) {
+                  let prevCountry;
                   if (LocationsType === 'country') {
-                    prevCountryIndex = LocationProps.findIndex(
+                    prevCountry = LocationProps.find(
                       cnty => cnty.country === elem.location
                     );
                   } else {
-                    prevCountryIndex = LocationProps.findIndex(
+                    prevCountry = LocationProps.find(
                       stt => stt.state === elem.location
                     );
                   }
 
-                  const {
-                    resourceValue,
-                    productionValue,
-                    consumptionValue,
-                    exportValue,
-                    importValue,
-                    secondaryProductionValue,
-                    mineCount,
-                    radius
-                  } = prevCountry;
+                  if (!prevCountry) {
+                    LocationProps.push({
+                      ...locations,
+                      title: formatMessage({ id: locations.title }),
+                      resourceValue: elem.resourceValue,
+                      productionValue: elem.productionValue,
+                      consumptionValue: elem.consumptionValue,
+                      exportValue: elem.exportValue,
+                      importValue: elem.importValue,
+                      secondaryProductionValue: elem.secondaryProductionValue,
+                      mineCount: elem.mineCount,
+                      radius: radiusOfLocation,
+                      labels
+                    });
+                  } else {
+                    let prevCountryIndex;
+                    if (LocationsType === 'country') {
+                      prevCountryIndex = LocationProps.findIndex(
+                        cnty => cnty.country === elem.location
+                      );
+                    } else {
+                      prevCountryIndex = LocationProps.findIndex(
+                        stt => stt.state === elem.location
+                      );
+                    }
 
-                  // .
-                  LocationProps[prevCountryIndex] = {
-                    ...prevCountry,
-                    resourceValue: resourceValue + elem.resourceValue,
-                    productionValue: productionValue + elem.productionValue,
-                    consumptionValue: consumptionValue + elem.consumptionValue,
-                    exportValue: exportValue + elem.exportValue,
-                    importValue: importValue + elem.importValue,
-                    secondaryProductionValue:
-                      secondaryProductionValue + elem.secondaryProductionValue,
-                    mineCount: mineCount + elem.mineCount,
-                    radius: radius - 5 + radiusOfLocation
-                  };
+                    const {
+                      resourceValue,
+                      productionValue,
+                      consumptionValue,
+                      exportValue,
+                      importValue,
+                      secondaryProductionValue,
+                      mineCount,
+                      radius
+                    } = prevCountry;
+
+                    // .
+                    LocationProps[prevCountryIndex] = {
+                      ...prevCountry,
+                      resourceValue: resourceValue + elem.resourceValue,
+                      productionValue: productionValue + elem.productionValue,
+                      consumptionValue:
+                        consumptionValue + elem.consumptionValue,
+                      exportValue: exportValue + elem.exportValue,
+                      importValue: importValue + elem.importValue,
+                      secondaryProductionValue:
+                        secondaryProductionValue +
+                        elem.secondaryProductionValue,
+                      mineCount: mineCount + elem.mineCount,
+                      radius: radius - 5 + radiusOfLocation
+                    };
+                  }
                 }
-              }
-            });
+              });
 
-            return (
-              <Datamaps
-                className="smfp-datamaps-wrap animated fadeInUp slow  delay-2-5s"
-                idName={idName}
-                widthProps={widthProps}
-                heightProps={heightProps}
-                scopeProps={scopeProps}
-                dataUrlProps={dataUrlProps}
-                bubblesProps={LocationProps}
-                popupTemplateProps={popupTemplateProps}
-                setProjectionProps={setProjectionProps}
-              />
-            );
-          }}
-        </Query>
+              return (
+                <Datamaps
+                  className="smfp-datamaps-wrap"
+                  idName={idName}
+                  widthProps={widthProps}
+                  heightProps={heightProps}
+                  scopeProps={scopeProps}
+                  dataUrlProps={dataUrlProps}
+                  bubblesProps={LocationProps}
+                  popupTemplateProps={popupTemplateProps}
+                  setProjectionProps={setProjectionProps}
+                />
+              );
+            }}
+          </Query>
+        </div>
 
         {currentElement.value && (
           <ImgButton
-            className="text-center btn-element-wrap animated fadeInUpBig slow"
+            className="text-center btn-element-wrap animated fadeInUpBig fast"
             link={ELEMENT_INFORMATION.replace(':element', currentElement.value)}
             src={item4}
             title="نمایش اطلاعات عنصر"

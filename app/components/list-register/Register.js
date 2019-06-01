@@ -3,7 +3,7 @@ import { Mutation } from 'react-apollo';
 import { withRouter } from 'react-router-dom';
 import FormElement from './Form';
 import { addStaticVariables } from '../../utils/utility';
-import PageHeading from '../General/PageHeading';
+import PageHeadingIcon from '../General/PageHeadingIcon';
 
 class Register extends Component {
   constructor(props) {
@@ -44,7 +44,7 @@ class Register extends Component {
   render() {
     const { formValues } = this.state;
 
-    const { type, id, query, heading } = this.props;
+    const { type, id, query, heading, icon } = this.props;
 
     let variables =
       type === 'register' ? { ...formValues } : { ...formValues, id };
@@ -55,7 +55,11 @@ class Register extends Component {
 
     return (
       <div>
-        <PageHeading className="admin-register-edit-heading" title={heading} />
+        <PageHeadingIcon
+          className="without-border admin-register-edit-heading"
+          icon={icon}
+          title={heading}
+        />
 
         <Mutation mutation={queryInfo.gql} variables={variables}>
           {(register, { loading, error }) => (

@@ -13,13 +13,14 @@ import {
 import { GET_RESOURCE, GET_RESOURCES } from '../iran-reserves/query';
 import { ELEMENT_STATS_EDIT } from '../../../constants/routes';
 
-export default class ExportManagement extends Component<Props> {
+export default class WorldReservesManagement extends Component<Props> {
   render() {
     return (
       <div>
         <List
           editRoute={ELEMENT_STATS_EDIT.replace('/:id', '')}
           heading={<FormattedSimpleMsg id="global.resourceListWorld" />}
+          icon="smfpIcon smfpIcon-world-reserves"
           query={{
             item: {
               gql: GET_RESOURCE,

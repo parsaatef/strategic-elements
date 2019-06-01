@@ -32,6 +32,7 @@ class ElementManagement extends Component<Props> {
           listTitle={<FormattedSimpleMsg id="global.elementsList" />}
           editTitle={<FormattedSimpleMsg id="global.itemEdit" />}
           registerTitle={<FormattedSimpleMsg id="global.addNew" />}
+          pageIcon="smfpIcon smfpIcon-element"
           query={{
             item: {
               gql: GET_ELEMENT,

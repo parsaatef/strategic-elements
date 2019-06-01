@@ -35,6 +35,9 @@ export default class UpstreamIndustryManagement extends Component<Props> {
           listRoute={UPSTREAM_INDUSTRY_LIST}
           editRoute={UPSTREAM_INDUSTRY_EDIT.replace('/:id', '')}
           listTitle={<FormattedSimpleMsg id="global.upstreamIndustryList" />}
+          editTitle={<FormattedSimpleMsg id="global.itemEdit" />}
+          registerTitle={<FormattedSimpleMsg id="global.addNew" />}
+          pageIcon="smfpIcon smfpIcon-upstream-industry"
           query={{
             item: {
               gql: GET_OPTION,

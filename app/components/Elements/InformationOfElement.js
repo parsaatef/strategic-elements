@@ -5,8 +5,8 @@ import { FormattedMessage } from 'react-intl';
 import { INFORMATION_STATS_DETAIL } from '../../constants/routes';
 import ImgButton from '../General/ImgButton';
 import item4 from '../../images/menu-item-4.jpg';
-import PageHeading from '../General/PageHeading';
 import { GET_ELEMENT_BY_NAME } from '../../queries/element';
+import PageHeadingIcon from '../General/PageHeadingIcon';
 
 const notNeedFeaturesForDisplay = [
   'id',
@@ -44,8 +44,8 @@ class InformationOfElement extends Component<Props> {
               <>
                 {data && data.elementByName && (
                   <>
-                    <PageHeading
-                      className="text-center"
+                    <PageHeadingIcon
+                      icon="smfpIcon smfpIcon-element"
                       title={`عنصر ${data.elementByName.elementTitle}`}
                     />
 

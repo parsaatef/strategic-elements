@@ -115,7 +115,6 @@ class AnalysisFactor extends React.Component<Props> {
             return (
               <section className="analysis-factor-wrapper">
                 <PageHeadingIcon
-                  className="animated bounceInUp slow delay-2s"
                   icon="smfpIcon smfpIcon-illustrated-information"
                   title={<FormattedSimpleMsg id={`analysis.element_${type}`} />}
                 />

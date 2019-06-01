@@ -45,11 +45,11 @@ export default class Login extends Component<Props> {
       <div className="smfp-login-page">
         <div className={styles.backButton} data-tid="backButton">
           <Link to={routes.HOME}>
-            <i className="fa fa-arrow-left fa-3x" />
+            <i className="fal fa-arrow-left fa-3x" />
           </Link>
         </div>
 
-        <div className="smfp-login-wrap animated fadeInUpBig slow">
+        <div className="smfp-login-wrap animated fadeInUpBig fast">
           <div className="smfp-login-wrap-inner">
             <div className="smfp-login-heading">
               <h1>سامانه مدیریتی فناورانه پویا</h1>
@@ -63,7 +63,7 @@ export default class Login extends Component<Props> {
               onSubmit={this.handleSubmit}
             >
               <div className={`form-group ${usernameError}`}>
-                <div className="smfp-input-wrap user-name  animated fadeInUpBig slow">
+                <div className="smfp-input-wrap user-name  animated fadeInUpBig fast">
                   <input
                     type="text"
                     placeholder="نام کاربری یا ایمیل"
@@ -94,7 +94,7 @@ export default class Login extends Component<Props> {
                 )}
               </div>
 
-              <div className="form-group  animated fadeInUpBig slow">
+              <div className="form-group  animated fadeInUpBig fast">
                 <input
                   type="submit"
                   name="smfp-submit"
@@ -104,7 +104,7 @@ export default class Login extends Component<Props> {
                 />
               </div>
 
-              <div className=" animated fadeInUpBig slow">
+              <div className=" animated fadeInUpBig fast">
                 <label htmlFor="rememberme" className="forgetmenot">
                   <input name="rememberme" type="checkbox" id="rememberme" />{' '}
                   مرا به خاطر بسپار

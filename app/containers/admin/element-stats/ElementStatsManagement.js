@@ -24,7 +24,7 @@ import {
   MULTI_DELETE_ELEMENTS_STATS
 } from '../../../queries/elementStats';
 
-export default class ExportManagement extends Component<Props> {
+export default class ElementStatsManagement extends Component<Props> {
   render() {
     const { match } = this.props;
 
@@ -41,6 +41,9 @@ export default class ExportManagement extends Component<Props> {
           listRoute={ELEMENTS_STATS_LIST}
           editRoute={ELEMENT_STATS_EDIT.replace('/:id', '')}
           listTitle={<FormattedSimpleMsg id="global.elementsStatsList" />}
+          editTitle={<FormattedSimpleMsg id="global.itemEdit" />}
+          registerTitle={<FormattedSimpleMsg id="global.addNew" />}
+          pageIcon="smfpIcon smfpIcon-element-stats"
           query={{
             item: {
               gql: GET_ELEMENT_STATS,

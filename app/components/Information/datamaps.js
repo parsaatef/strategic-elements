@@ -36,14 +36,14 @@ export default class Datamaps extends Component<Props> {
       element: document.getElementById(idName),
       scope: scopeProps, //  currently supports 'usa' and 'world', however with custom map data you can specify your own
       setProjection: setProjectionProps, // returns a d3 path and projection functions
-      // projection: 'mercator', //  style of projection to be used. try "mercator"
+      projection: 'mercator', //  style of projection to be used. try "mercator"
       height: null, // if not null, datamaps will grab the height of 'element'
       width: null, // if not null, datamaps will grab the width of 'element'
       responsive: false, // if true, call `resize()` on the map object when it should adjust it's size
       done: () => {}, // callback when the map is done drawing
       fills: {
         Default: '#a4d05b',
-        defaultFill: 'rgba(127, 154, 84, 0.5)' // the keys in this object map to the "fillKey" of [data] or [bubbles]
+        defaultFill: 'rgba(127, 154, 84, 0.6)' // the keys in this object map to the "fillKey" of [data] or [bubbles]
       },
       dataType: 'json', // for use with dataUrl, currently 'json' or 'csv'. CSV should have an `id` column
       dataUrl: null, // if not null, datamaps will attempt to fetch this based on dataType ( default: json )
@@ -52,7 +52,7 @@ export default class Datamaps extends Component<Props> {
         hideAntarctica: true,
         borderWidth: 1,
         borderOpacity: 1,
-        borderColor: 'transparent',
+        borderColor: 'rgba(0, 0, 0, 0.05)',
         // popupTemplate: function(geography, data) { // this function should just return a string
         //   return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong></div>';
         // },

@@ -32,6 +32,7 @@ export default class ElementManagement extends Component<Props> {
           listTitle={<FormattedSimpleMsg id="global.usersList" />}
           editTitle={<FormattedSimpleMsg id="global.itemEdit" />}
           registerTitle={<FormattedSimpleMsg id="global.addNew" />}
+          pageIcon="smfpIcon smfpIcon-user"
           query={{
             item: {
               gql: GET_USER,

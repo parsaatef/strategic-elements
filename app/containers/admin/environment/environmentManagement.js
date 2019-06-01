@@ -35,6 +35,9 @@ export default class EnvironmentManagement extends Component<Props> {
           listRoute={ENVIRONMENT_LIST}
           editRoute={ENVIRONMENT_EDIT.replace('/:id', '')}
           listTitle={<FormattedSimpleMsg id="global.environmentList" />}
+          editTitle={<FormattedSimpleMsg id="global.itemEdit" />}
+          registerTitle={<FormattedSimpleMsg id="global.addNew" />}
+          pageIcon="smfpIcon smfpIcon-environment"
           query={{
             item: {
               gql: GET_OPTION,

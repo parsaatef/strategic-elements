@@ -30,6 +30,9 @@ export default class MineManagement extends Component<Props> {
           listRoute="/admin/mines/list"
           editRoute="/admin/mine/edit"
           listTitle={<FormattedSimpleMsg id="global.minesList" />}
+          editTitle={<FormattedSimpleMsg id="global.itemEdit" />}
+          registerTitle={<FormattedSimpleMsg id="global.addNew" />}
+          pageIcon="smfpIcon smfpIcon-mine"
           query={{
             item: {
               gql: GET_MINE,

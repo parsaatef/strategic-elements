@@ -30,6 +30,9 @@ export default class TotalStatsManagement extends Component<Props> {
           listRoute="/admin/total-stats/list"
           editRoute="/admin/total-stats/edit"
           listTitle={<FormattedSimpleMsg id="global.totalStatsList" />}
+          editTitle={<FormattedSimpleMsg id="global.itemEdit" />}
+          registerTitle={<FormattedSimpleMsg id="global.addNew" />}
+          pageIcon="smfpIcon smfpIcon-total-stats"
           query={{
             item: {
               gql: GET_TOTAL_STATS,

@@ -6,7 +6,7 @@ export default class PageHeadingIcon extends Component<Props> {
 
     return (
       <div
-        className={`page-heading-icon animated bounceInDown slow ${className}`}
+        className={`page-heading-icon animated bounceInDown fast ${className}`}
       >
         <h4 className="page-heading-icon-title">
           <span className={`page-heading-icon-icon ${icon}`} />

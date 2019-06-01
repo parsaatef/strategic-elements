@@ -20,6 +20,7 @@ export default class IranConsumptionManagement extends Component<Props> {
         <List
           editRoute={ELEMENT_STATS_EDIT.replace('/:id', '')}
           heading={<FormattedSimpleMsg id="global.consumptionListIran" />}
+          icon="smfpIcon smfpIcon-iran-consumption"
           query={{
             item: {
               gql: GET_CONSUMPTION,

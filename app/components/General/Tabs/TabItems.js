@@ -12,7 +12,7 @@ export default class TabItems extends React.Component<Props> {
   render() {
     const { children } = this.props;
     return (
-      <div className="smfp-ht-tabs-items animated slideInLeft slow">
+      <div className="smfp-ht-tabs-items animated slideInLeft fast">
         {children}
       </div>
     );

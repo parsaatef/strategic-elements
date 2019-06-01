@@ -34,6 +34,9 @@ export default class GlobalPriceManagement extends Component<Props> {
           listRoute="/admin/global-prices/list"
           editRoute="/admin/global-price/edit"
           listTitle={<FormattedSimpleMsg id="global.globalPriceList" />}
+          editTitle={<FormattedSimpleMsg id="global.itemEdit" />}
+          registerTitle={<FormattedSimpleMsg id="global.addNew" />}
+          pageIcon="smfpIcon smfpIcon-global-price"
           query={{
             item: {
               gql: GET_GLOBAL_PRICE,

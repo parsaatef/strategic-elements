@@ -24,6 +24,8 @@ const ThreatForm = (props: Props) => {
       initialValues={initialValues}
       schema={validationSchema}
     >
+      <ElementsSelect name="element" />
+
       <Field
         type="text"
         name="name"
@@ -37,8 +39,6 @@ const ThreatForm = (props: Props) => {
         options={options}
         placeholder={<FormattedMessage id="global.select" />}
       />
-
-      <ElementsSelect name="element" />
 
       <Button type="submit">
         {formType === 'register' ? (

@@ -20,10 +20,10 @@ class Home extends Component<Props> {
         <div className="smfp-intro-wrap">
           <div className="smfp-intro-wrap-inner">
             <div className="smfp-intro-heading">
-              <h1 className="animated bounceInDown slow delay-0-5s">
+              <h1 className="animated bounceInDown fast delay-0-5s">
                 سامانه مدیریتی فناورانه پویا
               </h1>
-              <h3 className="sub-title animated bounceInDown slow">
+              <h3 className="sub-title animated bounceInDown fast">
                 منابع و ذخایر عناصر راهبردی
               </h3>
             </div>
@@ -51,7 +51,7 @@ class Home extends Component<Props> {
               />
             </div>
 
-            <div className="site-info animated bounceInUp slow delay-2-5s">
+            <div className="site-info animated bounceInUp fast delay-2-5s">
               <Link className="imprint" to={HOME}>
                 تمامی حقوق مادی و معنوی این اپ متعلق به سامانه مدیریتی فناورانه
                 پویا میباشد.

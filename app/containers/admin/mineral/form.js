@@ -27,6 +27,8 @@ const MineralForm = (props: Props) => {
       initialValues={initialValues}
       schema={validationSchema}
     >
+      <ElementsSelect className="multiple-select" name="element" multiple />
+
       <Field
         type="text"
         name="title"
@@ -52,8 +54,6 @@ const MineralForm = (props: Props) => {
         name="color"
         label={<FormattedMessage id="global.color" />}
       />
-
-      <ElementsSelect name="element" multiple />
 
       <Field
         type="textarea"

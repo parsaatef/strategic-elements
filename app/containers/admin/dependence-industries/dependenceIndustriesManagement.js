@@ -37,6 +37,9 @@ export default class DependenceIndustriesManagement extends Component<Props> {
           listTitle={
             <FormattedSimpleMsg id="global.dependenceIndustriesList" />
           }
+          editTitle={<FormattedSimpleMsg id="global.itemEdit" />}
+          registerTitle={<FormattedSimpleMsg id="global.addNew" />}
+          pageIcon="smfpIcon smfpIcon-dependence-industries"
           query={{
             item: {
               gql: GET_OPTION,

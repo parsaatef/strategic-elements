@@ -7,7 +7,7 @@ import MultiDeleteAction from './multiDelete';
 import STPagination from './pagination';
 import Table from './table';
 import { addStaticVariables, FormattedSimpleMsg } from '../../utils/utility';
-import PageHeading from '../General/PageHeading';
+import PageHeadingIcon from '../General/PageHeadingIcon';
 
 const bulkActionsOptions = [
   {
@@ -100,6 +100,7 @@ class ItemsList extends Component<Props> {
 
     const {
       heading,
+      icon,
       query,
       filters,
       columns,
@@ -138,14 +139,18 @@ class ItemsList extends Component<Props> {
     }
     return (
       <div>
-        <PageHeading className="admin-list-heading" title={heading} />
+        <PageHeadingIcon
+          className="without-border admin-list-heading"
+          icon={icon}
+          title={heading}
+        />
 
         <Query query={list.gql} variables={variables}>
           {({ data, loading, error, refetch }) => {
             console.log('----data-----', data, loading, error);
             return (
               <section>
-                <Row className="tb-filter-wrap animated fadeInUpBig slow delay-1-5s">
+                <Row className="tb-filter-wrap animated  fadeInUpBig fast delay-1-5s animation-fill-mode-backwards">
                   <Col sm={bulkActionColWrap}>
                     <Row>
                       <Col sm={bulkActionCol}>

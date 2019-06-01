@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 import { gql } from 'apollo-boost';
 import { GET_OPTIONS } from '../../queries/option';
+import PageHeadingIcon from '../General/PageHeadingIcon';
 
 export const GET_ELEMENT_BY_NAME = gql`
   query($element: String!) {
@@ -22,7 +23,10 @@ class Threat extends Component<Props> {
 
     return (
       <div>
-        <h4>تهدیدات {title}</h4>
+        <PageHeadingIcon
+          icon="smfpIcon smfpIcon-threats"
+          title={`تهدیدات ${title}`}
+        />
 
         <Query
           query={GET_OPTIONS}

@@ -15,10 +15,10 @@ import {
   GLOBAL_PRICE
 } from '../../constants/routes';
 import ElementDetailItem from './ElementDetailItem';
-import PageHeading from '../General/PageHeading';
 import { GET_ELEMENTS_STATS } from '../../queries/elementStats';
 import { getYearOptions, getCountries, getStates } from '../../utils/utility';
 import Select from '../General/Select';
+import PageHeadingIcon from '../General/PageHeadingIcon';
 
 const yearOptions = getYearOptions(1990, 2030);
 
@@ -65,13 +65,17 @@ export default class ElementDetailForWorld extends Component<Props> {
 
     return (
       <div>
-        <PageHeading className="text-center" title={heading} />
+        <PageHeadingIcon icon="smfpIcon smfpIcon-details" title={heading} />
 
         <div className="filters">
           <Row>
             <Col sm={3} xs={6} className="animated flipInX faster" />
 
-            <Col sm={3} xs={6} className="animated flipInX fast">
+            <Col
+              sm={3}
+              xs={6}
+              className="animated flipInX animation-fill-mode-backwards fast"
+            >
               <Select
                 options={yearOptions}
                 placeholder="انتخاب سال"
@@ -80,7 +84,11 @@ export default class ElementDetailForWorld extends Component<Props> {
               />
             </Col>
 
-            <Col sm={3} xs={6} className="animated flipInX slow">
+            <Col
+              sm={3}
+              xs={6}
+              className="animated animation-fill-mode-backwards flipInX fast"
+            >
               <Select
                 options={locationOptions}
                 placeholder={type === 'world' ? 'انتخاب کشور' : 'انتخاب استان'}
@@ -89,7 +97,7 @@ export default class ElementDetailForWorld extends Component<Props> {
               />
             </Col>
 
-            <Col sm={3} xs={6} className="animated flipInX slower" />
+            <Col sm={3} xs={6} className="animated flipInX fast" />
           </Row>
         </div>
 

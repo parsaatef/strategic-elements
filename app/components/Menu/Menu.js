@@ -251,7 +251,7 @@ class Menu extends Component<Props> {
                     aria-owns="submenu-3-1"
                     to={USERS_LIST}
                   >
-                    <span>مدیریت کاربر</span>
+                    <span>کاربر</span>
                   </Link>
                 </li>
 
@@ -260,7 +260,7 @@ class Menu extends Component<Props> {
                     className="smfp-menu-link menu__link"
                     to={ELEMENTS_LIST}
                   >
-                    <span>مدیریت ماده معدنی</span>
+                    <span>ماده معدنی</span>
                   </Link>
                 </li>
 
@@ -271,7 +271,7 @@ class Menu extends Component<Props> {
                     aria-owns="submenu-3-2"
                     to={ELEMENTS_STATS_LIST}
                   >
-                    <span>مدیریت آمار مواد معدنی</span>
+                    <span>آمار مواد معدنی</span>
                   </Link>
                 </li>
 
@@ -280,13 +280,13 @@ class Menu extends Component<Props> {
                     className="smfp-menu-link menu__link"
                     to={MINERALS_LIST}
                   >
-                    <span>مدیریت کانی ها</span>
+                    <span>کانی ها</span>
                   </Link>
                 </li>
 
                 <li className="smfp-menu-item menu__item" role="menuitem">
                   <Link className="smfp-menu-link menu__link" to={MINES_LIST}>
-                    <span>مدیریت معادن</span>
+                    <span>معادن</span>
                   </Link>
                 </li>
 
@@ -295,7 +295,7 @@ class Menu extends Component<Props> {
                     className="smfp-menu-link menu__link"
                     to={GLOBAL_PRICES_LIST}
                   >
-                    <span>مدیریت قیمت جهانی</span>
+                    <span>قیمت جهانی</span>
                   </Link>
                 </li>
 
@@ -304,7 +304,7 @@ class Menu extends Component<Props> {
                     className="smfp-menu-link menu__link"
                     to={SECONDARY_SOURCES_LIST}
                   >
-                    <span>مدیریت منابع ثانویه</span>
+                    <span>منابع ثانویه</span>
                   </Link>
                 </li>
 
@@ -313,7 +313,7 @@ class Menu extends Component<Props> {
                     className="smfp-menu-link menu__link"
                     to={TOTAL_STATS_LIST}
                   >
-                    <span>مدیریت آمار کلی</span>
+                    <span>آمار کلی</span>
                   </Link>
                 </li>
 
@@ -322,7 +322,7 @@ class Menu extends Component<Props> {
                     className="smfp-menu-link menu__link"
                     to={DEPENDENCE_INDUSTRIES_LIST}
                   >
-                    <span>مدیریت صنایع وابسته</span>
+                    <span>صنایع وابسته</span>
                   </Link>
                 </li>
 
@@ -331,7 +331,7 @@ class Menu extends Component<Props> {
                     className="smfp-menu-link menu__link"
                     to={TECHNOLOGICAL_LEVEL_LIST}
                   >
-                    <span>مدیریت سطح تکنولوژی</span>
+                    <span>سطح تکنولوژی</span>
                   </Link>
                 </li>
 
@@ -340,13 +340,13 @@ class Menu extends Component<Props> {
                     className="smfp-menu-link menu__link"
                     to={UPSTREAM_INDUSTRY_LIST}
                   >
-                    <span>مدیریت صنایع پایین‌ دستی</span>
+                    <span>صنایع پایین‌ دستی</span>
                   </Link>
                 </li>
 
                 <li className="smfp-menu-item menu__item" role="menuitem">
                   <Link className="smfp-menu-link menu__link" to={THREATS_LIST}>
-                    <span>مدیریت تهدیدات</span>
+                    <span>تهدیدات</span>
                   </Link>
                 </li>
 
@@ -355,7 +355,7 @@ class Menu extends Component<Props> {
                     className="smfp-menu-link menu__link"
                     to={ENVIRONMENT_LIST}
                   >
-                    <span>مدیریت محیط‌زیست</span>
+                    <span>محیط‌زیست</span>
                   </Link>
                 </li>
               </ul>
@@ -367,7 +367,7 @@ class Menu extends Component<Props> {
               className="menu__level"
               tabIndex="-1"
               role="menu"
-              aria-label="مدیریت کاربر"
+              aria-label="کاربر"
             >
               <li className="smfp-menu-item menu__item" role="menuitem">
                 <Link className="smfp-menu-link menu__link" to={USER_REGISTER}>
@@ -397,26 +397,26 @@ class Menu extends Component<Props> {
               className="menu__level"
               tabIndex="-1"
               role="menu"
-              aria-label="مدیریت آمار مواد معدنی"
+              aria-label="آمار مواد معدنی"
             >
               <li className="smfp-menu-item menu__item" role="menuitem">
                 <Link
                   className="smfp-menu-link menu__link"
                   to={ELEMENTS_STATS_LIST}
                 >
-                  <span>مدیریت آمار مواد معدنی</span>
+                  <span>آمار مواد معدنی</span>
                 </Link>
               </li>
 
               <li className="smfp-menu-item menu__item" role="menuitem">
                 <Link className="smfp-menu-link menu__link" to={EXPORT_LIST}>
-                  <span>مدیریت صادرات</span>
+                  <span>صادرات</span>
                 </Link>
               </li>
 
               <li className="smfp-menu-item menu__item" role="menuitem">
                 <Link className="smfp-menu-link menu__link" to={IMPORT_LIST}>
-                  <span>مدیریت واردات</span>
+                  <span>واردات</span>
                 </Link>
               </li>
 
@@ -425,7 +425,7 @@ class Menu extends Component<Props> {
                   className="smfp-menu-link menu__link"
                   to={WORLD_RESERVES_LIST}
                 >
-                  <span>مدیریت منابع جهان</span>
+                  <span>منابع جهان</span>
                 </Link>
               </li>
 
@@ -434,7 +434,7 @@ class Menu extends Component<Props> {
                   className="smfp-menu-link menu__link"
                   to={IRAN_RESERVES_LIST}
                 >
-                  <span>مدیریت منابع ایران</span>
+                  <span>منابع ایران</span>
                 </Link>
               </li>
 
@@ -443,7 +443,7 @@ class Menu extends Component<Props> {
                   className="smfp-menu-link menu__link"
                   to={WORLD_PRODUCTION_LIST}
                 >
-                  <span>مدیریت تولید جهان</span>
+                  <span>تولید جهان</span>
                 </Link>
               </li>
 
@@ -452,7 +452,7 @@ class Menu extends Component<Props> {
                   className="smfp-menu-link menu__link"
                   to={IRAN_PRODUCTION_LIST}
                 >
-                  <span>مدیریت تولید ایران</span>
+                  <span>تولید ایران</span>
                 </Link>
               </li>
 
@@ -461,7 +461,7 @@ class Menu extends Component<Props> {
                   className="smfp-menu-link menu__link"
                   to={WORLD_CONSUMPTION_LIST}
                 >
-                  <span>مدیریت مصرف جهان</span>
+                  <span>مصرف جهان</span>
                 </Link>
               </li>
 
@@ -470,7 +470,7 @@ class Menu extends Component<Props> {
                   className="smfp-menu-link menu__link"
                   to={IRAN_CONSUMPTION_LIST}
                 >
-                  <span>مدیریت مصرف ایران</span>
+                  <span>مصرف ایران</span>
                 </Link>
               </li>
 
@@ -479,7 +479,7 @@ class Menu extends Component<Props> {
                   className="smfp-menu-link menu__link"
                   to={SECONDARY_PRODUCTION_LIST}
                 >
-                  <span>مدیریت تولید ثانویه</span>
+                  <span>تولید ثانویه</span>
                 </Link>
               </li>
             </ul>

@@ -35,6 +35,9 @@ export default class TechnologicalLevelManagement extends Component<Props> {
           listRoute={TECHNOLOGICAL_LEVEL_LIST}
           editRoute={TECHNOLOGICAL_LEVEL_EDIT.replace('/:id', '')}
           listTitle={<FormattedSimpleMsg id="global.technologicalLevelList" />}
+          editTitle={<FormattedSimpleMsg id="global.itemEdit" />}
+          registerTitle={<FormattedSimpleMsg id="global.addNew" />}
+          pageIcon="smfpIcon smfpIcon-technological-level"
           query={{
             item: {
               gql: GET_OPTION,

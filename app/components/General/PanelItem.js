@@ -10,7 +10,7 @@ type Props = {
 
 const PanelItem = ({ className, link, icon, title }: Props) => (
   <div
-    className={`panel-item-container animated flipInX slow animation-auto-delay ${className}`}
+    className={`panel-item-container animated flipInX fast animation-auto-delay ${className}`}
   >
     <Link className="smfp-main-item-wrap" to={link}>
       <div className="icon">

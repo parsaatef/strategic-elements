@@ -20,6 +20,7 @@ export default class ExportManagement extends Component<Props> {
         <List
           editRoute={ELEMENT_STATS_EDIT.replace('/:id', '')}
           heading={<FormattedSimpleMsg id="global.exportListIran" />}
+          icon="smfpIcon smfpIcon-export"
           query={{
             item: {
               gql: GET_EXPORT,

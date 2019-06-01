@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 import { gql } from 'apollo-boost';
 import { GET_GLOBAL_PRICES } from '../../queries/global-price';
+import PageHeadingIcon from '../General/PageHeadingIcon';
 
 export const GET_ELEMENT_BY_NAME = gql`
   query($element: String!) {
@@ -22,7 +23,10 @@ class GlobalPrice extends Component<Props> {
 
     return (
       <div>
-        <h4>قیمت جهانی {title}</h4>
+        <PageHeadingIcon
+          icon="smfpIcon smfpIcon-global-price"
+          title={`قیمت جهانی ${title}`}
+        />
 
         <Query
           query={GET_GLOBAL_PRICES}

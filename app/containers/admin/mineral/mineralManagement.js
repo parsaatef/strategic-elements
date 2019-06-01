@@ -30,6 +30,9 @@ export default class MineralManagement extends Component<Props> {
           listRoute="/admin/minerals/list"
           editRoute="/admin/mineral/edit"
           listTitle={<FormattedSimpleMsg id="global.mineralList" />}
+          editTitle={<FormattedSimpleMsg id="global.itemEdit" />}
+          registerTitle={<FormattedSimpleMsg id="global.addNew" />}
+          pageIcon="smfpIcon smfpIcon-mineral"
           query={{
             item: {
               gql: GET_MINERAL,

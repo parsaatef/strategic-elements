@@ -64,7 +64,7 @@ class Layout extends Component<Props> {
                         className="logout-button toolbar-icon"
                         data-tid="logoutButton"
                       >
-                        <i className="fa fa-user-times fa-2x" />
+                        <i className="fal fa-user-times fa-2x" />
                       </span>
                     )}
                   </ApolloConsumer>
@@ -76,7 +76,7 @@ class Layout extends Component<Props> {
                     className="back-button toolbar-icon"
                     data-tid="backButton"
                   >
-                    <i className="fa fa-arrow-right fa-2x" />
+                    <i className="fal fa-arrow-right fa-2x" />
                   </span>
                   <span
                     role="toolbar"
@@ -85,7 +85,7 @@ class Layout extends Component<Props> {
                     className="forward-button toolbar-icon"
                     data-tid="forwardButton"
                   >
-                    <i className="fa fa-arrow-left fa-2x" />
+                    <i className="fal fa-arrow-left fa-2x" />
                   </span>
                 </div>
                 <Routes />

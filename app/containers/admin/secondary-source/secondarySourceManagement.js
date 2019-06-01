@@ -30,6 +30,9 @@ export default class SecondarySourceManagement extends Component<Props> {
           listRoute="/admin/secondary-sources/list"
           editRoute="/admin/secondary-source/edit"
           listTitle={<FormattedSimpleMsg id="global.secondarySourceList" />}
+          editTitle={<FormattedSimpleMsg id="global.itemEdit" />}
+          registerTitle={<FormattedSimpleMsg id="global.addNew" />}
+          pageIcon="smfpIcon smfpIcon-secondary-sources"
           query={{
             item: {
               gql: GET_SECONDARY_SOURCE,

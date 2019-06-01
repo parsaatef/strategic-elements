@@ -13,13 +13,14 @@ import {
 import { GET_CONSUMPTION, GET_CONSUMPTIONS } from '../iran-consumption/query';
 import { ELEMENT_STATS_EDIT } from '../../../constants/routes';
 
-export default class ExportManagement extends Component<Props> {
+export default class WorldConsumptionManagement extends Component<Props> {
   render() {
     return (
       <div>
         <List
           editRoute={ELEMENT_STATS_EDIT.replace('/:id', '')}
           heading={<FormattedSimpleMsg id="global.consumptionListWorld" />}
+          icon="smfpIcon smfpIcon-world-consumption"
           query={{
             item: {
               gql: GET_CONSUMPTION,
