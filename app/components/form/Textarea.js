@@ -6,7 +6,7 @@ const { Control, Group, Label } = Form;
 
 const Textarea = ({ name, value, handleChange, label, error, ...rest }) => (
   <Group
-    className="animated fadeInUpBig fast animation-auto-delay"
+    className="animated fadeInUp fast animation-auto-delay"
     as={Row}
     controlId={`field_${name}`}
   >

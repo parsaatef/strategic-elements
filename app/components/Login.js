@@ -49,7 +49,7 @@ export default class Login extends Component<Props> {
           </Link>
         </div>
 
-        <div className="smfp-login-wrap animated fadeInUpBig fast">
+        <div className="smfp-login-wrap animated fadeInUp fast">
           <div className="smfp-login-wrap-inner">
             <div className="smfp-login-heading">
               <h1>سامانه مدیریتی فناورانه پویا</h1>
@@ -63,7 +63,7 @@ export default class Login extends Component<Props> {
               onSubmit={this.handleSubmit}
             >
               <div className={`form-group ${usernameError}`}>
-                <div className="smfp-input-wrap user-name  animated fadeInUpBig fast">
+                <div className="smfp-input-wrap user-name  animated fadeInUp fast">
                   <input
                     type="text"
                     placeholder="نام کاربری یا ایمیل"
@@ -79,7 +79,7 @@ export default class Login extends Component<Props> {
               </div>
 
               <div className={`form-group ${passError}`}>
-                <div className="smfp-input-wrap password  animated fadeInUpBig fast">
+                <div className="smfp-input-wrap password  animated fadeInUp fast">
                   <input
                     type="password"
                     placeholder="رمز ورود"
@@ -94,7 +94,7 @@ export default class Login extends Component<Props> {
                 )}
               </div>
 
-              <div className="form-group  animated fadeInUpBig fast">
+              <div className="form-group  animated fadeInUp fast">
                 <input
                   type="submit"
                   name="smfp-submit"
@@ -104,7 +104,7 @@ export default class Login extends Component<Props> {
                 />
               </div>
 
-              <div className=" animated fadeInUpBig fast">
+              <div className=" animated fadeInUp fast">
                 <label htmlFor="rememberme" className="forgetmenot">
                   <input name="rememberme" type="checkbox" id="rememberme" />{' '}
                   مرا به خاطر بسپار

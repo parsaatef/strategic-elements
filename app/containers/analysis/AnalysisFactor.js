@@ -13,6 +13,7 @@ import { ANALYSIS_ELEMENT } from '../../constants/routes';
 import item4 from '../../images/menu-item-4.jpg';
 import { FormattedSimpleMsg } from '../../utils/utility';
 import PageHeadingIcon from '../../components/General/PageHeadingIcon';
+import Loading from '../../components/General/Loading';
 
 type Props = {
   history: object,
@@ -103,7 +104,7 @@ class AnalysisFactor extends React.Component<Props> {
           }}
         >
           {({ data, loading, error, refetch }) => {
-            if (loading) return 'loading.....';
+            if (loading) return <Loading />;
 
             if (!data || !data.searchElement || !data.searchElement.elements)
               return null;

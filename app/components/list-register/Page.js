@@ -11,6 +11,7 @@ import Tab from '../General/Tabs/Tab';
 import TabsContent from '../General/Tabs/TabsContent';
 import TabItems from '../General/Tabs/TabItems';
 import ConfirmBox from './ConfirmBox';
+import Loading from '../General/Loading';
 
 const GET_ELEMENTS = gql`
   query {
@@ -80,7 +81,7 @@ class Page extends Component<Props> {
                 <Query query={GET_ELEMENTS}>
                   {({ data, loading, error }) => {
                     console.log('----data-----', data, loading, error);
-                    if (loading) return 'loading.....';
+                    if (loading) return <Loading />;
                     const options = [];
                     if (data && data.elements) {
                       data.elements.forEach(elem => {
@@ -176,7 +177,7 @@ class Page extends Component<Props> {
                 >
                   {({ data, loading, error }) => {
                     console.log('----data-----', data, loading, error);
-                    if (loading) return 'loading.....';
+                    if (loading) return <Loading />;
                     return (
                       <Register
                         formCmp={form}

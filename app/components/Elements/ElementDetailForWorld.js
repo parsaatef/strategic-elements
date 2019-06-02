@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { Query } from 'react-apollo';
-import ImgButton from '../General/ImgButton';
-import item4 from '../../images/menu-item-4.jpg';
+import IconButton from '../General/IconButton';
+import Loading from '../General/Loading';
 import {
   SECONDARY_SOURCE,
   UPSTREAM_INDUSTRY,
@@ -111,7 +111,7 @@ export default class ElementDetailForWorld extends Component<Props> {
           }}
         >
           {({ data, loading, error, refetch }) => {
-            if (loading) return 'loading.....';
+            if (loading) return <Loading />;
 
             console.log('data, error, refetch', data, error, refetch);
 
@@ -167,106 +167,106 @@ export default class ElementDetailForWorld extends Component<Props> {
 
         <Row>
           <Col sm={4}>
-            <ImgButton
+            <IconButton
               className="main-detail-btn-wrap text-center"
               link={SECONDARY_SOURCE.replace(':element', element).replace(
                 ':title',
                 title
               )}
-              src={item4}
+              icon="smfpIcon smfpIcon-secondary-sources"
               title="منابع ثانویه"
             />
           </Col>
 
           <Col sm={4}>
-            <ImgButton
+            <IconButton
               className="main-detail-btn-wrap text-center"
               link={UPSTREAM_INDUSTRY.replace(':element', element).replace(
                 ':title',
                 title
               )}
-              src={item4}
+              icon="smfpIcon smfpIcon-upstream-industry"
               title="صنایع پایین دستی"
             />
           </Col>
 
           <Col sm={4}>
-            <ImgButton
+            <IconButton
               className="main-detail-btn-wrap text-center"
               link={ENVIRONMENT.replace(':element', element).replace(
                 ':title',
                 title
               )}
-              src={item4}
+              icon="smfpIcon smfpIcon-environment"
               title="محیط زیستی"
             />
           </Col>
 
           <Col sm={4}>
-            <ImgButton
+            <IconButton
               className="main-detail-btn-wrap text-center"
               link={MINE.replace(':element', element).replace(':title', title)}
-              src={item4}
+              icon="smfpIcon smfpIcon-mine"
               title="فهرست معادن"
             />
           </Col>
 
           <Col sm={4}>
-            <ImgButton
+            <IconButton
               className="main-detail-btn-wrap text-center"
               link={DEPENDENCE_INDUSTRIES.replace(':element', element).replace(
                 ':title',
                 title
               )}
-              src={item4}
+              icon="smfpIcon smfpIcon-dependence-industries"
               title="صنایع وابسته"
             />
           </Col>
 
           <Col sm={4}>
-            <ImgButton
+            <IconButton
               className="main-detail-btn-wrap text-center"
               link={TECHNOLOGICAL_LEVEL.replace(':element', element).replace(
                 ':title',
                 title
               )}
-              src={item4}
+              icon="smfpIcon smfpIcon-technological-level"
               title="سطح تکنولوژی"
             />
           </Col>
 
           <Col sm={4}>
-            <ImgButton
+            <IconButton
               className="main-detail-btn-wrap text-center"
               link={MINERAL.replace(':element', element).replace(
                 ':title',
                 title
               )}
-              src={item4}
+              icon="smfpIcon smfpIcon-mineral"
               title="فهرست کانی ها"
             />
           </Col>
 
           <Col sm={4}>
-            <ImgButton
+            <IconButton
               className="main-detail-btn-wrap text-center"
               link={THREAT.replace(':element', element).replace(
                 ':title',
                 title
               )}
-              src={item4}
+              icon="smfpIcon smfpIcon-threats"
               title="تهدیدات"
             />
           </Col>
 
           <Col sm={4}>
-            <ImgButton
+            <IconButton
               className="main-detail-btn-wrap text-center"
               link={GLOBAL_PRICE.replace(':element', element).replace(
                 ':title',
                 title
               )}
-              src={item4}
+              icon="smfpIcon smfpIcon-global-price"
               title="قیمت جهانی"
             />
           </Col>

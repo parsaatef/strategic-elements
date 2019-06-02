@@ -150,7 +150,7 @@ class ItemsList extends Component<Props> {
             console.log('----data-----', data, loading, error);
             return (
               <section>
-                <Row className="tb-filter-wrap animated  fadeInUpBig fast delay-1-5s animation-fill-mode-backwards">
+                <Row className="tb-filter-wrap animated  fadeInUp fast delay-1-5s animation-fill-mode-backwards">
                   <Col sm={bulkActionColWrap}>
                     <Row>
                       <Col sm={bulkActionCol}>

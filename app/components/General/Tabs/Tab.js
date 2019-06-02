@@ -18,7 +18,7 @@ export default class Tab extends React.Component<Props> {
       return (
         <Link
           to={link}
-          className={`smfp-ht-tabs-item animated lightSpeedIn fast delay-0-5s${
+          className={`smfp-ht-tabs-item animated fadeIn fast delay-0-5s${
             isActive ? ' active' : ''
           }`}
         >
@@ -29,7 +29,7 @@ export default class Tab extends React.Component<Props> {
 
     return (
       <div
-        className={`smfp-ht-tabs-item  animated lightSpeedIn fast delay-0-5s${
+        className={`smfp-ht-tabs-item  animated fadeIn fast delay-0-5s${
           isActive ? ' active' : ''
         }`}
       >

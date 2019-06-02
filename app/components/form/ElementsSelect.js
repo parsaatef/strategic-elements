@@ -6,6 +6,7 @@ import _ from 'underscore';
 import Field from './Field';
 import { GET_ELEMENTS } from '../../queries/element';
 import { FormattedSimpleMsg } from '../../utils/utility';
+import Loading from '../General/Loading';
 
 const getSelectValue = (value, options) => _.findWhere(options, { value });
 
@@ -18,7 +19,7 @@ const ElementsSelect = ({ fieldType = 'field', ...rest }) => (
   >
     {({ data, loading, error }) => {
       if (error) console.error(error);
-      if (loading) return 'loading.....';
+      if (loading) return <Loading />;
 
       const options = [
         /* {
