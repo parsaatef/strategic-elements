@@ -5,7 +5,7 @@ export default class ElementDetailItem extends Component<Props> {
     const { value, name } = this.props;
 
     return (
-      <div className="detail-line">
+      <div className="detail-line animated fadeInUp fast animation-auto-delay">
         <div className="detail-line-content">
           <div className="detail-line-circle">
             <span className="detail-line-circle-inner">

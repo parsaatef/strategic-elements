@@ -85,7 +85,7 @@ class Signin extends Component<Props, State> {
       <div className="smfp-login-page">
         <div className="smfp-login-wrap">
           <div className="smfp-login-wrap-inner">
-            <div className="smfp-login-heading">
+            <div className="smfp-login-heading animated fadeInUp fast">
               <h1>سامانه مدیریتی فناورانه پویا</h1>
             </div>
 
@@ -98,7 +98,9 @@ class Signin extends Component<Props, State> {
                   method="post"
                   onSubmit={event => this.handleSubmit(event, signIn)}
                 >
-                  <div className={`form-group ${emailError}`}>
+                  <div
+                    className={`form-group animated fadeInUp fast animation-auto-delay ${emailError}`}
+                  >
                     <div className="smfp-input-wrap user-name">
                       <input
                         type="text"
@@ -110,10 +112,14 @@ class Signin extends Component<Props, State> {
                       />
                     </div>
                     {submitted && !email && (
-                      <div className="help-block">Username is required</div>
+                      <div className="help-block animated fadeIn fast">
+                        Username is required
+                      </div>
                     )}
                   </div>
-                  <div className={`form-group ${passError}`}>
+                  <div
+                    className={`form-group animated fadeInUp fast animation-auto-delay ${passError}`}
+                  >
                     <div className="smfp-input-wrap password">
                       <input
                         type="password"
@@ -125,11 +131,13 @@ class Signin extends Component<Props, State> {
                       />
                     </div>
                     {submitted && !password && (
-                      <div className="help-block">Password is required</div>
+                      <div className="help-block animated fadeIn fast">
+                        Password is required
+                      </div>
                     )}
                   </div>
 
-                  <div className="form-group">
+                  <div className="form-group animated fadeInUp fast animation-auto-delay">
                     <input
                       disabled={loading || this.validateForm()}
                       type="submit"
@@ -140,15 +148,18 @@ class Signin extends Component<Props, State> {
                     />
                   </div>
 
-                  <div>
-                    <label htmlFor="rememberme" className="forgetmenot">
-                      <input
-                        name="rememberme"
-                        type="checkbox"
-                        id="rememberme"
-                      />{' '}
-                      مرا به خاطر بسپار
-                    </label>
+                  <div className="login-other-detail animated fadeInUp fast animation-auto-delay">
+                    <div className="forgetmenot">
+                      <label htmlFor="rememberme" className="checkbox-wrap">
+                        <input
+                          name="rememberme"
+                          type="checkbox"
+                          id="rememberme"
+                        />{' '}
+                        <span className="checkmark" />
+                        مرا به خاطر بسپار
+                      </label>
+                    </div>
                     <div className="smfp-other">
                       <a href="#" className="signup">
                         ثبت نام

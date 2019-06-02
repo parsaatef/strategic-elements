@@ -40,13 +40,15 @@ const MineralForm = (props: Props) => {
         placeholder={<FormattedMessage id="global.select" />}
       />
 
-      <Button type="submit">
-        {formType === 'register' ? (
-          <FormattedMessage id="global.addNew" />
-        ) : (
-          <FormattedMessage id="global.update" />
-        )}
-      </Button>
+      <div className="animated fadeIn fast animation-auto-delay">
+        <Button type="submit">
+          {formType === 'register' ? (
+            <FormattedMessage id="global.addNew" />
+          ) : (
+            <FormattedMessage id="global.update" />
+          )}
+        </Button>
+      </div>
     </AppForm>
   );
 };

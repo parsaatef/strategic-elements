@@ -43,7 +43,7 @@ class TextEditor extends React.Component<Props> {
 
     return (
       <Group
-        className="animated fadeInUp fast animation-auto-delay"
+        className="animated fadeIn fast animation-auto-delay"
         as={Row}
         controlId={`field_${name}`}
       >

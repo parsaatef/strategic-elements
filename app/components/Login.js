@@ -49,20 +49,23 @@ export default class Login extends Component<Props> {
           </Link>
         </div>
 
-        <div className="smfp-login-wrap animated fadeInUp fast">
+        <div className="smfp-login-wrap">
           <div className="smfp-login-wrap-inner">
-            <div className="smfp-login-heading">
+            <div className="smfp-login-heading animated fadeInUp fast">
               <h1>سامانه مدیریتی فناورانه پویا</h1>
             </div>
 
             <form
+              className="animated fadeInUp faster animation-auto-delay delay-1s"
               name="loginform"
               id="loginform"
               action=""
               method="post"
               onSubmit={this.handleSubmit}
             >
-              <div className={`form-group ${usernameError}`}>
+              <div
+                className={`form-group animated fadeInUp fast animation-auto-delay ${usernameError}`}
+              >
                 <div className="smfp-input-wrap user-name  animated fadeInUp fast">
                   <input
                     type="text"
@@ -74,11 +77,15 @@ export default class Login extends Component<Props> {
                   />
                 </div>
                 {submitted && !username && (
-                  <div className="help-block">Username is required</div>
+                  <div className="help-block animated fadeIn fast">
+                    Username is required
+                  </div>
                 )}
               </div>
 
-              <div className={`form-group ${passError}`}>
+              <div
+                className={`form-group animated fadeInUp fast animation-auto-delay ${passError}`}
+              >
                 <div className="smfp-input-wrap password  animated fadeInUp fast">
                   <input
                     type="password"
@@ -90,11 +97,13 @@ export default class Login extends Component<Props> {
                   />
                 </div>
                 {submitted && !password && (
-                  <div className="help-block">Password is required</div>
+                  <div className="help-block animated fadeIn fast">
+                    Password is required
+                  </div>
                 )}
               </div>
 
-              <div className="form-group  animated fadeInUp fast">
+              <div className="form-group animated fadeInUp fast animation-auto-delay">
                 <input
                   type="submit"
                   name="smfp-submit"
@@ -104,11 +113,14 @@ export default class Login extends Component<Props> {
                 />
               </div>
 
-              <div className=" animated fadeInUp fast">
-                <label htmlFor="rememberme" className="forgetmenot">
-                  <input name="rememberme" type="checkbox" id="rememberme" />{' '}
-                  مرا به خاطر بسپار
-                </label>
+              <div className="login-other-detail animated fadeInUp fast animation-auto-delay">
+                <div className="forgetmenot">
+                  <label htmlFor="rememberme" className="checkbox-wrap">
+                    <input name="rememberme" type="checkbox" id="rememberme" />{' '}
+                    <span className="checkmark" />
+                    مرا به خاطر بسپار
+                  </label>
+                </div>
                 <div className="smfp-other">
                   <a href="#" className="signup">
                     ثبت نام

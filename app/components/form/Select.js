@@ -36,7 +36,7 @@ const Select = ({
 
   return (
     <Group
-      className="animated fadeInUp fast animation-auto-delay animation-fill-mode-backwards"
+      className="animated fadeIn fast animation-auto-delay animation-fill-mode-backwards"
       as={Row}
       controlId={`field_${name}`}
     >

@@ -124,19 +124,6 @@ class ItemsList extends Component<Props> {
 
     variables = addStaticVariables(list, variables);
 
-    let bulkActionCol;
-    let bulkActionColWrap;
-    let ListFiltersCol;
-
-    if (bulkAction === 'delete') {
-      bulkActionCol = 8;
-      bulkActionColWrap = 3;
-      ListFiltersCol = 6;
-    } else {
-      bulkActionCol = 12;
-      bulkActionColWrap = 2;
-      ListFiltersCol = 7;
-    }
     return (
       <div>
         <PageHeadingIcon
@@ -151,32 +138,28 @@ class ItemsList extends Component<Props> {
             return (
               <section>
                 <Row className="tb-filter-wrap animated  fadeInUp fast delay-1-5s animation-fill-mode-backwards">
-                  <Col sm={bulkActionColWrap}>
-                    <Row>
-                      <Col sm={bulkActionCol}>
-                        <ReactSelect
-                          value={bulkAction}
-                          onChange={this.setBulkAction}
-                          options={bulkActionsOptions}
-                          placeholder=<FormattedSimpleMsg id="global.select" />
+                  <Col md={5}>
+                    <div className="smfp-filter-item">
+                      <ReactSelect
+                        value={bulkAction}
+                        onChange={this.setBulkAction}
+                        options={bulkActionsOptions}
+                        placeholder=<FormattedSimpleMsg id="global.select" />
+                      />
+                    </div>
+                    {bulkAction === 'delete' && (
+                      <div className="tb-btn-wrap smfp-filter-item">
+                        <MultiDeleteAction
+                          ids={selectedItems}
+                          resetSelectedItems={this.resetSelectedItems}
+                          refetch={refetch}
+                          query={query}
                         />
-                      </Col>
-                      {bulkAction === 'delete' && (
-                        <Col className="tb-btn-wrap" sm={4}>
-                          <MultiDeleteAction
-                            ids={selectedItems}
-                            resetSelectedItems={this.resetSelectedItems}
-                            refetch={refetch}
-                            query={query}
-                          />
-                        </Col>
-                      )}
-                    </Row>
+                      </div>
+                    )}
                   </Col>
 
-                  <Col sm={3} />
-
-                  <Col sm={ListFiltersCol}>
+                  <Col md={7}>
                     <ListFilters
                       applyFilters={this.applyFilters}
                       autoApply={false}

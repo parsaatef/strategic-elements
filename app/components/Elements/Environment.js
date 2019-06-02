@@ -46,7 +46,10 @@ class Environment extends Component<Props> {
                   <table className="table table-with-width table-striped table-bordered">
                     <tbody>
                       {data.searchOptions.options.map(option => (
-                        <tr key={option.id}>
+                        <tr
+                          key={option.id}
+                          className="animated fadeInUp faster animation-auto-delay"
+                        >
                           <td>{option.name}</td>
                           <td>{option.value}</td>
                         </tr>

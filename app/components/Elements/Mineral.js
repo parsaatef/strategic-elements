@@ -45,7 +45,10 @@ class Mineral extends Component<Props> {
                   <table className="table table-with-width table-striped table-bordered">
                     <tbody>
                       {data.searchMineral.minerals.map(source => (
-                        <tr key={source.id}>
+                        <tr
+                          key={source.id}
+                          className="animated fadeInUp faster animation-auto-delay"
+                        >
                           <td>{source.title}</td>
                           <td>{source.formula}</td>
                           <td>{source.color}</td>

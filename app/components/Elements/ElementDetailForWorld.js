@@ -166,7 +166,7 @@ export default class ElementDetailForWorld extends Component<Props> {
         </Query>
 
         <Row>
-          <Col sm={4}>
+          <Col sm={4} className="animated flipInX fast animation-auto-delay">
             <IconButton
               className="main-detail-btn-wrap text-center"
               link={SECONDARY_SOURCE.replace(':element', element).replace(
@@ -178,7 +178,7 @@ export default class ElementDetailForWorld extends Component<Props> {
             />
           </Col>
 
-          <Col sm={4}>
+          <Col sm={4} className="animated flipInX fast animation-auto-delay">
             <IconButton
               className="main-detail-btn-wrap text-center"
               link={UPSTREAM_INDUSTRY.replace(':element', element).replace(
@@ -190,7 +190,7 @@ export default class ElementDetailForWorld extends Component<Props> {
             />
           </Col>
 
-          <Col sm={4}>
+          <Col sm={4} className="animated flipInX fast animation-auto-delay">
             <IconButton
               className="main-detail-btn-wrap text-center"
               link={ENVIRONMENT.replace(':element', element).replace(
@@ -202,7 +202,7 @@ export default class ElementDetailForWorld extends Component<Props> {
             />
           </Col>
 
-          <Col sm={4}>
+          <Col sm={4} className="animated flipInX fast animation-auto-delay">
             <IconButton
               className="main-detail-btn-wrap text-center"
               link={MINE.replace(':element', element).replace(':title', title)}
@@ -211,7 +211,7 @@ export default class ElementDetailForWorld extends Component<Props> {
             />
           </Col>
 
-          <Col sm={4}>
+          <Col sm={4} className="animated flipInX fast animation-auto-delay">
             <IconButton
               className="main-detail-btn-wrap text-center"
               link={DEPENDENCE_INDUSTRIES.replace(':element', element).replace(
@@ -223,7 +223,7 @@ export default class ElementDetailForWorld extends Component<Props> {
             />
           </Col>
 
-          <Col sm={4}>
+          <Col sm={4} className="animated flipInX fast animation-auto-delay">
             <IconButton
               className="main-detail-btn-wrap text-center"
               link={TECHNOLOGICAL_LEVEL.replace(':element', element).replace(
@@ -235,7 +235,7 @@ export default class ElementDetailForWorld extends Component<Props> {
             />
           </Col>
 
-          <Col sm={4}>
+          <Col sm={4} className="animated flipInX fast animation-auto-delay">
             <IconButton
               className="main-detail-btn-wrap text-center"
               link={MINERAL.replace(':element', element).replace(
@@ -247,7 +247,7 @@ export default class ElementDetailForWorld extends Component<Props> {
             />
           </Col>
 
-          <Col sm={4}>
+          <Col sm={4} className="animated flipInX fast animation-auto-delay">
             <IconButton
               className="main-detail-btn-wrap text-center"
               link={THREAT.replace(':element', element).replace(
@@ -259,7 +259,7 @@ export default class ElementDetailForWorld extends Component<Props> {
             />
           </Col>
 
-          <Col sm={4}>
+          <Col sm={4} className="animated flipInX fast animation-auto-delay">
             <IconButton
               className="main-detail-btn-wrap text-center"
               link={GLOBAL_PRICE.replace(':element', element).replace(

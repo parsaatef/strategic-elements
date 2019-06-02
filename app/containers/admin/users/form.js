@@ -70,13 +70,15 @@ const UserForm = (props: Props) => {
         placeholder=<FormattedSimpleMsg id="global.select_role" />
       />
 
-      <Button type="submit">
-        {formType === 'register' ? (
-          <FormattedMessage id="global.signUp" />
-        ) : (
-          <FormattedMessage id="global.update" />
-        )}
-      </Button>
+      <div className="animated fadeIn fast animation-auto-delay">
+        <Button type="submit">
+          {formType === 'register' ? (
+            <FormattedMessage id="global.signUp" />
+          ) : (
+            <FormattedMessage id="global.update" />
+          )}
+        </Button>
+      </div>
     </AppForm>
   );
 };

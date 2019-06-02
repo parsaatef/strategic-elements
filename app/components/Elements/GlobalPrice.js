@@ -45,7 +45,10 @@ class GlobalPrice extends Component<Props> {
                   <table className="table table-with-width table-striped table-bordered">
                     <tbody>
                       {data.searchPrice.globalPrices.map(item => (
-                        <tr key={item.id}>
+                        <tr
+                          key={item.id}
+                          className="animated fadeInUp faster animation-auto-delay"
+                        >
                           <td>{item.year}</td>
                           <td>{item.price}</td>
                         </tr>

@@ -45,7 +45,10 @@ class Mines extends Component<Props> {
                   <table className="table table-with-width table-striped table-bordered">
                     <tbody>
                       {data.searchMine.mines.map(source => (
-                        <tr key={source.id}>
+                        <tr
+                          key={source.id}
+                          className="animated fadeInUp faster animation-auto-delay"
+                        >
                           <td>{source.title}</td>
                           <td>{source.productionValue}</td>
                           <td>{source.activeMines}</td>

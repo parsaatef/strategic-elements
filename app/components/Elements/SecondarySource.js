@@ -50,7 +50,10 @@ class SecondarySource extends Component<Props> {
                     <tbody>
                       {data.searchSecondarySource.secondarySources.map(
                         source => (
-                          <tr key={source.id}>
+                          <tr
+                            key={source.id}
+                            className="animated fadeInUp faster animation-auto-delay"
+                          >
                             <td>{source.title}</td>
                             <td>{source.value}</td>
                           </tr>

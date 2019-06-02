@@ -57,7 +57,10 @@ class InformationOfElement extends Component<Props> {
                               !notNeedFeaturesForDisplay.includes(feature)
                           )
                           .map(feature => (
-                            <tr key={feature}>
+                            <tr
+                              key={feature}
+                              className="animated fadeInUp faster animation-auto-delay"
+                            >
                               <td>
                                 <FormattedMessage id={`global.${feature}`} />
                               </td>
@@ -69,7 +72,7 @@ class InformationOfElement extends Component<Props> {
                     <Row>
                       <Col sm={6}>
                         <IconButton
-                          className="main-detail-btn-wrap text-left"
+                          className="main-detail-btn-wrap text-left animated fadeInUp fast"
                           link={INFORMATION_STATS_DETAIL.replace(
                             ':type',
                             'world'
@@ -83,7 +86,7 @@ class InformationOfElement extends Component<Props> {
 
                       <Col sm={6}>
                         <IconButton
-                          className="main-detail-btn-wrap text-right"
+                          className="main-detail-btn-wrap text-right animated fadeInUp fast"
                           link={INFORMATION_STATS_DETAIL.replace(
                             ':type',
                             'iran'

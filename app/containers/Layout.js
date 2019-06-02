@@ -61,7 +61,7 @@ class Layout extends Component<Props> {
                         role="toolbar"
                         onKeyUp={e => console.log('onKeyUp', e)}
                         onClick={this.signOut.bind(this, client)}
-                        className="logout-button toolbar-icon"
+                        className="logout-button toolbar-icon animated fadeInDown fast animation-auto-delay"
                         data-tid="logoutButton"
                       >
                         <i className="fal fa-user-times fa-2x" />
@@ -73,7 +73,7 @@ class Layout extends Component<Props> {
                     role="toolbar"
                     onKeyUp={e => console.log('onKeyUp', e)}
                     onClick={this.goBack}
-                    className="back-button toolbar-icon"
+                    className="back-button toolbar-icon animated fadeInDown fast animation-auto-delay"
                     data-tid="backButton"
                   >
                     <i className="fal fa-arrow-right fa-2x" />
@@ -82,7 +82,7 @@ class Layout extends Component<Props> {
                     role="toolbar"
                     onKeyUp={e => console.log('onKeyUp', e)}
                     onClick={this.goForward}
-                    className="forward-button toolbar-icon"
+                    className="forward-button toolbar-icon animated fadeInDown fast animation-auto-delay"
                     data-tid="forwardButton"
                   >
                     <i className="fal fa-arrow-left fa-2x" />
