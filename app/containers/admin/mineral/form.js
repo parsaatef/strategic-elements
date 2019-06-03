@@ -37,6 +37,12 @@ const MineralForm = (props: Props) => {
 
       <Field
         type="text"
+        name="alias"
+        label={<FormattedMessage id="global.alias" />}
+      />
+
+      <Field
+        type="text"
         name="formula"
         label={<FormattedMessage id="global.formula" />}
       />

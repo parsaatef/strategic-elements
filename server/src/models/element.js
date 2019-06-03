@@ -15,6 +15,7 @@ const elementSchema = new mongoose.Schema(
     magneticProperty: Boolean,
     electricalConductivity: String,
     group: String,
+    category: String,
     period: String,
     atomicWeight: Number,
     electronegativity: Number,

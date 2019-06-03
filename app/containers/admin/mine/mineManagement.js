@@ -84,6 +84,7 @@ export default class MineManagement extends Component<Props> {
               key: 'id',
               isCheck: true
             },
+
             {
               key: 'title',
               title: <FormattedMessage id="global.title" />
@@ -93,21 +94,13 @@ export default class MineManagement extends Component<Props> {
               title: <FormattedMessage id="global.element" />
             },
             {
-              key: 'activeMines',
-              title: <FormattedMessage id="global.value" />
-            },
-            {
               key: 'productionValue',
-              title: <FormattedMessage id="global.production" />
+              title: <FormattedMessage id="global.productionSave" />
             },
             {
               key: 'unit',
               title: <FormattedMessage id="global.unit" />,
               isUnit: true
-            },
-            {
-              key: 'description',
-              title: <FormattedMessage id="global.description" />
             },
             {
               key: 'username',

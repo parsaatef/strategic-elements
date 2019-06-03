@@ -17,7 +17,7 @@ const {
   REDIS_PASSWORD = 'Q3sQHdUPmOfMZ1FGnz8IoOBLZcAlJVOt',
 
   JWT_SECRET = 'fwsdfaswersdrwe',
-  JWT_EXPIRE = 60 * 60
+  JWT_EXPIRE = 60 * 60 * 24 * 30
 } = process.env;
 
 const IN_PROD = NODE_ENV === 'production';

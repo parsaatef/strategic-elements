@@ -13,6 +13,12 @@ const title = Joi.string()
   .required()
   .label('Title');
 
+const alias = Joi.string()
+  .min(3)
+  .max(30)
+  .required()
+  .label('Alias');
+
 const elements = Joi.array()
   .items(Joi.string().label('Element'))
   .label('Elements');
@@ -28,6 +34,7 @@ const abundance = Joi.string().label('Abundance');
 export const registerMineral = Joi.object().keys({
   username,
   title,
+  alias,
   elements,
   description,
   color,
@@ -37,6 +44,7 @@ export const registerMineral = Joi.object().keys({
 
 export const updateMineral = Joi.object().keys({
   title,
+  alias,
   elements,
   description,
   color,

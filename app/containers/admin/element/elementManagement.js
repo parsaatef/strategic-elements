@@ -69,8 +69,8 @@ class ElementManagement extends Component<Props> {
               default: ''
             },
             {
-              filter: 'group',
-              label: 'global.group',
+              filter: 'category',
+              label: 'global.category',
               type: 'select', // text or select
               options: getElementsGroups()
             }
@@ -89,9 +89,9 @@ class ElementManagement extends Component<Props> {
               title: <FormattedMessage id="global.element" />
             },
             {
-              key: 'group',
-              title: <FormattedMessage id="global.group" />,
-              item: dbCol => getElementsGroups('option', dbCol.group)
+              key: 'category',
+              title: <FormattedMessage id="global.category" />,
+              item: dbCol => getElementsGroups('option', dbCol.category)
             },
             {
               key: 'username',

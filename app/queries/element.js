@@ -17,6 +17,7 @@ export const GET_ELEMENT_BY_NAME = gql`
       magneticProperty
       electricalConductivity
       group
+      category
       period
       atomicWeight
       electronegativity
@@ -53,6 +54,7 @@ export const GET_ELEMENT = gql`
       magneticProperty
       electricalConductivity
       group
+      category
       period
       atomicWeight
       electronegativity
@@ -81,6 +83,7 @@ export const GET_ELEMENTS = gql`
     $magneticProperty: Boolean
     $electricalConductivity: String
     $group: String
+    $category: String
     $period: String
     $users: [String!]
     $sort: String
@@ -96,6 +99,7 @@ export const GET_ELEMENTS = gql`
       magneticProperty: $magneticProperty
       electricalConductivity: $electricalConductivity
       group: $group
+      category: $category
       period: $period
       users: $users
       sort: $sort
@@ -118,6 +122,7 @@ export const GET_ELEMENTS = gql`
         magneticProperty
         electricalConductivity
         group
+        category
         period
         atomicWeight
         electronegativity
@@ -154,6 +159,7 @@ export const REGISTER_ELEMENT = gql`
     $magneticProperty: Boolean
     $electricalConductivity: String
     $group: String!
+    $category: String!
     $period: String
     $atomicWeight: Float
     $electronegativity: Float
@@ -183,6 +189,7 @@ export const REGISTER_ELEMENT = gql`
       magneticProperty: $magneticProperty
       electricalConductivity: $electricalConductivity
       group: $group
+      category: $category
       period: $period
       atomicWeight: $atomicWeight
       electronegativity: $electronegativity
@@ -218,6 +225,7 @@ export const UPDATE_ELEMENT = gql`
     $magneticProperty: Boolean
     $electricalConductivity: String
     $group: String!
+    $category: String!
     $period: String
     $atomicWeight: Float
     $electronegativity: Float
@@ -247,6 +255,7 @@ export const UPDATE_ELEMENT = gql`
       magneticProperty: $magneticProperty
       electricalConductivity: $electricalConductivity
       group: $group
+      category: $category
       period: $period
       atomicWeight: $atomicWeight
       electronegativity: $electronegativity

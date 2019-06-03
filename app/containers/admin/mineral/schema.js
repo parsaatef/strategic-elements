@@ -6,6 +6,11 @@ const schema = yup.object({
     .min(3)
     .max(30)
     .required(),
+  alias: yup
+    .string()
+    .min(3)
+    .max(30)
+    .required(),
   elements: yup.array().of(yup.string()),
   description: yup.string(),
   color: yup.string(),

@@ -127,7 +127,7 @@ export default class ElementDetailForWorld extends Component<Props> {
                 resourceValue,
                 productionValue,
                 consumptionValue,
-                mineCount,
+                // mineCount,
                 exportValue,
                 importValue,
                 secondaryProductionValue
@@ -147,7 +147,7 @@ export default class ElementDetailForWorld extends Component<Props> {
                     name="مجموع مصرف سالانه"
                   />
 
-                  <ElementDetailItem value={mineCount} name="تعداد معادن" />
+                  {/* <ElementDetailItem value={mineCount} name="تعداد معادن" /> */}
 
                   <ElementDetailItem value={exportValue} name="میزان صادرات" />
 

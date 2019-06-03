@@ -26,7 +26,7 @@ const description = Joi.string()
 
 const unit = Joi.string().label('Unit');
 const productionValue = Joi.number().label('Production Value');
-const activeMines = Joi.number().label('Active Mines');
+const activeMines = Joi.boolean().label('Active Mines');
 
 export const registerMine = Joi.object().keys({
   title,

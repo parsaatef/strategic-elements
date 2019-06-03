@@ -14,7 +14,7 @@ const schema = yup.object({
   description: yup.string(),
   unit: yup.string(),
   productionValue: yup.number(),
-  activeMines: yup.number()
+  activeMines: yup.bool()
 });
 
 export default schema;

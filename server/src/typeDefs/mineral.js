@@ -7,6 +7,7 @@ export default gql`
     searchMineral(
       ids: [ID!]
       title: String
+      alias: String
       description: String
       color: String
       users: [String!]
@@ -21,6 +22,7 @@ export default gql`
   extend type Mutation {
     registerMineral(
       title: String!
+      alias: String!
       formula: String!
       color: String!
       abundance: String!
@@ -30,6 +32,7 @@ export default gql`
     updateMineral(
       id: ID!
       title: String!
+      alias: String!
       formula: String!
       color: String!
       abundance: String!
@@ -48,6 +51,7 @@ export default gql`
   type Mineral {
     id: ID!
     title: String!
+    alias: String
     formula: String!
     color: String!
     abundance: String!

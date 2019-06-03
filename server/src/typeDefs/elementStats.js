@@ -26,10 +26,9 @@ export default gql`
       resourceValue: Int!
       productionValue: Int!
       consumptionValue: Int!
-      exportValue: Int!
-      importValue: Int!
+      exportValue: Int
+      importValue: Int
       secondaryProductionValue: Int!
-      mineCount: Int!
       year: Int!
       unit: String!
       description: String
@@ -42,10 +41,9 @@ export default gql`
       resourceValue: Int!
       productionValue: Int!
       consumptionValue: Int!
-      exportValue: Int!
-      importValue: Int!
+      exportValue: Int
+      importValue: Int
       secondaryProductionValue: Int!
-      mineCount: Int!
       year: Int!
       unit: String!
       description: String
@@ -71,10 +69,9 @@ export default gql`
     resourceValue: Int!
     productionValue: Int!
     consumptionValue: Int!
-    exportValue: Int!
-    importValue: Int!
+    exportValue: Int
+    importValue: Int
     secondaryProductionValue: Int!
-    mineCount: Int!
     year: Int!
     unit: String!
     description: String

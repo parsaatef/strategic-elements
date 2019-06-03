@@ -18,6 +18,19 @@ type Props = {
   onSubmit: () => void
 };
 
+const groupOptions = [
+  { value: '', label: <FormattedSimpleMsg id="global.select_group" /> }
+];
+
+let i;
+
+for (i = 1; i < 19; i += 1) {
+  groupOptions.push({
+    value: i,
+    label: <FormattedSimpleMsg id="global.group_i" values={{ i }} />
+  });
+}
+
 const ElementForm = (props: Props) => {
   const { onSubmit, formType, initialValues, validationSchema } = props;
 
@@ -109,8 +122,16 @@ const ElementForm = (props: Props) => {
         type="select"
         name="group"
         label={<FormattedMessage id="global.group" />}
-        options={getElementsGroups()}
+        options={groupOptions}
         placeholder=<FormattedSimpleMsg id="global.group" />
+      />
+
+      <Field
+        type="select"
+        name="category"
+        label={<FormattedMessage id="global.category" />}
+        options={getElementsGroups()}
+        placeholder=<FormattedSimpleMsg id="global.category" />
       />
 
       <Field

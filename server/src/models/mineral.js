@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 const mineralSchema = new mongoose.Schema(
   {
     title: String,
+    alias: String,
     formula: String,
     color: String,
     abundance: String,

@@ -49,14 +49,19 @@ class ElementsSelect extends Component<Props> {
     });
   }
 
+  /**
+   * groupType can be category or group of elements
+   * default is category
+   * @returns {*}
+   */
   render() {
-    const { group } = this.props;
+    const { group, groupType = 'category' } = this.props;
 
     return (
       <Query
         query={GET_ELEMENTS}
         variables={{
-          group,
+          [groupType]: group,
           offset: -1
         }}
         onCompleted={data => {

@@ -22,6 +22,7 @@ export default {
         magneticProperty,
         electricalConductivity,
         group,
+        category,
         period,
         sort = 'desc',
         sortBy = 'createdAt',
@@ -59,6 +60,10 @@ export default {
 
       if (group) {
         filters.group = group;
+      }
+
+      if (category) {
+        filters.category = category;
       }
 
       if (period) {

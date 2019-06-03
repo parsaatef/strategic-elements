@@ -129,10 +129,10 @@ export default class ElementStatsManagement extends Component<Props> {
               key: 'year',
               title: <FormattedMessage id="global.year" />
             },
-            {
+            /* {
               key: 'exportValue',
-              title: <FormattedMessage id="global.exportValue" />
-            },
+              title: <FormattedMessage id="global.exportValueToIran" />
+            }, */
             {
               key: 'resourceValue',
               title: <FormattedMessage id="global.resourceValue" />
@@ -145,10 +145,10 @@ export default class ElementStatsManagement extends Component<Props> {
               key: 'consumptionValue',
               title: <FormattedMessage id="global.consumptionValue" />
             },
-            {
+            /* {
               key: 'importValue',
-              title: <FormattedMessage id="global.importValue" />
-            },
+              title: <FormattedMessage id="global.importValueFromIran" />
+            }, */
             {
               key: 'action',
               title: <FormattedMessage id="global.actions" />

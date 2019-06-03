@@ -10,7 +10,6 @@ const elementStatsSchema = new mongoose.Schema(
     exportValue: Number,
     importValue: Number,
     secondaryProductionValue: Number,
-    mineCount: Number,
     year: Number,
     unit: String,
     description: String,

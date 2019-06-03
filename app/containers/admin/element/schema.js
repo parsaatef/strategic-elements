@@ -18,6 +18,7 @@ const schema = yup.object({
   magneticProperty: yup.bool(),
   electricalConductivity: yup.string(),
   group: yup.string().required(),
+  category: yup.string().required(),
   period: yup.string(),
   atomicWeight: yup.number(),
   electronegativity: yup.number(),

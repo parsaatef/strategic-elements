@@ -12,7 +12,6 @@ export const GET_ELEMENT_STATS = gql`
       exportValue
       importValue
       secondaryProductionValue
-      mineCount
       year
       unit
       description
@@ -57,7 +56,6 @@ export const GET_ELEMENTS_STATS = gql`
         exportValue
         importValue
         secondaryProductionValue
-        mineCount
         year
         unit
         description
@@ -76,10 +74,9 @@ export const REGISTER_ELEMENT_STATS = gql`
     $resourceValue: Int!
     $productionValue: Int!
     $consumptionValue: Int!
-    $exportValue: Int!
-    $importValue: Int!
+    $exportValue: Int
+    $importValue: Int
     $secondaryProductionValue: Int!
-    $mineCount: Int!
     $year: Int!
     $unit: String!
     $description: String
@@ -94,7 +91,6 @@ export const REGISTER_ELEMENT_STATS = gql`
       exportValue: $exportValue
       importValue: $importValue
       secondaryProductionValue: $secondaryProductionValue
-      mineCount: $mineCount
       year: $year
       unit: $unit
       description: $description
@@ -113,10 +109,9 @@ export const UPDATE_ELEMENT_STATS = gql`
     $resourceValue: Int!
     $productionValue: Int!
     $consumptionValue: Int!
-    $exportValue: Int!
-    $importValue: Int!
+    $exportValue: Int
+    $importValue: Int
     $secondaryProductionValue: Int!
-    $mineCount: Int!
     $year: Int!
     $unit: String!
     $description: String
@@ -132,7 +127,6 @@ export const UPDATE_ELEMENT_STATS = gql`
       exportValue: $exportValue
       importValue: $importValue
       secondaryProductionValue: $secondaryProductionValue
-      mineCount: $mineCount
       year: $year
       unit: $unit
       description: $description

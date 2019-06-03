@@ -20,7 +20,7 @@ export default gql`
   extend type Mutation {
     registerMine(
       title: String!
-      activeMines: Int!
+      activeMines: Boolean!
       productionValue: Int!
       unit: String!
       description: String
@@ -29,7 +29,7 @@ export default gql`
     updateMine(
       id: ID!
       title: String!
-      activeMines: Int!
+      activeMines: Boolean!
       productionValue: Int!
       unit: String!
       description: String
@@ -47,7 +47,7 @@ export default gql`
   type Mine {
     id: ID!
     title: String!
-    activeMines: Int!
+    activeMines: Boolean
     productionValue: Int!
     unit: String!
     description: String

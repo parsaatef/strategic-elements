@@ -32,6 +32,9 @@ const electricalConductivity = Joi.string().label('Electrical Conductivity');
 const group = Joi.string()
   .required()
   .label('Group');
+const category = Joi.string()
+  .required()
+  .label('Category');
 const period = Joi.string().label('Period');
 const atomicWeight = Joi.number().label('AtomicWeight');
 const electronegativity = Joi.number().label('Electronegativity');
@@ -77,6 +80,7 @@ export const registerElement = Joi.object().keys({
   magneticProperty,
   electricalConductivity,
   group,
+  category,
   period,
   atomicWeight,
   electronegativity,
@@ -107,6 +111,7 @@ export const updateElement = Joi.object().keys({
   magneticProperty,
   electricalConductivity,
   group,
+  category,
   period,
   atomicWeight,
   electronegativity,

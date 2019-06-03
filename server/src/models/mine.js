@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const mineSchema = new mongoose.Schema(
   {
     title: String,
-    activeMines: Number,
+    activeMines: Boolean,
     productionValue: Number,
     unit: String,
     description: String,

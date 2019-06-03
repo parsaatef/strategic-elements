@@ -25,10 +25,10 @@ const secondaryProductionValue = Joi.number().label(
   'Secondary Production Value'
 );
 
-const mineCount = Joi.number()
+/* const mineCount = Joi.number()
   .min(0)
   .max(100000)
-  .label('Mine Count');
+  .label('Mine Count'); */
 
 const year = Joi.number()
   .min(1950)
@@ -64,7 +64,7 @@ export const registerElementStats = Joi.object().keys({
   exportValue,
   importValue,
   secondaryProductionValue,
-  mineCount,
+  // mineCount,
   year,
   username,
   element,
@@ -81,7 +81,7 @@ export const updateElementStats = Joi.object().keys({
   exportValue,
   importValue,
   secondaryProductionValue,
-  mineCount,
+  // mineCount,
   year,
   element,
   unit,

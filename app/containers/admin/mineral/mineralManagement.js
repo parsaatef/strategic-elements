@@ -67,6 +67,11 @@ export default class MineralManagement extends Component<Props> {
               type: 'text' // text or select
             },
             {
+              filter: 'alias',
+              label: 'global.alias',
+              type: 'text' // text or select
+            },
+            {
               filter: 'color',
               label: 'global.color',
               type: 'text' // text or select
@@ -89,16 +94,16 @@ export default class MineralManagement extends Component<Props> {
               title: <FormattedMessage id="global.title" />
             },
             {
+              key: 'alias',
+              title: <FormattedMessage id="global.alias" />
+            },
+            {
               key: 'formula',
               title: <FormattedMessage id="global.formula" />
             },
             {
               key: 'color',
               title: <FormattedMessage id="global.color" />
-            },
-            {
-              key: 'description',
-              title: <FormattedMessage id="global.description" />
             },
             {
               key: 'username',

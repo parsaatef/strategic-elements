@@ -33,13 +33,13 @@ const MineForm = (props: Props) => {
       <Field
         type="number"
         name="productionValue"
-        label={<FormattedMessage id="global.production" />}
+        label={<FormattedMessage id="global.productionSave" />}
       />
 
       <Field
-        type="number"
+        type="checkbox"
         name="activeMines"
-        label={<FormattedMessage id="global.activeMines" />}
+        label={<FormattedMessage id="global.is_active_mine" />}
       />
 
       <Field

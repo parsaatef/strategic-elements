@@ -56,7 +56,7 @@ export const GET_MINES = gql`
 export const REGISTER_MINE = gql`
   mutation(
     $title: String!
-    $activeMines: Int!
+    $activeMines: Boolean!
     $productionValue: Int!
     $unit: String!
     $description: String
@@ -79,7 +79,7 @@ export const UPDATE_MINE = gql`
   mutation(
     $id: ID!
     $title: String!
-    $activeMines: Int!
+    $activeMines: Boolean!
     $productionValue: Int!
     $unit: String!
     $description: String

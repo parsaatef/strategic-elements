@@ -16,6 +16,7 @@ export default {
       const {
         ids,
         title,
+        alias,
         description,
         color,
         users,
@@ -36,6 +37,10 @@ export default {
 
       if (title) {
         filters.title = new RegExp(title, 'i');
+      }
+
+      if (alias) {
+        filters.alias = new RegExp(alias, 'i');
       }
 
       if (description) {

@@ -265,8 +265,8 @@ class InformationOfWorld extends Component<Props> {
                 importValue: formatMessage({ id: 'global.importValue' }),
                 secondaryProductionValue: formatMessage({
                   id: 'global.secondaryProductionValue'
-                }),
-                mineCount: formatMessage({ id: 'global.mineCount' })
+                })
+                // mineCount: formatMessage({ id: 'global.mineCount' })
               };
 
               let maxValue = 0;
@@ -327,7 +327,7 @@ class InformationOfWorld extends Component<Props> {
                       exportValue: elem.exportValue,
                       importValue: elem.importValue,
                       secondaryProductionValue: elem.secondaryProductionValue,
-                      mineCount: elem.mineCount,
+                      // mineCount: elem.mineCount,
                       radius: radiusOfLocation,
                       labels
                     });
@@ -350,7 +350,7 @@ class InformationOfWorld extends Component<Props> {
                       exportValue,
                       importValue,
                       secondaryProductionValue,
-                      mineCount,
+                      // mineCount,
                       radius
                     } = prevCountry;
 
@@ -366,7 +366,7 @@ class InformationOfWorld extends Component<Props> {
                       secondaryProductionValue:
                         secondaryProductionValue +
                         elem.secondaryProductionValue,
-                      mineCount: mineCount + elem.mineCount,
+                      // mineCount: mineCount + elem.mineCount,
                       radius: radius - 5 + radiusOfLocation
                     };
                   }

@@ -86,11 +86,21 @@ const ElementForm = (props: Props) => {
               placeholder={<FormattedSimpleMsg id="global.year" />}
             />
 
-            <Field
-              type="number"
-              name="exportValue"
-              label={<FormattedMessage id="global.exportValue" />}
-            />
+            {values.locationType === 'world' && values.location && (
+              <Field
+                type="number"
+                name="exportValue"
+                label={<FormattedMessage id="global.exportValueToIran" />}
+              />
+            )}
+
+            {values.locationType === 'world' && values.location && (
+              <Field
+                type="number"
+                name="importValue"
+                label={<FormattedMessage id="global.importValueFromIran" />}
+              />
+            )}
 
             <Field
               type="number"
@@ -112,20 +122,8 @@ const ElementForm = (props: Props) => {
 
             <Field
               type="number"
-              name="importValue"
-              label={<FormattedMessage id="global.importValue" />}
-            />
-
-            <Field
-              type="number"
               name="secondaryProductionValue"
               label={<FormattedMessage id="global.secondaryProductionValue" />}
-            />
-
-            <Field
-              type="number"
-              name="mineCount"
-              label={<FormattedMessage id="global.minesCount" />}
             />
 
             <Field

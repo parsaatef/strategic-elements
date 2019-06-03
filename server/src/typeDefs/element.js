@@ -13,6 +13,7 @@ export default gql`
       magneticProperty: Boolean
       electricalConductivity: String
       group: String
+      category: String
       period: String
       users: [String!]
       sort: String
@@ -37,6 +38,7 @@ export default gql`
       magneticProperty: Boolean
       electricalConductivity: String
       group: String!
+      category: String!
       period: String
       atomicWeight: Float
       electronegativity: Float
@@ -66,6 +68,7 @@ export default gql`
       magneticProperty: Boolean
       electricalConductivity: String
       group: String!
+      category: String!
       period: String
       atomicWeight: Float
       electronegativity: Float
@@ -105,6 +108,7 @@ export default gql`
     magneticProperty: Boolean
     electricalConductivity: String
     group: String!
+    category: String
     period: String
     atomicWeight: Float
     electronegativity: Float
