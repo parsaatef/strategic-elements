@@ -1,15 +1,12 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
-import { FormattedSimpleMsg } from '../../../utils/utility';
+import { FormattedSimpleMsg, getQualityLevel } from '../../../utils/utility';
 import AppForm from '../../../components/form/AppForm';
 import Field from '../../../components/form/Field';
 import ElementsSelect from '../../../components/form/ElementsSelect';
 
-const AbundanceOptions = [
-  { value: 'Abundance1', label: 'Abundance1' },
-  { value: 'Abundance2', label: 'Abundance2' }
-];
+const AbundanceOptions = getQualityLevel();
 
 type Props = {
   formType: string,

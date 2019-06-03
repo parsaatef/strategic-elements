@@ -44,9 +44,47 @@ export function getYearOptions(from, to) {
 export function getElementsGroups(type = 'all', by) {
   const options = [
     { value: '', label: 'انتخاب دسته' },
-    { value: 'group1', label: 'فلزات پایه' },
-    { value: 'group2', label: 'فلزات گرانبها' },
-    { value: 'group3', label: 'عناصر نادر خاکی' }
+    {
+      value: 'alkali_metals',
+      label: <FormattedSimpleMsg id="global.alkali_metals" />
+    },
+    {
+      value: 'alkaline_earth_metals',
+      label: <FormattedSimpleMsg id="global.alkaline_earth_metals" />
+    },
+    {
+      value: 'base_metal',
+      label: <FormattedSimpleMsg id="global.base_metal" />
+    },
+    {
+      value: 'precious_metal',
+      label: <FormattedSimpleMsg id="global.precious_metal" />
+    },
+    {
+      value: 'rare_earth_element',
+      label: <FormattedSimpleMsg id="global.rare_earth_element" />
+    },
+    { value: 'nonmetal', label: <FormattedSimpleMsg id="global.nonmetal" /> },
+    {
+      value: 'transition_metal',
+      label: <FormattedSimpleMsg id="global.transition_metal" />
+    },
+    { value: 'metalloid', label: <FormattedSimpleMsg id="global.metalloid" /> },
+    {
+      value: 'heavy_metal',
+      label: <FormattedSimpleMsg id="global.heavy_metal" />
+    },
+    { value: 'halogen', label: <FormattedSimpleMsg id="global.halogen" /> },
+    { value: 'noble_gas', label: <FormattedSimpleMsg id="global.noble_gas" /> },
+    {
+      value: 'radioactive',
+      label: <FormattedSimpleMsg id="global.radioactive" />
+    },
+    {
+      value: 'lanthanide',
+      label: <FormattedSimpleMsg id="global.lanthanide" />
+    },
+    { value: 'actinide', label: <FormattedSimpleMsg id="global.actinide" /> }
   ];
 
   if (type === 'all') {
@@ -174,10 +212,13 @@ export function getPhaseAtSTPOptions(type = 'all', by) {
 
 export function getElementPeriod(type = 'all', by) {
   const options = [
+    { value: '1', label: 1 },
+    { value: '2', label: 2 },
+    { value: '3', label: 3 },
+    { value: '4', label: 4 },
+    { value: '5', label: 5 },
     { value: '6', label: 6 },
-    { value: '8', label: 8 },
-    { value: '12', label: 12 },
-    { value: '16', label: 16 }
+    { value: '7', label: 7 }
   ];
 
   if (type === 'all') {
@@ -190,5 +231,21 @@ export function getElementPeriod(type = 'all', by) {
 }
 
 export function getElCOptions(type = 'all', by) {
-  return getQualityLevel(type, by);
+  const options = [
+    { value: '', label: 'انتخاب' },
+    { value: 'conductor', label: <FormattedSimpleMsg id="global.conductor" /> },
+    {
+      value: 'semiconductor',
+      label: <FormattedSimpleMsg id="global.semiconductor" />
+    },
+    { value: 'insulator', label: <FormattedSimpleMsg id="global.insulator" /> }
+  ];
+
+  if (type === 'all') {
+    return options;
+  }
+
+  const foundedOption = options.find(option => option.value === by);
+
+  return foundedOption ? foundedOption.label : '';
 }
