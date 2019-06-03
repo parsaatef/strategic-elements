@@ -25,10 +25,10 @@ export default class Admin extends Component<Props> {
         <div className="smfp-admin-wrap">
           <div className="smfp-admin-wrap-inner">
             <div className="smfp-admin-heading text-center">
-              <h1 className="animated bounceInDown fast delay-0-5s">
+              <h1 className="animated fadeInDown fast delay-0-5s">
                 مدیریت سامانه
               </h1>
-              <h3 className="sub-title animated bounceInDown fast">
+              <h3 className="sub-title animated fadeInDown fast">
                 به قسمت مدیریت خوش آمدید
               </h3>
             </div>

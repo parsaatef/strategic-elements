@@ -4,6 +4,7 @@ import { Query } from 'react-apollo';
 import _ from 'underscore';
 import { FormattedSimpleMsg } from '../../utils/utility';
 import { GET_ELEMENTS } from '../../queries/element';
+import Loading from '../General/Loading';
 
 class ElementsSelect extends Component<Props> {
   constructor(props) {
@@ -76,7 +77,7 @@ class ElementsSelect extends Component<Props> {
       >
         {({ data, loading, error }) => {
           console.log('----data-----', data, loading, error);
-          if (loading) return 'loading.....';
+          if (loading) return <Loading />;
 
           const options = [
             /* {

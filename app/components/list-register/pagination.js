@@ -50,7 +50,7 @@ class STPagination extends Component<Props> {
     }
 
     return (
-      <div className="smfp-pagination-wrap animated fadeInUpBig fast delay-2-5s animation-fill-mode-backwards">
+      <div className="smfp-pagination-wrap animated fadeInUp fast delay-2-5s animation-fill-mode-backwards">
         <div className="smfp-pagination">
           <Pagination>
             {current !== 1 && (

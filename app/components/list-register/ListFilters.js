@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import ReactSelect from 'react-select';
-import { Form, Button, Row, Col } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import _ from 'underscore';
 import ElementsSelect from '../form/ElementsSelect';
 
@@ -158,40 +158,36 @@ class ListFilters extends Component<Props> {
     }
 
     return (
-      <div>
-        <Row>
-          <Col sm={!autoApply ? 1 : 2} />
+      <div className="text-left">
+        <div className="smfp-filter-item text-right">
+          <ReactSelect
+            value={getSelectValue(searchBy, this.searchOptions)}
+            onChange={this.searchByChange}
+            options={this.searchOptions}
+          />
+        </div>
 
-          <Col sm={4}>
-            <ReactSelect
-              value={getSelectValue(searchBy, this.searchOptions)}
-              onChange={this.searchByChange}
-              options={this.searchOptions}
-            />
-          </Col>
+        <div className="smfp-filter-item text-right">{filterType}</div>
 
-          <Col sm={4}>{filterType}</Col>
-
-          <Col sm={!autoApply ? 3 : 2} className="text-left">
-            {!autoApply && (
-              <Button
-                style={{ marginLeft: '6px' }}
-                onClick={this.handleSubmit}
-                type="button"
-              >
-                <FormattedMessage id="global.apply" />
-              </Button>
-            )}
-
+        <div className="smfp-filter-item text-right">
+          {!autoApply && (
             <Button
-              onClick={this.resetFilters}
+              style={{ marginLeft: '6px' }}
+              onClick={this.handleSubmit}
               type="button"
-              variant="outline-danger"
             >
-              <FormattedMessage id="global.reset" />
+              <FormattedMessage id="global.apply" />
             </Button>
-          </Col>
-        </Row>
+          )}
+
+          <Button
+            onClick={this.resetFilters}
+            type="button"
+            variant="outline-danger"
+          >
+            <FormattedMessage id="global.reset" />
+          </Button>
+        </div>
       </div>
     );
   }

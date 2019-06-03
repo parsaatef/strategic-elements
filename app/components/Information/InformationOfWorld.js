@@ -6,9 +6,9 @@ import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import _ from 'underscore';
 import { ELEMENT_INFORMATION } from '../../constants/routes';
 import Select from '../General/Select';
-import ImgButton from '../General/ImgButton';
-import item4 from '../../images/menu-item-4.jpg';
+import IconButton from '../General/IconButton';
 import PageHeadingIcon from '../General/PageHeadingIcon';
+import Loading from '../General/Loading';
 import Datamaps from './datamaps';
 import World from '../../utils/world.json';
 import Iran from '../../utils/iran.json';
@@ -241,7 +241,7 @@ class InformationOfWorld extends Component<Props> {
             }}
           >
             {({ data, loading }) => {
-              if (loading) return 'loading.....';
+              if (loading) return <Loading />;
               if (
                 !data ||
                 !data.searchElementStats ||
@@ -375,7 +375,7 @@ class InformationOfWorld extends Component<Props> {
 
               return (
                 <Datamaps
-                  className="smfp-datamaps-wrap"
+                  className="smfp-datamaps-wrap animated fadeIn fast"
                   idName={idName}
                   widthProps={widthProps}
                   heightProps={heightProps}
@@ -391,10 +391,10 @@ class InformationOfWorld extends Component<Props> {
         </div>
 
         {currentElement.value && (
-          <ImgButton
-            className="text-center btn-element-wrap animated fadeInUpBig fast"
+          <IconButton
+            className="text-center btn-element-wrap animated fadeInUp fast"
             link={ELEMENT_INFORMATION.replace(':element', currentElement.value)}
-            src={item4}
+            icon="smfpIcon smfpIcon-element"
             title="نمایش اطلاعات عنصر"
           />
         )}

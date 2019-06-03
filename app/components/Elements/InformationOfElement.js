@@ -3,10 +3,10 @@ import { Row, Col } from 'react-bootstrap';
 import { Query } from 'react-apollo';
 import { FormattedMessage } from 'react-intl';
 import { INFORMATION_STATS_DETAIL } from '../../constants/routes';
-import ImgButton from '../General/ImgButton';
-import item4 from '../../images/menu-item-4.jpg';
+import IconButton from '../General/IconButton';
 import { GET_ELEMENT_BY_NAME } from '../../queries/element';
 import PageHeadingIcon from '../General/PageHeadingIcon';
+import Loading from '../General/Loading';
 
 const notNeedFeaturesForDisplay = [
   'id',
@@ -36,7 +36,7 @@ class InformationOfElement extends Component<Props> {
           }}
         >
           {({ data, loading, error, refetch }) => {
-            if (loading) return 'loading.....';
+            if (loading) return <Loading />;
 
             console.log('data, error, refetch', data, error, refetch);
 
@@ -57,7 +57,10 @@ class InformationOfElement extends Component<Props> {
                               !notNeedFeaturesForDisplay.includes(feature)
                           )
                           .map(feature => (
-                            <tr key={feature}>
+                            <tr
+                              key={feature}
+                              className="animated fadeInUp faster animation-auto-delay"
+                            >
                               <td>
                                 <FormattedMessage id={`global.${feature}`} />
                               </td>
@@ -68,29 +71,29 @@ class InformationOfElement extends Component<Props> {
                     </table>
                     <Row>
                       <Col sm={6}>
-                        <ImgButton
-                          className="main-detail-btn-wrap text-left"
+                        <IconButton
+                          className="main-detail-btn-wrap text-left animated fadeInUp fast"
                           link={INFORMATION_STATS_DETAIL.replace(
                             ':type',
                             'world'
                           )
                             .replace(':element', element)
                             .replace(':title', data.elementByName.elementTitle)}
-                          src={item4}
+                          icon="smfpIcon smfpIcon-world"
                           title="جزییات برای جهان"
                         />
                       </Col>
 
                       <Col sm={6}>
-                        <ImgButton
-                          className="main-detail-btn-wrap text-right"
+                        <IconButton
+                          className="main-detail-btn-wrap text-right animated fadeInUp fast"
                           link={INFORMATION_STATS_DETAIL.replace(
                             ':type',
                             'iran'
                           )
                             .replace(':element', element)
                             .replace(':title', data.elementByName.elementTitle)}
-                          src={item4}
+                          icon="smfpIcon smfpIcon-iran"
                           title="جزییات برای ایران"
                         />
                       </Col>

@@ -69,7 +69,7 @@ class Table extends Component<Props> {
         : [];
 
     return (
-      <table className="table table-striped table-bordered animated fadeInUpBig fast delay-2s">
+      <table className="table table-striped table-bordered animated fadeInUp fast delay-2s">
         <thead>
           <tr>
             {columns.map(col => {
@@ -102,7 +102,7 @@ class Table extends Component<Props> {
             data[list.func][list.items] &&
             data[list.func][list.items].map(dbCol => (
               <tr
-                className="animated fadeInUpBig fast animation-auto-delay"
+                className="animated fadeInUp fast animation-auto-delay"
                 key={dbCol[keyCol]}
               >
                 {columns.map(col => {

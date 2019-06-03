@@ -5,7 +5,7 @@ import React from 'react';
 import { Query } from 'react-apollo';
 import { withRouter } from 'react-router-dom';
 import ReactSelect from 'react-select';
-import { Button, Row, Col } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
 import { GET_ELEMENTS } from '../../queries/element';
 import BubbleCloud from '../../components/bubble/BubbleCloud';
@@ -13,6 +13,7 @@ import { ANALYSIS_ELEMENT } from '../../constants/routes';
 import item4 from '../../images/menu-item-4.jpg';
 import { FormattedSimpleMsg } from '../../utils/utility';
 import PageHeadingIcon from '../../components/General/PageHeadingIcon';
+import Loading from '../../components/General/Loading';
 
 type Props = {
   history: object,
@@ -103,7 +104,7 @@ class AnalysisFactor extends React.Component<Props> {
           }}
         >
           {({ data, loading, error, refetch }) => {
-            if (loading) return 'loading.....';
+            if (loading) return <Loading />;
 
             if (!data || !data.searchElement || !data.searchElement.elements)
               return null;
@@ -119,25 +120,25 @@ class AnalysisFactor extends React.Component<Props> {
                   title={<FormattedSimpleMsg id={`analysis.element_${type}`} />}
                 />
 
-                <Row>
-                  <Col sm={2} className="text-left text-row-padding">
+                <div className="animated fadeInUp fast">
+                  <div className="smfp-filter-item text-row-padding">
                     <FormattedMessage id="analysis.select_affected_factor" />
-                  </Col>
+                  </div>
 
-                  <Col sm={3}>
+                  <div className="smfp-filter-item">
                     <ReactSelect
                       name="affected_factor"
                       value={currentFactor}
                       onChange={this.changeFactor}
                       options={[]}
                     />
-                  </Col>
+                  </div>
 
-                  <Col sm={2} className="text-left text-row-padding">
+                  <div className="smfp-filter-item text-row-padding">
                     <FormattedMessage id="analysis.select_effect_value" />
-                  </Col>
+                  </div>
 
-                  <Col sm={3}>
+                  <div className="smfp-filter-item">
                     <div className="effect-value-field">
                       <ReactSelect
                         name="effect_value"
@@ -146,9 +147,9 @@ class AnalysisFactor extends React.Component<Props> {
                         options={[]}
                       />
                     </div>
-                  </Col>
+                  </div>
 
-                  <Col sm={2} className="text-right">
+                  <div className="smfp-filter-item">
                     <Button
                       style={{ marginLeft: '6px' }}
                       onClick={this.recalculateData}
@@ -160,8 +161,8 @@ class AnalysisFactor extends React.Component<Props> {
                     <Button type="button" variant="outline-danger">
                       <FormattedMessage id="global.reset" />
                     </Button>
-                  </Col>
-                </Row>
+                  </div>
+                </div>
 
                 <BubbleCloud
                   inputData={inputData}

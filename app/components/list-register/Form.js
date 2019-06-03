@@ -19,7 +19,7 @@ class FormElement extends Component<Props> {
     // delete initialValues.id;
 
     return (
-      <section className="form-wrapper animated fadeInUpBig fast delay-1-5s">
+      <section className="form-wrapper animated fadeInUp fast delay-1-5s">
         <FormComponent
           validationSchema={validationSchema}
           onSubmit={submitForm}

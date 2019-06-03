@@ -3,6 +3,7 @@ import { Query } from 'react-apollo';
 import { gql } from 'apollo-boost';
 import { GET_OPTIONS } from '../../queries/option';
 import PageHeadingIcon from '../General/PageHeadingIcon';
+import Loading from '../General/Loading';
 
 export const GET_ELEMENT_BY_NAME = gql`
   query($element: String!) {
@@ -37,7 +38,7 @@ class Environment extends Component<Props> {
           }}
         >
           {({ data, loading }) => {
-            if (loading) return 'loading.....';
+            if (loading) return <Loading />;
 
             if (data && data.searchOptions && data.searchOptions.options) {
               return (
@@ -45,7 +46,10 @@ class Environment extends Component<Props> {
                   <table className="table table-with-width table-striped table-bordered">
                     <tbody>
                       {data.searchOptions.options.map(option => (
-                        <tr key={option.id}>
+                        <tr
+                          key={option.id}
+                          className="animated fadeInUp faster animation-auto-delay"
+                        >
                           <td>{option.name}</td>
                           <td>{option.value}</td>
                         </tr>
@@ -66,7 +70,7 @@ class Environment extends Component<Props> {
             }}
           >
             {({ data, loading, error, refetch }) => {
-              if (loading) return 'loading.....';
+              if (loading) return <Loading />;
 
               console.log('data, error, refetch', data, error, refetch);
 

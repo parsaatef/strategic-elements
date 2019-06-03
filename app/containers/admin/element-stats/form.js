@@ -140,13 +140,15 @@ const ElementForm = (props: Props) => {
               label={<FormattedMessage id="global.description" />}
             />
 
-            <Button type="submit">
-              {formType === 'register' ? (
-                <FormattedMessage id="global.addNew" />
-              ) : (
-                <FormattedMessage id="global.update" />
-              )}
-            </Button>
+            <div className="animated fadeIn fast animation-auto-delay">
+              <Button type="submit">
+                {formType === 'register' ? (
+                  <FormattedMessage id="global.addNew" />
+                ) : (
+                  <FormattedMessage id="global.update" />
+                )}
+              </Button>
+            </div>
           </>
         );
       }}

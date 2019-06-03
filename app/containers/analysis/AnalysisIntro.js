@@ -12,14 +12,18 @@ export default class AnalysisIntro extends Component<Props> {
   render() {
     return (
       <section>
-        <div className="smfp-intro-wrap">
-          <div className="smfp-intro-wrap-inner">
-            <div className="smfp-intro-heading">
-              <h1>تحلیل اطلاعات</h1>
-              <h3 className="sub-title">تحلیل اطلاعات مواد معدنی</h3>
+        <div className="smfp-analysis-intro-wrap">
+          <div className="smfp-analysis-intro-wrap-inner">
+            <div className="smfp-analysis-intro-heading text-center">
+              <h1 className="animated fadeInDown fast delay-0-5s">
+                تحلیل اطلاعات
+              </h1>
+              <h3 className="sub-title animated fadeInDown fast">
+                تحلیل اطلاعات مواد معدنی
+              </h3>
             </div>
 
-            <div className="smfp-admin-content">
+            <div className="smfp-analysis-intro-content">
               <Row>
                 <PanelItem
                   className="col-sm-4 col-xs-6"

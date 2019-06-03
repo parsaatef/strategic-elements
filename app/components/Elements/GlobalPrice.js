@@ -3,6 +3,7 @@ import { Query } from 'react-apollo';
 import { gql } from 'apollo-boost';
 import { GET_GLOBAL_PRICES } from '../../queries/global-price';
 import PageHeadingIcon from '../General/PageHeadingIcon';
+import Loading from '../General/Loading';
 
 export const GET_ELEMENT_BY_NAME = gql`
   query($element: String!) {
@@ -36,7 +37,7 @@ class GlobalPrice extends Component<Props> {
           }}
         >
           {({ data, loading }) => {
-            if (loading) return 'loading.....';
+            if (loading) return <Loading />;
 
             if (data && data.searchPrice && data.searchPrice.globalPrices) {
               return (
@@ -44,7 +45,10 @@ class GlobalPrice extends Component<Props> {
                   <table className="table table-with-width table-striped table-bordered">
                     <tbody>
                       {data.searchPrice.globalPrices.map(item => (
-                        <tr key={item.id}>
+                        <tr
+                          key={item.id}
+                          className="animated fadeInUp faster animation-auto-delay"
+                        >
                           <td>{item.year}</td>
                           <td>{item.price}</td>
                         </tr>
@@ -65,7 +69,7 @@ class GlobalPrice extends Component<Props> {
             }}
           >
             {({ data, loading, error, refetch }) => {
-              if (loading) return 'loading.....';
+              if (loading) return <Loading />;
 
               console.log('data, error, refetch', data, error, refetch);
 
