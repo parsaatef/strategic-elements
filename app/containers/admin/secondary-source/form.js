@@ -4,7 +4,11 @@ import { FormattedMessage } from 'react-intl';
 import AppForm from '../../../components/form/AppForm';
 import Field from '../../../components/form/Field';
 import ElementsSelect from '../../../components/form/ElementsSelect';
-import { FormattedSimpleMsg, getUnit } from '../../../utils/utility';
+import {
+  FormattedSimpleMsg,
+  getUnit,
+  getQualityLevel
+} from '../../../utils/utility';
 
 type Props = {
   formType: string,
@@ -31,9 +35,11 @@ const SecondarySourceForm = (props: Props) => {
       />
 
       <Field
-        type="number"
+        type="select"
         name="value"
         label={<FormattedMessage id="global.value" />}
+        options={getQualityLevel()}
+        placeholder={<FormattedSimpleMsg id="global.select" />}
       />
 
       <Field

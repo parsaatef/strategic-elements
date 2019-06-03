@@ -5,6 +5,8 @@ export const GET_MINE = gql`
     mine(id: $id) {
       id
       title
+      location
+      locationType
       activeMines
       productionValue
       unit
@@ -19,6 +21,8 @@ export const GET_MINES = gql`
   query(
     $ids: [ID!]
     $title: String
+    $location: String
+    $locationType: String
     $description: String
     $users: [String!]
     $elements: [String!]
@@ -30,6 +34,8 @@ export const GET_MINES = gql`
     searchMine(
       ids: $ids
       title: $title
+      location: $location
+      locationType: $locationType
       description: $description
       users: $users
       elements: $elements
@@ -41,6 +47,8 @@ export const GET_MINES = gql`
       mines {
         id
         title
+        location
+        locationType
         activeMines
         productionValue
         unit
@@ -56,6 +64,8 @@ export const GET_MINES = gql`
 export const REGISTER_MINE = gql`
   mutation(
     $title: String!
+    $location: String!
+    $locationType: String!
     $activeMines: Boolean!
     $productionValue: Int!
     $unit: String!
@@ -64,6 +74,8 @@ export const REGISTER_MINE = gql`
   ) {
     registerMine(
       title: $title
+      location: $location
+      locationType: $locationType
       activeMines: $activeMines
       productionValue: $productionValue
       unit: $unit
@@ -78,6 +90,8 @@ export const REGISTER_MINE = gql`
 export const UPDATE_MINE = gql`
   mutation(
     $id: ID!
+    $location: String!
+    $locationType: String!
     $title: String!
     $activeMines: Boolean!
     $productionValue: Int!
@@ -88,6 +102,8 @@ export const UPDATE_MINE = gql`
     updateMine(
       id: $id
       title: $title
+      location: $location
+      locationType: $locationType
       activeMines: $activeMines
       productionValue: $productionValue
       unit: $unit

@@ -8,6 +8,8 @@ export default gql`
       ids: [ID!]
       title: String
       description: String
+      location: String
+      locationType: String
       users: [String!]
       elements: [String!]
       sort: String
@@ -20,6 +22,8 @@ export default gql`
   extend type Mutation {
     registerMine(
       title: String!
+      location: String!
+      locationType: String!
       activeMines: Boolean!
       productionValue: Int!
       unit: String!
@@ -29,6 +33,8 @@ export default gql`
     updateMine(
       id: ID!
       title: String!
+      location: String!
+      locationType: String!
       activeMines: Boolean!
       productionValue: Int!
       unit: String!
@@ -47,6 +53,8 @@ export default gql`
   type Mine {
     id: ID!
     title: String!
+    location: String
+    locationType: String
     activeMines: Boolean
     productionValue: Int!
     unit: String!

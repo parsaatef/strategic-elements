@@ -8,7 +8,9 @@ const mineSchema = new mongoose.Schema(
     unit: String,
     description: String,
     username: String,
-    element: String
+    element: String,
+    location: String,
+    locationType: String
   },
   {
     timestamps: true

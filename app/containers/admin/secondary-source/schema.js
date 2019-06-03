@@ -11,7 +11,7 @@ const schema = yup.object({
     .min(2)
     .max(30)
     .required(),
-  value: yup.number(),
+  value: yup.string(),
   unit: yup.string(),
   description: yup.string()
 });

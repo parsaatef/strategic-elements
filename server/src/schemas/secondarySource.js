@@ -24,8 +24,8 @@ const description = Joi.string()
   .empty('')
   .label('Description');
 
-const unit = Joi.string().label('Formula');
-const value = Joi.number().label('Abundance');
+const unit = Joi.string().label('Unit');
+const value = Joi.string().label('Value');
 
 export const registerSecondarySource = Joi.object().keys({
   title,

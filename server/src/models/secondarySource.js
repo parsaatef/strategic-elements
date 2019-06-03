@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const secondarySourceSchema = new mongoose.Schema(
   {
     title: String,
-    value: Number,
+    value: String,
     unit: String,
     description: String,
     username: String,

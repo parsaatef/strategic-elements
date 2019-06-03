@@ -20,7 +20,7 @@ export default gql`
   extend type Mutation {
     registerSecondarySource(
       title: String!
-      value: Int!
+      value: String!
       unit: String!
       description: String
       element: String!
@@ -28,7 +28,7 @@ export default gql`
     updateSecondarySource(
       id: ID!
       title: String!
-      value: Int!
+      value: String!
       unit: String!
       description: String
       element: String!
@@ -45,7 +45,7 @@ export default gql`
   type SecondarySource {
     id: ID!
     title: String!
-    value: Int!
+    value: String!
     unit: String!
     description: String
     username: String!

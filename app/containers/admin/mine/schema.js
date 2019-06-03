@@ -11,6 +11,15 @@ const schema = yup.object({
     .min(2)
     .max(30)
     .required(),
+  location: yup
+    .string()
+    .min(2)
+    .max(20)
+    .required(),
+  locationType: yup
+    .string()
+    .required()
+    .matches(/(iran|world)/, { excludeEmptyString: true }),
   description: yup.string(),
   unit: yup.string(),
   productionValue: yup.number(),

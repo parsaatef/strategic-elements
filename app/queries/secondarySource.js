@@ -54,7 +54,7 @@ export const GET_SECONDARY_SOURCES = gql`
 export const REGISTER_SOURCE = gql`
   mutation(
     $title: String!
-    $value: Int!
+    $value: String!
     $unit: String!
     $description: String
     $element: String!
@@ -75,7 +75,7 @@ export const UPDATE_SOURCE = gql`
   mutation(
     $id: ID!
     $title: String!
-    $value: Int!
+    $value: String!
     $unit: String!
     $description: String
     $element: String!

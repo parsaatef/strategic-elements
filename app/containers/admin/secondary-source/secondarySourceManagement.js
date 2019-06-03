@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
-import { FormattedSimpleMsg } from '../../../utils/utility';
+import { FormattedSimpleMsg, getQualityLevel } from '../../../utils/utility';
 import Page from '../../../components/list-register/Page';
 import ElementForm from './form';
 import schema from './schema';
@@ -85,16 +85,17 @@ export default class SecondarySourceManagement extends Component<Props> {
               isCheck: true
             },
             {
-              key: 'element',
-              title: <FormattedMessage id="global.element" />
-            },
-            {
               key: 'title',
               title: <FormattedMessage id="global.title" />
             },
             {
+              key: 'element',
+              title: <FormattedMessage id="global.element" />
+            },
+            {
               key: 'value',
-              title: <FormattedMessage id="global.value" />
+              title: <FormattedMessage id="global.value" />,
+              item: dbCol => getQualityLevel('option', dbCol.value)
             },
             {
               key: 'unit',

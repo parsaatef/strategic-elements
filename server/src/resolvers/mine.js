@@ -15,6 +15,8 @@ export default {
     searchMine: (root, args) => {
       const {
         ids,
+        location,
+        locationType,
         title,
         description,
         users,
@@ -39,6 +41,14 @@ export default {
 
       if (description) {
         filters.description = new RegExp(description, 'i');
+      }
+
+      if (location) {
+        filters.location = new RegExp(location, 'i');
+      }
+
+      if (locationType) {
+        filters.locationType = locationType;
       }
 
       if (elements) {

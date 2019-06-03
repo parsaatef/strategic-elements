@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
-import { FormattedSimpleMsg } from '../../../utils/utility';
+import {
+  FormattedSimpleMsg,
+  getCountries,
+  getStates
+} from '../../../utils/utility';
 import Page from '../../../components/list-register/Page';
 import ElementForm from './form';
 import schema from './schema';
@@ -71,6 +75,12 @@ export default class MineManagement extends Component<Props> {
               label: 'global.description',
               type: 'text' // text or select
             },
+            /* {
+              filter: 'locationType',
+              label: 'global.locationType',
+              type: 'select', // text or select
+              options: getLocationType()
+            }, */
             {
               filter: 'elements',
               label: 'global.element',
@@ -92,6 +102,18 @@ export default class MineManagement extends Component<Props> {
             {
               key: 'element',
               title: <FormattedMessage id="global.element" />
+            },
+            {
+              key: 'location',
+              title: <FormattedMessage id="global.location" />,
+              item: dbCol => {
+                const value =
+                  dbCol.locationType === 'iran'
+                    ? getStates('option', dbCol.location)
+                    : getCountries('option', dbCol.location);
+
+                return value ? <FormattedSimpleMsg id={value} /> : '';
+              }
             },
             {
               key: 'productionValue',
