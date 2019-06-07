@@ -8,6 +8,7 @@ import mineral from './mineral';
 import secondarySource from './secondarySource';
 import totalStats from './totalStats';
 import mine from './mine';
+import technology from './technology';
 
 export default [
   root,
@@ -19,5 +20,6 @@ export default [
   mineral,
   secondarySource,
   totalStats,
-  mine
+  mine,
+  technology
 ];

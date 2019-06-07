@@ -7,3 +7,4 @@ export * from './mineral';
 export * from './secondarySource';
 export * from './totalStats';
 export * from './mine';
+export * from './technology';
