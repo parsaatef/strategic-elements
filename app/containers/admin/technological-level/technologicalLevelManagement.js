@@ -7,16 +7,16 @@ import {
   TECHNOLOGICAL_LEVEL_LIST,
   TECHNOLOGICAL_LEVEL_EDIT
 } from '../../../constants/routes';
-import ElementForm from './form';
+import MineralForm from './form';
 import schema from './schema';
 import {
-  GET_OPTION,
-  UPDATE_OPTION,
-  REGISTER_OPTION,
-  GET_OPTIONS,
-  DELETE_OPTION,
-  MULTI_DELETE_OPTIONS
-} from '../../../queries/option';
+  GET_TECHNOLOGY,
+  GET_TECHNOLOGIES,
+  REGISTER_TECHNOLOGY,
+  UPDATE_TECHNOLOGY,
+  DELETE_TECHNOLOGY,
+  MULTI_DELETE_TECHNOLOGIES
+} from '../../../queries/technology';
 
 export default class TechnologicalLevelManagement extends Component<Props> {
   render() {
@@ -28,7 +28,7 @@ export default class TechnologicalLevelManagement extends Component<Props> {
       <div>
         <Page
           id={id}
-          form={ElementForm}
+          form={MineralForm}
           schema={schema}
           hasElementTab={false}
           registerRoute={TECHNOLOGICAL_LEVEL_REGISTER}
@@ -40,57 +40,39 @@ export default class TechnologicalLevelManagement extends Component<Props> {
           pageIcon="smfpIcon smfpIcon-technological-level"
           query={{
             item: {
-              gql: GET_OPTION,
-              func: 'option',
-              variables: {
-                type: 'technology-level'
-              }
+              gql: GET_TECHNOLOGY,
+              func: 'technology'
             },
             register: {
-              gql: REGISTER_OPTION,
-              func: 'registerOption',
-              variables: {
-                type: 'technology-level'
-              }
+              gql: REGISTER_TECHNOLOGY,
+              func: 'registerTechnology'
             },
             update: {
-              gql: UPDATE_OPTION,
-              func: 'updateOption',
-              variables: {
-                type: 'technology-level'
-              }
+              gql: UPDATE_TECHNOLOGY,
+              func: 'updateTechnology'
             },
             list: {
-              gql: GET_OPTIONS,
-              func: 'searchOptions',
-              items: 'options',
-              variables: {
-                type: 'technology-level'
-              }
+              gql: GET_TECHNOLOGIES,
+              func: 'searchTechnologies',
+              items: 'technologies'
             },
             remove: {
-              gql: DELETE_OPTION,
-              func: 'removeOption',
-              variables: {
-                type: 'technology-level'
-              }
+              gql: DELETE_TECHNOLOGY,
+              func: 'removeTechnology'
             },
             multiRemove: {
-              gql: MULTI_DELETE_OPTIONS,
-              func: 'multiRemoveOptions',
-              variables: {
-                type: 'technology-level'
-              }
+              gql: MULTI_DELETE_TECHNOLOGIES,
+              func: 'multiRemoveTechnologies'
             }
           }}
           filters={[
             {
-              filter: 'name',
+              filter: 'title',
               label: 'global.title',
               type: 'text' // text or select
             },
             {
-              filter: 'value',
+              filter: 'level',
               label: 'global.level',
               type: 'select', // text or select
               options: getQualityLevel()
@@ -109,7 +91,7 @@ export default class TechnologicalLevelManagement extends Component<Props> {
               isCheck: true
             },
             {
-              key: 'name',
+              key: 'title',
               title: <FormattedMessage id="global.title" />
             },
             {
@@ -117,7 +99,7 @@ export default class TechnologicalLevelManagement extends Component<Props> {
               title: <FormattedMessage id="global.element" />
             },
             {
-              key: 'value',
+              key: 'level',
               title: <FormattedMessage id="global.level" />,
               item: dbCol => getQualityLevel('option', dbCol.value)
             },
@@ -131,8 +113,8 @@ export default class TechnologicalLevelManagement extends Component<Props> {
             }
           ]}
           indexCol="id"
-          keyCol="name"
-          titleCol="name"
+          keyCol="title"
+          titleCol="title"
         />
       </div>
     );

@@ -40,6 +40,44 @@ const MineralForm = (props: Props) => {
         placeholder={<FormattedMessage id="global.select" />}
       />
 
+      <Field
+        type="select"
+        name="strategicImportance"
+        label={<FormattedMessage id="global.strategicImportance" />}
+        options={options}
+        placeholder={<FormattedMessage id="global.select" />}
+      />
+
+      <Field
+        type="select"
+        name="economicSignificance"
+        label={<FormattedMessage id="global.economicSignificance" />}
+        options={options}
+        placeholder={<FormattedMessage id="global.select" />}
+      />
+
+      <Field
+        type="select"
+        name="rateOfJobCreation"
+        label={<FormattedMessage id="global.rateOfJobCreation" />}
+        options={options}
+        placeholder={<FormattedMessage id="global.select" />}
+      />
+
+      <Field
+        type="select"
+        name="AvailabilityInIran"
+        label={<FormattedMessage id="global.AvailabilityInIran" />}
+        options={options}
+        placeholder={<FormattedMessage id="global.select" />}
+      />
+
+      <Field
+        type="editor"
+        name="description"
+        label={<FormattedMessage id="global.description" />}
+      />
+
       <div className="animated fadeIn fast animation-auto-delay">
         <Button type="submit">
           {formType === 'register' ? (

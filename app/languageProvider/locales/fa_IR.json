@@ -142,6 +142,10 @@
   "global.secondarySourceList": "منابع ثانویه",
   "global.totalStatsList": "آمار کلی",
   "global.elementsStatsList": "آمار مواد معدنی",
+  "global.strategicImportance": "آمار مواد معدنی",
+  "global.economicSignificance": "آمار مواد معدنی",
+  "global.rateOfJobCreation": "آمار مواد معدنی",
+  "global.AvailabilityInIran": "آمار مواد معدنی",
 
   "world.Afghanistan": "افغانستان",
   "world.Angola": "آنگولا",
