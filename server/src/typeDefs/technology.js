@@ -2,16 +2,14 @@ import { gql } from 'apollo-server-express';
 
 export default gql`
   extend type Query {
-    mine(id: ID!): Technology @auth
-    mines: [Technology!]! @auth
+    technology(id: ID!): Technology @auth
+    technologies: [Technology!]! @auth
     searchTechnologies(
       ids: [ID!]
       title: String
       level: String
       strategicImportance: String
-      economicSignificance: String
-      rateOfJobCreation: String
-      AvailabilityInIran: String
+      availabilityInIran: String
       description: String
       users: [String!]
       element: String
@@ -27,9 +25,7 @@ export default gql`
       title: String!
       level: String!
       strategicImportance: String
-      economicSignificance: String
-      rateOfJobCreation: String
-      AvailabilityInIran: String
+      availabilityInIran: String!
       description: String
       element: String!
     ): Technology @auth
@@ -38,9 +34,7 @@ export default gql`
       title: String!
       level: String!
       strategicImportance: String
-      economicSignificance: String
-      rateOfJobCreation: String
-      AvailabilityInIran: String
+      availabilityInIran: String!
       description: String
       element: String!
     ): Result @auth
@@ -49,7 +43,7 @@ export default gql`
   }
 
   type TechnologiesResult {
-    mines: [Technology!]!
+    technologies: [Technology!]!
     totalCount: Int
   }
 
@@ -58,9 +52,7 @@ export default gql`
     title: String!
     level: String!
     strategicImportance: String
-    economicSignificance: String
-    rateOfJobCreation: String
-    AvailabilityInIran: String
+    availabilityInIran: String!
     description: String
     username: String!
     element: String!

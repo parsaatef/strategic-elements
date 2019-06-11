@@ -7,9 +7,7 @@ export const GET_TECHNOLOGY = gql`
       title
       level
       strategicImportance
-      economicSignificance
-      rateOfJobCreation
-      AvailabilityInIran
+      availabilityInIran
       description
       username
       element
@@ -23,9 +21,7 @@ export const GET_TECHNOLOGIES = gql`
     $title: String
     $level: String
     $strategicImportance: String
-    $economicSignificance: String
-    $rateOfJobCreation: String
-    $AvailabilityInIran: String
+    $availabilityInIran: String
     $description: String
     $users: [String!]
     $element: String
@@ -36,13 +32,11 @@ export const GET_TECHNOLOGIES = gql`
   ) {
     searchTechnologies(
       ids: $ids
-      $title: $title
-      $level: $level
-      $strategicImportance: $strategicImportance
-      $economicSignificance: $economicSignificance
-      $rateOfJobCreation: $rateOfJobCreation
-      $AvailabilityInIran: $AvailabilityInIran
-      $description: $description
+      title: $title
+      level: $level
+      strategicImportance: $strategicImportance
+      availabilityInIran: $availabilityInIran
+      description: $description
       users: $users
       element: $element
       sort: $sort
@@ -55,9 +49,7 @@ export const GET_TECHNOLOGIES = gql`
         title
         level
         strategicImportance
-        economicSignificance
-        rateOfJobCreation
-        AvailabilityInIran
+        availabilityInIran
         description
         username
         element
@@ -69,23 +61,19 @@ export const GET_TECHNOLOGIES = gql`
 
 export const REGISTER_TECHNOLOGY = gql`
   mutation(
-    $title: $title
-    $level: $level
-    $strategicImportance: $strategicImportance
-    $economicSignificance: $economicSignificance
-    $rateOfJobCreation: $rateOfJobCreation
-    $AvailabilityInIran: $AvailabilityInIran
-    $description: $description
+    $title: String!
+    $level: String!
+    $strategicImportance: String
+    $availabilityInIran: String!
+    $description: String
     $element: String!
   ) {
     registerTechnology(
-      $title: $title
-      $level: $level
-      $strategicImportance: $strategicImportance
-      $economicSignificance: $economicSignificance
-      $rateOfJobCreation: $rateOfJobCreation
-      $AvailabilityInIran: $AvailabilityInIran
-      $description: $description
+      title: $title
+      level: $level
+      strategicImportance: $strategicImportance
+      availabilityInIran: $availabilityInIran
+      description: $description
       element: $element
     ) {
       id
@@ -96,23 +84,20 @@ export const REGISTER_TECHNOLOGY = gql`
 export const UPDATE_TECHNOLOGY = gql`
   mutation(
     $id: ID!
-    $title: $title
-    $level: $level
-    $strategicImportance: $strategicImportance
-    $economicSignificance: $economicSignificance
-    $rateOfJobCreation: $rateOfJobCreation
-    $AvailabilityInIran: $AvailabilityInIran
-    $description: $description
+    $title: String!
+    $level: String!
+    $strategicImportance: String
+    $availabilityInIran: String!
+    $description: String
     $element: String!
   ) {
     updateTechnology(
-      $title: $title
-      $level: $level
-      $strategicImportance: $strategicImportance
-      $economicSignificance: $economicSignificance
-      $rateOfJobCreation: $rateOfJobCreation
-      $AvailabilityInIran: $AvailabilityInIran
-      $description: $description
+      id: $id
+      title: $title
+      level: $level
+      strategicImportance: $strategicImportance
+      availabilityInIran: $availabilityInIran
+      description: $description
       element: $element
     ) {
       result

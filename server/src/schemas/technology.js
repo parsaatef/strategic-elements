@@ -31,19 +31,10 @@ const strategicImportance = Joi.string()
   .max(60)
   .label('Strategic Importance');
 
-const economicSignificance = Joi.string()
+const availabilityInIran = Joi.string()
   .min(2)
   .max(60)
-  .label('Economic Significance');
-
-const rateOfJobCreation = Joi.string()
-  .min(2)
-  .max(60)
-  .label('Rate Of Job Creation');
-
-const AvailabilityInIran = Joi.string()
-  .min(2)
-  .max(60)
+  .required()
   .label('Availability In Iran');
 
 const description = Joi.string().label('Description');
@@ -52,9 +43,7 @@ export const registerTechnology = Joi.object().keys({
   title,
   level,
   strategicImportance,
-  economicSignificance,
-  rateOfJobCreation,
-  AvailabilityInIran,
+  availabilityInIran,
   description,
   element,
   username
@@ -64,9 +53,7 @@ export const updateTechnology = Joi.object().keys({
   title,
   level,
   strategicImportance,
-  economicSignificance,
-  rateOfJobCreation,
-  AvailabilityInIran,
+  availabilityInIran,
   description,
   element
 });

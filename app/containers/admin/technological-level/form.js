@@ -28,13 +28,13 @@ const MineralForm = (props: Props) => {
 
       <Field
         type="text"
-        name="name"
+        name="title"
         label={<FormattedMessage id="global.title" />}
       />
 
       <Field
         type="select"
-        name="value"
+        name="level"
         label={<FormattedMessage id="global.level" />}
         options={options}
         placeholder={<FormattedMessage id="global.select" />}
@@ -50,24 +50,8 @@ const MineralForm = (props: Props) => {
 
       <Field
         type="select"
-        name="economicSignificance"
-        label={<FormattedMessage id="global.economicSignificance" />}
-        options={options}
-        placeholder={<FormattedMessage id="global.select" />}
-      />
-
-      <Field
-        type="select"
-        name="rateOfJobCreation"
-        label={<FormattedMessage id="global.rateOfJobCreation" />}
-        options={options}
-        placeholder={<FormattedMessage id="global.select" />}
-      />
-
-      <Field
-        type="select"
-        name="AvailabilityInIran"
-        label={<FormattedMessage id="global.AvailabilityInIran" />}
+        name="availabilityInIran"
+        label={<FormattedMessage id="global.availabilityInIran" />}
         options={options}
         placeholder={<FormattedMessage id="global.select" />}
       />

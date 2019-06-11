@@ -18,9 +18,7 @@ export default {
         title,
         level,
         strategicImportance,
-        economicSignificance,
-        rateOfJobCreation,
-        AvailabilityInIran,
+        availabilityInIran,
         description,
         users,
         element,
@@ -58,16 +56,8 @@ export default {
         filters.strategicImportance = strategicImportance;
       }
 
-      if (economicSignificance) {
-        filters.economicSignificance = economicSignificance;
-      }
-
-      if (rateOfJobCreation) {
-        filters.rateOfJobCreation = rateOfJobCreation;
-      }
-
-      if (AvailabilityInIran) {
-        filters.AvailabilityInIran = AvailabilityInIran;
+      if (availabilityInIran) {
+        filters.availabilityInIran = availabilityInIran;
       }
 
       if (users) {
@@ -83,16 +73,16 @@ export default {
       }
 
       return {
-        options: query,
+        technologies: query,
         totalCount: Technology.count(filters).exec()
       };
     },
     technologies: () => Technology.find({}),
-    getTechnology: (root, args) => {
+    /* getTechnology: (root, args) => {
       const { title } = args;
 
       return Technology.findOne({ title });
-    },
+    }, */
     technology: (root, { id }) => {
       // , context, info
       // TODO: projection, sanitization

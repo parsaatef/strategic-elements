@@ -101,7 +101,7 @@ export default class TechnologicalLevelManagement extends Component<Props> {
             {
               key: 'level',
               title: <FormattedMessage id="global.level" />,
-              item: dbCol => getQualityLevel('option', dbCol.value)
+              item: dbCol => getQualityLevel('option', dbCol.level)
             },
             {
               key: 'username',

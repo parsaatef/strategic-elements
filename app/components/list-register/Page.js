@@ -102,6 +102,18 @@ class Page extends Component<Props> {
                 </Query>
               </Tab>
             )}
+
+            <Tab link={listRoute} isActive={this.activeRoute(listRoute)}>
+              <div className="icon">
+                <span className="fal fa-th-list" />
+              </div>
+              <div className="title">
+                <span>
+                  <FormattedMessage id="global.list" />
+                </span>
+              </div>
+            </Tab>
+
             <Tab
               link={registerRoute}
               isActive={this.activeRoute(registerRoute)}
@@ -115,16 +127,7 @@ class Page extends Component<Props> {
                 </span>
               </div>
             </Tab>
-            <Tab link={listRoute} isActive={this.activeRoute(listRoute)}>
-              <div className="icon">
-                <span className="fal fa-th-list" />
-              </div>
-              <div className="title">
-                <span>
-                  <FormattedMessage id="global.list" />
-                </span>
-              </div>
-            </Tab>
+
             {isEdit && (
               <Tab isActive={isEdit}>
                 <div className="icon">

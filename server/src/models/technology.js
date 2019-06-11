@@ -5,9 +5,7 @@ const technologySchema = new mongoose.Schema(
     title: String,
     level: String,
     strategicImportance: String,
-    economicSignificance: String,
-    rateOfJobCreation: String,
-    AvailabilityInIran: String,
+    availabilityInIran: String,
     description: String,
     element: String,
     username: String
