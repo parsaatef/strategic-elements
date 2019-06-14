@@ -63,7 +63,9 @@ class Page extends Component<Props> {
       titleCol,
       registerTitle,
       editTitle,
-      pageIcon
+      pageIcon,
+      itemsDetail,
+      itemsDetailLabels
     } = this.props;
 
     const { item } = query;
@@ -155,6 +157,8 @@ class Page extends Component<Props> {
                   indexCol={indexCol}
                   keyCol={keyCol}
                   titleCol={titleCol}
+                  itemsDetail={itemsDetail}
+                  itemsDetailLabels={itemsDetailLabels}
                 />
               )}
 

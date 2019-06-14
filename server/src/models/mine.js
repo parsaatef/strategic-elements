@@ -3,14 +3,17 @@ import mongoose from 'mongoose';
 const mineSchema = new mongoose.Schema(
   {
     title: String,
-    activeMines: Boolean,
+    location: String,
+    locationType: String,
+    mineral: String,
+    caratAverage: Number,
+    status: String,
     productionValue: Number,
     unit: String,
+    impactPreventLocalDeprivation: String,
     description: String,
     username: String,
-    element: String,
-    location: String,
-    locationType: String
+    element: String
   },
   {
     timestamps: true

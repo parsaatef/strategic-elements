@@ -1,17 +1,6 @@
 {
   "States": [
     {
-      "name": "",
-      "title": "global.selectState",
-      "id": "global.selectState",
-      "state": "",
-      "centered": "",
-      "latitude": "",
-      "longitude": "",
-      "fillKey": "Default",
-      "radius": "8"
-    },
-    {
       "name": "Kohgiluyeh and Buyer Ahmad",
       "title": "iran.KohgiluyehAndBuyerAhmad",
       "id": "iran.KohgiluyehAndBuyerAhmad",

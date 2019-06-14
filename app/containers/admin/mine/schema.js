@@ -16,14 +16,22 @@ const schema = yup.object({
     .min(2)
     .max(20)
     .required(),
-  locationType: yup
+  /* locationType: yup
     .string()
     .required()
-    .matches(/(iran|world)/, { excludeEmptyString: true }),
+    .matches(/(iran|world)/, { excludeEmptyString: true }), */
+  mineral: yup
+    .string()
+    .min(3)
+    .max(30),
   description: yup.string(),
   unit: yup.string(),
+  impactPreventLocalDeprivation: yup.string(),
   productionValue: yup.number(),
-  activeMines: yup.bool()
+  caratAverage: yup.number(),
+  status: yup
+    .string()
+    .matches(/(active|inactive)/, { excludeEmptyString: true })
 });
 
 export default schema;

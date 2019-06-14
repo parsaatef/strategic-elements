@@ -64,7 +64,6 @@ class ListFilters extends Component<Props> {
     const { applyFilters, autoApply } = this.props;
 
     const value = currentFilter.type !== 'text' ? e.value : e.target.value;
-    console.log('----e---', e);
 
     this.setState(
       {

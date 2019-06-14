@@ -13,7 +13,8 @@ type Props = {
   value: string,
   label: string,
   error: array | string,
-  handleChange: () => void
+  handleChange: () => void,
+  required: boolean
 };
 
 class TextEditor extends React.Component<Props> {
@@ -39,7 +40,7 @@ class TextEditor extends React.Component<Props> {
   render() {
     const { show } = this.state;
 
-    const { name, value, handleChange, label, error } = this.props;
+    const { name, value, handleChange, label, error, required } = this.props;
 
     return (
       <Group
@@ -47,10 +48,11 @@ class TextEditor extends React.Component<Props> {
         as={Row}
         controlId={`field_${name}`}
       >
-        <Label column sm={3}>
+        <Label column sm={4}>
           {label}
+          {required && <span className="text-danger">*</span>}
         </Label>
-        <Col sm={9}>
+        <Col sm={8}>
           <Button variant="primary" onClick={this.handleShow}>
             <FormattedSimpleMsg id="global.open_editor" />
           </Button>

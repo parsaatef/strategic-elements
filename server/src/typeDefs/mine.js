@@ -10,6 +10,7 @@ export default gql`
       description: String
       location: String
       locationType: String
+      mineral: String
       users: [String!]
       elements: [String!]
       sort: String
@@ -24,9 +25,12 @@ export default gql`
       title: String!
       location: String!
       locationType: String!
-      activeMines: Boolean!
-      productionValue: Int!
-      unit: String!
+      mineral: String
+      caratAverage: Float
+      status: String
+      productionValue: Float
+      unit: String
+      impactPreventLocalDeprivation: String
       description: String
       element: String!
     ): Mine @auth
@@ -35,9 +39,12 @@ export default gql`
       title: String!
       location: String!
       locationType: String!
-      activeMines: Boolean!
-      productionValue: Int!
-      unit: String!
+      mineral: String
+      caratAverage: Float
+      status: String
+      productionValue: Float
+      unit: String
+      impactPreventLocalDeprivation: String
       description: String
       element: String!
     ): Result @auth
@@ -53,11 +60,14 @@ export default gql`
   type Mine {
     id: ID!
     title: String!
-    location: String
-    locationType: String
-    activeMines: Boolean
-    productionValue: Int!
-    unit: String!
+    location: String!
+    locationType: String!
+    mineral: String
+    caratAverage: Float
+    status: String
+    productionValue: Float
+    unit: String
+    impactPreventLocalDeprivation: String
     description: String
     username: String!
     element: String!

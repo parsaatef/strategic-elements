@@ -3,7 +3,11 @@ import { FormattedMessage } from 'react-intl';
 import {
   FormattedSimpleMsg,
   getCountries,
-  getStates
+  getStates,
+  getMineStatus,
+  getQualityLevel,
+  getLocationType,
+  getUnit
 } from '../../../utils/utility';
 import Page from '../../../components/list-register/Page';
 import ElementForm from './form';
@@ -44,16 +48,25 @@ export default class MineManagement extends Component<Props> {
             },
             register: {
               gql: REGISTER_MINE,
-              func: 'registerMine'
+              func: 'registerMine',
+              variables: {
+                locationType: 'iran'
+              }
             },
             update: {
               gql: UPDATE_MINE,
-              func: 'updateMine'
+              func: 'updateMine',
+              variables: {
+                locationType: 'iran'
+              }
             },
             list: {
               gql: GET_MINES,
               func: 'searchMine',
-              items: 'mines'
+              items: 'mines',
+              variables: {
+                locationType: 'iran'
+              }
             },
             remove: {
               gql: DELETE_MINE,
@@ -66,28 +79,34 @@ export default class MineManagement extends Component<Props> {
           }}
           filters={[
             {
+              filter: 'elements',
+              label: 'global.element',
+              type: 'element', // text or select
+              isDefault: true,
+              default: ''
+            },
+            {
               filter: 'title',
               label: 'global.title',
               type: 'text' // text or select
             },
             {
-              filter: 'description',
-              label: 'global.description',
+              filter: 'location',
+              label: 'global.state',
+              type: 'select', // text or select
+              options: getMineStatus()
+            }
+            /* {
+              filter: 'mineral',
+              label: 'global.mineral',
               type: 'text' // text or select
-            },
+            }, */
             /* {
               filter: 'locationType',
               label: 'global.locationType',
               type: 'select', // text or select
               options: getLocationType()
             }, */
-            {
-              filter: 'elements',
-              label: 'global.element',
-              type: 'element', // text or select
-              isDefault: true,
-              default: ''
-            }
           ]}
           columns={[
             {
@@ -97,23 +116,35 @@ export default class MineManagement extends Component<Props> {
 
             {
               key: 'title',
-              title: <FormattedMessage id="global.title" />
-            },
-            {
-              key: 'element',
-              title: <FormattedMessage id="global.element" />
+              title: <FormattedMessage id="global.mine_name" />
             },
             {
               key: 'location',
-              title: <FormattedMessage id="global.location" />,
+              title: <FormattedMessage id="global.state" />,
               item: dbCol => {
                 const value =
                   dbCol.locationType === 'iran'
                     ? getStates('option', dbCol.location)
                     : getCountries('option', dbCol.location);
 
-                return value ? <FormattedSimpleMsg id={value} /> : '';
+                return value && dbCol.locationType === 'iran' ? (
+                  <FormattedSimpleMsg id={value} />
+                ) : (
+                  value
+                );
               }
+            },
+            {
+              key: 'element',
+              title: <FormattedMessage id="global.element" />
+            },
+            {
+              key: 'mineral',
+              title: <FormattedMessage id="global.main_mineral" />
+            },
+            {
+              key: 'caratAverage',
+              title: <FormattedMessage id="global.caratAverage" />
             },
             {
               key: 'productionValue',
@@ -125,16 +156,43 @@ export default class MineManagement extends Component<Props> {
               isUnit: true
             },
             {
-              key: 'username',
-              title: <FormattedMessage id="global.username" />
-            },
-            {
               key: 'action',
               title: <FormattedMessage id="global.actions" />
             }
           ]}
+          itemsDetail={{
+            location: dbCol => {
+              const value =
+                dbCol.locationType === 'iran'
+                  ? getStates('option', dbCol.location)
+                  : getCountries('option', dbCol.location);
+
+              return value && dbCol.locationType === 'iran' ? (
+                <FormattedSimpleMsg id={value} />
+              ) : (
+                value
+              );
+            },
+            locationType: dbCol =>
+              getLocationType('option', dbCol.locationType),
+            unit: dbCol => getUnit('option', dbCol.unit),
+            status: dbCol => getMineStatus('option', dbCol.status),
+            impactPreventLocalDeprivation: dbCol =>
+              getQualityLevel('option', dbCol.impactPreventLocalDeprivation),
+            description: dbCol => (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: dbCol.description
+                }}
+              />
+            )
+          }}
+          itemsDetailLabels={{
+            location: <FormattedMessage id="global.state" />,
+            locationType: <FormattedMessage id="global.country" />
+          }}
           indexCol="id"
-          keyCol="title"
+          keyCol="id"
           titleCol="title"
         />
       </div>

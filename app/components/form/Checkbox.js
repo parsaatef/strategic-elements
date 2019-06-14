@@ -8,10 +8,18 @@ type Props = {
   value: string,
   label: string,
   error: array | string,
-  handleChange: () => void
+  handleChange: () => void,
+  required: boolean
 };
 
-const Checkbox = ({ name, value, handleChange, label, error }: Props) => (
+const Checkbox = ({
+  name,
+  value,
+  handleChange,
+  label,
+  error,
+  required
+}: Props) => (
   <Group
     className="checkbox-field-group animated fadeIn fast animation-auto-delay"
     as={Row}
@@ -28,6 +36,7 @@ const Checkbox = ({ name, value, handleChange, label, error }: Props) => (
           isInvalid={!!error}
         />
         {label}
+        {required && <span className="text-danger">*</span>}
         <span className="checkmark" />
       </Label>
       <Control.Feedback type="invalid">{error}</Control.Feedback>

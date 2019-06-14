@@ -122,7 +122,11 @@ export default class ElementStatsManagement extends Component<Props> {
                     ? getStates('option', dbCol.location)
                     : getCountries('option', dbCol.location);
 
-                return value ? <FormattedSimpleMsg id={value} /> : '';
+                return value && dbCol.locationType === 'iran' ? (
+                  <FormattedSimpleMsg id={value} />
+                ) : (
+                  value
+                );
               }
             },
             {

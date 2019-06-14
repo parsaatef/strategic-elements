@@ -12,7 +12,7 @@ export const GET_ELEMENT_BY_NAME = gql`
       density
       meltingPoint
       boilingPoint
-      hardness
+      atomicNumber
       toxicity
       magneticProperty
       electricalConductivity
@@ -20,18 +20,12 @@ export const GET_ELEMENT_BY_NAME = gql`
       category
       period
       atomicWeight
-      electronegativity
-      oxidationStates
-      electronConfiguration
-      atomicRadius
+      usage1
+      usage2
+      usage3
+      usage4
       concentrationInEarthsCrust
       description
-      relatedIndustryDesc
-      technologyLevelDesc
-      lowLevelIndustryDesc
-      threatyDesc
-      secondaryResourcesDesc
-      ecologyDesc
       username
     }
   }
@@ -43,32 +37,26 @@ export const GET_ELEMENT = gql`
       id
       element
       elementTitle
-      symbol
       chemicalFormula
+      symbol
       phaseAtSTP
+      group
+      period
+      category
+      atomicNumber
+      atomicWeight
       density
       meltingPoint
       boilingPoint
-      hardness
-      toxicity
-      magneticProperty
       electricalConductivity
-      group
-      category
-      period
-      atomicWeight
-      electronegativity
-      oxidationStates
-      electronConfiguration
-      atomicRadius
+      magneticProperty
+      toxicity
       concentrationInEarthsCrust
+      usage1
+      usage2
+      usage3
+      usage4
       description
-      relatedIndustryDesc
-      technologyLevelDesc
-      lowLevelIndustryDesc
-      threatyDesc
-      secondaryResourcesDesc
-      ecologyDesc
       username
     }
   }
@@ -79,8 +67,8 @@ export const GET_ELEMENTS = gql`
     $ids: [ID!]
     $elementTitle: String
     $phaseAtSTP: String
-    $toxicity: Boolean
-    $magneticProperty: Boolean
+    $toxicity: String
+    $magneticProperty: String
     $electricalConductivity: String
     $group: String
     $category: String
@@ -117,7 +105,7 @@ export const GET_ELEMENTS = gql`
         density
         meltingPoint
         boilingPoint
-        hardness
+        atomicNumber
         toxicity
         magneticProperty
         electricalConductivity
@@ -125,18 +113,12 @@ export const GET_ELEMENTS = gql`
         category
         period
         atomicWeight
-        electronegativity
-        oxidationStates
-        electronConfiguration
-        atomicRadius
+        usage1
+        usage2
+        usage3
+        usage4
         concentrationInEarthsCrust
         description
-        relatedIndustryDesc
-        technologyLevelDesc
-        lowLevelIndustryDesc
-        threatyDesc
-        secondaryResourcesDesc
-        ecologyDesc
         username
       }
       totalCount
@@ -152,28 +134,22 @@ export const REGISTER_ELEMENT = gql`
     $chemicalFormula: String
     $phaseAtSTP: String
     $density: Float
-    $meltingPoint: Int
-    $boilingPoint: Int
-    $hardness: Float
-    $toxicity: Boolean
-    $magneticProperty: Boolean
+    $meltingPoint: Float
+    $boilingPoint: Float
+    $atomicNumber: Float
+    $toxicity: String
+    $magneticProperty: String
     $electricalConductivity: String
-    $group: String!
+    $group: String
     $category: String!
     $period: String
     $atomicWeight: Float
-    $electronegativity: Float
-    $oxidationStates: String
-    $electronConfiguration: String
-    $atomicRadius: Float
+    $usage1: String
+    $usage2: String
+    $usage3: String
+    $usage4: String
     $concentrationInEarthsCrust: Float
     $description: String
-    $relatedIndustryDesc: String
-    $technologyLevelDesc: String
-    $lowLevelIndustryDesc: String
-    $threatyDesc: String
-    $secondaryResourcesDesc: String
-    $ecologyDesc: String
   ) {
     registerElement(
       element: $element
@@ -184,7 +160,7 @@ export const REGISTER_ELEMENT = gql`
       density: $density
       meltingPoint: $meltingPoint
       boilingPoint: $boilingPoint
-      hardness: $hardness
+      atomicNumber: $atomicNumber
       toxicity: $toxicity
       magneticProperty: $magneticProperty
       electricalConductivity: $electricalConductivity
@@ -192,18 +168,12 @@ export const REGISTER_ELEMENT = gql`
       category: $category
       period: $period
       atomicWeight: $atomicWeight
-      electronegativity: $electronegativity
-      oxidationStates: $oxidationStates
-      electronConfiguration: $electronConfiguration
-      atomicRadius: $atomicRadius
+      usage1: $usage1
+      usage2: $usage2
+      usage3: $usage3
+      usage4: $usage4
       concentrationInEarthsCrust: $concentrationInEarthsCrust
       description: $description
-      relatedIndustryDesc: $relatedIndustryDesc
-      technologyLevelDesc: $technologyLevelDesc
-      lowLevelIndustryDesc: $lowLevelIndustryDesc
-      threatyDesc: $threatyDesc
-      secondaryResourcesDesc: $secondaryResourcesDesc
-      ecologyDesc: $ecologyDesc
     ) {
       id
     }
@@ -218,28 +188,22 @@ export const UPDATE_ELEMENT = gql`
     $chemicalFormula: String
     $phaseAtSTP: String
     $density: Float
-    $meltingPoint: Int
-    $boilingPoint: Int
-    $hardness: Float
-    $toxicity: Boolean
-    $magneticProperty: Boolean
+    $meltingPoint: Float
+    $boilingPoint: Float
+    $atomicNumber: Float
+    $toxicity: String
+    $magneticProperty: String
     $electricalConductivity: String
-    $group: String!
+    $group: String
     $category: String!
     $period: String
     $atomicWeight: Float
-    $electronegativity: Float
-    $oxidationStates: String
-    $electronConfiguration: String
-    $atomicRadius: Float
+    $usage1: String
+    $usage2: String
+    $usage3: String
+    $usage4: String
     $concentrationInEarthsCrust: Float
     $description: String
-    $relatedIndustryDesc: String
-    $technologyLevelDesc: String
-    $lowLevelIndustryDesc: String
-    $threatyDesc: String
-    $secondaryResourcesDesc: String
-    $ecologyDesc: String
   ) {
     updateElement(
       id: $id
@@ -250,7 +214,7 @@ export const UPDATE_ELEMENT = gql`
       density: $density
       meltingPoint: $meltingPoint
       boilingPoint: $boilingPoint
-      hardness: $hardness
+      atomicNumber: $atomicNumber
       toxicity: $toxicity
       magneticProperty: $magneticProperty
       electricalConductivity: $electricalConductivity
@@ -258,18 +222,12 @@ export const UPDATE_ELEMENT = gql`
       category: $category
       period: $period
       atomicWeight: $atomicWeight
-      electronegativity: $electronegativity
-      oxidationStates: $oxidationStates
-      electronConfiguration: $electronConfiguration
-      atomicRadius: $atomicRadius
+      usage1: $usage1
+      usage2: $usage2
+      usage3: $usage3
+      usage4: $usage4
       concentrationInEarthsCrust: $concentrationInEarthsCrust
       description: $description
-      relatedIndustryDesc: $relatedIndustryDesc
-      technologyLevelDesc: $technologyLevelDesc
-      lowLevelIndustryDesc: $lowLevelIndustryDesc
-      threatyDesc: $threatyDesc
-      secondaryResourcesDesc: $secondaryResourcesDesc
-      ecologyDesc: $ecologyDesc
     ) {
       result
     }

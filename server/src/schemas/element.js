@@ -8,7 +8,7 @@ const username = Joi.string()
   .label('Username');
 
 const element = Joi.string()
-  .alphanum()
+  // .alphanum()
   .min(2)
   .max(30)
   .required()
@@ -20,51 +20,53 @@ const elementTitle = Joi.string()
 const symbol = Joi.string()
   .required()
   .label('Symbol');
-const chemicalFormula = Joi.string().label('Chemical Formula');
-const phaseAtSTP = Joi.string().label('Phase At STP');
+const chemicalFormula = Joi.string()
+  .empty('')
+  .label('Chemical Formula');
+const phaseAtSTP = Joi.string()
+  .empty('')
+  .label('Phase At STP');
 const density = Joi.number().label('Density');
 const meltingPoint = Joi.number().label('Melting Point');
 const boilingPoint = Joi.number().label('Boiling Point');
-const hardness = Joi.number().label('Hardness');
-const toxicity = Joi.boolean().label('Toxicity');
-const magneticProperty = Joi.boolean().label('Magnetic Property');
-const electricalConductivity = Joi.string().label('Electrical Conductivity');
+const atomicNumber = Joi.number().label('Atomic Number');
+const toxicity = Joi.string()
+  .empty('')
+  .label('Toxicity');
+const magneticProperty = Joi.string()
+  .empty('')
+  .label('Magnetic Property');
+const electricalConductivity = Joi.string()
+  .empty('')
+  .label('Electrical Conductivity');
 const group = Joi.string()
-  .required()
+  .empty('')
   .label('Group');
 const category = Joi.string()
   .required()
   .label('Category');
-const period = Joi.string().label('Period');
+const period = Joi.string()
+  .empty('')
+  .label('Period');
 const atomicWeight = Joi.number().label('AtomicWeight');
-const electronegativity = Joi.number().label('Electronegativity');
-const oxidationStates = Joi.string().label('Oxidation States');
-const electronConfiguration = Joi.string().label('Electron Configuration');
-const atomicRadius = Joi.number().label('Atomic Radius');
+const usage1 = Joi.string()
+  .empty('')
+  .label('Usage 1');
+const usage2 = Joi.string()
+  .empty('')
+  .label('Usage 2');
+const usage3 = Joi.string()
+  .empty('')
+  .label('Usage 3');
+const usage4 = Joi.string()
+  .empty('')
+  .label('Usage 4');
 const concentrationInEarthsCrust = Joi.number().label(
   "Concentration In Earth's Crust"
 );
 const description = Joi.string()
   .empty('')
   .label('Description');
-const relatedIndustryDesc = Joi.string()
-  .empty('')
-  .label('Related Industry Desc');
-const technologyLevelDesc = Joi.string()
-  .empty('')
-  .label('Technology Level Desc');
-const lowLevelIndustryDesc = Joi.string()
-  .empty('')
-  .label('Low Level Industry Desc');
-const threatyDesc = Joi.string()
-  .empty('')
-  .label('Threaty Desc');
-const secondaryResourcesDesc = Joi.string()
-  .empty('')
-  .label('Secondary Resources Desc');
-const ecologyDesc = Joi.string()
-  .empty('')
-  .label('Ecology Desc');
 
 export const registerElement = Joi.object().keys({
   element,
@@ -75,7 +77,7 @@ export const registerElement = Joi.object().keys({
   density,
   meltingPoint,
   boilingPoint,
-  hardness,
+  atomicNumber,
   toxicity,
   magneticProperty,
   electricalConductivity,
@@ -83,18 +85,12 @@ export const registerElement = Joi.object().keys({
   category,
   period,
   atomicWeight,
-  electronegativity,
-  oxidationStates,
-  electronConfiguration,
-  atomicRadius,
+  usage1,
+  usage2,
+  usage3,
+  usage4,
   concentrationInEarthsCrust,
   description,
-  relatedIndustryDesc,
-  technologyLevelDesc,
-  lowLevelIndustryDesc,
-  threatyDesc,
-  secondaryResourcesDesc,
-  ecologyDesc,
   username
 });
 
@@ -106,7 +102,7 @@ export const updateElement = Joi.object().keys({
   density,
   meltingPoint,
   boilingPoint,
-  hardness,
+  atomicNumber,
   toxicity,
   magneticProperty,
   electricalConductivity,
@@ -114,16 +110,10 @@ export const updateElement = Joi.object().keys({
   category,
   period,
   atomicWeight,
-  electronegativity,
-  oxidationStates,
-  electronConfiguration,
-  atomicRadius,
+  usage1,
+  usage2,
+  usage3,
+  usage4,
   concentrationInEarthsCrust,
-  description,
-  relatedIndustryDesc,
-  technologyLevelDesc,
-  lowLevelIndustryDesc,
-  threatyDesc,
-  secondaryResourcesDesc,
-  ecologyDesc
+  description
 });

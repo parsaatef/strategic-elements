@@ -56,13 +56,21 @@ class AppForm extends Component<Props> {
       state => {
         const newValues = _.clone(state.values);
 
-        newValues[name] = value;
+        if (value || value === 0 || value === false) {
+          newValues[name] = value;
+        } else if (!_.isUndefined(newValues[name])) {
+          delete newValues[name];
+        }
 
         return {
           values: newValues
         };
       },
       () => {
+        if (!(value || value === 0 || value === false)) {
+          return;
+        }
+
         // TODO: maybe we need to validate the fields after each changes
         const { schema } = this.props;
 

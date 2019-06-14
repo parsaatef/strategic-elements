@@ -18,6 +18,7 @@ export default {
         location,
         locationType,
         title,
+        mineral,
         description,
         users,
         elements,
@@ -49,6 +50,10 @@ export default {
 
       if (locationType) {
         filters.locationType = locationType;
+      }
+
+      if (mineral) {
+        filters.mineral = mineral;
       }
 
       if (elements) {

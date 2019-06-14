@@ -107,7 +107,9 @@ class ItemsList extends Component<Props> {
       editRoute,
       indexCol,
       keyCol,
-      titleCol
+      titleCol,
+      itemsDetail,
+      itemsDetailLabels
     } = this.props;
 
     const { list } = query;
@@ -184,6 +186,8 @@ class ItemsList extends Component<Props> {
                   checkAll={this.checkAll}
                   editRoute={editRoute}
                   titleCol={titleCol}
+                  itemsDetail={itemsDetail}
+                  itemsDetailLabels={itemsDetailLabels}
                 />
 
                 <STPagination

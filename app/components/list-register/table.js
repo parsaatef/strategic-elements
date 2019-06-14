@@ -3,6 +3,7 @@ import { Form } from 'react-bootstrap';
 import _ from 'underscore';
 import ListActions from './ListActions';
 import { getUnit } from '../../utils/utility';
+import DetailAction from './detail';
 
 const { Control, Label } = Form;
 
@@ -58,7 +59,9 @@ class Table extends Component<Props> {
       titleCol,
       query,
       checkAll,
-      editRoute
+      editRoute,
+      itemsDetail,
+      itemsDetailLabels
     } = this.props;
 
     const { list } = query;
@@ -134,6 +137,8 @@ class Table extends Component<Props> {
                           indexCol={indexCol}
                           keyCol={keyCol}
                           titleCol={titleCol}
+                          itemsDetail={itemsDetail}
+                          itemsDetailLabels={itemsDetailLabels}
                         />
                       </td>
                     );
@@ -143,6 +148,27 @@ class Table extends Component<Props> {
                     return (
                       <td key={col.key}>
                         <span>{getUnit('option', dbCol.unit)}</span>
+                      </td>
+                    );
+                  }
+
+                  if (col && col.key === titleCol) {
+                    return (
+                      <td key={col.key}>
+                        {col && col.item && _.isFunction(col.item) ? (
+                          <span> col.item(dbCol)</span>
+                        ) : (
+                          <DetailAction
+                            id={dbCol[indexCol]}
+                            query={query}
+                            indexCol={indexCol}
+                            keyCol={keyCol}
+                            titleCol={titleCol}
+                            type="text"
+                            itemsDetail={itemsDetail}
+                            itemsDetailLabels={itemsDetailLabels}
+                          />
+                        )}
                       </td>
                     );
                   }

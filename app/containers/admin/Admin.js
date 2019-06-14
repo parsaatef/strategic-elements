@@ -53,7 +53,7 @@ export default class Admin extends Component<Props> {
                   className="col-sm-4 col-xs-6"
                   link={ELEMENTS_STATS_LIST}
                   icon="smfpIcon smfpIcon-element-stats"
-                  title="آمار مواد معدنی"
+                  title="تولید و مصرف"
                 />
 
                 <PanelItem

@@ -9,8 +9,8 @@ export default gql`
       ids: [ID!]
       elementTitle: String
       phaseAtSTP: String
-      toxicity: Boolean
-      magneticProperty: Boolean
+      toxicity: String
+      magneticProperty: String
       electricalConductivity: String
       group: String
       category: String
@@ -31,28 +31,22 @@ export default gql`
       chemicalFormula: String
       phaseAtSTP: String
       density: Float
-      meltingPoint: Int
-      boilingPoint: Int
-      hardness: Float
-      toxicity: Boolean
-      magneticProperty: Boolean
+      meltingPoint: Float
+      boilingPoint: Float
+      toxicity: String
+      magneticProperty: String
       electricalConductivity: String
-      group: String!
+      group: String
       category: String!
       period: String
       atomicWeight: Float
-      electronegativity: Float
-      oxidationStates: String
-      electronConfiguration: String
-      atomicRadius: Float
+      atomicNumber: Float
+      usage1: String
+      usage2: String
+      usage3: String
+      usage4: String
       concentrationInEarthsCrust: Float
       description: String
-      relatedIndustryDesc: String
-      technologyLevelDesc: String
-      lowLevelIndustryDesc: String
-      threatyDesc: String
-      secondaryResourcesDesc: String
-      ecologyDesc: String
     ): Element @auth
     updateElement(
       id: ID!
@@ -61,28 +55,22 @@ export default gql`
       chemicalFormula: String
       phaseAtSTP: String
       density: Float
-      meltingPoint: Int
-      boilingPoint: Int
-      hardness: Float
-      toxicity: Boolean
-      magneticProperty: Boolean
+      meltingPoint: Float
+      boilingPoint: Float
+      toxicity: String
+      magneticProperty: String
       electricalConductivity: String
-      group: String!
+      group: String
       category: String!
       period: String
       atomicWeight: Float
-      electronegativity: Float
-      oxidationStates: String
-      electronConfiguration: String
-      atomicRadius: Float
+      atomicNumber: Float
+      usage1: String
+      usage2: String
+      usage3: String
+      usage4: String
       concentrationInEarthsCrust: Float
       description: String
-      relatedIndustryDesc: String
-      technologyLevelDesc: String
-      lowLevelIndustryDesc: String
-      threatyDesc: String
-      secondaryResourcesDesc: String
-      ecologyDesc: String
     ): Result @auth
     removeElement(id: ID!): Result @auth
     multiRemoveElements(ids: [ID!]!): Result @auth
@@ -101,28 +89,22 @@ export default gql`
     chemicalFormula: String
     phaseAtSTP: String
     density: Float
-    meltingPoint: Int
-    boilingPoint: Int
-    hardness: Float
-    toxicity: Boolean
-    magneticProperty: Boolean
+    meltingPoint: Float
+    boilingPoint: Float
+    toxicity: String
+    magneticProperty: String
     electricalConductivity: String
-    group: String!
-    category: String
+    group: String
+    category: String!
     period: String
     atomicWeight: Float
-    electronegativity: Float
-    oxidationStates: String
-    electronConfiguration: String
-    atomicRadius: Float
+    atomicNumber: Float
+    usage1: String
+    usage2: String
+    usage3: String
+    usage4: String
     concentrationInEarthsCrust: Float
     description: String
-    relatedIndustryDesc: String
-    technologyLevelDesc: String
-    lowLevelIndustryDesc: String
-    threatyDesc: String
-    secondaryResourcesDesc: String
-    ecologyDesc: String
     username: String!
     createdAt: String!
     updatedAt: String!

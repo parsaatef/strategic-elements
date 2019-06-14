@@ -1,15 +1,6 @@
 {
   "Countries": [
     {
-      "name": "",
-      "title": "global.selectCountry",
-      "id": "world.selectCountry",
-      "country": "",
-      "centered": "",
-      "fillKey": "Default",
-      "radius": "5"
-    },
-    {
       "name": "Afghanistan",
       "title": "world.Afghanistan",
       "id": "world.Afghanistan",
@@ -72,15 +63,7 @@
       "fillKey": "Default",
       "radius": "5"
     },
-    {
-      "name": "",
-      "title": "world.FrenchSouthernAndAntarcticLands",
-      "id": "world.FrenchSouthernAndAntarcticLands",
-      "country": "ATF",
-      "centered": "ATF",
-      "fillKey": "Default",
-      "radius": "5"
-    },
+
     {
       "name": "Australia",
       "title": "world.Australia",
@@ -370,7 +353,7 @@
       "radius": "5"
     },
     {
-      "name": "",
+      "name": "CzechRepublic",
       "title": "world.CzechRepublic",
       "id": "world.CzechRepublic",
       "country": "CZE",

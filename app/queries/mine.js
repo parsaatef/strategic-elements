@@ -7,9 +7,12 @@ export const GET_MINE = gql`
       title
       location
       locationType
-      activeMines
+      mineral
+      caratAverage
+      status
       productionValue
       unit
+      impactPreventLocalDeprivation
       description
       username
       element
@@ -23,6 +26,7 @@ export const GET_MINES = gql`
     $title: String
     $location: String
     $locationType: String
+    $mineral: String
     $description: String
     $users: [String!]
     $elements: [String!]
@@ -37,6 +41,7 @@ export const GET_MINES = gql`
       location: $location
       locationType: $locationType
       description: $description
+      mineral: $mineral
       users: $users
       elements: $elements
       sort: $sort
@@ -49,9 +54,12 @@ export const GET_MINES = gql`
         title
         location
         locationType
-        activeMines
+        mineral
+        caratAverage
+        status
         productionValue
         unit
+        impactPreventLocalDeprivation
         description
         username
         element
@@ -66,9 +74,12 @@ export const REGISTER_MINE = gql`
     $title: String!
     $location: String!
     $locationType: String!
-    $activeMines: Boolean!
-    $productionValue: Int!
-    $unit: String!
+    $mineral: String
+    $caratAverage: Float
+    $status: String
+    $productionValue: Float
+    $unit: String
+    $impactPreventLocalDeprivation: String
     $description: String
     $element: String!
   ) {
@@ -76,9 +87,12 @@ export const REGISTER_MINE = gql`
       title: $title
       location: $location
       locationType: $locationType
-      activeMines: $activeMines
+      mineral: $mineral
+      caratAverage: $caratAverage
+      status: $status
       productionValue: $productionValue
       unit: $unit
+      impactPreventLocalDeprivation: $impactPreventLocalDeprivation
       description: $description
       element: $element
     ) {
@@ -90,12 +104,15 @@ export const REGISTER_MINE = gql`
 export const UPDATE_MINE = gql`
   mutation(
     $id: ID!
+    $title: String!
     $location: String!
     $locationType: String!
-    $title: String!
-    $activeMines: Boolean!
-    $productionValue: Int!
-    $unit: String!
+    $mineral: String
+    $caratAverage: Float
+    $status: String
+    $productionValue: Float
+    $unit: String
+    $impactPreventLocalDeprivation: String
     $description: String
     $element: String!
   ) {
@@ -104,9 +121,12 @@ export const UPDATE_MINE = gql`
       title: $title
       location: $location
       locationType: $locationType
-      activeMines: $activeMines
+      mineral: $mineral
+      caratAverage: $caratAverage
+      status: $status
       productionValue: $productionValue
       unit: $unit
+      impactPreventLocalDeprivation: $impactPreventLocalDeprivation
       description: $description
       element: $element
     ) {

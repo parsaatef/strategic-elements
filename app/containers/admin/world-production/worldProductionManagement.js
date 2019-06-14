@@ -77,11 +77,7 @@ export default class worldProductionManagement extends Component<Props> {
             {
               key: 'location',
               title: <FormattedMessage id="global.location" />,
-              item: dbCol => {
-                const value = getCountries('option', dbCol.location);
-
-                return value ? <FormattedSimpleMsg id={value} /> : '';
-              }
+              item: dbCol => getCountries('option', dbCol.location)
             },
             {
               key: 'year',

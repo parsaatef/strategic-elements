@@ -3,9 +3,9 @@ const {
   NODE_ENV = 'development',
 
   DB_USERNAME = 'SEAppUser',
-  DB_PASSWORD = 'zaqxswparsa',
-  DB_HOST = 'localhost',
-  DB_PORT = 27017,
+  DB_PASSWORD = 'Zaqxswparsa2017', // 'zaqxswparsa'
+  DB_HOST = 'ds231537.mlab.com', // 'localhost'
+  DB_PORT = 31537, // 27017
   DB_NAME = 'strategic_elements',
 
   SESS_NAME = 'sid',

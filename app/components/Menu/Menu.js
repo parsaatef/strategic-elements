@@ -260,7 +260,7 @@ class Menu extends Component<Props> {
                     className="smfp-menu-link menu__link"
                     to={ELEMENTS_LIST}
                   >
-                    <span>ماده معدنی</span>
+                    <span>مواد معدنی</span>
                   </Link>
                 </li>
 
@@ -271,7 +271,7 @@ class Menu extends Component<Props> {
                     aria-owns="submenu-3-2"
                     to={ELEMENTS_STATS_LIST}
                   >
-                    <span>آمار مواد معدنی</span>
+                    <span>تولید و مصرف</span>
                   </Link>
                 </li>
 
@@ -397,14 +397,14 @@ class Menu extends Component<Props> {
               className="menu__level"
               tabIndex="-1"
               role="menu"
-              aria-label="آمار مواد معدنی"
+              aria-label="تولید و مصرف"
             >
               <li className="smfp-menu-item menu__item" role="menuitem">
                 <Link
                   className="smfp-menu-link menu__link"
                   to={ELEMENTS_STATS_LIST}
                 >
-                  <span>آمار مواد معدنی</span>
+                  <span>تولید و مصرف</span>
                 </Link>
               </li>
 

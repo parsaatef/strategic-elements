@@ -11,12 +11,6 @@ import Loading from '../General/Loading';
 const notNeedFeaturesForDisplay = [
   'id',
   'description',
-  'relatedIndustryDesc',
-  'technologyLevelDesc',
-  'lowLevelIndustryDesc',
-  'threatyDesc',
-  'secondaryResourcesDesc',
-  'ecologyDesc',
   'username',
   '__typename'
 ];

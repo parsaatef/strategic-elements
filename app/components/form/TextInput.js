@@ -10,7 +10,8 @@ type Props = {
   value: string,
   label: string,
   error: array | string,
-  handleChange: () => void
+  handleChange: () => void,
+  required: boolean
 };
 
 const TextInput = ({
@@ -19,17 +20,19 @@ const TextInput = ({
   value,
   handleChange,
   label,
-  error
+  error,
+  required
 }: Props) => (
   <Group
     as={Row}
     className="animated fadeIn fast animation-auto-delay"
     controlId={`field_${name}`}
   >
-    <Label column sm={3}>
+    <Label column sm={4}>
       {label}
+      {required && <span className="text-danger">*</span>}
     </Label>
-    <Col sm={9}>
+    <Col sm={8}>
       <Control
         type={type}
         name={name}
@@ -37,6 +40,7 @@ const TextInput = ({
         onChange={onChange.bind(null, handleChange)}
         isInvalid={!!error}
       />
+
       <Control.Feedback type="invalid">{error}</Control.Feedback>
     </Col>
   </Group>

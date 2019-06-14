@@ -14,7 +14,7 @@ const title = Joi.string()
   .label('Title');
 
 const element = Joi.string()
-  .alphanum()
+  // .alphanum()
   .min(2)
   .max(30)
   .required()
@@ -35,29 +35,53 @@ const locationType = Joi.string()
   .valid('iran', 'world')
   .label('Location Type');
 
-const unit = Joi.string().label('Unit');
+const mineral = Joi.string()
+  .empty('')
+  .min(3)
+  .max(30)
+  .label('Mineral');
+
+const status = Joi.string()
+  .empty('')
+  .valid('active', 'inactive')
+  .label('Status');
+
+const caratAverage = Joi.number().label('Carat Average');
+
+const impactPreventLocalDeprivation = Joi.string()
+  .empty('')
+  .label('Impact Prevent Local Deprivation');
+
+const unit = Joi.string()
+  .empty('')
+  .label('Unit');
 const productionValue = Joi.number().label('Production Value');
-const activeMines = Joi.boolean().label('Active Mines');
 
 export const registerMine = Joi.object().keys({
   title,
   location,
   locationType,
-  activeMines,
   productionValue,
   unit,
   description,
   username,
-  element
+  element,
+  mineral,
+  status,
+  caratAverage,
+  impactPreventLocalDeprivation
 });
 
 export const updateMine = Joi.object().keys({
   title,
   location,
   locationType,
-  activeMines,
   productionValue,
   unit,
   description,
-  element
+  element,
+  mineral,
+  status,
+  caratAverage,
+  impactPreventLocalDeprivation
 });

@@ -4,16 +4,25 @@ import onChange from './onChange';
 
 const { Control, Group, Label } = Form;
 
-const Textarea = ({ name, value, handleChange, label, error, ...rest }) => (
+const Textarea = ({
+  name,
+  value,
+  handleChange,
+  label,
+  error,
+  required,
+  ...rest
+}) => (
   <Group
     className="animated fadeIn fast animation-auto-delay"
     as={Row}
     controlId={`field_${name}`}
   >
-    <Label column sm={3}>
+    <Label column sm={4}>
       {label}
+      {required && <span className="text-danger">*</span>}
     </Label>
-    <Col sm={9}>
+    <Col sm={8}>
       <Control
         as="textarea"
         rows="3"

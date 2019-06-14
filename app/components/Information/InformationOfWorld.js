@@ -14,7 +14,7 @@ import World from '../../utils/world.json';
 import Iran from '../../utils/iran.json';
 import { GET_ELEMENTS_STATS } from '../../queries/elementStats';
 import popupTemplate from './popupTemplate';
-import { getYearOptions, getElementsGroups } from '../../utils/utility';
+import { getYearOptions, getElementsCategory } from '../../utils/utility';
 import ElementsSelect from './ElementsSelect';
 
 // window.d3 = d3;
@@ -24,7 +24,7 @@ const MapOptions = [
   { value: 'iran', label: 'ایران' }
 ];
 
-const groupsOptions = getElementsGroups();
+const groupsOptions = getElementsCategory();
 
 const yearOptions = getYearOptions(1990, 2030);
 

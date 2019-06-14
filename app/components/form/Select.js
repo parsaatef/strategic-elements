@@ -13,6 +13,7 @@ const Select = ({
   options,
   error,
   multiple,
+  required,
   ...rest
 }) => {
   let selectedValue = '';
@@ -40,10 +41,11 @@ const Select = ({
       as={Row}
       controlId={`field_${name}`}
     >
-      <Label column sm={3}>
+      <Label column sm={4}>
         {label}
+        {required && <span className="text-danger">*</span>}
       </Label>
-      <Col sm={9}>
+      <Col sm={8}>
         <ReactSelect
           isMulti={multiple}
           name={name}

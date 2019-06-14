@@ -13,7 +13,9 @@ class ListActions extends Component<Props> {
       editRoute,
       indexCol,
       keyCol,
-      titleCol
+      titleCol,
+      itemsDetail,
+      itemsDetailLabels
     } = this.props;
 
     return (
@@ -26,6 +28,8 @@ class ListActions extends Component<Props> {
           indexCol={indexCol}
           keyCol={keyCol}
           titleCol={titleCol}
+          itemsDetail={itemsDetail}
+          itemsDetailLabels={itemsDetailLabels}
         />
 
         <DeleteAction

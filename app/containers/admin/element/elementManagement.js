@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
-import { FormattedSimpleMsg, getElementsGroups } from '../../../utils/utility';
+import {
+  getMagneticPropertyOptions,
+  FormattedSimpleMsg,
+  getPhaseAtSTPOptions,
+  getElCOptions,
+  getElementsCategory,
+  getQualityLevel
+} from '../../../utils/utility';
 import Page from '../../../components/list-register/Page';
 import ElementForm from './form';
 import schema from './schema';
@@ -63,7 +70,7 @@ class ElementManagement extends Component<Props> {
           filters={[
             {
               filter: 'elementTitle',
-              label: 'global.elementTitle',
+              label: 'global.element',
               type: 'text', // text or select
               isDefault: true,
               default: ''
@@ -72,7 +79,7 @@ class ElementManagement extends Component<Props> {
               filter: 'category',
               label: 'global.category',
               type: 'select', // text or select
-              options: getElementsGroups()
+              options: getElementsCategory()
             }
           ]}
           columns={[
@@ -82,20 +89,32 @@ class ElementManagement extends Component<Props> {
             },
             {
               key: 'elementTitle',
-              title: <FormattedMessage id="global.elementTitle" />
+              title: <FormattedMessage id="global.persian_name" />
             },
             {
               key: 'element',
-              title: <FormattedMessage id="global.element" />
+              title: <FormattedMessage id="global.english_name" />
+            },
+            {
+              key: 'symbol',
+              title: <FormattedMessage id="global.symbol" />
             },
             {
               key: 'category',
               title: <FormattedMessage id="global.category" />,
-              item: dbCol => getElementsGroups('option', dbCol.category)
+              item: dbCol => getElementsCategory('option', dbCol.category)
             },
             {
-              key: 'username',
-              title: <FormattedMessage id="global.username" />
+              key: 'usage1',
+              title: <FormattedMessage id="global.usage1" />
+            },
+            {
+              key: 'usage2',
+              title: <FormattedMessage id="global.usage2" />
+            },
+            {
+              key: 'usage3',
+              title: <FormattedMessage id="global.usage3" />
             },
             {
               key: 'action',
@@ -105,6 +124,27 @@ class ElementManagement extends Component<Props> {
           indexCol="id"
           keyCol="element"
           titleCol="elementTitle"
+          itemsDetail={{
+            category: dbCol => getElementsCategory('option', dbCol.category),
+            phaseAtSTP: dbCol =>
+              getPhaseAtSTPOptions('option', dbCol.phaseAtSTP),
+            electricalConductivity: dbCol =>
+              getElCOptions('option', dbCol.electricalConductivity),
+            magneticProperty: dbCol =>
+              getMagneticPropertyOptions('option', dbCol.magneticProperty),
+            toxicity: dbCol => getQualityLevel('option', dbCol.toxicity),
+            description: dbCol => (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: dbCol.description
+                }}
+              />
+            )
+          }}
+          itemsDetailLabels={{
+            elementTitle: <FormattedMessage id="global.persian_name" />,
+            element: <FormattedMessage id="global.english_name" />
+          }}
         />
       </div>
     );
