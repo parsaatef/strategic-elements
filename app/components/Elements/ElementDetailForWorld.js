@@ -255,7 +255,7 @@ export default class ElementDetailForWorld extends Component<Props> {
                 title
               )}
               icon="smfpIcon smfpIcon-threats"
-              title="تهدیدات"
+              title="تهدیدها"
             />
           </Col>
 

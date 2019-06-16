@@ -4,7 +4,6 @@ const elementStatsSchema = new mongoose.Schema(
   {
     location: String,
     locationType: String,
-    resourceValue: Number,
     productionValue: Number,
     consumptionValue: Number,
     exportValue: Number,

@@ -11,24 +11,25 @@ const schema = yup.object({
     .min(2)
     .max(20)
     .required(),
-  locationType: yup
+  /* locationType: yup
     .string()
     .required()
-    .matches(/(iran|world)/, { excludeEmptyString: true }),
-  resourceValue: yup.number(),
-  productionValue: yup.number(),
+    .matches(/(iran|world)/, { excludeEmptyString: true }), */
+  // resourceValue: yup.number(),
+  productionValue: yup.number().required(),
   consumptionValue: yup.number(),
   exportValue: yup.number(),
   importValue: yup.number(),
   secondaryProductionValue: yup.number(),
-  mineCount: yup
+  /* mineCount: yup
     .number()
     .min(0)
-    .max(100000),
+    .max(100000), */
   year: yup
     .number()
     .min(1950)
-    .max(2050),
+    .max(2050)
+    .required(),
   unit: yup.string(),
   description: yup.string()
 });

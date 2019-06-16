@@ -82,6 +82,7 @@ class ItemsList extends Component<Props> {
 
   applyFilters(searchBy, searchValue) {
     this.setState({
+      firstItem: 0,
       searchBy,
       searchValue
     });

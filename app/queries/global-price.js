@@ -17,8 +17,8 @@ export const GET_GLOBAL_PRICE = gql`
 export const GET_GLOBAL_PRICES = gql`
   query(
     $ids: [ID!]
-    $minPrice: Int
-    $maxPrice: Int
+    $minPrice: Float
+    $maxPrice: Float
     $year: Int
     $elements: [String!]
     $users: [String!]

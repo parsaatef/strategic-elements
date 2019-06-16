@@ -87,7 +87,10 @@ import {
   ANALYSIS_INTRO,
   ANALYSIS_FACTOR,
   ANALYSIS_ELEMENT,
-  ADMIN
+  ADMIN,
+  INTERNATIONAL_RELATION_REGISTER,
+  INTERNATIONAL_RELATIONS_LIST,
+  INTERNATIONAL_RELATION_EDIT
 } from './constants/routes';
 
 /**
@@ -212,6 +215,9 @@ const UpstreamIndustryManagement = lazy(() =>
 );
 const ThreatManagement = lazy(() =>
   import('./containers/admin/threat/threatManagement')
+);
+const InternationalRelationManagement = lazy(() =>
+  import('./containers/admin/international-relation/InternationalRelationManagement')
 );
 const ElementStatsManagement = lazy(() =>
   import('./containers/admin/element-stats/ElementStatsManagement')
@@ -619,6 +625,22 @@ const Routes = ({ session, refetch }: Props) => (
           session={session}
           path={THREAT_EDIT}
           component={ThreatManagement}
+        />
+
+        <RestrictedRoute
+          session={session}
+          path={INTERNATIONAL_RELATION_REGISTER}
+          component={InternationalRelationManagement}
+        />
+        <RestrictedRoute
+          session={session}
+          path={INTERNATIONAL_RELATIONS_LIST}
+          component={InternationalRelationManagement}
+        />
+        <RestrictedRoute
+          session={session}
+          path={INTERNATIONAL_RELATION_EDIT}
+          component={InternationalRelationManagement}
         />
 
         <RestrictedRoute session={session} path={THREAT} component={Threat} />

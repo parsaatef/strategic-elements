@@ -11,3 +11,4 @@ export * from './technology';
 export * from './industry';
 export * from './environment';
 export * from './threat';
+export * from './internationalRelation';

@@ -3,7 +3,10 @@ import { FormattedMessage } from 'react-intl';
 import {
   FormattedSimpleMsg,
   getYearOptions,
-  getCountries
+  getCountries,
+  getLocationType,
+  getStates,
+  getUnit
 } from '../../../utils/utility';
 import List from '../../../components/list-register/List';
 import {
@@ -76,8 +79,19 @@ export default class ExportManagement extends Component<Props> {
             },
             {
               key: 'location',
-              title: <FormattedMessage id="global.location" />,
-              item: dbCol => getCountries('option', dbCol.location)
+              title: <FormattedMessage id="global.country" />,
+              item: dbCol => {
+                const value =
+                  dbCol.locationType === 'iran'
+                    ? getStates('option', dbCol.location)
+                    : getCountries('option', dbCol.location);
+
+                return value && dbCol.locationType === 'iran' ? (
+                  <FormattedSimpleMsg id={value} />
+                ) : (
+                  value
+                );
+              }
             },
             {
               key: 'year',
@@ -85,7 +99,7 @@ export default class ExportManagement extends Component<Props> {
             },
             {
               key: 'exportValue',
-              title: <FormattedMessage id="global.value" />
+              title: <FormattedMessage id="global.exportValueToIran" />
             },
             {
               key: 'unit',
@@ -93,21 +107,41 @@ export default class ExportManagement extends Component<Props> {
               isUnit: true
             },
             {
-              key: 'description',
-              title: <FormattedMessage id="global.description" />
-            },
-            {
-              key: 'username',
-              title: <FormattedMessage id="global.username" />
-            },
-            {
               key: 'action',
               title: <FormattedMessage id="global.actions" />
             }
           ]}
+          itemsDetail={{
+            location: dbCol => {
+              const value =
+                dbCol.locationType === 'iran'
+                  ? getStates('option', dbCol.location)
+                  : getCountries('option', dbCol.location);
+
+              return value && dbCol.locationType === 'iran' ? (
+                <FormattedSimpleMsg id={value} />
+              ) : (
+                value
+              );
+            },
+            locationType: dbCol =>
+              getLocationType('option', dbCol.locationType),
+            unit: dbCol => getUnit('option', dbCol.unit)
+          }}
+          itemsDetailLabels={{
+            location: <FormattedMessage id="global.country" />,
+            productionValue: <FormattedMessage id="global.primaryProduction" />,
+            secondaryProductionValue: (
+              <FormattedMessage id="global.secondaryProduction" />
+            ),
+            consumptionValue: <FormattedMessage id="global.consumption" />,
+            exportValue: <FormattedMessage id="global.exportValueToIran" />,
+            importValue: <FormattedMessage id="global.importValueFromIran" />,
+            locationType: <FormattedMessage id="global.scale" />
+          }}
           indexCol="id"
-          keyCol="title"
-          titleCol="title"
+          keyCol="id"
+          titleCol="element"
         />
       </div>
     );

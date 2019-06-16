@@ -26,7 +26,7 @@ class Threat extends Component<Props> {
       <div>
         <PageHeadingIcon
           icon="smfpIcon smfpIcon-threats"
-          title={`تهدیدات ${title}`}
+          title={`تهدیدها ${title}`}
         />
 
         <Query

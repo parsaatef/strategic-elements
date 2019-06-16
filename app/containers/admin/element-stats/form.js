@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import {
   FormattedSimpleMsg,
   getCountries,
-  getStates,
+  // getStates,
   getYearOptions,
   getUnit
 } from '../../../utils/utility';
@@ -19,7 +19,7 @@ type Props = {
   onSubmit: () => void
 };
 
-const states = getStates();
+// const states = getStates();
 
 const countries = getCountries();
 
@@ -39,9 +39,9 @@ const ElementForm = (props: Props) => {
 
         return (
           <>
-            <ElementsSelect name="element" />
+            <ElementsSelect name="element" required />
 
-            <Field
+            {/* <Field
               type="select"
               name="locationType"
               label={<FormattedMessage id="global.locationType" />}
@@ -56,19 +56,19 @@ const ElementForm = (props: Props) => {
                 }
               ]}
               placeholder={<FormattedSimpleMsg id="global.select" />}
+            /> */}
+
+            {/* values.locationType === 'world' && () */}
+            <Field
+              type="select"
+              name="location"
+              label={<FormattedMessage id="global.country" />}
+              options={countries}
+              placeholder={<FormattedSimpleMsg id="global.select_country" />}
+              required
             />
 
-            {values.locationType === 'world' && (
-              <Field
-                type="select"
-                name="location"
-                label={<FormattedMessage id="global.country" />}
-                options={countries}
-                placeholder={<FormattedSimpleMsg id="global.select_country" />}
-              />
-            )}
-
-            {values.locationType === 'iran' && (
+            {/* values.locationType === 'iran' && (
               <Field
                 type="select"
                 name="location"
@@ -76,7 +76,7 @@ const ElementForm = (props: Props) => {
                 options={states}
                 placeholder={<FormattedSimpleMsg id="global.select_state" />}
               />
-            )}
+            ) */}
 
             <Field
               type="select"
@@ -84,9 +84,31 @@ const ElementForm = (props: Props) => {
               label={<FormattedMessage id="global.year" />}
               options={yearOptions}
               placeholder={<FormattedSimpleMsg id="global.year" />}
+              required
             />
 
-            {values.locationType === 'world' && values.location && (
+            <Field
+              type="number"
+              name="productionValue"
+              label={<FormattedMessage id="global.primaryProduction" />}
+              required
+            />
+
+            <Field
+              type="number"
+              name="secondaryProductionValue"
+              label={<FormattedMessage id="global.secondaryProduction" />}
+            />
+
+            {['all', 'other', 'IRN'].includes(values.location) && (
+              <Field
+                type="number"
+                name="consumptionValue"
+                label={<FormattedMessage id="global.consumption" />}
+              />
+            )}
+
+            {values.location !== 'IRN' && (
               <Field
                 type="number"
                 name="exportValue"
@@ -94,37 +116,13 @@ const ElementForm = (props: Props) => {
               />
             )}
 
-            {values.locationType === 'world' && values.location && (
+            {values.location !== 'IRN' && (
               <Field
                 type="number"
                 name="importValue"
                 label={<FormattedMessage id="global.importValueFromIran" />}
               />
             )}
-
-            <Field
-              type="number"
-              name="resourceValue"
-              label={<FormattedMessage id="global.resourceValue" />}
-            />
-
-            <Field
-              type="number"
-              name="productionValue"
-              label={<FormattedMessage id="global.productionValue" />}
-            />
-
-            <Field
-              type="number"
-              name="consumptionValue"
-              label={<FormattedMessage id="global.consumptionValue" />}
-            />
-
-            <Field
-              type="number"
-              name="secondaryProductionValue"
-              label={<FormattedMessage id="global.secondaryProductionValue" />}
-            />
 
             <Field
               type="select"

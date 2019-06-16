@@ -2,7 +2,7 @@ import Joi from 'joi';
 
 const location = Joi.string()
   .min(2)
-  .max(20)
+  .max(60)
   .required()
   .label('Location');
 
@@ -11,9 +11,11 @@ const locationType = Joi.string()
   .valid('iran', 'world')
   .label('Location Type');
 
-const resourceValue = Joi.number().label('Resource Value');
+// const resourceValue = Joi.number().label('Resource Value');
 
-const productionValue = Joi.number().label('Production Value');
+const productionValue = Joi.number()
+  .required()
+  .label('Production Value');
 
 const consumptionValue = Joi.number().label('Consumption Value');
 
@@ -33,6 +35,7 @@ const secondaryProductionValue = Joi.number().label(
 const year = Joi.number()
   .min(1950)
   .max(2050)
+  .required()
   .label('Year');
 
 const username = Joi.string()
@@ -43,13 +46,15 @@ const username = Joi.string()
   .label('Username');
 
 const element = Joi.string()
-  .alphanum()
+  // .alphanum()
   .min(2)
   .max(30)
   .required()
   .label('Element');
 
-const unit = Joi.string().label('Unit');
+const unit = Joi.string()
+  .empty('')
+  .label('Unit');
 
 const description = Joi.string()
   .empty('')
@@ -58,7 +63,6 @@ const description = Joi.string()
 export const registerElementStats = Joi.object().keys({
   location,
   locationType,
-  resourceValue,
   productionValue,
   consumptionValue,
   exportValue,
@@ -75,7 +79,6 @@ export const registerElementStats = Joi.object().keys({
 export const updateElementStats = Joi.object().keys({
   location,
   locationType,
-  resourceValue,
   productionValue,
   consumptionValue,
   exportValue,

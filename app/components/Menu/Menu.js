@@ -10,16 +10,13 @@ import {
   SECONDARY_SOURCES_LIST,
   EXPORT_LIST,
   IMPORT_LIST,
-  WORLD_RESERVES_LIST,
-  IRAN_RESERVES_LIST,
   WORLD_PRODUCTION_LIST,
-  IRAN_PRODUCTION_LIST,
   WORLD_CONSUMPTION_LIST,
-  IRAN_CONSUMPTION_LIST,
   INDUSTRY_LIST,
   TECHNOLOGICAL_LEVEL_LIST,
   SECONDARY_PRODUCTION_LIST,
   THREATS_LIST,
+  INTERNATIONAL_RELATIONS_LIST,
   ENVIRONMENT_LIST,
   INFORMATION_OF_WORLD,
   USERS_LIST,
@@ -324,12 +321,15 @@ class Menu extends Component<Props> {
 
                 <li className="smfp-menu-item menu__item" role="menuitem">
                   <Link className="smfp-menu-link menu__link" to={THREATS_LIST}>
-                    <span>تهدیدات</span>
+                    <span>تهدیدها</span>
                   </Link>
                 </li>
 
                 <li className="smfp-menu-item menu__item" role="menuitem">
-                  <Link className="smfp-menu-link menu__link" to={THREATS_LIST}>
+                  <Link
+                    className="smfp-menu-link menu__link"
+                    to={INTERNATIONAL_RELATIONS_LIST}
+                  >
                     <span>روابط بین الملل</span>
                   </Link>
                 </li>
@@ -395,68 +395,11 @@ class Menu extends Component<Props> {
               </li>
 
               <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link className="smfp-menu-link menu__link" to={EXPORT_LIST}>
-                  <span>صادرات</span>
-                </Link>
-              </li>
-
-              <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link className="smfp-menu-link menu__link" to={IMPORT_LIST}>
-                  <span>واردات</span>
-                </Link>
-              </li>
-
-              <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link
-                  className="smfp-menu-link menu__link"
-                  to={WORLD_RESERVES_LIST}
-                >
-                  <span>منابع جهان</span>
-                </Link>
-              </li>
-
-              <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link
-                  className="smfp-menu-link menu__link"
-                  to={IRAN_RESERVES_LIST}
-                >
-                  <span>منابع ایران</span>
-                </Link>
-              </li>
-
-              <li className="smfp-menu-item menu__item" role="menuitem">
                 <Link
                   className="smfp-menu-link menu__link"
                   to={WORLD_PRODUCTION_LIST}
                 >
-                  <span>تولید جهان</span>
-                </Link>
-              </li>
-
-              <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link
-                  className="smfp-menu-link menu__link"
-                  to={IRAN_PRODUCTION_LIST}
-                >
-                  <span>تولید ایران</span>
-                </Link>
-              </li>
-
-              <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link
-                  className="smfp-menu-link menu__link"
-                  to={WORLD_CONSUMPTION_LIST}
-                >
-                  <span>مصرف جهان</span>
-                </Link>
-              </li>
-
-              <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link
-                  className="smfp-menu-link menu__link"
-                  to={IRAN_CONSUMPTION_LIST}
-                >
-                  <span>مصرف ایران</span>
+                  <span>تولید اولیه</span>
                 </Link>
               </li>
 
@@ -466,6 +409,27 @@ class Menu extends Component<Props> {
                   to={SECONDARY_PRODUCTION_LIST}
                 >
                   <span>تولید ثانویه</span>
+                </Link>
+              </li>
+
+              <li className="smfp-menu-item menu__item" role="menuitem">
+                <Link
+                  className="smfp-menu-link menu__link"
+                  to={WORLD_CONSUMPTION_LIST}
+                >
+                  <span>مصرف</span>
+                </Link>
+              </li>
+
+              <li className="smfp-menu-item menu__item" role="menuitem">
+                <Link className="smfp-menu-link menu__link" to={EXPORT_LIST}>
+                  <span>صادرات از ایران</span>
+                </Link>
+              </li>
+
+              <li className="smfp-menu-item menu__item" role="menuitem">
+                <Link className="smfp-menu-link menu__link" to={IMPORT_LIST}>
+                  <span>واردات به ایران</span>
                 </Link>
               </li>
             </ul>

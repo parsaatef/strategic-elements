@@ -103,6 +103,10 @@
   "THREATS_LIST": "/admin/threats/list",
   "THREAT_EDIT": "/admin/threat/edit/:id",
 
+  "INTERNATIONAL_RELATION_REGISTER": "/admin/international-relation/register",
+  "INTERNATIONAL_RELATIONS_LIST": "/admin/international-relation/list",
+  "INTERNATIONAL_RELATION_EDIT": "/admin/international-relation/edit/:id",
+
   "ENVIRONMENT_REGISTER": "/admin/environment/register",
   "ENVIRONMENT_LIST": "/admin/environment/list",
   "ENVIRONMENT_EDIT": "/admin/environment/edit/:id",

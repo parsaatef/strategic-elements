@@ -12,6 +12,7 @@ import technology from './technology';
 import industry from './industry';
 import environment from './environment';
 import threat from './threat';
+import internationalRelation from './internationalRelation';
 
 export default [
   root,
@@ -27,5 +28,6 @@ export default [
   technology,
   industry,
   environment,
-  threat
+  threat,
+  internationalRelation
 ];

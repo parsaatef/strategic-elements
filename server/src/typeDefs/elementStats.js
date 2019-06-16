@@ -23,14 +23,13 @@ export default gql`
     registerElementStats(
       location: String!
       locationType: String!
-      resourceValue: Int!
-      productionValue: Int!
-      consumptionValue: Int!
-      exportValue: Int
-      importValue: Int
-      secondaryProductionValue: Int!
+      productionValue: Float!
+      consumptionValue: Float
+      exportValue: Float
+      importValue: Float
+      secondaryProductionValue: Float
       year: Int!
-      unit: String!
+      unit: String
       description: String
       element: String!
     ): ElementStats @auth
@@ -38,14 +37,13 @@ export default gql`
       id: ID!
       location: String!
       locationType: String!
-      resourceValue: Int!
-      productionValue: Int!
-      consumptionValue: Int!
-      exportValue: Int
-      importValue: Int
-      secondaryProductionValue: Int!
+      productionValue: Float!
+      consumptionValue: Float
+      exportValue: Float
+      importValue: Float
+      secondaryProductionValue: Float
       year: Int!
-      unit: String!
+      unit: String
       description: String
       element: String!
     ): Result @auth
@@ -66,14 +64,13 @@ export default gql`
     id: ID!
     location: String!
     locationType: String!
-    resourceValue: Int!
-    productionValue: Int!
-    consumptionValue: Int!
-    exportValue: Int
-    importValue: Int
-    secondaryProductionValue: Int!
+    productionValue: Float!
+    consumptionValue: Float
+    exportValue: Float
+    importValue: Float
+    secondaryProductionValue: Float
     year: Int!
-    unit: String!
+    unit: String
     description: String
     username: String!
     element: String!

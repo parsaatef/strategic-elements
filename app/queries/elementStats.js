@@ -4,19 +4,18 @@ export const GET_ELEMENT_STATS = gql`
   query($id: ID!) {
     elementStats(id: $id) {
       id
+      element
       location
       locationType
-      resourceValue
+      year
       productionValue
+      secondaryProductionValue
       consumptionValue
       exportValue
       importValue
-      secondaryProductionValue
-      year
       unit
       description
       username
-      element
     }
   }
 `;
@@ -48,19 +47,18 @@ export const GET_ELEMENTS_STATS = gql`
     ) {
       elementsStats {
         id
+        element
         location
         locationType
-        resourceValue
+        year
         productionValue
+        secondaryProductionValue
         consumptionValue
         exportValue
         importValue
-        secondaryProductionValue
-        year
         unit
         description
         username
-        element
       }
       totalCount
     }
@@ -71,21 +69,19 @@ export const REGISTER_ELEMENT_STATS = gql`
   mutation(
     $location: String!
     $locationType: String!
-    $resourceValue: Int!
-    $productionValue: Int!
-    $consumptionValue: Int!
-    $exportValue: Int
-    $importValue: Int
-    $secondaryProductionValue: Int!
+    $productionValue: Float!
+    $consumptionValue: Float
+    $exportValue: Float
+    $importValue: Float
+    $secondaryProductionValue: Float
     $year: Int!
-    $unit: String!
+    $unit: String
     $description: String
     $element: String!
   ) {
     registerElementStats(
       location: $location
       locationType: $locationType
-      resourceValue: $resourceValue
       productionValue: $productionValue
       consumptionValue: $consumptionValue
       exportValue: $exportValue
@@ -106,14 +102,13 @@ export const UPDATE_ELEMENT_STATS = gql`
     $id: ID!
     $location: String!
     $locationType: String!
-    $resourceValue: Int!
-    $productionValue: Int!
-    $consumptionValue: Int!
-    $exportValue: Int
-    $importValue: Int
-    $secondaryProductionValue: Int!
+    $productionValue: Float!
+    $consumptionValue: Float
+    $exportValue: Float
+    $importValue: Float
+    $secondaryProductionValue: Float
     $year: Int!
-    $unit: String!
+    $unit: String
     $description: String
     $element: String!
   ) {
@@ -121,7 +116,6 @@ export const UPDATE_ELEMENT_STATS = gql`
       id: $id
       location: $location
       locationType: $locationType
-      resourceValue: $resourceValue
       productionValue: $productionValue
       consumptionValue: $consumptionValue
       exportValue: $exportValue
