@@ -9,6 +9,8 @@ import totalStats from './totalStats';
 import mine from './mine';
 import technology from './technology';
 import industry from './industry';
+import environment from './environment';
+import threat from './threat';
 
 export default [
   user,
@@ -21,5 +23,7 @@ export default [
   totalStats,
   mine,
   technology,
-  industry
+  industry,
+  environment,
+  threat
 ];

@@ -7,16 +7,16 @@ import {
   THREATS_LIST,
   THREAT_EDIT
 } from '../../../constants/routes';
-import ElementForm from './form';
+import ThreatForm from './form';
 import schema from './schema';
 import {
-  GET_OPTION,
-  UPDATE_OPTION,
-  REGISTER_OPTION,
-  GET_OPTIONS,
-  DELETE_OPTION,
-  MULTI_DELETE_OPTIONS
-} from '../../../queries/option';
+  GET_THREAT,
+  UPDATE_THREAT,
+  REGISTER_THREAT,
+  GET_THREATS,
+  DELETE_THREAT,
+  MULTI_DELETE_THREATS
+} from '../../../queries/threat';
 
 export default class ThreatManagement extends Component<Props> {
   render() {
@@ -28,7 +28,7 @@ export default class ThreatManagement extends Component<Props> {
       <div>
         <Page
           id={id}
-          form={ElementForm}
+          form={ThreatForm}
           schema={schema}
           hasElementTab={false}
           registerRoute={THREAT_REGISTER}
@@ -40,67 +40,62 @@ export default class ThreatManagement extends Component<Props> {
           pageIcon="smfpIcon smfpIcon-threats"
           query={{
             item: {
-              gql: GET_OPTION,
-              func: 'option',
-              variables: {
-                type: 'threat'
-              }
+              gql: GET_THREAT,
+              func: 'threat'
             },
             register: {
-              gql: REGISTER_OPTION,
-              func: 'registerOption',
-              variables: {
-                type: 'threat'
-              }
+              gql: REGISTER_THREAT,
+              func: 'registerThreat'
             },
             update: {
-              gql: UPDATE_OPTION,
-              func: 'updateOption',
-              variables: {
-                type: 'threat'
-              }
+              gql: UPDATE_THREAT,
+              func: 'updateThreat'
             },
             list: {
-              gql: GET_OPTIONS,
-              func: 'searchOptions',
-              items: 'options',
-              variables: {
-                type: 'threat'
-              }
+              gql: GET_THREATS,
+              func: 'searchThreats',
+              items: 'threats'
             },
             remove: {
-              gql: DELETE_OPTION,
-              func: 'removeOption',
-              variables: {
-                type: 'threat'
-              }
+              gql: DELETE_THREAT,
+              func: 'removeThreat'
             },
             multiRemove: {
-              gql: MULTI_DELETE_OPTIONS,
-              func: 'multiRemoveOptions',
-              variables: {
-                type: 'threat'
-              }
+              gql: MULTI_DELETE_THREATS,
+              func: 'multiRemoveThreats'
             }
           }}
           filters={[
             {
-              filter: 'name',
-              label: 'global.title',
-              type: 'text' // text or select
-            },
-            {
-              filter: 'value',
-              label: 'global.level',
-              type: 'select', // text or select
-              options: getQualityLevel()
-            },
-            {
-              filter: 'element',
+              filter: 'elements',
               label: 'global.element',
               type: 'element', // text or select
               isDefault: true,
               default: ''
+            },
+            {
+              filter: 'effectivenessSanctions',
+              label: 'global.effectivenessSanctions',
+              type: 'select', // text or select
+              options: getQualityLevel()
+            },
+            {
+              filter: 'impactTariffs',
+              label: 'global.impactTariffs',
+              type: 'select', // text or select
+              options: getQualityLevel()
+            },
+            {
+              filter: 'levelGovernmentalSupport',
+              label: 'global.levelGovernmentalSupport',
+              type: 'select', // text or select
+              options: getQualityLevel()
+            },
+            {
+              filter: 'diffRawMaterialValueAProcessedProduct',
+              label: 'global.diffRawMaterialValueAProcessedProduct',
+              type: 'select', // text or select
+              options: getQualityLevel()
             }
           ]}
           columns={[
@@ -109,30 +104,65 @@ export default class ThreatManagement extends Component<Props> {
               isCheck: true
             },
             {
-              key: 'name',
-              title: <FormattedMessage id="global.title" />
-            },
-            {
               key: 'element',
               title: <FormattedMessage id="global.element" />
             },
             {
-              key: 'value',
-              title: <FormattedMessage id="global.level" />,
-              item: dbCol => getQualityLevel('option', dbCol.value)
+              key: 'effectivenessSanctions',
+              title: <FormattedMessage id="global.effectivenessSanctions" />,
+              item: dbCol =>
+                getQualityLevel('option', dbCol.effectivenessSanctions)
             },
             {
-              key: 'username',
-              title: <FormattedMessage id="global.username" />
+              key: 'impactTariffs',
+              title: <FormattedMessage id="global.impactTariffs" />,
+              item: dbCol => getQualityLevel('option', dbCol.impactTariffs)
+            },
+            {
+              key: 'levelGovernmentalSupport',
+              title: <FormattedMessage id="global.levelGovernmentalSupport" />,
+              item: dbCol =>
+                getQualityLevel('option', dbCol.levelGovernmentalSupport)
+            },
+            {
+              key: 'diffRawMaterialValueAProcessedProduct',
+              title: (
+                <FormattedMessage id="global.diffRawMaterialValueAProcessedProduct" />
+              ),
+              item: dbCol =>
+                getQualityLevel(
+                  'option',
+                  dbCol.diffRawMaterialValueAProcessedProduct
+                )
             },
             {
               key: 'action',
               title: <FormattedMessage id="global.actions" />
             }
           ]}
+          itemsDetail={{
+            effectivenessSanctions: dbCol =>
+              getQualityLevel('option', dbCol.effectivenessSanctions),
+            impactTariffs: dbCol =>
+              getQualityLevel('option', dbCol.impactTariffs),
+            levelGovernmentalSupport: dbCol =>
+              getQualityLevel('option', dbCol.levelGovernmentalSupport),
+            diffRawMaterialValueAProcessedProduct: dbCol =>
+              getQualityLevel(
+                'option',
+                dbCol.diffRawMaterialValueAProcessedProduct
+              ),
+            moreInfo: dbCol => (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: dbCol.moreInfo
+                }}
+              />
+            )
+          }}
           indexCol="id"
-          keyCol="name"
-          titleCol="name"
+          keyCol="id"
+          titleCol="element"
         />
       </div>
     );

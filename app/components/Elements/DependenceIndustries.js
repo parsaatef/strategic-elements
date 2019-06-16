@@ -1,11 +1,17 @@
-import React, { Component } from 'react';
-import { Query } from 'react-apollo';
-import { gql } from 'apollo-boost';
-import { GET_OPTIONS } from '../../queries/option';
-import PageHeadingIcon from '../General/PageHeadingIcon';
-import Loading from '../General/Loading';
+import { Component } from 'react';
+// import { Query } from 'react-apollo';
+// import { gql } from 'apollo-boost';
+// import { GET_OPTIONS } from '../../queries/option';
+// import PageHeadingIcon from '../General/PageHeadingIcon';
+// import Loading from '../General/Loading';
 
-export const GET_ELEMENT_BY_NAME = gql`
+class DependenceIndustries extends Component<Props> {
+  render() {
+    return null;
+  }
+}
+
+/* export const GET_ELEMENT_BY_NAME = gql`
   query($element: String!) {
     elementByName(element: $element) {
       id
@@ -91,6 +97,6 @@ class DependenceIndustries extends Component<Props> {
       </div>
     );
   }
-}
+} */
 
 export default DependenceIndustries;

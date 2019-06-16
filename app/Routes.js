@@ -54,7 +54,6 @@ import {
   INDUSTRY_REGISTER,
   INDUSTRY_LIST,
   INDUSTRY_EDIT,
-  INDUSTRY,
   TECHNOLOGICAL_LEVEL_REGISTER,
   TECHNOLOGICAL_LEVEL_LIST,
   TECHNOLOGICAL_LEVEL_EDIT,
@@ -141,9 +140,9 @@ const TechnologicalLevel = lazy(() =>
   import('./components/Elements/TechnologicalLevel')
 );
 
-const DependenceIndustries = lazy(() =>
+/* const DependenceIndustries = lazy(() =>
   import('./components/Elements/DependenceIndustries')
-);
+); */
 
 const Mine = lazy(() => import('./components/Elements/Mines'));
 
@@ -521,26 +520,30 @@ const Routes = ({ session, refetch }: Props) => (
         />
 
         <RestrictedRoute
+          exact
           session={session}
           path={INDUSTRY_REGISTER}
           component={DependenceIndustriesManagement}
         />
         <RestrictedRoute
+          exact
           session={session}
           path={INDUSTRY_LIST}
           component={DependenceIndustriesManagement}
         />
         <RestrictedRoute
+          exact
           session={session}
           path={INDUSTRY_EDIT}
           component={DependenceIndustriesManagement}
         />
 
-        <RestrictedRoute
+        {/* <RestrictedRoute
+          exact
           session={session}
           path={INDUSTRY}
           component={DependenceIndustries}
-        />
+        /> */}
 
         <RestrictedRoute
           session={session}
@@ -621,22 +624,26 @@ const Routes = ({ session, refetch }: Props) => (
         <RestrictedRoute session={session} path={THREAT} component={Threat} />
 
         <RestrictedRoute
+          exact
           session={session}
           path={ENVIRONMENT_REGISTER}
           component={EnvironmentManagement}
         />
         <RestrictedRoute
+          exact
           session={session}
           path={ENVIRONMENT_LIST}
           component={EnvironmentManagement}
         />
         <RestrictedRoute
+          exact
           session={session}
           path={ENVIRONMENT_EDIT}
           component={EnvironmentManagement}
         />
 
         <RestrictedRoute
+          exact
           session={session}
           path={ENVIRONMENT}
           component={Environment}
@@ -679,7 +686,12 @@ const Routes = ({ session, refetch }: Props) => (
           component={AnalysisElement}
         />
 
-        <RestrictedRoute session={session} path={ADMIN} component={Admin} />
+        <RestrictedRoute
+          exact
+          session={session}
+          path={ADMIN}
+          component={Admin}
+        />
 
         <Redirect to="/" />
       </Switch>

@@ -15,7 +15,7 @@ type Props = {
   onSubmit: () => void
 };
 
-const MineralForm = (props: Props) => {
+const EnvironmentForm = (props: Props) => {
   const { onSubmit, formType, initialValues, validationSchema } = props;
 
   return (
@@ -24,20 +24,54 @@ const MineralForm = (props: Props) => {
       initialValues={initialValues}
       schema={validationSchema}
     >
-      <ElementsSelect name="element" />
+      <ElementsSelect name="element" required />
 
       <Field
-        type="text"
-        name="name"
-        label={<FormattedMessage id="global.title" />}
+        type="select"
+        name="waterConsumption"
+        label={<FormattedMessage id="global.waterConsumption" />}
+        options={options}
+        placeholder={<FormattedMessage id="global.select" />}
+        required
       />
 
       <Field
         type="select"
-        name="value"
-        label={<FormattedMessage id="global.problem" />}
+        name="energyConsumption"
+        label={<FormattedMessage id="global.energyConsumption" />}
         options={options}
         placeholder={<FormattedMessage id="global.select" />}
+      />
+
+      <Field
+        type="select"
+        name="greenhouseGasEmissions"
+        label={<FormattedMessage id="global.greenhouseGasEmissions" />}
+        options={options}
+        placeholder={<FormattedMessage id="global.select" />}
+      />
+
+      <Field
+        type="select"
+        name="risksWasteAWasteWater"
+        label={<FormattedMessage id="global.risksWasteAWasteWater" />}
+        options={options}
+        placeholder={<FormattedMessage id="global.select" />}
+        required
+      />
+
+      <Field
+        type="select"
+        name="productionProcessRisksHuman"
+        label={<FormattedMessage id="global.productionProcessRisksHuman" />}
+        options={options}
+        placeholder={<FormattedMessage id="global.select" />}
+      />
+
+      <Field
+        type="editor"
+        name="moreInfo"
+        label={<FormattedMessage id="global.moreInfo" />}
       />
 
       <div className="animated fadeIn fast animation-auto-delay">
@@ -53,4 +87,4 @@ const MineralForm = (props: Props) => {
   );
 };
 
-export default MineralForm;
+export default EnvironmentForm;

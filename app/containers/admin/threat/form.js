@@ -24,20 +24,47 @@ const ThreatForm = (props: Props) => {
       initialValues={initialValues}
       schema={validationSchema}
     >
-      <ElementsSelect name="element" />
+      <ElementsSelect name="element" required />
 
       <Field
-        type="text"
-        name="name"
-        label={<FormattedMessage id="global.title" />}
+        type="select"
+        name="effectivenessSanctions"
+        label={<FormattedMessage id="global.effectivenessSanctions" />}
+        options={options}
+        placeholder={<FormattedMessage id="global.select" />}
       />
 
       <Field
         type="select"
-        name="value"
-        label={<FormattedMessage id="global.level" />}
+        name="impactTariffs"
+        label={<FormattedMessage id="global.impactTariffs" />}
         options={options}
         placeholder={<FormattedMessage id="global.select" />}
+      />
+
+      <Field
+        type="select"
+        name="levelGovernmentalSupport"
+        label={<FormattedMessage id="global.levelGovernmentalSupport" />}
+        options={options}
+        placeholder={<FormattedMessage id="global.select" />}
+      />
+
+      <Field
+        type="select"
+        name="diffRawMaterialValueAProcessedProduct"
+        label={
+          <FormattedMessage id="global.diffRawMaterialValueAProcessedProduct" />
+        }
+        options={options}
+        placeholder={<FormattedMessage id="global.select" />}
+        required
+      />
+
+      <Field
+        type="editor"
+        name="moreInfo"
+        label={<FormattedMessage id="global.moreInfo" />}
       />
 
       <div className="animated fadeIn fast animation-auto-delay">

@@ -71,7 +71,7 @@ export default class IndustryManagement extends Component<Props> {
           }}
           filters={[
             {
-              filter: 'element',
+              filter: 'elements',
               label: 'global.element',
               type: 'element', // text or select
               isDefault: true,

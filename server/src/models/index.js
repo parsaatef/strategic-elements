@@ -9,3 +9,5 @@ export { default as Resource } from './resource';
 export { default as TotalStats } from './totalStats';
 export { default as Mine } from './mine';
 export { default as Industry } from './industry';
+export { default as Environment } from './environment';
+export { default as Threat } from './threat';

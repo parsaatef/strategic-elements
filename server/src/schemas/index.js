@@ -9,3 +9,5 @@ export * from './totalStats';
 export * from './mine';
 export * from './technology';
 export * from './industry';
+export * from './environment';
+export * from './threat';
