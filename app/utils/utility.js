@@ -150,6 +150,25 @@ export function getLocationType(type = 'all', by) {
   return foundedOption ? foundedOption.label : '';
 }
 
+export function getIndustryTypes(type = 'all', by) {
+  const options = [
+    { value: '', label: 'انتخاب نوع' },
+    { value: 'upstream', label: <FormattedSimpleMsg id="global.upstream" /> },
+    {
+      value: 'downstream',
+      label: <FormattedSimpleMsg id="global.downstream" />
+    }
+  ];
+
+  if (type === 'all') {
+    return options;
+  }
+
+  const foundedOption = options.find(option => option.value === by);
+
+  return foundedOption ? foundedOption.label : '';
+}
+
 export function getUnit(type = 'all', by) {
   const options = [
     { value: '', label: 'انتخاب واحد' },

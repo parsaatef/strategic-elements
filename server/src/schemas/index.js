@@ -8,3 +8,4 @@ export * from './resource';
 export * from './totalStats';
 export * from './mine';
 export * from './technology';
+export * from './industry';

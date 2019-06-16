@@ -83,9 +83,9 @@
   "IRAN_CONSUMPTION_LIST": "/admin/iran-consumption/list",
   "IRAN_CONSUMPTION_EDIT": "/admin/iran-consumption/edit/:id",
 
-  "DEPENDENCE_INDUSTRIES_REGISTER": "/admin/dependence-industries/register",
-  "DEPENDENCE_INDUSTRIES_LIST": "/admin/dependence-industries/list",
-  "DEPENDENCE_INDUSTRIES_EDIT": "/admin/dependence-industries/edit/:id",
+  "INDUSTRY_REGISTER": "/admin/industry/register",
+  "INDUSTRY_LIST": "/admin/industry/list",
+  "INDUSTRY_EDIT": "/admin/industry/edit/:id",
 
   "TECHNOLOGICAL_LEVEL_REGISTER": "/admin/technological-level/register",
   "TECHNOLOGICAL_LEVEL_LIST": "/admin/technological-level/list",

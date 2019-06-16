@@ -51,10 +51,10 @@ import {
   IRAN_CONSUMPTION_REGISTER,
   IRAN_CONSUMPTION_LIST,
   IRAN_CONSUMPTION_EDIT,
-  DEPENDENCE_INDUSTRIES_REGISTER,
-  DEPENDENCE_INDUSTRIES_LIST,
-  DEPENDENCE_INDUSTRIES_EDIT,
-  DEPENDENCE_INDUSTRIES,
+  INDUSTRY_REGISTER,
+  INDUSTRY_LIST,
+  INDUSTRY_EDIT,
+  INDUSTRY,
   TECHNOLOGICAL_LEVEL_REGISTER,
   TECHNOLOGICAL_LEVEL_LIST,
   TECHNOLOGICAL_LEVEL_EDIT,
@@ -200,7 +200,7 @@ const IranConsumptionManagement = lazy(() =>
   import('./containers/admin/iran-consumption/iranConsumptionManagement')
 );
 const DependenceIndustriesManagement = lazy(() =>
-  import('./containers/admin/dependence-industries/dependenceIndustriesManagement')
+  import('./containers/admin/industry/IndustryManagement')
 );
 const TechnologicalLevelManagement = lazy(() =>
   import('./containers/admin/technological-level/technologicalLevelManagement')
@@ -522,23 +522,23 @@ const Routes = ({ session, refetch }: Props) => (
 
         <RestrictedRoute
           session={session}
-          path={DEPENDENCE_INDUSTRIES_REGISTER}
+          path={INDUSTRY_REGISTER}
           component={DependenceIndustriesManagement}
         />
         <RestrictedRoute
           session={session}
-          path={DEPENDENCE_INDUSTRIES_LIST}
+          path={INDUSTRY_LIST}
           component={DependenceIndustriesManagement}
         />
         <RestrictedRoute
           session={session}
-          path={DEPENDENCE_INDUSTRIES_EDIT}
+          path={INDUSTRY_EDIT}
           component={DependenceIndustriesManagement}
         />
 
         <RestrictedRoute
           session={session}
-          path={DEPENDENCE_INDUSTRIES}
+          path={INDUSTRY}
           component={DependenceIndustries}
         />
 

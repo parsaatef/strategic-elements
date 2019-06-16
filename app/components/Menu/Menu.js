@@ -16,7 +16,7 @@ import {
   IRAN_PRODUCTION_LIST,
   WORLD_CONSUMPTION_LIST,
   IRAN_CONSUMPTION_LIST,
-  DEPENDENCE_INDUSTRIES_LIST,
+  INDUSTRY_LIST,
   TECHNOLOGICAL_LEVEL_LIST,
   SECONDARY_PRODUCTION_LIST,
   THREATS_LIST,
@@ -298,7 +298,7 @@ class Menu extends Component<Props> {
                 <li className="smfp-menu-item menu__item" role="menuitem">
                   <Link
                     className="smfp-menu-link menu__link"
-                    to={DEPENDENCE_INDUSTRIES_LIST}
+                    to={INDUSTRY_LIST}
                   >
                     <span>صنایع</span>
                   </Link>

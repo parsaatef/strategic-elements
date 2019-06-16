@@ -9,6 +9,7 @@ import resource from './resource';
 import totalStats from './totalStats';
 import mine from './mine';
 import technology from './technology';
+import industry from './industry';
 
 export default [
   root,
@@ -21,5 +22,6 @@ export default [
   resource,
   totalStats,
   mine,
-  technology
+  technology,
+  industry
 ];
