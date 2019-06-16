@@ -1,8 +1,8 @@
 import Joi from 'joi';
 import mongoose from 'mongoose';
 import { UserInputError } from 'apollo-server-express';
-import { registerSecondarySource, updateSecondarySource } from '../schemas';
-import { SecondarySource } from '../models';
+import { registerResource, updateResource } from '../schemas';
+import { Resource } from '../models';
 
 export default {
   Query: {
@@ -12,10 +12,9 @@ export default {
      * @param args
      * @returns {*}
      */
-    searchSecondarySource: (root, args) => {
+    searchResource: (root, args) => {
       const {
         ids,
-        title,
         description,
         users,
         elements,
@@ -33,10 +32,6 @@ export default {
         filters[id] = { $in: ids };
       }
 
-      if (title) {
-        filters.title = new RegExp(title, 'i');
-      }
-
       if (description) {
         filters.description = new RegExp(description, 'i');
       }
@@ -49,7 +44,7 @@ export default {
         filters.username = { $in: users };
       }
 
-      let query = SecondarySource.find(filters)
+      let query = Resource.find(filters)
         .sort({ [sortBy]: sort })
         .skip(first);
 
@@ -58,55 +53,55 @@ export default {
       }
 
       return {
-        secondarySources: query,
-        totalCount: SecondarySource.count(filters).exec()
+        resources: query,
+        totalCount: Resource.count(filters).exec()
       };
     },
-    secondarySources: () => SecondarySource.find({}),
-    secondarySource: (root, { id }) => {
+    resources: () => Resource.find({}),
+    resource: (root, { id }) => {
       // , context, info
       // TODO: projection, sanitization
       if (!mongoose.Types.ObjectId.isValid(id)) {
         throw new UserInputError(`${id} is not a valid Secondary Source ID.`);
       }
-      return SecondarySource.findById(id);
+      return Resource.findById(id);
     }
   },
   Mutation: {
-    registerSecondarySource: async (root, args, { req }) => {
+    registerResource: async (root, args, { req }) => {
       // , {req}, info
       // TODO: projection
       const newArgs = args;
       newArgs.username = req.currentUser.username;
-      await Joi.validate(newArgs, registerSecondarySource, {
+      await Joi.validate(newArgs, registerResource, {
         abortEarly: false
       });
 
-      const element = await SecondarySource.create(args);
+      const element = await Resource.create(args);
       console.log('-----element----', element);
 
       return element;
     },
-    updateSecondarySource: async (root, { id, ...args }) => {
-      await Joi.validate(args, updateSecondarySource, { abortEarly: false });
+    updateResource: async (root, { id, ...args }) => {
+      await Joi.validate(args, updateResource, { abortEarly: false });
 
-      const result = await SecondarySource.updateOne({ _id: id }, args);
+      const result = await Resource.updateOne({ _id: id }, args);
       console.log('-----result----', result);
 
       return {
         result: !!result.ok
       };
     },
-    removeSecondarySource: async (root, { id }) => {
-      const result = await SecondarySource.deleteOne({ _id: id });
+    removeResource: async (root, { id }) => {
+      const result = await Resource.deleteOne({ _id: id });
       console.log('-----result----', result);
 
       return {
         result: !!result.deletedCount
       };
     },
-    multiRemoveSecondarySources: async (root, { ids }) => {
-      const result = await SecondarySource.deleteMany({ _id: { $in: ids } });
+    multiRemoveResources: async (root, { ids }) => {
+      const result = await Resource.deleteMany({ _id: { $in: ids } });
       console.log('-----result----', result);
 
       return {

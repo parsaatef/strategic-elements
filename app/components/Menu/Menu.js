@@ -8,7 +8,6 @@ import {
   ELEMENTS_LIST,
   GLOBAL_PRICES_LIST,
   SECONDARY_SOURCES_LIST,
-  TOTAL_STATS_LIST,
   EXPORT_LIST,
   IMPORT_LIST,
   WORLD_RESERVES_LIST,
@@ -20,7 +19,6 @@ import {
   DEPENDENCE_INDUSTRIES_LIST,
   TECHNOLOGICAL_LEVEL_LIST,
   SECONDARY_PRODUCTION_LIST,
-  UPSTREAM_INDUSTRY_LIST,
   THREATS_LIST,
   ENVIRONMENT_LIST,
   INFORMATION_OF_WORLD,
@@ -247,20 +245,18 @@ class Menu extends Component<Props> {
                 <li className="smfp-menu-item menu__item" role="menuitem">
                   <Link
                     className="smfp-menu-link menu__link"
-                    data-submenu="submenu-3-1"
-                    aria-owns="submenu-3-1"
-                    to={USERS_LIST}
+                    to={ELEMENTS_LIST}
                   >
-                    <span>کاربر</span>
+                    <span>مواد معدنی</span>
                   </Link>
                 </li>
 
                 <li className="smfp-menu-item menu__item" role="menuitem">
                   <Link
                     className="smfp-menu-link menu__link"
-                    to={ELEMENTS_LIST}
+                    to={MINERALS_LIST}
                   >
-                    <span>مواد معدنی</span>
+                    <span>کانی ها</span>
                   </Link>
                 </li>
 
@@ -278,9 +274,18 @@ class Menu extends Component<Props> {
                 <li className="smfp-menu-item menu__item" role="menuitem">
                   <Link
                     className="smfp-menu-link menu__link"
-                    to={MINERALS_LIST}
+                    to={GLOBAL_PRICES_LIST}
                   >
-                    <span>کانی ها</span>
+                    <span>قیمت جهانی</span>
+                  </Link>
+                </li>
+
+                <li className="smfp-menu-item menu__item" role="menuitem">
+                  <Link
+                    className="smfp-menu-link menu__link"
+                    to={SECONDARY_SOURCES_LIST}
+                  >
+                    <span>منابع</span>
                   </Link>
                 </li>
 
@@ -293,36 +298,9 @@ class Menu extends Component<Props> {
                 <li className="smfp-menu-item menu__item" role="menuitem">
                   <Link
                     className="smfp-menu-link menu__link"
-                    to={GLOBAL_PRICES_LIST}
-                  >
-                    <span>قیمت جهانی</span>
-                  </Link>
-                </li>
-
-                <li className="smfp-menu-item menu__item" role="menuitem">
-                  <Link
-                    className="smfp-menu-link menu__link"
-                    to={SECONDARY_SOURCES_LIST}
-                  >
-                    <span>منابع ثانویه</span>
-                  </Link>
-                </li>
-
-                <li className="smfp-menu-item menu__item" role="menuitem">
-                  <Link
-                    className="smfp-menu-link menu__link"
-                    to={TOTAL_STATS_LIST}
-                  >
-                    <span>آمار کلی</span>
-                  </Link>
-                </li>
-
-                <li className="smfp-menu-item menu__item" role="menuitem">
-                  <Link
-                    className="smfp-menu-link menu__link"
                     to={DEPENDENCE_INDUSTRIES_LIST}
                   >
-                    <span>صنایع وابسته</span>
+                    <span>صنایع</span>
                   </Link>
                 </li>
 
@@ -331,16 +309,16 @@ class Menu extends Component<Props> {
                     className="smfp-menu-link menu__link"
                     to={TECHNOLOGICAL_LEVEL_LIST}
                   >
-                    <span>سطح تکنولوژی</span>
+                    <span>فناوری ها</span>
                   </Link>
                 </li>
 
                 <li className="smfp-menu-item menu__item" role="menuitem">
                   <Link
                     className="smfp-menu-link menu__link"
-                    to={UPSTREAM_INDUSTRY_LIST}
+                    to={ENVIRONMENT_LIST}
                   >
-                    <span>صنایع پایین‌ دستی</span>
+                    <span>محیط‌زیست</span>
                   </Link>
                 </li>
 
@@ -351,11 +329,19 @@ class Menu extends Component<Props> {
                 </li>
 
                 <li className="smfp-menu-item menu__item" role="menuitem">
+                  <Link className="smfp-menu-link menu__link" to={THREATS_LIST}>
+                    <span>روابط بین الملل</span>
+                  </Link>
+                </li>
+
+                <li className="smfp-menu-item menu__item" role="menuitem">
                   <Link
                     className="smfp-menu-link menu__link"
-                    to={ENVIRONMENT_LIST}
+                    data-submenu="submenu-3-1"
+                    aria-owns="submenu-3-1"
+                    to={USERS_LIST}
                   >
-                    <span>محیط‌زیست</span>
+                    <span>کاربر</span>
                   </Link>
                 </li>
               </ul>

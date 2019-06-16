@@ -8,7 +8,7 @@ const schema = yup.object({
     .required(),
   price: yup.number().required(),
   year: yup.number().required(),
-  unit: yup.string(),
+  unit: yup.string().required(),
   description: yup.string()
 });
 

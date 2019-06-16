@@ -21,15 +21,28 @@ const alias = Joi.string()
 
 const elements = Joi.array()
   .items(Joi.string().label('Element'))
+  .required()
   .label('Elements');
 
 const description = Joi.string()
   .empty('')
   .label('Description');
 
-const color = Joi.string().label('Color');
-const formula = Joi.string().label('Formula');
-const abundance = Joi.string().label('Abundance');
+const color = Joi.string()
+  .empty('')
+  .label('Color');
+
+const formula = Joi.string()
+  .empty('')
+  .label('Formula');
+
+const abundance = Joi.string()
+  .required()
+  .label('Abundance');
+
+const moreInfo = Joi.string()
+  .empty('')
+  .label('More Info');
 
 export const registerMineral = Joi.object().keys({
   username,
@@ -37,6 +50,7 @@ export const registerMineral = Joi.object().keys({
   alias,
   elements,
   description,
+  moreInfo,
   color,
   formula,
   abundance
@@ -47,6 +61,7 @@ export const updateMineral = Joi.object().keys({
   alias,
   elements,
   description,
+  moreInfo,
   color,
   formula,
   abundance

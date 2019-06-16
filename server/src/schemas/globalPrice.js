@@ -8,7 +8,7 @@ const username = Joi.string()
   .label('Username');
 
 const element = Joi.string()
-  .alphanum()
+  // .alphanum()
   .min(2)
   .max(30)
   .required()
@@ -22,7 +22,9 @@ const year = Joi.number()
   .required()
   .label('Year');
 
-const unit = Joi.string().label('Unit');
+const unit = Joi.string()
+  .required()
+  .label('Unit');
 
 const description = Joi.string()
   .empty('')

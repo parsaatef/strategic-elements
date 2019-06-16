@@ -4,7 +4,7 @@ export * from './element';
 export * from './globalPrice';
 export * from './option';
 export * from './mineral';
-export * from './secondarySource';
+export * from './resource';
 export * from './totalStats';
 export * from './mine';
 export * from './technology';

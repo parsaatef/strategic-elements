@@ -10,6 +10,7 @@ export const GET_MINERAL = gql`
       color
       abundance
       description
+      moreInfo
       username
       elements
     }
@@ -22,6 +23,7 @@ export const GET_MINERALS = gql`
     $title: String
     $alias: String
     $description: String
+    $abundance: String
     $color: String
     $users: [String!]
     $elements: [String!]
@@ -35,6 +37,7 @@ export const GET_MINERALS = gql`
       title: $title
       alias: $alias
       description: $description
+      abundance: $abundance
       color: $color
       users: $users
       elements: $elements
@@ -51,6 +54,7 @@ export const GET_MINERALS = gql`
         color
         abundance
         description
+        moreInfo
         username
         elements
       }
@@ -63,11 +67,12 @@ export const REGISTER_MINERAL = gql`
   mutation(
     $title: String!
     $alias: String!
-    $formula: String!
-    $color: String!
+    $formula: String
+    $color: String
     $abundance: String!
     $description: String
-    $elements: [String!]
+    $moreInfo: String
+    $elements: [String!]!
   ) {
     registerMineral(
       title: $title
@@ -76,6 +81,7 @@ export const REGISTER_MINERAL = gql`
       color: $color
       abundance: $abundance
       description: $description
+      moreInfo: $moreInfo
       elements: $elements
     ) {
       id
@@ -88,11 +94,12 @@ export const UPDATE_MINERAL = gql`
     $id: ID!
     $title: String!
     $alias: String!
-    $formula: String!
-    $color: String!
+    $formula: String
+    $color: String
     $abundance: String!
     $description: String
-    $elements: [String!]
+    $moreInfo: String
+    $elements: [String!]!
   ) {
     updateMineral(
       id: $id
@@ -102,6 +109,7 @@ export const UPDATE_MINERAL = gql`
       color: $color
       abundance: $abundance
       description: $description
+      moreInfo: $moreInfo
       elements: $elements
     ) {
       result

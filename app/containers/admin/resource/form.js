@@ -7,7 +7,8 @@ import ElementsSelect from '../../../components/form/ElementsSelect';
 import {
   FormattedSimpleMsg,
   getUnit,
-  getQualityLevel
+  getQualityLevel,
+  getCountries
 } from '../../../utils/utility';
 
 type Props = {
@@ -17,7 +18,9 @@ type Props = {
   onSubmit: () => void
 };
 
-const SecondarySourceForm = (props: Props) => {
+const countries = getCountries();
+
+const ResourceForm = (props: Props) => {
   const { onSubmit, formType, initialValues, validationSchema } = props;
 
   return (
@@ -26,20 +29,21 @@ const SecondarySourceForm = (props: Props) => {
       initialValues={initialValues}
       schema={validationSchema}
     >
-      <ElementsSelect name="element" />
-
-      <Field
-        type="text"
-        name="title"
-        label={<FormattedMessage id="global.title" />}
-      />
+      <ElementsSelect name="element" required />
 
       <Field
         type="select"
-        name="value"
-        label={<FormattedMessage id="global.value" />}
-        options={getQualityLevel()}
-        placeholder={<FormattedSimpleMsg id="global.select" />}
+        name="location"
+        label={<FormattedMessage id="global.country" />}
+        options={countries}
+        placeholder={<FormattedSimpleMsg id="global.select_country" />}
+        required
+      />
+
+      <Field
+        type="number"
+        name="primarySource"
+        label={<FormattedMessage id="global.primarySource" />}
       />
 
       <Field
@@ -51,9 +55,23 @@ const SecondarySourceForm = (props: Props) => {
       />
 
       <Field
+        type="select"
+        name="secondarySource"
+        label={<FormattedMessage id="global.secondarySource" />}
+        options={getQualityLevel()}
+        placeholder={<FormattedSimpleMsg id="global.select" />}
+      />
+
+      <Field
         type="textarea"
         name="description"
         label={<FormattedMessage id="global.description" />}
+      />
+
+      <Field
+        type="editor"
+        name="moreInfo"
+        label={<FormattedMessage id="global.more_info" />}
       />
 
       <div className="animated fadeIn fast animation-auto-delay">
@@ -69,4 +87,4 @@ const SecondarySourceForm = (props: Props) => {
   );
 };
 
-export default SecondarySourceForm;
+export default ResourceForm;

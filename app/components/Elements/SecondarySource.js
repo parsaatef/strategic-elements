@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 import { gql } from 'apollo-boost';
-import { GET_SECONDARY_SOURCES } from '../../queries/secondarySource';
+import { GET_RESOURCES } from '../../queries/resource';
 import PageHeadingIcon from '../General/PageHeadingIcon';
 import Loading from '../General/Loading';
 
@@ -30,7 +30,7 @@ class SecondarySource extends Component<Props> {
         />
 
         <Query
-          query={GET_SECONDARY_SOURCES}
+          query={GET_RESOURCES}
           variables={{
             elements: [element],
             offset: -1
@@ -39,26 +39,20 @@ class SecondarySource extends Component<Props> {
           {({ data, loading }) => {
             if (loading) return <Loading />;
 
-            if (
-              data &&
-              data.searchSecondarySource &&
-              data.searchSecondarySource.secondarySources
-            ) {
+            if (data && data.searchResource && data.searchResource.resources) {
               return (
                 <div>
                   <table className="table table-with-width table-striped table-bordered">
                     <tbody>
-                      {data.searchSecondarySource.secondarySources.map(
-                        source => (
-                          <tr
-                            key={source.id}
-                            className="animated fadeInUp faster animation-auto-delay"
-                          >
-                            <td>{source.title}</td>
-                            <td>{source.value}</td>
-                          </tr>
-                        )
-                      )}
+                      {data.searchResource.resources.map(source => (
+                        <tr
+                          key={source.id}
+                          className="animated fadeInUp faster animation-auto-delay"
+                        >
+                          <td>{source.title}</td>
+                          <td>{source.value}</td>
+                        </tr>
+                      ))}
                     </tbody>
                   </table>
                 </div>

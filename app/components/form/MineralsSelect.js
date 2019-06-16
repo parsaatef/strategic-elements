@@ -33,6 +33,10 @@ const MineralsSelect = ({
           value: ""
         } */
       ];
+      console.log(
+        '-----data.searchMineral.minerals----',
+        data.searchMineral.minerals
+      );
 
       if (data && data.searchMineral && data.searchMineral.minerals) {
         data.searchMineral.minerals.forEach(item => {
@@ -42,6 +46,8 @@ const MineralsSelect = ({
           });
         });
       }
+
+      console.log('-------options------', options);
 
       if (fieldType === 'field') {
         return (

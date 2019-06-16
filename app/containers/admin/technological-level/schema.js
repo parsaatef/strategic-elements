@@ -19,7 +19,8 @@ const schema = yup.object({
   strategicImportance: yup
     .string()
     .min(2)
-    .max(60),
+    .max(60)
+    .required(),
 
   availabilityInIran: yup
     .string()

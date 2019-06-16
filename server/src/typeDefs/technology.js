@@ -24,7 +24,7 @@ export default gql`
     registerTechnology(
       title: String!
       level: String!
-      strategicImportance: String
+      strategicImportance: String!
       availabilityInIran: String!
       description: String
       element: String!
@@ -33,7 +33,7 @@ export default gql`
       id: ID!
       title: String!
       level: String!
-      strategicImportance: String
+      strategicImportance: String!
       availabilityInIran: String!
       description: String
       element: String!
@@ -51,7 +51,7 @@ export default gql`
     id: ID!
     title: String!
     level: String!
-    strategicImportance: String
+    strategicImportance: String!
     availabilityInIran: String!
     description: String
     username: String!

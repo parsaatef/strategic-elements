@@ -5,6 +5,6 @@ export { default as GlobalPrice } from './globalPrice';
 export { default as Option } from './option';
 export { default as Technology } from './technology';
 export { default as Mineral } from './mineral';
-export { default as SecondarySource } from './secondarySource';
+export { default as Resource } from './resource';
 export { default as TotalStats } from './totalStats';
 export { default as Mine } from './mine';

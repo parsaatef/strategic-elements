@@ -67,9 +67,11 @@ export default class TechnologicalLevelManagement extends Component<Props> {
           }}
           filters={[
             {
-              filter: 'title',
-              label: 'global.title',
-              type: 'text' // text or select
+              filter: 'element',
+              label: 'global.element',
+              type: 'element', // text or select
+              isDefault: true,
+              default: ''
             },
             {
               filter: 'level',
@@ -78,11 +80,16 @@ export default class TechnologicalLevelManagement extends Component<Props> {
               options: getQualityLevel()
             },
             {
-              filter: 'element',
-              label: 'global.element',
-              type: 'element', // text or select
-              isDefault: true,
-              default: ''
+              filter: 'strategicImportance',
+              label: 'global.strategicImportance',
+              type: 'select', // text or select
+              options: getQualityLevel()
+            },
+            {
+              filter: 'availabilityInIran',
+              label: 'global.availabilityInIran',
+              type: 'select', // text or select
+              options: getQualityLevel()
             }
           ]}
           columns={[
@@ -91,12 +98,12 @@ export default class TechnologicalLevelManagement extends Component<Props> {
               isCheck: true
             },
             {
-              key: 'title',
-              title: <FormattedMessage id="global.title" />
-            },
-            {
               key: 'element',
               title: <FormattedMessage id="global.element" />
+            },
+            {
+              key: 'title',
+              title: <FormattedMessage id="global.technology" />
             },
             {
               key: 'level',
@@ -104,16 +111,40 @@ export default class TechnologicalLevelManagement extends Component<Props> {
               item: dbCol => getQualityLevel('option', dbCol.level)
             },
             {
-              key: 'username',
-              title: <FormattedMessage id="global.username" />
+              key: 'strategicImportance',
+              title: <FormattedMessage id="global.strategicImportance" />,
+              item: dbCol =>
+                getQualityLevel('option', dbCol.strategicImportance)
+            },
+            {
+              key: 'availabilityInIran',
+              title: <FormattedMessage id="global.availabilityInIran" />,
+              item: dbCol => getQualityLevel('option', dbCol.availabilityInIran)
             },
             {
               key: 'action',
               title: <FormattedMessage id="global.actions" />
             }
           ]}
+          itemsDetail={{
+            level: dbCol => getQualityLevel('option', dbCol.level),
+            strategicImportance: dbCol =>
+              getQualityLevel('option', dbCol.strategicImportance),
+            availabilityInIran: dbCol =>
+              getQualityLevel('option', dbCol.availabilityInIran),
+            description: dbCol => (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: dbCol.description
+                }}
+              />
+            )
+          }}
+          itemsDetailLabels={{
+            title: <FormattedMessage id="global.technology" />
+          }}
           indexCol="id"
-          keyCol="title"
+          keyCol="id"
           titleCol="title"
         />
       </div>

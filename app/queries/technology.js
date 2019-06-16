@@ -63,7 +63,7 @@ export const REGISTER_TECHNOLOGY = gql`
   mutation(
     $title: String!
     $level: String!
-    $strategicImportance: String
+    $strategicImportance: String!
     $availabilityInIran: String!
     $description: String
     $element: String!
@@ -86,7 +86,7 @@ export const UPDATE_TECHNOLOGY = gql`
     $id: ID!
     $title: String!
     $level: String!
-    $strategicImportance: String
+    $strategicImportance: String!
     $availabilityInIran: String!
     $description: String
     $element: String!

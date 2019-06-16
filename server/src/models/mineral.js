@@ -8,6 +8,7 @@ const mineralSchema = new mongoose.Schema(
     color: String,
     abundance: String,
     description: String,
+    moreInfo: String,
     elements: [String],
     username: String
   },

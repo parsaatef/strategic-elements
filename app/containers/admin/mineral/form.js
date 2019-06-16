@@ -24,18 +24,25 @@ const MineralForm = (props: Props) => {
       initialValues={initialValues}
       schema={validationSchema}
     >
-      <ElementsSelect className="multiple-select" name="element" multiple />
+      <ElementsSelect
+        className="multiple-select"
+        name="elements"
+        required
+        multiple
+      />
 
       <Field
         type="text"
         name="title"
-        label={<FormattedMessage id="global.title" />}
+        label={<FormattedMessage id="global.mineral_persian_name" />}
+        required
       />
 
       <Field
         type="text"
         name="alias"
-        label={<FormattedMessage id="global.alias" />}
+        label={<FormattedMessage id="global.mineral_english_name" />}
+        required
       />
 
       <Field
@@ -50,6 +57,7 @@ const MineralForm = (props: Props) => {
         label={<FormattedMessage id="global.abundance" />}
         options={AbundanceOptions}
         placeholder={<FormattedSimpleMsg id="global.select" />}
+        required
       />
 
       <Field
@@ -62,6 +70,12 @@ const MineralForm = (props: Props) => {
         type="textarea"
         name="description"
         label={<FormattedMessage id="global.description" />}
+      />
+
+      <Field
+        type="editor"
+        name="moreInfo"
+        label={<FormattedMessage id="global.more_info" />}
       />
 
       <div className="animated fadeIn fast animation-auto-delay">

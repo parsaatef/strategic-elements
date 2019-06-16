@@ -18,6 +18,7 @@ export default {
         title,
         alias,
         description,
+        abundance,
         color,
         users,
         elements,
@@ -49,6 +50,10 @@ export default {
 
       if (color) {
         filters.color = new RegExp(color, 'i');
+      }
+
+      if (abundance) {
+        filters.abundance = abundance;
       }
 
       /**

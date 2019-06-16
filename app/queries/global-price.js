@@ -55,7 +55,7 @@ export const GET_GLOBAL_PRICES = gql`
 
 export const REGISTER_PRICE = gql`
   mutation(
-    $price: Int!
+    $price: Float!
     $year: Int!
     $unit: String!
     $description: String
@@ -76,7 +76,7 @@ export const REGISTER_PRICE = gql`
 export const UPDATE_PRICE = gql`
   mutation(
     $id: ID!
-    $price: Int!
+    $price: Float!
     $year: Int!
     $unit: String!
     $description: String

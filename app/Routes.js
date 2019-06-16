@@ -166,8 +166,8 @@ const ElementManagement = lazy(() =>
 const GlobalPriceManagement = lazy(() =>
   import('./containers/admin/global-price/globalPriceManagement')
 );
-const SecondarySourceManagement = lazy(() =>
-  import('./containers/admin/secondary-source/secondarySourceManagement')
+const ResourceManagement = lazy(() =>
+  import('./containers/admin/resource/ResourceManagement')
 );
 const usersManagement = lazy(() =>
   import('./containers/admin/users/usersManagement')
@@ -363,17 +363,17 @@ const Routes = ({ session, refetch }: Props) => (
         <RestrictedRoute
           session={session}
           path={SECONDARY_SOURCE_REGISTER}
-          component={SecondarySourceManagement}
+          component={ResourceManagement}
         />
         <RestrictedRoute
           session={session}
           path={SECONDARY_SOURCES_LIST}
-          component={SecondarySourceManagement}
+          component={ResourceManagement}
         />
         <RestrictedRoute
           session={session}
           path={SECONDARY_SOURCE_EDIT}
-          component={SecondarySourceManagement}
+          component={ResourceManagement}
         />
 
         <RestrictedRoute

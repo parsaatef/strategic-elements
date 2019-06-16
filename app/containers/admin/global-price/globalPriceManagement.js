@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import {
   FormattedSimpleMsg,
-  getPriceUnit,
+  getUnit,
   getYearOptions
 } from '../../../utils/utility';
 import Page from '../../../components/list-register/Page';
@@ -66,17 +66,17 @@ export default class GlobalPriceManagement extends Component<Props> {
           }}
           filters={[
             {
-              filter: 'year',
-              label: 'global.year',
-              type: 'select', // text or select
-              options: getYearOptions(1990, 2030)
-            },
-            {
               filter: 'elements',
               label: 'global.element',
               type: 'element', // text or select
               isDefault: true,
               default: ''
+            },
+            {
+              filter: 'year',
+              label: 'global.year',
+              type: 'select', // text or select
+              options: getYearOptions(1990, 2030)
             }
           ]}
           columns={[
@@ -94,26 +94,21 @@ export default class GlobalPriceManagement extends Component<Props> {
             },
             {
               key: 'price',
-              title: <FormattedMessage id="global.price" />
+              title: <FormattedMessage id="global.price_dollar" />
             },
             {
               key: 'unit',
               title: <FormattedMessage id="global.unit" />,
-              item: dbCol => getPriceUnit('option', dbCol.unit)
-            },
-            {
-              key: 'description',
-              title: <FormattedMessage id="global.description" />
-            },
-            {
-              key: 'username',
-              title: <FormattedMessage id="global.username" />
+              item: dbCol => getUnit('option', dbCol.unit)
             },
             {
               key: 'action',
               title: <FormattedMessage id="global.actions" />
             }
           ]}
+          itemsDetail={{
+            unit: dbCol => getUnit('option', dbCol.unit)
+          }}
           indexCol="id"
           keyCol="title"
           titleCol="title"

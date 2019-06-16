@@ -9,6 +9,7 @@ export default gql`
       title: String
       alias: String
       description: String
+      abundance: String
       color: String
       users: [String!]
       elements: [String!]
@@ -23,21 +24,23 @@ export default gql`
     registerMineral(
       title: String!
       alias: String!
-      formula: String!
-      color: String!
+      formula: String
+      color: String
       abundance: String!
       description: String
-      elements: [String!]
+      moreInfo: String
+      elements: [String!]!
     ): Mineral @auth
     updateMineral(
       id: ID!
       title: String!
       alias: String!
-      formula: String!
-      color: String!
+      formula: String
+      color: String
       abundance: String!
       description: String
-      elements: [String!]
+      moreInfo: String
+      elements: [String!]!
     ): Result @auth
     removeMineral(id: ID!): Result @auth
     multiRemoveMinerals(ids: [ID!]!): Result @auth
@@ -51,13 +54,14 @@ export default gql`
   type Mineral {
     id: ID!
     title: String!
-    alias: String
-    formula: String!
-    color: String!
+    alias: String!
+    formula: String
+    color: String
     abundance: String!
     description: String
-    username: String
-    elements: [String!]
+    moreInfo: String
+    username: String!
+    elements: [String!]!
     createdAt: String!
     updatedAt: String!
   }

@@ -10,7 +10,7 @@ import Loading from '../General/Loading';
 
 const getSelectValue = (value, options) => _.findWhere(options, { value });
 
-const ElementsSelect = ({ fieldType = 'field', ...rest }) => (
+const ElementsSelect = ({ fieldType = 'field', name = 'element', ...rest }) => (
   <Query
     query={GET_ELEMENTS}
     variables={{
@@ -41,7 +41,7 @@ const ElementsSelect = ({ fieldType = 'field', ...rest }) => (
         return (
           <Field
             type="select"
-            name="element"
+            name={name}
             label={<FormattedMessage id="global.element" />}
             options={options}
             placeholder={<FormattedSimpleMsg id="global.selectElement" />}
@@ -54,7 +54,7 @@ const ElementsSelect = ({ fieldType = 'field', ...rest }) => (
 
       return (
         <ReactSelect
-          name="element"
+          name={name}
           options={options}
           placeholder={<FormattedSimpleMsg id="global.selectElement" />}
           value={getSelectValue(value, options)}

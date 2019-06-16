@@ -6,8 +6,8 @@ export default gql`
     globalPrices: [GlobalPrice!]! @auth
     searchPrice(
       ids: [ID!]
-      minPrice: Int
-      maxPrice: Int
+      minPrice: Float
+      maxPrice: Float
       year: Int
       elements: [String!]
       users: [String!]
@@ -20,7 +20,7 @@ export default gql`
 
   extend type Mutation {
     registerPrice(
-      price: Int!
+      price: Float!
       year: Int!
       unit: String!
       description: String
@@ -28,7 +28,7 @@ export default gql`
     ): GlobalPrice @auth
     updatePrice(
       id: ID!
-      price: Int!
+      price: Float!
       year: Int!
       unit: String!
       description: String
@@ -45,7 +45,7 @@ export default gql`
 
   type GlobalPrice {
     id: ID!
-    price: Int!
+    price: Float!
     year: Int!
     unit: String!
     description: String

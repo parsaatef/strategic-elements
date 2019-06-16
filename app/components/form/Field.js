@@ -7,9 +7,13 @@ import TextEditor from './TextEditor';
 
 class Field extends Component {
   shouldComponentUpdate(nextProps) {
-    const { value, error } = this.props;
+    const { value, error, options } = this.props;
 
-    return nextProps.error !== error || nextProps.value !== value;
+    return (
+      nextProps.error !== error ||
+      nextProps.value !== value ||
+      nextProps.options !== options
+    );
   }
 
   render() {

@@ -24,12 +24,13 @@ const MineralForm = (props: Props) => {
       initialValues={initialValues}
       schema={validationSchema}
     >
-      <ElementsSelect name="element" />
+      <ElementsSelect name="element" required />
 
       <Field
         type="text"
         name="title"
-        label={<FormattedMessage id="global.title" />}
+        label={<FormattedMessage id="global.technologyName" />}
+        required
       />
 
       <Field
@@ -38,6 +39,7 @@ const MineralForm = (props: Props) => {
         label={<FormattedMessage id="global.level" />}
         options={options}
         placeholder={<FormattedMessage id="global.select" />}
+        required
       />
 
       <Field
@@ -46,6 +48,7 @@ const MineralForm = (props: Props) => {
         label={<FormattedMessage id="global.strategicImportance" />}
         options={options}
         placeholder={<FormattedMessage id="global.select" />}
+        required
       />
 
       <Field
@@ -54,12 +57,13 @@ const MineralForm = (props: Props) => {
         label={<FormattedMessage id="global.availabilityInIran" />}
         options={options}
         placeholder={<FormattedMessage id="global.select" />}
+        required
       />
 
       <Field
         type="editor"
         name="description"
-        label={<FormattedMessage id="global.description" />}
+        label={<FormattedMessage id="global.moreInfo" />}
       />
 
       <div className="animated fadeIn fast animation-auto-delay">

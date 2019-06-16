@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
-import { FormattedSimpleMsg } from '../../../utils/utility';
+import { FormattedSimpleMsg, getQualityLevel } from '../../../utils/utility';
 import Page from '../../../components/list-register/Page';
 import ElementForm from './form';
 import schema from './schema';
@@ -62,26 +62,27 @@ export default class MineralManagement extends Component<Props> {
           }}
           filters={[
             {
-              filter: 'title',
-              label: 'global.title',
-              type: 'text' // text or select
-            },
-            {
-              filter: 'alias',
-              label: 'global.alias',
-              type: 'text' // text or select
-            },
-            {
-              filter: 'color',
-              label: 'global.color',
-              type: 'text' // text or select
-            },
-            {
               filter: 'elements',
               label: 'global.element',
               type: 'element', // text or select
               isDefault: true,
               default: ''
+            },
+            {
+              filter: 'title',
+              label: 'global.title',
+              type: 'text' // text or select
+            },
+            {
+              filter: 'abundance',
+              label: 'global.abundance',
+              type: 'select', // text or select
+              options: getQualityLevel()
+            },
+            {
+              filter: 'color',
+              label: 'global.color',
+              type: 'text' // text or select
             }
           ]}
           columns={[
@@ -91,29 +92,42 @@ export default class MineralManagement extends Component<Props> {
             },
             {
               key: 'title',
-              title: <FormattedMessage id="global.title" />
+              title: <FormattedMessage id="global.mineral_persian_name" />
             },
             {
               key: 'alias',
-              title: <FormattedMessage id="global.alias" />
+              title: <FormattedMessage id="global.mineral_english_name" />
             },
             {
-              key: 'formula',
-              title: <FormattedMessage id="global.formula" />
+              key: 'elements',
+              title: <FormattedMessage id="global.element" />,
+              item: dbCol => dbCol.elements.join(', ')
+            },
+            {
+              key: 'abundance',
+              title: <FormattedMessage id="global.abundance" />,
+              item: dbCol => getQualityLevel('option', dbCol.abundance)
             },
             {
               key: 'color',
               title: <FormattedMessage id="global.color" />
             },
             {
-              key: 'username',
-              title: <FormattedMessage id="global.username" />
-            },
-            {
               key: 'action',
               title: <FormattedMessage id="global.actions" />
             }
           ]}
+          itemsDetail={{
+            elements: dbCol => dbCol.elements.join(', '),
+            abundance: dbCol => getQualityLevel('option', dbCol.abundance),
+            moreInfo: dbCol => (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: dbCol.moreInfo
+                }}
+              />
+            )
+          }}
           indexCol="id"
           keyCol="title"
           titleCol="title"

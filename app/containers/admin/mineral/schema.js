@@ -11,11 +11,15 @@ const schema = yup.object({
     .min(3)
     .max(30)
     .required(),
-  elements: yup.array().of(yup.string()),
+  elements: yup
+    .array()
+    .required()
+    .of(yup.string()),
   description: yup.string(),
   color: yup.string(),
   formula: yup.string(),
-  abundance: yup.string()
+  abundance: yup.string().required(),
+  moreInfo: yup.string()
 });
 
 export default schema;

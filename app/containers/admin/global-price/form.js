@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
 import {
   FormattedSimpleMsg,
-  getPriceUnit,
+  getUnit,
   getYearOptions
 } from '../../../utils/utility';
 import AppForm from '../../../components/form/AppForm';
@@ -17,9 +17,10 @@ type Props = {
   onSubmit: () => void
 };
 
+const yearOptions = getYearOptions(1950, 2050);
+
 const GlobalPriceForm = (props: Props) => {
   const { onSubmit, formType, initialValues, validationSchema } = props;
-  const yearOptions = getYearOptions(1950, 2050);
 
   return (
     <AppForm
@@ -27,7 +28,7 @@ const GlobalPriceForm = (props: Props) => {
       initialValues={initialValues}
       schema={validationSchema}
     >
-      <ElementsSelect name="element" />
+      <ElementsSelect name="element" required />
 
       <Field
         type="select"
@@ -35,20 +36,23 @@ const GlobalPriceForm = (props: Props) => {
         label={<FormattedMessage id="global.year" />}
         options={yearOptions}
         placeholder={<FormattedSimpleMsg id="global.year" />}
+        required
       />
 
       <Field
         type="number"
         name="price"
-        label=<FormattedMessage id="global.price" />
+        label={<FormattedMessage id="global.price_dollar" />}
+        required
       />
 
       <Field
         type="select"
         name="unit"
         label={<FormattedMessage id="global.unit" />}
-        options={getPriceUnit()}
+        options={getUnit()}
         placeholder={<FormattedSimpleMsg id="global.select" />}
+        required
       />
 
       <Field

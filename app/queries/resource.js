@@ -1,23 +1,24 @@
 import { gql } from 'apollo-boost';
 
-export const GET_SECONDARY_SOURCE = gql`
+export const GET_RESOURCE = gql`
   query($id: ID!) {
-    secondarySource(id: $id) {
+    resource(id: $id) {
       id
-      title
-      value
+      location
+      primarySource
       unit
+      secondarySource
       description
+      moreInfo
       username
       element
     }
   }
 `;
 
-export const GET_SECONDARY_SOURCES = gql`
+export const GET_RESOURCES = gql`
   query(
     $ids: [ID!]
-    $title: String
     $description: String
     $users: [String!]
     $elements: [String!]
@@ -26,9 +27,8 @@ export const GET_SECONDARY_SOURCES = gql`
     $offset: Int
     $first: Int
   ) {
-    searchSecondarySource(
+    searchResource(
       ids: $ids
-      title: $title
       description: $description
       users: $users
       elements: $elements
@@ -37,12 +37,14 @@ export const GET_SECONDARY_SOURCES = gql`
       offset: $offset
       first: $first
     ) {
-      secondarySources {
+      resources {
         id
-        title
-        value
+        location
+        primarySource
         unit
+        secondarySource
         description
+        moreInfo
         username
         element
       }
@@ -53,17 +55,21 @@ export const GET_SECONDARY_SOURCES = gql`
 
 export const REGISTER_SOURCE = gql`
   mutation(
-    $title: String!
-    $value: String!
-    $unit: String!
+    $location: String!
+    $primarySource: Float
+    $unit: String
+    $secondarySource: String
     $description: String
+    $moreInfo: String
     $element: String!
   ) {
-    registerSecondarySource(
-      title: $title
-      value: $value
+    registerResource(
+      location: $location
+      primarySource: $primarySource
       unit: $unit
+      secondarySource: $secondarySource
       description: $description
+      moreInfo: $moreInfo
       element: $element
     ) {
       id
@@ -74,18 +80,22 @@ export const REGISTER_SOURCE = gql`
 export const UPDATE_SOURCE = gql`
   mutation(
     $id: ID!
-    $title: String!
-    $value: String!
-    $unit: String!
+    $location: String!
+    $primarySource: Float
+    $unit: String
+    $secondarySource: String
     $description: String
+    $moreInfo: String
     $element: String!
   ) {
-    updateSecondarySource(
+    updateResource(
       id: $id
-      title: $title
-      value: $value
+      location: $location
+      primarySource: $primarySource
       unit: $unit
+      secondarySource: $secondarySource
       description: $description
+      moreInfo: $moreInfo
       element: $element
     ) {
       result
@@ -95,7 +105,7 @@ export const UPDATE_SOURCE = gql`
 
 export const DELETE_SOURCE = gql`
   mutation($id: ID!) {
-    removeSecondarySource(id: $id) {
+    removeResource(id: $id) {
       result
     }
   }
@@ -103,7 +113,7 @@ export const DELETE_SOURCE = gql`
 
 export const MULTI_DELETE_SOURCES = gql`
   mutation($ids: [ID!]!) {
-    multiRemoveSecondarySources(ids: $ids) {
+    multiRemoveResources(ids: $ids) {
       result
     }
   }

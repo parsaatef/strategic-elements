@@ -8,7 +8,7 @@ const username = Joi.string()
   .label('Username');
 
 const element = Joi.string()
-  .alphanum()
+  // .alphanum()
   .min(2)
   .max(30)
   .required()
@@ -29,6 +29,7 @@ const level = Joi.string()
 const strategicImportance = Joi.string()
   .min(2)
   .max(60)
+  .required()
   .label('Strategic Importance');
 
 const availabilityInIran = Joi.string()
@@ -37,7 +38,9 @@ const availabilityInIran = Joi.string()
   .required()
   .label('Availability In Iran');
 
-const description = Joi.string().label('Description');
+const description = Joi.string()
+  .empty('')
+  .label('Description');
 
 export const registerTechnology = Joi.object().keys({
   title,

@@ -163,7 +163,8 @@ class AppForm extends Component<Props> {
         child &&
         child.type &&
         (child.type.displayName === 'Field' ||
-          child.type.displayName === 'ElementsSelect')
+          child.type.displayName === 'ElementsSelect' ||
+          child.type.displayName === 'MineralsSelect')
       ) {
         return React.cloneElement(child, {
           value:
