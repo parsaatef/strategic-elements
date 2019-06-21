@@ -1,21 +1,14 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
-import * as d3 from 'd3';
-import { Query } from 'react-apollo';
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import _ from 'underscore';
 import { ELEMENT_INFORMATION } from '../../constants/routes';
 import Select from '../General/Select';
 import IconButton from '../General/IconButton';
 import PageHeadingIcon from '../General/PageHeadingIcon';
-import Loading from '../General/Loading';
-import Datamaps from './datamaps';
-import World from '../../utils/world.json';
-import Iran from '../../utils/iran.json';
-import { GET_ELEMENT_MIX_STATS } from '../../queries/elementStats'; // GET_ELEMENTS_STATS,
-import popupTemplate from './popupTemplate';
 import { getYearOptions, getElementsCategory } from '../../utils/utility';
 import ElementsSelect from './ElementsSelect';
+import MapInfo from './MapInfo';
 
 // window.d3 = d3;
 
@@ -34,24 +27,6 @@ const typeOptions = [
 const groupsOptions = getElementsCategory();
 
 const yearOptions = getYearOptions(1990, 2030);
-
-const CountriesOptions = World.Countries;
-
-const setProjection = null;
-
-const StatesOptions = Iran.States;
-
-const irnSetProjection = () => {
-  const projectionD3 = d3.geo
-    .mercator()
-    .center([57.688, 32.4279]) // always in [East Latitude, North Longitude]
-    .scale(1400);
-  const pathD3 = d3.geo.path().projection(projectionD3);
-  return {
-    path: pathD3,
-    projection: projectionD3
-  };
-};
 
 class InformationOfWorld extends Component<Props> {
   constructor(props) {
@@ -134,180 +109,15 @@ class InformationOfWorld extends Component<Props> {
     }
   }
 
-  getBubbleProps(data) {
-    const { locationType } = this.state;
-
-    const { intl } = this.props;
-
-    let LocationOptions = CountriesOptions;
-    let LocationsType = 'country';
-
-    if (locationType === 'iran') {
-      LocationOptions = StatesOptions;
-      LocationsType = 'state';
-    }
-
-    const { formatMessage, formatNumber } = intl;
-
-    const LocationProps = [];
-
-    const labels = {
-      title: formatMessage({ id: 'global.title' }),
-      resourceValue: formatMessage({
-        id: 'global.resourceValue'
-      }),
-      productionValue: formatMessage({
-        id: 'global.productionValue'
-      }),
-      consumptionValue: formatMessage({
-        id: 'global.consumptionValue'
-      }),
-      exportValue: formatMessage({ id: 'global.exportValue' }),
-      importValue: formatMessage({ id: 'global.importValue' }),
-      secondaryProductionValue: formatMessage({
-        id: 'global.secondaryProductionValue'
-      })
-      // mineCount: formatMessage({ id: 'global.mineCount' })
-    };
-
-    let maxValue = 0;
-    let minValue = 100000000;
-
-    data.searchElementStats.elementsStats.forEach(elem => {
-      if (elem.productionValue < minValue) {
-        minValue = elem.productionValue;
-      }
-      if (elem.productionValue > maxValue) {
-        maxValue = elem.productionValue;
-      }
-    });
-
-    const subValue = maxValue - minValue;
-
-    data.searchElementStats.elementsStats.forEach(elem => {
-      let radiusOfLocation =
-        Math.round(((elem.productionValue - minValue) / subValue) * 10) + 5;
-
-      if (!radiusOfLocation) {
-        radiusOfLocation = 5;
-      }
-
-      let locations;
-
-      if (LocationsType === 'country') {
-        locations = LocationOptions.find(
-          cnty => cnty.country === elem.location
-        );
-      } else {
-        locations = LocationOptions.find(stt => stt.state === elem.location);
-      }
-
-      if (locations) {
-        let prevCountry;
-        if (LocationsType === 'country') {
-          prevCountry = LocationProps.find(
-            cnty => cnty.country === elem.location
-          );
-        } else {
-          prevCountry = LocationProps.find(stt => stt.state === elem.location);
-        }
-
-        if (!prevCountry) {
-          LocationProps.push({
-            ...locations,
-            title: formatMessage({ id: locations.title }),
-            resourceValue: elem.resourceValue
-              ? formatNumber(elem.resourceValue)
-              : '-',
-            productionValue: elem.productionValue
-              ? formatNumber(elem.productionValue)
-              : '-',
-            consumptionValue: elem.consumptionValue
-              ? formatNumber(elem.consumptionValue)
-              : '-',
-            exportValue: elem.exportValue
-              ? formatNumber(elem.exportValue)
-              : '-',
-            importValue: elem.importValue
-              ? formatNumber(elem.importValue)
-              : '-',
-            secondaryProductionValue: elem.secondaryProductionValue
-              ? formatNumber(elem.secondaryProductionValue)
-              : '-',
-            // mineCount: elem.mineCount,
-            radius: radiusOfLocation,
-            labels
-          });
-        } else {
-          let prevCountryIndex;
-          if (LocationsType === 'country') {
-            prevCountryIndex = LocationProps.findIndex(
-              cnty => cnty.country === elem.location
-            );
-          } else {
-            prevCountryIndex = LocationProps.findIndex(
-              stt => stt.state === elem.location
-            );
-          }
-
-          const {
-            resourceValue,
-            productionValue,
-            consumptionValue,
-            exportValue,
-            importValue,
-            secondaryProductionValue,
-            // mineCount,
-            radius
-          } = prevCountry;
-
-          // .
-          LocationProps[prevCountryIndex] = {
-            ...prevCountry,
-            resourceValue: resourceValue + elem.resourceValue,
-            productionValue: productionValue + elem.productionValue,
-            consumptionValue: consumptionValue + elem.consumptionValue,
-            exportValue: exportValue + elem.exportValue,
-            importValue: importValue + elem.importValue,
-            secondaryProductionValue:
-              secondaryProductionValue + elem.secondaryProductionValue,
-            // mineCount: mineCount + elem.mineCount,
-            radius: radius - 5 + radiusOfLocation
-          };
-        }
-      }
-    });
-  }
-
   render() {
     const {
-      locationType,
       year,
-      elements,
       group,
       currentElement,
       elementDefault,
       elementSelectRefresh,
       type
     } = this.state;
-
-    let scopeProps = 'world';
-    let idName = 'world-map';
-    let widthProps = '80%';
-    let heightProps = '65vh';
-    let dataUrlProps = null;
-    let popupTemplateProps = popupTemplate;
-    let setProjectionProps = setProjection;
-
-    if (locationType === 'iran') {
-      scopeProps = 'irn';
-      idName = 'iran-map';
-      widthProps = '85%';
-      heightProps = '65vh';
-      dataUrlProps = 'components/Information/irn.topo.json';
-      popupTemplateProps = popupTemplate;
-      setProjectionProps = irnSetProjection;
-    }
 
     const currGroup = groupsOptions.find(grp => grp.value === group);
 
@@ -393,42 +203,7 @@ class InformationOfWorld extends Component<Props> {
           </Row>
         </div>
 
-        <div className="smfp-datamaps-wrap-outer animated fadeInUp fast delay-2s">
-          <Query
-            query={GET_ELEMENT_MIX_STATS} // GET_ELEMENTS_STATS}
-            variables={{
-              // locationType,
-              year,
-              elements
-            }}
-          >
-            {({ data, loading }) => {
-              if (loading) return <Loading />;
-              if (
-                !data ||
-                !data.searchElementStats ||
-                !data.searchElementStats.elementsStats
-              )
-                return null;
-
-              const LocationProps = [];
-
-              return (
-                <Datamaps
-                  className="smfp-datamaps-wrap animated fadeIn fast"
-                  idName={idName}
-                  widthProps={widthProps}
-                  heightProps={heightProps}
-                  scopeProps={scopeProps}
-                  dataUrlProps={dataUrlProps}
-                  bubblesProps={LocationProps}
-                  popupTemplateProps={popupTemplateProps}
-                  setProjectionProps={setProjectionProps}
-                />
-              );
-            }}
-          </Query>
-        </div>
+        <MapInfo {...this.state} />
 
         {currentElement.value && (
           <IconButton

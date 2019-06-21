@@ -31,8 +31,8 @@ export default class ElementDetailForWorld extends Component<Props> {
     super(props);
 
     this.state = {
-      year: 2002,
-      location: ''
+      year: 2018,
+      location: 'all'
     };
   }
 
@@ -127,7 +127,6 @@ export default class ElementDetailForWorld extends Component<Props> {
                 resourceValue,
                 productionValue,
                 consumptionValue,
-                // mineCount,
                 exportValue,
                 importValue,
                 secondaryProductionValue
@@ -146,8 +145,6 @@ export default class ElementDetailForWorld extends Component<Props> {
                     value={consumptionValue}
                     name="مجموع مصرف سالانه"
                   />
-
-                  {/* <ElementDetailItem value={mineCount} name="تعداد معادن" /> */}
 
                   <ElementDetailItem value={exportValue} name="میزان صادرات" />
 
