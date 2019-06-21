@@ -22,9 +22,9 @@ const setProjection = null;
 
 const StatesOptions = Iran.States;
 
-const getPercentValue = (a, b, aUnit, bUnit, raw) => {
+export const getPercentValue = (a, b, aUnit, bUnit, formatNumber, raw) => {
   if (!a || !b) {
-    return raw ? 0 : `${0}%`;
+    return raw ? 0 : `${formatNumber(0)}%`;
   }
 
   const aSt = getStandardValueByUnit(a, aUnit);
@@ -33,7 +33,7 @@ const getPercentValue = (a, b, aUnit, bUnit, raw) => {
 
   const percent = parseFloat((aSt / bSt) * 100).toFixed(2); // Math.round( (aSt/bSt)*100 );
 
-  return raw ? percent : `${percent}%`;
+  return raw ? percent : `${formatNumber(percent)}%`;
 };
 
 const getFinalValue = (a, unit, formatNumber) => {
@@ -210,7 +210,8 @@ class MapInfo extends Component<Props> {
         productionValue,
         productionValueTotal,
         unit,
-        unitTotal
+        unitTotal,
+        formatNumber
       ),
 
       secondaryProduction: getFinalValue(
@@ -223,7 +224,8 @@ class MapInfo extends Component<Props> {
         secondaryProductionValue,
         secondaryProductionTotal,
         unit,
-        unitTotal
+        unitTotal,
+        formatNumber
       ),
 
       resource: getFinalValue(primarySource, unit, formatNumber),
@@ -232,7 +234,8 @@ class MapInfo extends Component<Props> {
         primarySource,
         primarySourceTotal,
         unitSource,
-        unitSourceTotal
+        unitSourceTotal,
+        formatNumber
       ),
 
       worldConsumption: getFinalValue(
@@ -251,14 +254,16 @@ class MapInfo extends Component<Props> {
         exportValue,
         exportValueTotal,
         unit,
-        unitTotal
+        unitTotal,
+        formatNumber
       ),
 
       productionShare: getPercentValue(
         exportValue,
         iranProductionValue,
         unit,
-        iranUnit
+        iranUnit,
+        formatNumber
       ),
 
       iranConsumption: getFinalValue(iranConsumptionValue, unit, formatNumber),
@@ -271,14 +276,16 @@ class MapInfo extends Component<Props> {
         importValue,
         importValueTotal,
         unit,
-        unitTotal
+        unitTotal,
+        formatNumber
       ),
 
       consumptionShare: getPercentValue(
         importValue,
         iranConsumptionValue,
         unit,
-        iranUnit
+        iranUnit,
+        formatNumber
       )
     };
 
@@ -299,6 +306,7 @@ class MapInfo extends Component<Props> {
           primarySourceTotal,
           unitSource,
           unitSourceTotal,
+          formatNumber,
           true
         );
         break;
@@ -308,6 +316,7 @@ class MapInfo extends Component<Props> {
           exportValueTotal,
           unit,
           unitTotal,
+          formatNumber,
           true
         );
         break;
@@ -317,6 +326,7 @@ class MapInfo extends Component<Props> {
           importValueTotal,
           unit,
           unitTotal,
+          formatNumber,
           true
         );
         break;
@@ -327,6 +337,7 @@ class MapInfo extends Component<Props> {
           productionValueTotal,
           unit,
           unitTotal,
+          formatNumber,
           true
         );
     }

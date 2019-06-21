@@ -2,7 +2,7 @@ import Joi from 'joi';
 import mongoose from 'mongoose';
 import { UserInputError } from 'apollo-server-express';
 import { registerElementStats, updateElementStats } from '../schemas';
-import { ElementStats, Resource } from '../models';
+import { ElementStats, Resource, GlobalPrice } from '../models';
 
 export default {
   ElementMixStats: {
@@ -16,6 +16,17 @@ export default {
       filters.location = location;
 
       return Resource.findOne(filters);
+    },
+    price: root => {
+      const { element, year } = root;
+
+      const filters = {};
+
+      filters.year = year;
+
+      filters.element = element;
+
+      return GlobalPrice.findOne(filters);
     }
   },
   Query: {
@@ -88,11 +99,19 @@ export default {
     elementsStats: () => ElementStats.find({}),
 
     statsByElements: (root, args) => {
-      const { elements, year, sort = 'desc', sortBy = 'createdAt' } = args;
+      const {
+        elements,
+        year,
+        locations,
+        sort = 'desc',
+        sortBy = 'createdAt'
+      } = args;
 
       const filters = {};
 
       filters.element = { $in: elements };
+
+      filters.location = { $in: locations };
 
       if (year) {
         filters.year = year;
