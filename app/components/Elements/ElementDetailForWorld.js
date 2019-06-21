@@ -12,7 +12,8 @@ import {
   DEPENDENCE_INDUSTRIES,
   MINE,
   MINERAL,
-  GLOBAL_PRICE
+  GLOBAL_PRICE,
+  PRODUCTION
 } from '../../constants/routes';
 import ElementDetailItem from './ElementDetailItem';
 import { GET_ELEMENTS_STATS } from '../../queries/elementStats';
@@ -169,6 +170,30 @@ export default class ElementDetailForWorld extends Component<Props> {
           <Col sm={4} className="animated flipInX fast animation-auto-delay">
             <IconButton
               className="main-detail-btn-wrap text-center"
+              link={GLOBAL_PRICE.replace(':element', element).replace(
+                ':title',
+                title
+              )}
+              icon="smfpIcon smfpIcon-global-price"
+              title="روند قیمت جهانی"
+            />
+          </Col>
+
+          <Col sm={4} className="animated flipInX fast animation-auto-delay">
+            <IconButton
+              className="main-detail-btn-wrap text-center"
+              link={PRODUCTION.replace(':element', element).replace(
+                ':title',
+                title
+              )}
+              icon="smfpIcon smfpIcon-global-price"
+              title="روند تولید"
+            />
+          </Col>
+
+          <Col sm={4} className="animated flipInX fast animation-auto-delay">
+            <IconButton
+              className="main-detail-btn-wrap text-center"
               link={SECONDARY_SOURCE.replace(':element', element).replace(
                 ':title',
                 title
@@ -256,18 +281,6 @@ export default class ElementDetailForWorld extends Component<Props> {
               )}
               icon="smfpIcon smfpIcon-threats"
               title="تهدیدها"
-            />
-          </Col>
-
-          <Col sm={4} className="animated flipInX fast animation-auto-delay">
-            <IconButton
-              className="main-detail-btn-wrap text-center"
-              link={GLOBAL_PRICE.replace(':element', element).replace(
-                ':title',
-                title
-              )}
-              icon="smfpIcon smfpIcon-global-price"
-              title="قیمت جهانی"
             />
           </Col>
         </Row>

@@ -20,6 +20,7 @@
   "MINE": "/information/:element/:title/mines",
   "MINERAL": "/information/:element/:title/mineral",
   "GLOBAL_PRICE": "/information/:element/:title/global-price",
+  "PRODUCTION": "/information/:element/:title/production",
 
   "ADMIN": "/admin",
 
