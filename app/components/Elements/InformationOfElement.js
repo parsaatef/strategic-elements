@@ -7,6 +7,7 @@ import IconButton from '../General/IconButton';
 import { GET_ELEMENT_BY_NAME } from '../../queries/element';
 import PageHeadingIcon from '../General/PageHeadingIcon';
 import Loading from '../General/Loading';
+import { getElementsCategory, getPhaseAtSTPOptions } from '../../utils/utility';
 
 const notNeedFeaturesForDisplay = [
   'id',
@@ -14,6 +15,36 @@ const notNeedFeaturesForDisplay = [
   'username',
   '__typename'
 ];
+
+const getFinalValue = (feature, data) => {
+  let value = '';
+
+  switch (feature) {
+    case 'category':
+      value = getElementsCategory('option', data.category);
+      break;
+
+    case 'phaseAtSTP':
+      value = getPhaseAtSTPOptions('option', data.phaseAtSTP);
+      break;
+
+    case 'electricalConductivity':
+      value = getPhaseAtSTPOptions('option', data.electricalConductivity);
+      break;
+
+    case 'magneticProperty':
+      value = getPhaseAtSTPOptions('option', data.magneticProperty);
+      break;
+
+    case 'toxicity':
+      value = getPhaseAtSTPOptions('option', data.toxicity);
+      break;
+    default:
+      value = data[feature];
+  }
+
+  return value;
+};
 
 class InformationOfElement extends Component<Props> {
   render() {
@@ -58,7 +89,9 @@ class InformationOfElement extends Component<Props> {
                               <td>
                                 <FormattedMessage id={`global.${feature}`} />
                               </td>
-                              <td>{data.elementByName[feature]}</td>
+                              <td>
+                                {getFinalValue(feature, data.elementByName)}
+                              </td>
                             </tr>
                           ))}
                       </tbody>

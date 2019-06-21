@@ -193,6 +193,48 @@ export function getUnit(type = 'all', by) {
   return foundedOption ? foundedOption.label : '';
 }
 
+/**
+ * Get the standard value
+ */
+export function getStandardValueByUnit(value, unit) {
+  let standardValue = 0;
+
+  switch (unit) {
+    case 'carat':
+      standardValue = 0.0002 * value;
+      break;
+    case 'ounce':
+      standardValue = 0.03110348 * value;
+      break;
+    case 'pound':
+      standardValue = 0.45359237 * value;
+      break;
+    case 'kilogram':
+      standardValue = value;
+      break;
+    case 'kTons':
+      standardValue = 1000 * 1000 * value;
+      break;
+    case 'mTons':
+      standardValue = 1000000 * 1000 * value;
+      break;
+    case 'm3':
+      standardValue = value;
+      break;
+    case 'kM3':
+      standardValue = 1000 * value;
+      break;
+    case 'mM3':
+      standardValue = 1000000 * value;
+      break;
+    case 'ton':
+    default:
+      standardValue = 1000 * value;
+  }
+
+  return standardValue;
+}
+
 export function getPriceUnit(type = 'all', by) {
   const options = [
     { value: '', label: 'انتخاب واحد' },

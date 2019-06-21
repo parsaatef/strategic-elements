@@ -4,7 +4,11 @@ export default gql`
   extend type Query {
     elementStats(id: ID!): ElementStats @auth
     elementsStats: [ElementStats!]! @auth
-    statsByElements(year: Int, elements: [String!]): [ElementMixStats] @auth
+    statsByElements(
+      year: Int
+      elements: [String!]
+      locations: [String!]
+    ): [ElementMixStats] @auth
     searchElementStats(
       ids: [ID!]
       location: String
@@ -74,6 +78,7 @@ export default gql`
     unit: String
     element: String!
     resourceStats: Resource
+    price: GlobalPrice
   }
 
   type ElementStats {

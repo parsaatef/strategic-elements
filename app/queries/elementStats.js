@@ -21,8 +21,8 @@ export const GET_ELEMENT_STATS = gql`
 `;
 
 export const GET_ELEMENT_MIX_STATS = gql`
-  query($year: Int, $elements: [String!]) {
-    statsByElements(year: $year, elements: $elements) {
+  query($year: Int, $elements: [String!], $locations: [String!]) {
+    statsByElements(year: $year, elements: $elements, locations: $locations) {
       id
       location
       locationType
@@ -38,6 +38,12 @@ export const GET_ELEMENT_MIX_STATS = gql`
         primarySource
         unit
         secondarySource
+      }
+      price {
+        price
+        year
+        unit
+        element
       }
     }
   }

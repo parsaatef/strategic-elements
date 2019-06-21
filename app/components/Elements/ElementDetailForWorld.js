@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { Query } from 'react-apollo';
+import { injectIntl, intlShape } from 'react-intl';
 import IconButton from '../General/IconButton';
 import Loading from '../General/Loading';
 import {
@@ -16,9 +17,10 @@ import {
   PRODUCTION
 } from '../../constants/routes';
 import ElementDetailItem from './ElementDetailItem';
-import { GET_ELEMENTS_STATS } from '../../queries/elementStats';
+import { GET_ELEMENT_MIX_STATS } from '../../queries/elementStats';
 import { getYearOptions, getCountries, getStates } from '../../utils/utility';
 import Select from '../General/Select';
+import { getPercentValue } from '../Information/MapInfo';
 import PageHeadingIcon from '../General/PageHeadingIcon';
 
 const yearOptions = getYearOptions(1990, 2030);
@@ -27,13 +29,13 @@ const countryOptions = getCountries();
 
 const statesOptions = getStates();
 
-export default class ElementDetailForWorld extends Component<Props> {
+class ElementDetailForWorld extends Component<Props> {
   constructor(props) {
     super(props);
 
     this.state = {
-      year: 2002,
-      location: ''
+      year: 2018,
+      location: 'all'
     };
   }
 
@@ -44,9 +46,11 @@ export default class ElementDetailForWorld extends Component<Props> {
   }
 
   render() {
-    const { match } = this.props;
+    const { match, intl } = this.props;
 
     const { element, type, title } = match.params;
+
+    const { formatNumber } = intl;
 
     const { year, location } = this.state;
 
@@ -103,10 +107,10 @@ export default class ElementDetailForWorld extends Component<Props> {
         </div>
 
         <Query
-          query={GET_ELEMENTS_STATS}
+          query={GET_ELEMENT_MIX_STATS}
           variables={{
-            locationType: type,
-            location,
+            // locationType: type,
+            locations: [location, 'all', 'IRN'],
             year,
             elements: [element]
           }}
@@ -116,46 +120,146 @@ export default class ElementDetailForWorld extends Component<Props> {
 
             console.log('data, error, refetch', data, error, refetch);
 
-            if (
-              data &&
-              data.searchElementStats &&
-              data.searchElementStats.elementsStats &&
-              data.searchElementStats.elementsStats.length === 1
-            ) {
-              const stats = data.searchElementStats.elementsStats[0];
+            if (data && data.statsByElements) {
+              const totalItemData = data.statsByElements.find(
+                stats => stats.location === 'all'
+              );
+
+              const iranItemData = data.statsByElements.find(
+                stats => stats.location === 'IRN'
+              );
+
+              const currLocStats = data.statsByElements.find(
+                stats => stats.location === location
+              );
 
               const {
-                resourceValue,
+                productionValue: iranProductionValue,
+                consumptionValue: iranConsumptionValue,
+                unit: iranUnit
+              } = iranItemData || {};
+              console.log(iranProductionValue, iranConsumptionValue, iranUnit);
+
+              const {
+                productionValue: productionValueTotal,
+                secondaryProductionValue: secondaryProductionTotal,
+                resourceStats: resourceStatsTotal,
+                // consumptionValue: consumptionValueTotal,
+                exportValue: exportValueTotal,
+                importValue: importValueTotal,
+                unit: unitTotal
+              } = totalItemData || {};
+
+              const {
+                primarySource: primarySourceTotal,
+                unit: unitSourceTotal
+              } = resourceStatsTotal || {};
+
+              const {
+                price,
+                resourceStats,
                 productionValue,
                 consumptionValue,
-                // mineCount,
                 exportValue,
                 importValue,
-                secondaryProductionValue
-              } = stats;
+                secondaryProductionValue,
+                unit
+              } = currLocStats;
+
+              const {
+                primarySource,
+                unit: unitSource
+                // secondarySource
+              } = resourceStats || {};
+
+              const { price: globalPrice, unit: unitPrice } = price || {};
+
+              const allFactor = {
+                primaryProductionPercent: getPercentValue(
+                  productionValue,
+                  productionValueTotal,
+                  unit,
+                  unitTotal,
+                  formatNumber
+                ),
+                secondaryProductionPercent: getPercentValue(
+                  secondaryProductionValue,
+                  secondaryProductionTotal,
+                  unit,
+                  unitTotal,
+                  formatNumber
+                ),
+
+                resourcePercent: getPercentValue(
+                  primarySource,
+                  primarySourceTotal,
+                  unitSource,
+                  unitSourceTotal,
+                  formatNumber
+                ),
+                exportPercent: getPercentValue(
+                  exportValue,
+                  exportValueTotal,
+                  unit,
+                  unitTotal,
+                  formatNumber
+                ),
+                importPercent: getPercentValue(
+                  importValue,
+                  importValueTotal,
+                  unit,
+                  unitTotal,
+                  formatNumber
+                )
+              };
 
               return (
                 <div className="main-detail-line">
-                  <ElementDetailItem value={resourceValue} name="میزان منابع" />
+                  <ElementDetailItem
+                    value={globalPrice}
+                    unit={unitPrice}
+                    name="قیمت جهانی"
+                  />
 
                   <ElementDetailItem
-                    value={productionValue}
+                    value={allFactor.primaryProductionPercent}
+                    unit=""
+                    name="درصد تولید اولیه"
+                  />
+
+                  <ElementDetailItem
+                    value={primarySource}
+                    unit={unitSource}
+                    name="میزان منابع"
+                  />
+
+                  <ElementDetailItem
+                    value={formatNumber(productionValue)}
+                    unit={unit}
                     name="مجموع تولید سالانه"
                   />
 
                   <ElementDetailItem
-                    value={consumptionValue}
+                    value={formatNumber(consumptionValue)}
+                    unit={unit}
                     name="مجموع مصرف سالانه"
                   />
 
-                  {/* <ElementDetailItem value={mineCount} name="تعداد معادن" /> */}
-
-                  <ElementDetailItem value={exportValue} name="میزان صادرات" />
-
-                  <ElementDetailItem value={importValue} name="تعداد واردات" />
+                  <ElementDetailItem
+                    value={formatNumber(exportValue)}
+                    unit={unit}
+                    name="میزان صادرات"
+                  />
 
                   <ElementDetailItem
-                    value={secondaryProductionValue}
+                    value={formatNumber(importValue)}
+                    unit={unit}
+                    name="تعداد واردات"
+                  />
+
+                  <ElementDetailItem
+                    value={formatNumber(secondaryProductionValue)}
+                    unit={unit}
                     name="میزان تولید ثانویه"
                   />
                 </div>
@@ -288,3 +392,9 @@ export default class ElementDetailForWorld extends Component<Props> {
     );
   }
 }
+
+ElementDetailForWorld.propTypes = {
+  intl: intlShape.isRequired
+};
+
+export default injectIntl(ElementDetailForWorld);
