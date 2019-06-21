@@ -2,9 +2,22 @@ import Joi from 'joi';
 import mongoose from 'mongoose';
 import { UserInputError } from 'apollo-server-express';
 import { registerElementStats, updateElementStats } from '../schemas';
-import { ElementStats } from '../models';
+import { ElementStats, Resource } from '../models';
 
 export default {
+  ElementMixStats: {
+    resourceStats: root => {
+      const { location, element } = root;
+
+      const filters = {};
+
+      filters.element = element;
+
+      filters.location = location;
+
+      return Resource.findOne(filters);
+    }
+  },
   Query: {
     /**
      * sort can be desc or asc
@@ -73,6 +86,20 @@ export default {
       };
     },
     elementsStats: () => ElementStats.find({}),
+
+    statsByElements: (root, args) => {
+      const { elements, year, sort = 'desc', sortBy = 'createdAt' } = args;
+
+      const filters = {};
+
+      filters.element = { $in: elements };
+
+      if (year) {
+        filters.year = year;
+      }
+
+      return ElementStats.find(filters).sort({ [sortBy]: sort });
+    },
     elementStats: (root, { id }) => {
       // , context, info
       // TODO: projection, sanitization

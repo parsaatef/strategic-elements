@@ -2,40 +2,47 @@ const popupTemplate = {
   popupTemplate: (geo, data) =>
     `<div id="popover" class="hoverinfo">
       <div class="close"></div>
-      <ul>
-        <li>
-          <label class="title">${data.labels.title}:</label>
-          <span class="value">${data.title}</span>
-        </li>
-        <li>
-          <label class="title">${data.labels.resourceValue}:</label>
-          <span class="value">${data.resourceValue}</span>
-        </li>
-        <li>
-          <label class="title">${data.labels.productionValue}:</label>
-          <span class="value">${data.productionValue}</span>
-        </li>
-        <li>
-          <label class="title">${data.labels.consumptionValue}:</label>
-          <span class="value">${data.consumptionValue}</span>
-        </li>
-        <li>
-          <label class="title">${data.labels.exportValue}:</label>
-          <span class="value">${data.exportValue}</span>
-        </li>
-        <li>
-          <label class="title">${data.labels.importValue}:</label>
-          <span class="value">${data.importValue}</span>
-        </li>
-        <li>
-          <label class="title">${data.labels.secondaryProductionValue}:</label>
-          <span class="value">${data.secondaryProductionValue}</span>
-        </li>
-        <li>
-          <label class="title">${data.labels.mineCount}:</label>
-          <span class="value">${data.mineCount}</span>
-        </li>
-      </ul>
+      <div>
+        <ul style="float: right">
+          <li>
+            <label class="title">${data.labels.title}:</label>
+            <span class="value">${data.title}</span>
+          </li>
+          <li>
+            <label class="title">${data.labels.resourceValue}:</label>
+            <span class="value">${data.resourceValue}</span>
+          </li>
+          <li>
+            <label class="title">${data.labels.productionValue}:</label>
+            <span class="value">${data.productionValue}</span>
+          </li>
+          <li>
+            <label class="title">${data.labels.consumptionValue}:</label>
+            <span class="value">${data.consumptionValue}</span>
+          </li>
+        </ul>
+        <ul style="float: left">  
+          <li>
+            <label class="title">${data.labels.exportValue}:</label>
+            <span class="value">${data.exportValue}</span>
+          </li>
+          <li>
+            <label class="title">${data.labels.importValue}:</label>
+            <span class="value">${data.importValue}</span>
+          </li>
+          <li>
+            <label class="title">${
+              data.labels.secondaryProductionValue
+            }:</label>
+            <span class="value">${data.secondaryProductionValue}</span>
+          </li>
+          <li>
+            <label class="title">${data.labels.mineCount}:</label>
+            <span class="value">${data.mineCount}</span>
+          </li>
+        </ul>
+        <div style="clear: both"> </div>
+      </div>
     </div>`
 };
 

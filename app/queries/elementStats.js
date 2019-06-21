@@ -20,6 +20,29 @@ export const GET_ELEMENT_STATS = gql`
   }
 `;
 
+export const GET_ELEMENT_MIX_STATS = gql`
+  query($year: Int, $elements: [String!]) {
+    statsByElements(year: $year, elements: $elements) {
+      id
+      location
+      locationType
+      productionValue
+      consumptionValue
+      exportValue
+      importValue
+      secondaryProductionValue
+      year
+      unit
+      element
+      resourceStats {
+        primarySource
+        unit
+        secondarySource
+      }
+    }
+  }
+`;
+
 export const GET_ELEMENTS_STATS = gql`
   query(
     $ids: [ID!]

@@ -39,7 +39,7 @@ export default class Datamaps extends Component<Props> {
       projection: 'mercator', //  style of projection to be used. try "mercator"
       height: null, // if not null, datamaps will grab the height of 'element'
       width: null, // if not null, datamaps will grab the width of 'element'
-      responsive: false, // if true, call `resize()` on the map object when it should adjust it's size
+      responsive: true, // if true, call `resize()` on the map object when it should adjust it's size
       done: () => {}, // callback when the map is done drawing
       fills: {
         Default: '#a4d05b',
@@ -57,7 +57,7 @@ export default class Datamaps extends Component<Props> {
         //   return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong></div>';
         // },
         popupOnHover: false, // disable the popup while hovering
-        highlightOnHover: false,
+        highlightOnHover: true,
         highlightFillColor: 'rgba(127, 154, 84, 0.8)',
         highlightBorderColor: 'transparent',
         highlightBorderWidth: 2,
@@ -68,7 +68,7 @@ export default class Datamaps extends Component<Props> {
         borderOpacity: 1,
         borderColor: 'rgba(255,255,255, .4)',
         popupOnHover: true,
-        radius: null,
+        radius: 10,
         /* popupTemplate: function(geography, data) {
           return '<div class="hoverinfo"><strong>' + data.name + '</strong></div>';
         }, */

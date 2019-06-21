@@ -11,7 +11,10 @@ class ElementsSelect extends Component<Props> {
     super(props);
 
     this.state = {
-      selectedOption: null
+      selectedOption:
+        props.elementDefault && props.elementDefault.value
+          ? props.elementDefault
+          : null
     };
 
     this.handleChange = this.handleChange.bind(this);

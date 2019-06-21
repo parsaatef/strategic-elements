@@ -128,7 +128,7 @@ class Menu extends Component<Props> {
                   <div className="icon-wrap">
                     <i className="smfpIcon smfpIcon-illustrated-information" />
                   </div>
-                  <span className="title">اطلاعات مصور</span>
+                  <span className="title">داده نما</span>
                 </Link>
               </li>
               <li className="smfp-menu-item menu__item" role="menuitem">

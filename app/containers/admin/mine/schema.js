@@ -14,7 +14,7 @@ const schema = yup.object({
   location: yup
     .string()
     .min(2)
-    .max(20)
+    .max(60)
     .required(),
   /* locationType: yup
     .string()

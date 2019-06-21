@@ -12,16 +12,23 @@ import Loading from '../General/Loading';
 import Datamaps from './datamaps';
 import World from '../../utils/world.json';
 import Iran from '../../utils/iran.json';
-import { GET_ELEMENTS_STATS } from '../../queries/elementStats';
+import { GET_ELEMENT_MIX_STATS } from '../../queries/elementStats'; // GET_ELEMENTS_STATS,
 import popupTemplate from './popupTemplate';
 import { getYearOptions, getElementsCategory } from '../../utils/utility';
 import ElementsSelect from './ElementsSelect';
 
 // window.d3 = d3;
 
-const MapOptions = [
+/* const MapOptions = [
   { value: 'world', label: 'جهان' },
   { value: 'iran', label: 'ایران' }
+]; */
+
+const typeOptions = [
+  { value: 'product', label: 'تولید' },
+  { value: 'source', label: 'منابع' },
+  { value: 'export', label: 'صادرات' },
+  { value: 'import', label: 'واردات' }
 ];
 
 const groupsOptions = getElementsCategory();
@@ -52,12 +59,22 @@ class InformationOfWorld extends Component<Props> {
 
     this.state = {
       locationType: 'world',
-      year: 2019,
-      elements: [],
+      /**
+       * TODO: remove hard code and calculate 1 year ago from now
+       */
+      year: 2018,
+      elements: ['gold'],
       group: '',
-      currentElement: {},
-      elementDefault: {},
-      elementSelectRefresh: ''
+      currentElement: {
+        value: 'gold',
+        label: 'طلا'
+      },
+      elementDefault: {
+        value: 'gold',
+        label: 'طلا'
+      },
+      elementSelectRefresh: '',
+      type: 'product'
     };
 
     this.onChangeElement = this.onChangeElement.bind(this);
@@ -117,6 +134,151 @@ class InformationOfWorld extends Component<Props> {
     }
   }
 
+  getBubbleProps(data) {
+    const { locationType } = this.state;
+
+    const { intl } = this.props;
+
+    let LocationOptions = CountriesOptions;
+    let LocationsType = 'country';
+
+    if (locationType === 'iran') {
+      LocationOptions = StatesOptions;
+      LocationsType = 'state';
+    }
+
+    const { formatMessage, formatNumber } = intl;
+
+    const LocationProps = [];
+
+    const labels = {
+      title: formatMessage({ id: 'global.title' }),
+      resourceValue: formatMessage({
+        id: 'global.resourceValue'
+      }),
+      productionValue: formatMessage({
+        id: 'global.productionValue'
+      }),
+      consumptionValue: formatMessage({
+        id: 'global.consumptionValue'
+      }),
+      exportValue: formatMessage({ id: 'global.exportValue' }),
+      importValue: formatMessage({ id: 'global.importValue' }),
+      secondaryProductionValue: formatMessage({
+        id: 'global.secondaryProductionValue'
+      })
+      // mineCount: formatMessage({ id: 'global.mineCount' })
+    };
+
+    let maxValue = 0;
+    let minValue = 100000000;
+
+    data.searchElementStats.elementsStats.forEach(elem => {
+      if (elem.productionValue < minValue) {
+        minValue = elem.productionValue;
+      }
+      if (elem.productionValue > maxValue) {
+        maxValue = elem.productionValue;
+      }
+    });
+
+    const subValue = maxValue - minValue;
+
+    data.searchElementStats.elementsStats.forEach(elem => {
+      let radiusOfLocation =
+        Math.round(((elem.productionValue - minValue) / subValue) * 10) + 5;
+
+      if (!radiusOfLocation) {
+        radiusOfLocation = 5;
+      }
+
+      let locations;
+
+      if (LocationsType === 'country') {
+        locations = LocationOptions.find(
+          cnty => cnty.country === elem.location
+        );
+      } else {
+        locations = LocationOptions.find(stt => stt.state === elem.location);
+      }
+
+      if (locations) {
+        let prevCountry;
+        if (LocationsType === 'country') {
+          prevCountry = LocationProps.find(
+            cnty => cnty.country === elem.location
+          );
+        } else {
+          prevCountry = LocationProps.find(stt => stt.state === elem.location);
+        }
+
+        if (!prevCountry) {
+          LocationProps.push({
+            ...locations,
+            title: formatMessage({ id: locations.title }),
+            resourceValue: elem.resourceValue
+              ? formatNumber(elem.resourceValue)
+              : '-',
+            productionValue: elem.productionValue
+              ? formatNumber(elem.productionValue)
+              : '-',
+            consumptionValue: elem.consumptionValue
+              ? formatNumber(elem.consumptionValue)
+              : '-',
+            exportValue: elem.exportValue
+              ? formatNumber(elem.exportValue)
+              : '-',
+            importValue: elem.importValue
+              ? formatNumber(elem.importValue)
+              : '-',
+            secondaryProductionValue: elem.secondaryProductionValue
+              ? formatNumber(elem.secondaryProductionValue)
+              : '-',
+            // mineCount: elem.mineCount,
+            radius: radiusOfLocation,
+            labels
+          });
+        } else {
+          let prevCountryIndex;
+          if (LocationsType === 'country') {
+            prevCountryIndex = LocationProps.findIndex(
+              cnty => cnty.country === elem.location
+            );
+          } else {
+            prevCountryIndex = LocationProps.findIndex(
+              stt => stt.state === elem.location
+            );
+          }
+
+          const {
+            resourceValue,
+            productionValue,
+            consumptionValue,
+            exportValue,
+            importValue,
+            secondaryProductionValue,
+            // mineCount,
+            radius
+          } = prevCountry;
+
+          // .
+          LocationProps[prevCountryIndex] = {
+            ...prevCountry,
+            resourceValue: resourceValue + elem.resourceValue,
+            productionValue: productionValue + elem.productionValue,
+            consumptionValue: consumptionValue + elem.consumptionValue,
+            exportValue: exportValue + elem.exportValue,
+            importValue: importValue + elem.importValue,
+            secondaryProductionValue:
+              secondaryProductionValue + elem.secondaryProductionValue,
+            // mineCount: mineCount + elem.mineCount,
+            radius: radius - 5 + radiusOfLocation
+          };
+        }
+      }
+    });
+  }
+
   render() {
     const {
       locationType,
@@ -125,7 +287,8 @@ class InformationOfWorld extends Component<Props> {
       group,
       currentElement,
       elementDefault,
-      elementSelectRefresh
+      elementSelectRefresh,
+      type
     } = this.state;
 
     let scopeProps = 'world';
@@ -133,8 +296,6 @@ class InformationOfWorld extends Component<Props> {
     let widthProps = '80%';
     let heightProps = '65vh';
     let dataUrlProps = null;
-    let LocationOptions = CountriesOptions;
-    let LocationsType = 'country';
     let popupTemplateProps = popupTemplate;
     let setProjectionProps = setProjection;
 
@@ -144,8 +305,6 @@ class InformationOfWorld extends Component<Props> {
       widthProps = '85%';
       heightProps = '65vh';
       dataUrlProps = 'components/Information/irn.topo.json';
-      LocationOptions = StatesOptions;
-      LocationsType = 'state';
       popupTemplateProps = popupTemplate;
       setProjectionProps = irnSetProjection;
     }
@@ -153,10 +312,6 @@ class InformationOfWorld extends Component<Props> {
     const currGroup = groupsOptions.find(grp => grp.value === group);
 
     const currGroupLabel = currGroup && currGroup.label ? currGroup.label : '';
-
-    const { intl } = this.props;
-
-    const { formatMessage } = intl;
 
     return (
       <section>
@@ -181,11 +336,18 @@ class InformationOfWorld extends Component<Props> {
               xs={6}
               className="animated flipInX fast animation-fill-mode-backwards"
             >
-              <Select
+              {/* <Select
                 options={MapOptions}
                 placeholder="انتخاب نقشه"
                 onChange={this.changeOptions.bind(this, 'locationType')}
                 defaultValue={locationType}
+              /> */}
+
+              <Select
+                options={typeOptions}
+                placeholder="انتخاب نوع"
+                onChange={this.changeOptions.bind(this, 'type')}
+                defaultValue={type}
               />
             </Col>
 
@@ -233,9 +395,9 @@ class InformationOfWorld extends Component<Props> {
 
         <div className="smfp-datamaps-wrap-outer animated fadeInUp fast delay-2s">
           <Query
-            query={GET_ELEMENTS_STATS}
+            query={GET_ELEMENT_MIX_STATS} // GET_ELEMENTS_STATS}
             variables={{
-              locationType,
+              // locationType,
               year,
               elements
             }}
@@ -248,130 +410,8 @@ class InformationOfWorld extends Component<Props> {
                 !data.searchElementStats.elementsStats
               )
                 return null;
+
               const LocationProps = [];
-
-              const labels = {
-                title: formatMessage({ id: 'global.title' }),
-                resourceValue: formatMessage({
-                  id: 'global.resourceValue'
-                }),
-                productionValue: formatMessage({
-                  id: 'global.productionValue'
-                }),
-                consumptionValue: formatMessage({
-                  id: 'global.consumptionValue'
-                }),
-                exportValue: formatMessage({ id: 'global.exportValue' }),
-                importValue: formatMessage({ id: 'global.importValue' }),
-                secondaryProductionValue: formatMessage({
-                  id: 'global.secondaryProductionValue'
-                })
-                // mineCount: formatMessage({ id: 'global.mineCount' })
-              };
-
-              let maxValue = 0;
-              let minValue = 100000000;
-
-              data.searchElementStats.elementsStats.forEach(elem => {
-                if (elem.productionValue < minValue) {
-                  minValue = elem.productionValue;
-                }
-                if (elem.productionValue > maxValue) {
-                  maxValue = elem.productionValue;
-                }
-              });
-
-              const subValue = maxValue - minValue;
-
-              data.searchElementStats.elementsStats.forEach(elem => {
-                let radiusOfLocation =
-                  Math.round(
-                    ((elem.productionValue - minValue) / subValue) * 10
-                  ) + 5;
-
-                if (!radiusOfLocation) {
-                  radiusOfLocation = 5;
-                }
-
-                let locations;
-
-                if (LocationsType === 'country') {
-                  locations = LocationOptions.find(
-                    cnty => cnty.country === elem.location
-                  );
-                } else {
-                  locations = LocationOptions.find(
-                    stt => stt.state === elem.location
-                  );
-                }
-
-                if (locations) {
-                  let prevCountry;
-                  if (LocationsType === 'country') {
-                    prevCountry = LocationProps.find(
-                      cnty => cnty.country === elem.location
-                    );
-                  } else {
-                    prevCountry = LocationProps.find(
-                      stt => stt.state === elem.location
-                    );
-                  }
-
-                  if (!prevCountry) {
-                    LocationProps.push({
-                      ...locations,
-                      title: formatMessage({ id: locations.title }),
-                      resourceValue: elem.resourceValue,
-                      productionValue: elem.productionValue,
-                      consumptionValue: elem.consumptionValue,
-                      exportValue: elem.exportValue,
-                      importValue: elem.importValue,
-                      secondaryProductionValue: elem.secondaryProductionValue,
-                      // mineCount: elem.mineCount,
-                      radius: radiusOfLocation,
-                      labels
-                    });
-                  } else {
-                    let prevCountryIndex;
-                    if (LocationsType === 'country') {
-                      prevCountryIndex = LocationProps.findIndex(
-                        cnty => cnty.country === elem.location
-                      );
-                    } else {
-                      prevCountryIndex = LocationProps.findIndex(
-                        stt => stt.state === elem.location
-                      );
-                    }
-
-                    const {
-                      resourceValue,
-                      productionValue,
-                      consumptionValue,
-                      exportValue,
-                      importValue,
-                      secondaryProductionValue,
-                      // mineCount,
-                      radius
-                    } = prevCountry;
-
-                    // .
-                    LocationProps[prevCountryIndex] = {
-                      ...prevCountry,
-                      resourceValue: resourceValue + elem.resourceValue,
-                      productionValue: productionValue + elem.productionValue,
-                      consumptionValue:
-                        consumptionValue + elem.consumptionValue,
-                      exportValue: exportValue + elem.exportValue,
-                      importValue: importValue + elem.importValue,
-                      secondaryProductionValue:
-                        secondaryProductionValue +
-                        elem.secondaryProductionValue,
-                      // mineCount: mineCount + elem.mineCount,
-                      radius: radius - 5 + radiusOfLocation
-                    };
-                  }
-                }
-              });
 
               return (
                 <Datamaps

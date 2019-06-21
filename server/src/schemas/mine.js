@@ -26,7 +26,7 @@ const description = Joi.string()
 
 const location = Joi.string()
   .min(2)
-  .max(20)
+  .max(60)
   .required()
   .label('Location');
 
