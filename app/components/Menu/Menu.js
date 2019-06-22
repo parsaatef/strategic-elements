@@ -177,25 +177,17 @@ class Menu extends Component<Props> {
               <li className="smfp-menu-item menu__item" role="menuitem">
                 <Link
                   className="smfp-menu-link menu__link"
-                  to={ANALYSIS_FACTOR.replace(':type', 'economic')}
-                >
-                  <span>اهمیت اقتصادی</span>
-                </Link>
-              </li>
-              <li className="smfp-menu-item menu__item" role="menuitem">
-                <Link
-                  className="smfp-menu-link menu__link"
                   to={ANALYSIS_FACTOR.replace(':type', 'politic')}
                 >
-                  <span>اهمیت سیاسی</span>
+                  <span>تحلیل راهبردی</span>
                 </Link>
               </li>
               <li className="smfp-menu-item menu__item" role="menuitem">
                 <Link
                   className="smfp-menu-link menu__link"
-                  to={ANALYSIS_FACTOR.replace(':type', 'socialist')}
+                  to={ANALYSIS_FACTOR.replace(':type', 'economic')}
                 >
-                  <span>عوامل اجتماعی</span>
+                  <span>تحلیل اقتصادی</span>
                 </Link>
               </li>
               <li className="smfp-menu-item menu__item" role="menuitem">
@@ -203,10 +195,18 @@ class Menu extends Component<Props> {
                   className="smfp-menu-link menu__link"
                   to={ANALYSIS_FACTOR.replace(':type', 'technology')}
                 >
-                  <span>دسترسی به تکنولوژی</span>
+                  <span>تحلیل توسعه پایدار</span>
                 </Link>
               </li>
               <li className="smfp-menu-item menu__item" role="menuitem">
+                <Link
+                  className="smfp-menu-link menu__link"
+                  to={ANALYSIS_FACTOR.replace(':type', 'technology')}
+                >
+                  <span>نمودار وابستگی</span>
+                </Link>
+              </li>
+              {/* <li className="smfp-menu-item menu__item" role="menuitem">
                 <Link
                   className="smfp-menu-link menu__link"
                   to={ANALYSIS_FACTOR.replace(':type', 'environment')}
@@ -221,7 +221,7 @@ class Menu extends Component<Props> {
                 >
                   <span>مسائل قانونی</span>
                 </Link>
-              </li>
+              </li> */}
             </ul>
 
             {currentUser && currentUser.role === 'admin' && (

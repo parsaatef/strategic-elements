@@ -26,7 +26,7 @@ class AnalysisFactor extends React.Component<Props> {
 
     this.state = {
       // currentElement: '' ,
-      currentFactor: {},
+      currentFactor: { value: '', label: 'انتخاب' },
       currentFactorVal: {}
     };
 
@@ -122,7 +122,8 @@ class AnalysisFactor extends React.Component<Props> {
 
                 <div className="animated fadeInUp fast">
                   <div className="smfp-filter-item text-row-padding">
-                    <FormattedMessage id="analysis.select_affected_factor" />
+                    {/* <FormattedMessage id="analysis.select_affected_factor" /> */}
+                    شاخص
                   </div>
 
                   <div className="smfp-filter-item">
@@ -130,12 +131,55 @@ class AnalysisFactor extends React.Component<Props> {
                       name="affected_factor"
                       value={currentFactor}
                       onChange={this.changeFactor}
-                      options={[]}
+                      placeholder={<FormattedSimpleMsg id="global.select" />}
+                      options={[
+                        { value: '', label: 'انتخاب' },
+                        { value: 'p1', label: 'وابستگی به سایر کشورها' },
+                        { value: 'p2', label: 'تهدید روابط بین‌الملل' },
+                        { value: 'p3', label: 'اهمیت راهبردی' },
+                        { value: 'p4', label: 'تأثیر انحصار' },
+                        { value: 'e1', label: 'مقدار منابع اولیه در ایران' },
+                        { value: 'e2', label: 'ارزش اقتصادی' },
+                        { value: 'e3', label: 'میزان مصرف داخلی' },
+                        { value: 'e4', label: 'پتانسیل صادرات' },
+                        {
+                          value: 'e5',
+                          label: 'تفاوت ارزش مادۀ خام و محصول فرآوری‌شده'
+                        },
+                        { value: 'e6', label: 'میزان تأثیرگذاری بر صنایع' },
+                        { value: 'e7', label: 'دسترسی به منابع ثانویه' },
+                        { value: 's1', label: 'میزان اشتغال‌زایی' },
+                        { value: 's2', label: 'پراکندگی کشوری' },
+                        {
+                          value: 's3',
+                          label: 'تأثیر در محرومیت‌زدایی منطقه‌ای'
+                        },
+                        { value: 't1', label: 'محدودیت فناوری‌ها' },
+                        { value: 't2', label: 'ناتوانی در تولید ثانویه' },
+                        { value: 'en1', label: 'بهینه‎بودن مصرف آب' },
+                        { value: 'en2', label: 'بهینه‎بودن مصرف انرژی' },
+                        {
+                          value: 'en3',
+                          label: 'بهینه‎بودن تولید گازهای گلخانه‌ای'
+                        },
+                        { value: 'en4', label: 'کم‎خطربودن پسماند و پساب' },
+                        {
+                          value: 'en5',
+                          label: 'ایمنی فرآیند تولید برای نیروی انسانی'
+                        },
+                        { value: 'l1', label: 'اثرپذیری از تحریم‌ها' },
+                        {
+                          value: 'l2',
+                          label: 'تاثیر تعرفه‌های واردات و صادرات'
+                        },
+                        { value: 'l3', label: 'کمبود حمایت‌های دولتی' }
+                      ]}
                     />
                   </div>
 
                   <div className="smfp-filter-item text-row-padding">
-                    <FormattedMessage id="analysis.select_effect_value" />
+                    {/* <FormattedMessage id="analysis.select_effect_value" /> */}
+                    میزان تاثیر
                   </div>
 
                   <div className="smfp-filter-item">
@@ -167,6 +211,7 @@ class AnalysisFactor extends React.Component<Props> {
                 <BubbleCloud
                   inputData={inputData}
                   sourceClick={this.sourceClick}
+                  type={type}
                 />
               </section>
             );

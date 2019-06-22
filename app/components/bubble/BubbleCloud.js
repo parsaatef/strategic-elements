@@ -54,6 +54,8 @@ class BubbleCloud extends React.Component<Props> {
   }
 
   renderCloud() {
+    // const { type } = this.props;
+
     // https://naustud.io/tech-stack/
     // https://github.com/trongthanh/techstack
     // Based loosely from this D3 bubble graph https://bl.ocks.org/mbostock/4063269
@@ -62,7 +64,7 @@ class BubbleCloud extends React.Component<Props> {
     /* [
         {
             id: "test" ,
-            cat: 'library',
+            cat: 'فلزهای قلیایی',
             name: 'D3',
             value: 30,
             icon: 'https://naustud.io/tech-stack/https://naustud.io/tech-stack/img/d3.svg',
@@ -78,20 +80,18 @@ class BubbleCloud extends React.Component<Props> {
     // And this Forced directed diagram https://bl.ocks.org/mbostock/4062045
     let data = [
       {
-        cat: 'library',
-        name: 'D3',
+        cat: 'فلزهای قلیایی',
+        name: 'طلا',
         value: 30,
         icon: './images/img/AC.png',
         isImage: true,
         desc: `
-				D3.js (or just D3 for Data-Driven Documents) is a JavaScript library for
-				producing dynamic, interactive data visualizations in web browsers.
-				It makes use of the widely implemented SVG, HTML5, and CSS standards.<br>
-				This infographic you are viewing is made with D3.
+        <div><span class="rank">رتبه: </span> <span>5</span> از <span>80</span></div>
+        <div><span class="rating">امتیاز: </span> <span>3.15</span> از <span>5</span></div>
 			`
       },
       {
-        cat: 'library',
+        cat: 'فلزهای قلیایی',
         name: 'Raphaël',
         value: 10,
         icon: './images/img/AG.png',
@@ -102,7 +102,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'library',
+        cat: 'فلزهای قلیایی',
         name: 'Relay',
         value: 70,
         icon: './images/img/AL.png',
@@ -115,7 +115,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'library',
+        cat: 'فلزهای قلیایی',
         name: 'Three.js',
         value: 40,
         icon: './images/img/AM.png',
@@ -169,7 +169,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'framework',
+        cat: 'فلزهای پایه',
         name: 'Angular 2.0',
         value: 30,
         icon: './images/img/B.png',
@@ -182,10 +182,10 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       /* {
-			cat: 'framework', name: 'Trails.JS', value: 10,
+			cat: 'فلزهای پایه', name: 'Trails.JS', value: 10,
 			icon: '',
 		}, */ {
-        cat: 'framework',
+        cat: 'فلزهای پایه',
         name: 'Bootstrap CSS',
         value: 50,
         icon: './images/img/BA.png',
@@ -197,7 +197,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'framework',
+        cat: 'فلزهای پایه',
         name: 'Ember JS',
         value: 10,
         icon: './images/img/BE.png',
@@ -209,7 +209,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'framework',
+        cat: 'فلزهای پایه',
         name: 'ExpressJS',
         value: 30,
         icon: './images/img/BH.png',
@@ -220,10 +220,10 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       /* {
-			cat: 'framework', name: 'Foundation', value: 10,
+			cat: 'فلزهای پایه', name: 'Foundation', value: 10,
 			icon: '',
 		}, */ {
-        cat: 'framework',
+        cat: 'فلزهای پایه',
         name: 'Hexo',
         value: 50,
         icon: './images/img/BI.png',
@@ -233,7 +233,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'framework',
+        cat: 'فلزهای پایه',
         name: 'ReactJS',
         value: 100,
         icon: './images/img/BK.png',
@@ -245,10 +245,10 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       /* {
-			cat: 'framework', name: 'SenchaTouch', value: 10,
+			cat: 'فلزهای پایه', name: 'SenchaTouch', value: 10,
 			icon: '',
 		}, */ {
-        cat: 'tooling',
+        cat: 'فلزهای گرانبها',
         name: 'Atom',
         value: 10,
         icon: './images/img/BR.png',
@@ -260,7 +260,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'tooling',
+        cat: 'فلزهای گرانبها',
         name: 'Google Chrome & Devtool',
         value: 70,
         icon: './images/img/C.png',
@@ -272,7 +272,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'tooling',
+        cat: 'فلزهای گرانبها',
         name: 'Jenkins CI',
         value: 30,
         icon: './images/img/CA.png',
@@ -284,7 +284,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'tooling',
+        cat: 'فلزهای گرانبها',
         name: 'Sublime Text 3',
         value: 100,
         icon: './images/img/CD.png',
@@ -296,7 +296,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'tooling',
+        cat: 'فلزهای گرانبها',
         name: 'Visual Studio Code',
         value: 50,
         icon: './images/img/CE.png',
@@ -309,7 +309,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'tooling',
+        cat: 'فلزهای گرانبها',
         name: 'Performance Tooling',
         value: 30,
         icon: './images/img/CF.png',
@@ -322,7 +322,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'tooling',
+        cat: 'فلزهای گرانبها',
         name: 'Yeoman generator for Nau Workflow',
         value: 20,
         icon: './images/img/CI.png',
@@ -335,7 +335,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'tooling',
+        cat: 'فلزهای گرانبها',
         name: 'live-server',
         value: 30,
         icon: './images/img/CM.png',
@@ -346,7 +346,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'tooling',
+        cat: 'فلزهای گرانبها',
         name: 'PostCSS',
         value: 30,
         icon: './images/img/CN.png',
@@ -357,7 +357,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'backend',
+        cat: 'عناصر نادر خاکی',
         name: 'Elastic Search',
         value: 10,
         icon: './images/img/CO.png',
@@ -367,7 +367,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'backend',
+        cat: 'عناصر نادر خاکی',
         name: 'Keystone CMS',
         value: 50,
         icon: './images/img/CR.png',
@@ -378,7 +378,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'backend',
+        cat: 'عناصر نادر خاکی',
         name: 'KoaJS',
         value: 10,
         icon: './images/img/CS.png',
@@ -389,7 +389,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'backend',
+        cat: 'عناصر نادر خاکی',
         name: 'Loopback',
         value: 30,
         icon: './images/img/CU.png',
@@ -400,7 +400,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'backend',
+        cat: 'عناصر نادر خاکی',
         name: 'Restify',
         value: 20,
         icon: './images/img/DB.png',
@@ -411,7 +411,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'backend',
+        cat: 'عناصر نادر خاکی',
         name: 'MongoDB',
         value: 70,
         icon: './images/img/ER.png',
@@ -422,7 +422,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'backend',
+        cat: 'عناصر نادر خاکی',
         name: 'NodeJS',
         value: 100,
         icon: './images/img/ES.png',
@@ -435,7 +435,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'platform',
+        cat: 'نافلزها',
         name: 'Docker Platform',
         value: 10,
         icon: './images/img/EU.png',
@@ -446,7 +446,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'platform',
+        cat: 'نافلزها',
         name: 'MeteorJS',
         value: 80,
         icon: './images/img/F.png',
@@ -460,7 +460,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'platform',
+        cat: 'نافلزها',
         name: 'Phonegap',
         value: 50,
         icon: './images/img/FE.png',
@@ -470,7 +470,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'platform',
+        cat: 'نافلزها',
         name: 'Reaction Commerce',
         value: 20,
         icon: './images/img/FI.png',
@@ -482,7 +482,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'platform',
+        cat: 'نافلزها',
         name: 'ReactNative',
         value: 10,
         icon: './images/img/FM.png',
@@ -494,7 +494,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'platform',
+        cat: 'نافلزها',
         name: 'SquareSpace',
         value: 30,
         icon: './images/img/FR.png',
@@ -506,7 +506,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'language',
+        cat: 'فلزهای واسطه',
         name: 'HTML5 & CSS3',
         value: 100,
         icon: './images/img/GA.png',
@@ -517,7 +517,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'language',
+        cat: 'فلزهای واسطه',
         name: 'JavaScript',
         value: 100,
         icon: './images/img/GD.png',
@@ -529,7 +529,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'language',
+        cat: 'فلزهای واسطه',
         name: 'CSS Next',
         value: 10,
         icon: './images/img/GE.png',
@@ -540,7 +540,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'language',
+        cat: 'فلزهای واسطه',
         name: 'GraphQL',
         value: 50,
         icon: './images/img/H.png',
@@ -552,7 +552,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'language',
+        cat: 'فلزهای واسطه',
         name: 'LESS CSS',
         value: 20,
         icon: './images/img/HE.png',
@@ -563,7 +563,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'language',
+        cat: 'فلزهای واسطه',
         name: 'SASS (SCSS flavor)',
         value: 70,
         icon: './images/img/HF.png',
@@ -574,7 +574,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'language',
+        cat: 'فلزهای واسطه',
         name: 'TypeScript 2',
         value: 30,
         icon: './images/img/HG.png',
@@ -586,7 +586,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'workflow',
+        cat: 'شبه فلزات',
         name: 'code.naustud.io',
         value: 100,
         icon: './images/img/HO.png',
@@ -597,7 +597,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'workflow',
+        cat: 'شبه فلزات',
         name: 'Mobile First',
         value: 100,
         icon: './images/img/HS.png',
@@ -608,7 +608,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'workflow',
+        cat: 'شبه فلزات',
         name: 'BabelJS',
         value: 50,
         icon: './images/img/I.png',
@@ -618,10 +618,10 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       /* {
-			cat: 'workflow', name: 'Browserify', value: 10,
+			cat: 'شبه فلزات', name: 'Browserify', value: 10,
 			icon: '',
 		}, */ {
-        cat: 'workflow',
+        cat: 'شبه فلزات',
         name: 'CSS BEM Notation',
         value: 70,
         icon: './images/img/IN.png',
@@ -632,7 +632,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'workflow',
+        cat: 'شبه فلزات',
         name: 'Front End Code Guide',
         value: 30,
         icon: './images/img/IR.png',
@@ -643,7 +643,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'workflow',
+        cat: 'شبه فلزات',
         name: 'ESLint',
         value: 20,
         icon: './images/img/K.png',
@@ -653,7 +653,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'workflow',
+        cat: 'شبه فلزات',
         name: 'Gitflow Workflow',
         value: 70,
         icon: './images/img/KR.png',
@@ -664,7 +664,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'workflow',
+        cat: 'شبه فلزات',
         name: 'GulpJS',
         value: 50,
         icon: './images/img/LA.png',
@@ -675,7 +675,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'workflow',
+        cat: 'شبه فلزات',
         name: 'Nau Code Styles',
         value: 50,
         icon: './images/img/LI.png',
@@ -686,7 +686,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'workflow',
+        cat: 'شبه فلزات',
         name: 'Stylelint',
         value: 50,
         icon: './images/img/LR.png',
@@ -696,7 +696,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'workflow',
+        cat: 'شبه فلزات',
         name: 'SystemJS',
         value: 20,
         icon: './images/img/LU.png',
@@ -706,7 +706,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'workflow',
+        cat: 'شبه فلزات',
         name: 'Webpack',
         value: 30,
         icon: './images/img/MD.png',
@@ -716,7 +716,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'legacy',
+        cat: 'هالوژن ها',
         name: 'AngularJS 1',
         value: 10,
         icon: './images/img/MG.png',
@@ -726,7 +726,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'legacy',
+        cat: 'هالوژن ها',
         name: 'Backbone',
         value: 30,
         icon: './images/img/MN.png',
@@ -736,7 +736,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'legacy',
+        cat: 'هالوژن ها',
         name: 'Grunt & Automation Stack',
         value: 30,
         icon: './images/img/MO.png',
@@ -746,7 +746,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'legacy',
+        cat: 'هالوژن ها',
         name: 'jQuery',
         value: 50,
         icon: './images/img/N.png',
@@ -756,7 +756,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'legacy',
+        cat: 'هالوژن ها',
         name: 'RequireJS & AMD',
         value: 30,
         icon: './images/img/NA.png',
@@ -766,7 +766,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'legacy tooling',
+        cat: 'گازهای نجیب',
         name: 'Browser Sync',
         value: 40,
         icon: './images/img/NB.png',
@@ -777,7 +777,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'legacy tooling',
+        cat: 'گازهای نجیب',
         name: 'Git Pre-commit',
         value: 30,
         icon: './images/img/ND.png',
@@ -788,7 +788,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'legacy tooling',
+        cat: 'گازهای نجیب',
         name: 'http-server',
         value: 20,
         icon: './images/img/NE.png',
@@ -798,7 +798,7 @@ class BubbleCloud extends React.Component<Props> {
 			`
       },
       {
-        cat: 'legacy tooling',
+        cat: 'گازهای نجیب',
         name: 'LiveReload',
         value: 20,
         icon: './images/img/NI.png',
@@ -992,11 +992,12 @@ class BubbleCloud extends React.Component<Props> {
       .shape('circle')
       .shapePadding(10)
       .labelAlign('start');
+    console.log(legendSize);
 
     /**
      * legend 2
      */
-    svg
+    /* svg
       .append('g')
       .classed('legend-size', true)
       .attr('text-anchor', 'end')
@@ -1004,7 +1005,7 @@ class BubbleCloud extends React.Component<Props> {
       .style('font-size', '12px')
       .style('fill', '#FFFFFF')
       .style('font-family', 'IranSans')
-      .call(legendSize);
+      .call(legendSize); */
 
     /*
     <foreignObject class="circle-overlay" x="10" y="10" width="100" height="150">
@@ -1037,9 +1038,9 @@ class BubbleCloud extends React.Component<Props> {
 
     const moreButton = infoBox
       .append('button')
-      .classed('circle-overlay__button btn btn-info', true)
+      .classed('circle-overlay__button btn btn-overly', true)
       .attr('type', 'button')
-      .text('More Detail');
+      .text('اطلاعات بیشتر');
 
     moreButton.on('click', currentNode => {
       console.log('----currentNode----', currentNode);
