@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 import { Bar } from 'react-chartjs-2';
+import { injectIntl, intlShape } from 'react-intl';
 import { Row, Col } from 'react-bootstrap';
 import Select from '../General/Select';
 import { GET_ELEMENTS_STATS } from '../../queries/elementStats';
@@ -26,9 +27,11 @@ class Production extends Component<Props> {
   }
 
   render() {
-    const { match } = this.props;
+    const { match, intl } = this.props;
 
     const { element, title } = match.params;
+
+    const { formatNumber } = intl;
 
     const { location } = this.state;
 
@@ -72,6 +75,7 @@ class Production extends Component<Props> {
               });
 
               console.log('++++++++++++++++++++++++++++++++++++++');
+              console.log(location);
               console.log(data);
 
               const ChartData = {
@@ -79,20 +83,20 @@ class Production extends Component<Props> {
                 datasets: [
                   {
                     label: 'تولید اولیه',
-                    backgroundColor: 'rgba(255,99,132,0.2)',
-                    borderColor: 'rgba(255,99,132,1)',
+                    backgroundColor: 'rgba(26, 209, 239, 0.7)',
+                    borderColor: 'rgba(26, 209, 239, 0.7)',
                     borderWidth: 1,
-                    hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-                    hoverBorderColor: 'rgba(255,99,132,1)',
+                    hoverBackgroundColor: 'rgba(26, 209, 239, 1)',
+                    hoverBorderColor: 'rgba(26, 209, 239, 1)',
                     data: productionValue
                   },
                   {
                     label: 'تولید ثانویه',
-                    backgroundColor: 'rgba(99,255,132,0.2)',
-                    borderColor: 'rgba(99,255,132,1)',
+                    backgroundColor: 'rgba(234, 50, 118, 0.7)',
+                    borderColor: 'rgba(234, 50, 118, 0.7)',
                     borderWidth: 1,
-                    hoverBackgroundColor: 'rgba(99,255,132,0.4)',
-                    hoverBorderColor: 'rgba(99,255,132,1)',
+                    hoverBackgroundColor: 'rgba(234, 50, 118, 1)',
+                    hoverBorderColor: 'rgba(234, 50, 118, 1)',
                     data: secondaryProductionValue
                   }
                 ]
@@ -127,24 +131,64 @@ class Production extends Component<Props> {
                       width={100}
                       height={50}
                       options={{
-                        title: {
-                          display: true,
-                          text: 'Chart.js Bar Chart - Stacked'
-                        },
                         tooltips: {
                           mode: 'index',
-                          intersect: false
+                          intersect: false,
+                          titleFontFamily: 'IranSans',
+                          bodyFontFamily: 'IranSans',
+                          titleFontSize: 10,
+                          bodyFontSize: 10,
+                          titleMarginBottom: 10,
+                          xPadding: 10,
+                          yPadding: 10,
+                          callback: value =>
+                            formatNumber(value, { useGrouping: false })
                         },
                         responsive: true,
+                        legend: {
+                          labels: {
+                            // This more specific font property overrides the global property
+                            fontColor: '#fff',
+                            fontFamily: 'IranSans',
+                            fontSize: 10
+                          }
+                        },
                         scales: {
                           xAxes: [
                             {
-                              stacked: true
+                              stacked: true,
+                              ticks: {
+                                // Include a dollar sign in the ticks
+                                callback: value =>
+                                  formatNumber(value, { useGrouping: false }),
+                                fontFamily: 'IranSans',
+                                fontColor: '#fff'
+                              },
+                              scaleLabel: {
+                                display: true,
+                                labelString: 'سال',
+                                fontColor: '#fff',
+                                fontFamily: 'IranSans'
+                              },
+                              gridLines: {
+                                display: true,
+                                color: 'rgba(255, 255, 255, 0.1)'
+                              }
                             }
                           ],
                           yAxes: [
                             {
-                              stacked: true
+                              stacked: true,
+                              ticks: {
+                                // Include a dollar sign in the ticks
+                                callback: value => formatNumber(value),
+                                fontFamily: 'IranSans',
+                                fontColor: '#fff'
+                              },
+                              gridLines: {
+                                display: true,
+                                color: 'rgba(255, 255, 255, 0.1)'
+                              }
                             }
                           ]
                         }
@@ -210,4 +254,8 @@ class Production extends Component<Props> {
   }
 }
 
-export default Production;
+Production.propTypes = {
+  intl: intlShape.isRequired
+};
+
+export default injectIntl(Production);
