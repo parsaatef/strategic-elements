@@ -97,9 +97,9 @@ class InformationOfElement extends Component<Props> {
                       </tbody>
                     </table>
                     <Row>
-                      <Col sm={6}>
+                      <Col sm={12}>
                         <IconButton
-                          className="main-detail-btn-wrap text-left animated fadeInUp fast"
+                          className="main-detail-btn-wrap text-center animated fadeInUp fast"
                           link={INFORMATION_STATS_DETAIL.replace(
                             ':type',
                             'world'
@@ -107,11 +107,11 @@ class InformationOfElement extends Component<Props> {
                             .replace(':element', element)
                             .replace(':title', data.elementByName.elementTitle)}
                           icon="smfpIcon smfpIcon-world"
-                          title="جزییات برای جهان"
+                          title="جزییات و آمار ماده معدنی"
                         />
                       </Col>
 
-                      <Col sm={6}>
+                      {/* <Col sm={6}>
                         <IconButton
                           className="main-detail-btn-wrap text-right animated fadeInUp fast"
                           link={INFORMATION_STATS_DETAIL.replace(
@@ -123,7 +123,7 @@ class InformationOfElement extends Component<Props> {
                           icon="smfpIcon smfpIcon-iran"
                           title="جزییات برای ایران"
                         />
-                      </Col>
+                      </Col> */}
                     </Row>
                   </>
                 )}

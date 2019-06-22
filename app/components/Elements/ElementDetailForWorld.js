@@ -225,7 +225,7 @@ class ElementDetailForWorld extends Component<Props> {
               return (
                 <div className="main-detail-line">
                   <ElementDetailItem
-                    value={formatNumber(globalPrice)}
+                    value={`${formatNumber(globalPrice)} دلار `}
                     unit={unitPrice}
                     name="قیمت جهانی"
                   />

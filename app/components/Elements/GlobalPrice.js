@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 import { gql } from 'apollo-boost';
 import { Line } from 'react-chartjs-2';
+import { injectIntl, intlShape } from 'react-intl';
 import { GET_GLOBAL_PRICES } from '../../queries/global-price';
 import PageHeadingIcon from '../General/PageHeadingIcon';
 import Loading from '../General/Loading';
@@ -19,9 +20,11 @@ export const GET_ELEMENT_BY_NAME = gql`
 
 class GlobalPrice extends Component<Props> {
   render() {
-    const { match } = this.props;
+    const { match, intl } = this.props;
 
     const { element, title } = match.params;
+
+    const { formatNumber } = intl;
 
     return (
       <div>
@@ -82,7 +85,72 @@ class GlobalPrice extends Component<Props> {
               return (
                 <div>
                   <div className="smfp-line-chart-wrap smfp-chart-wrap">
-                    <Line data={chartData} />
+                    <Line
+                      data={chartData}
+                      options={{
+                        tooltips: {
+                          mode: 'index',
+                          intersect: false,
+                          titleFontFamily: 'IranSans',
+                          bodyFontFamily: 'IranSans',
+                          titleFontSize: 10,
+                          bodyFontSize: 10,
+                          titleMarginBottom: 10,
+                          xPadding: 10,
+                          yPadding: 10,
+                          callback: value =>
+                            formatNumber(value, { useGrouping: false })
+                        },
+                        responsive: true,
+                        legend: {
+                          labels: {
+                            // This more specific font property overrides the global property
+                            fontColor: '#fff',
+                            fontFamily: 'IranSans',
+                            fontSize: 10
+                          }
+                        },
+                        scales: {
+                          xAxes: [
+                            {
+                              stacked: true,
+                              ticks: {
+                                // Include a dollar sign in the ticks
+                                callback: value =>
+                                  formatNumber(value, { useGrouping: false }),
+                                fontFamily: 'IranSans',
+                                fontColor: '#fff'
+                              },
+                              scaleLabel: {
+                                display: true,
+                                labelString: 'سال',
+                                fontColor: '#fff',
+                                fontFamily: 'IranSans'
+                              },
+                              gridLines: {
+                                display: true,
+                                color: 'rgba(255, 255, 255, 0.1)'
+                              }
+                            }
+                          ],
+                          yAxes: [
+                            {
+                              stacked: true,
+                              ticks: {
+                                // Include a dollar sign in the ticks
+                                callback: value => formatNumber(value),
+                                fontFamily: 'IranSans',
+                                fontColor: '#fff'
+                              },
+                              gridLines: {
+                                display: true,
+                                color: 'rgba(255, 255, 255, 0.1)'
+                              }
+                            }
+                          ]
+                        }
+                      }}
+                    />
                   </div>
 
                   <table className="table table-with-width table-striped table-bordered">
@@ -141,4 +209,8 @@ class GlobalPrice extends Component<Props> {
   }
 }
 
-export default GlobalPrice;
+GlobalPrice.propTypes = {
+  intl: intlShape.isRequired
+};
+
+export default injectIntl(GlobalPrice);

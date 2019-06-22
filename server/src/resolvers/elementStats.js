@@ -102,22 +102,26 @@ export default {
       const {
         elements,
         year,
-        locations,
-        sort = 'desc',
-        sortBy = 'createdAt'
+        locations
+        // sort = 'desc',
+        // sortBy = 'createdAt'
       } = args;
 
       const filters = {};
 
-      filters.element = { $in: elements };
+      if (elements && elements.length > 0) {
+        filters.element = { $in: elements };
+      }
 
-      filters.location = { $in: locations };
+      if (locations && locations.length > 0) {
+        filters.location = { $in: locations };
+      }
 
       if (year) {
         filters.year = year;
       }
 
-      return ElementStats.find(filters).sort({ [sortBy]: sort });
+      return ElementStats.find(filters); // .sort({ [sortBy]: sort })
     },
     elementStats: (root, { id }) => {
       // , context, info
