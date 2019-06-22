@@ -125,7 +125,7 @@ class Production extends Component<Props> {
                     </Row>
                   </div>
 
-                  <div className="smfp-line-chart-wrap smfp-chart-wrap">
+                  <div className="smfp-bar-chart-wrap smfp-chart-wrap">
                     <Bar
                       data={ChartData}
                       width={100}
@@ -200,7 +200,7 @@ class Production extends Component<Props> {
                     <thead>
                       <tr>
                         <th>سال</th>
-                        <th>تولید</th>
+                        <th>میزان تولید</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -209,8 +209,10 @@ class Production extends Component<Props> {
                           key={item.id}
                           className="animated fadeInUp faster animation-auto-delay"
                         >
-                          <td>{item.year}</td>
-                          <td>{item.productionValue}</td>
+                          <td>
+                            {formatNumber(item.year, { useGrouping: false })}
+                          </td>
+                          <td>{formatNumber(item.productionValue)}</td>
                         </tr>
                       ))}
                     </tbody>

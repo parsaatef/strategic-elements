@@ -44,65 +44,67 @@ export default class AnalysisElement extends Component<Props> {
       <section>
         <PageHeadingIcon icon="smfpIcon smfpIcon-details" title={title} />
 
-        <HorizontalBar
-          data={data}
-          options={{
-            tooltips: {
-              mode: 'index',
-              intersect: false,
-              titleFontFamily: 'IranSans',
-              bodyFontFamily: 'IranSans',
-              titleFontSize: 10,
-              bodyFontSize: 10,
-              titleMarginBottom: 10,
-              xPadding: 10,
-              yPadding: 10
-              // callback: (value) => formatNumber(value, {useGrouping:false}),
-            },
-            responsive: true,
-            legend: {
-              display: false
-            },
-            scales: {
-              xAxes: [
-                {
-                  stacked: true,
-                  ticks: {
-                    // Include a dollar sign in the ticks
-                    // callback: (value) => formatNumber(value, {useGrouping:false}),
-                    fontFamily: 'IranSans',
-                    fontColor: '#fff'
-                  },
-                  scaleLabel: {
-                    display: true,
-                    labelString: 'امتیاز',
-                    fontColor: '#fff',
-                    fontFamily: 'IranSans'
-                  },
-                  gridLines: {
-                    display: true,
-                    color: 'rgba(255, 255, 255, 0.1)'
+        <div className="smfp-horizontal-bar-chart-wrap smfp-chart-wrap">
+          <HorizontalBar
+            data={data}
+            options={{
+              tooltips: {
+                mode: 'index',
+                intersect: false,
+                titleFontFamily: 'IranSans',
+                bodyFontFamily: 'IranSans',
+                titleFontSize: 10,
+                bodyFontSize: 10,
+                titleMarginBottom: 10,
+                xPadding: 10,
+                yPadding: 10
+                // callback: (value) => formatNumber(value, {useGrouping:false}),
+              },
+              responsive: true,
+              legend: {
+                display: false
+              },
+              scales: {
+                xAxes: [
+                  {
+                    stacked: true,
+                    ticks: {
+                      // Include a dollar sign in the ticks
+                      // callback: (value) => formatNumber(value, {useGrouping:false}),
+                      fontFamily: 'IranSans',
+                      fontColor: '#fff'
+                    },
+                    scaleLabel: {
+                      display: true,
+                      labelString: 'امتیاز',
+                      fontColor: '#fff',
+                      fontFamily: 'IranSans'
+                    },
+                    gridLines: {
+                      display: true,
+                      color: 'rgba(255, 255, 255, 0.1)'
+                    }
                   }
-                }
-              ],
-              yAxes: [
-                {
-                  // stacked: true,
-                  ticks: {
-                    // Include a dollar sign in the ticks
-                    // callback: (value) => formatNumber(value),
-                    fontFamily: 'IranSans',
-                    fontColor: '#fff'
-                  },
-                  gridLines: {
-                    display: true,
-                    color: 'rgba(255, 255, 255, 0.1)'
+                ],
+                yAxes: [
+                  {
+                    // stacked: true,
+                    ticks: {
+                      // Include a dollar sign in the ticks
+                      // callback: (value) => formatNumber(value),
+                      fontFamily: 'IranSans',
+                      fontColor: '#fff'
+                    },
+                    gridLines: {
+                      display: true,
+                      color: 'rgba(255, 255, 255, 0.1)'
+                    }
                   }
-                }
-              ]
-            }
-          }}
-        />
+                ]
+              }
+            }}
+          />
+        </div>
       </section>
     );
   }
