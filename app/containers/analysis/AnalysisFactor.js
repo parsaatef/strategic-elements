@@ -63,7 +63,7 @@ class AnalysisFactor extends React.Component<Props> {
     history.push(
       ANALYSIS_ELEMENT.replace(':type', type)
         .replace(':element', node.id)
-        .replace(':title', 'gold')
+        .replace(':title', node.name)
     );
 
     /* this.setState({

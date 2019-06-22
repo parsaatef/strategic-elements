@@ -90,7 +90,8 @@ import {
   ADMIN,
   INTERNATIONAL_RELATION_REGISTER,
   INTERNATIONAL_RELATIONS_LIST,
-  INTERNATIONAL_RELATION_EDIT
+  INTERNATIONAL_RELATION_EDIT,
+  PRODUCTION
 } from './constants/routes';
 
 /**
@@ -152,6 +153,8 @@ const Mine = lazy(() => import('./components/Elements/Mines'));
 const Mineral = lazy(() => import('./components/Elements/Mineral'));
 
 const GlobalPrice = lazy(() => import('./components/Elements/GlobalPrice'));
+
+const Production = lazy(() => import('./components/Elements/Production'));
 
 /**
  * Admin Routers
@@ -713,6 +716,13 @@ const Routes = ({ session, refetch }: Props) => (
           session={session}
           path={ADMIN}
           component={Admin}
+        />
+
+        <RestrictedRoute
+          exact
+          session={session}
+          path={PRODUCTION}
+          component={Production}
         />
 
         <Redirect to="/" />

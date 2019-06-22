@@ -13,11 +13,17 @@ import {
   DEPENDENCE_INDUSTRIES,
   MINE,
   MINERAL,
-  GLOBAL_PRICE
+  GLOBAL_PRICE,
+  PRODUCTION
 } from '../../constants/routes';
 import ElementDetailItem from './ElementDetailItem';
 import { GET_ELEMENT_MIX_STATS } from '../../queries/elementStats';
-import { getYearOptions, getCountries, getStates } from '../../utils/utility';
+import {
+  getYearOptions,
+  getCountries,
+  getStates,
+  getQualityLevel
+} from '../../utils/utility';
 import Select from '../General/Select';
 import { getPercentValue } from '../Information/MapInfo';
 import PageHeadingIcon from '../General/PageHeadingIcon';
@@ -143,7 +149,7 @@ class ElementDetailForWorld extends Component<Props> {
                 productionValue: productionValueTotal,
                 secondaryProductionValue: secondaryProductionTotal,
                 resourceStats: resourceStatsTotal,
-                // consumptionValue: consumptionValueTotal,
+                consumptionValue: consumptionValueTotal,
                 exportValue: exportValueTotal,
                 importValue: importValueTotal,
                 unit: unitTotal
@@ -158,18 +164,14 @@ class ElementDetailForWorld extends Component<Props> {
                 price,
                 resourceStats,
                 productionValue,
-                consumptionValue,
                 exportValue,
                 importValue,
                 secondaryProductionValue,
                 unit
               } = currLocStats;
 
-              const {
-                primarySource,
-                unit: unitSource
-                // secondarySource
-              } = resourceStats || {};
+              const { primarySource, unit: unitSource, secondarySource } =
+                resourceStats || {};
 
               const { price: globalPrice, unit: unitPrice } = price || {};
 
@@ -196,6 +198,14 @@ class ElementDetailForWorld extends Component<Props> {
                   unitSourceTotal,
                   formatNumber
                 ),
+
+                iranConsumptionPercent: getPercentValue(
+                  iranConsumptionValue,
+                  consumptionValueTotal,
+                  iranUnit,
+                  unitTotal,
+                  formatNumber
+                ),
                 exportPercent: getPercentValue(
                   exportValue,
                   exportValueTotal,
@@ -215,9 +225,15 @@ class ElementDetailForWorld extends Component<Props> {
               return (
                 <div className="main-detail-line">
                   <ElementDetailItem
-                    value={globalPrice}
+                    value={formatNumber(globalPrice)}
                     unit={unitPrice}
                     name="قیمت جهانی"
+                  />
+
+                  <ElementDetailItem
+                    value={formatNumber(productionValue)}
+                    unit={unit}
+                    name="میزان تولید اولیه"
                   />
 
                   <ElementDetailItem
@@ -227,39 +243,75 @@ class ElementDetailForWorld extends Component<Props> {
                   />
 
                   <ElementDetailItem
-                    value={primarySource}
-                    unit={unitSource}
-                    name="میزان منابع"
+                    value={formatNumber(secondaryProductionValue)}
+                    unit={unit}
+                    name="میزان تولید ثانویه"
                   />
 
                   <ElementDetailItem
-                    value={formatNumber(productionValue)}
-                    unit={unit}
-                    name="مجموع تولید سالانه"
-                  />
-
-                  <ElementDetailItem
-                    value={formatNumber(consumptionValue)}
-                    unit={unit}
-                    name="مجموع مصرف سالانه"
+                    value={allFactor.secondaryProductionPercent}
+                    unit=""
+                    name="درصد تولید ثانویه"
                   />
 
                   <ElementDetailItem
                     value={formatNumber(exportValue)}
                     unit={unit}
-                    name="میزان صادرات"
+                    name="میزان صادرات از ایران"
+                  />
+
+                  <ElementDetailItem
+                    value={allFactor.exportPercent}
+                    unit=""
+                    name="درصد صادرات از ایران"
                   />
 
                   <ElementDetailItem
                     value={formatNumber(importValue)}
                     unit={unit}
-                    name="تعداد واردات"
+                    name="میزان واردات به ایران"
                   />
 
                   <ElementDetailItem
-                    value={formatNumber(secondaryProductionValue)}
+                    value={allFactor.importPercent}
+                    unit=""
+                    name="درصد واردات به ایران"
+                  />
+
+                  <ElementDetailItem
+                    value={formatNumber(consumptionValueTotal)}
                     unit={unit}
-                    name="میزان تولید ثانویه"
+                    name="میزان مصرف جهان"
+                  />
+
+                  <ElementDetailItem
+                    value={formatNumber(iranConsumptionValue)}
+                    unit={unit}
+                    name="میزان مصرف ایران"
+                  />
+
+                  <ElementDetailItem
+                    value={allFactor.iranConsumptionPercent}
+                    unit=""
+                    name="درصد مصرف ایران"
+                  />
+
+                  <ElementDetailItem
+                    value={formatNumber(primarySource)}
+                    unit={unitSource}
+                    name="میزان منابع اولیه"
+                  />
+
+                  <ElementDetailItem
+                    value={allFactor.resourcePercent}
+                    unit=""
+                    name="درصد منابع اولیه"
+                  />
+
+                  <ElementDetailItem
+                    value={getQualityLevel('option', secondarySource)}
+                    unit=""
+                    name="میزان منابع ثانویه"
                   />
                 </div>
               );
@@ -270,6 +322,30 @@ class ElementDetailForWorld extends Component<Props> {
         </Query>
 
         <Row>
+          <Col sm={4} className="animated flipInX fast animation-auto-delay">
+            <IconButton
+              className="main-detail-btn-wrap text-center"
+              link={GLOBAL_PRICE.replace(':element', element).replace(
+                ':title',
+                title
+              )}
+              icon="smfpIcon smfpIcon-global-price"
+              title="روند قیمت جهانی"
+            />
+          </Col>
+
+          <Col sm={4} className="animated flipInX fast animation-auto-delay">
+            <IconButton
+              className="main-detail-btn-wrap text-center"
+              link={PRODUCTION.replace(':element', element).replace(
+                ':title',
+                title
+              )}
+              icon="smfpIcon smfpIcon-global-price"
+              title="روند تولید"
+            />
+          </Col>
+
           <Col sm={4} className="animated flipInX fast animation-auto-delay">
             <IconButton
               className="main-detail-btn-wrap text-center"
@@ -360,18 +436,6 @@ class ElementDetailForWorld extends Component<Props> {
               )}
               icon="smfpIcon smfpIcon-threats"
               title="تهدیدها"
-            />
-          </Col>
-
-          <Col sm={4} className="animated flipInX fast animation-auto-delay">
-            <IconButton
-              className="main-detail-btn-wrap text-center"
-              link={GLOBAL_PRICE.replace(':element', element).replace(
-                ':title',
-                title
-              )}
-              icon="smfpIcon smfpIcon-global-price"
-              title="قیمت جهانی"
             />
           </Col>
         </Row>
