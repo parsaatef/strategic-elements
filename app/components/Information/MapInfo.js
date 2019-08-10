@@ -1,24 +1,16 @@
 import React, { Component } from 'react';
-import * as d3 from 'd3';
-import { Query } from 'react-apollo';
 import { injectIntl, intlShape } from 'react-intl';
-import Loading from '../General/Loading';
-import Datamaps from './datamaps';
 import World from '../../utils/world.json';
 import Iran from '../../utils/iran.json';
-import { GET_ELEMENT_MIX_STATS } from '../../queries/elementStats'; // GET_ELEMENTS_STATS,
-import popupTemplate from './popupTemplate';
+import { GET_ELEMENT_MIX_STATS } from '../../queries/elementStats';
 import {
   getQualityLevel,
   getStandardValueByUnit,
   getUnit
 } from '../../utils/utility';
-
-// window.d3 = d3;
+import Map from './Map';
 
 const CountriesOptions = World.Countries;
-
-const setProjection = null;
 
 const StatesOptions = Iran.States;
 
@@ -36,7 +28,7 @@ export const getPercentValue = (a, b, aUnit, bUnit, formatNumber, raw) => {
   return raw ? percent : `${formatNumber(percent)}%`;
 };
 
-const getFinalValue = (a, unit, formatNumber) => {
+export const getFinalValue = (a, unit, formatNumber) => {
   if (!a) {
     return '-';
   }
@@ -46,18 +38,6 @@ const getFinalValue = (a, unit, formatNumber) => {
   const unitTitle = getUnit('option', unit);
 
   return `${af} ${unitTitle}`;
-};
-
-const irnSetProjection = () => {
-  const projectionD3 = d3.geo
-    .mercator()
-    .center([57.688, 32.4279]) // always in [East Latitude, North Longitude]
-    .scale(1400);
-  const pathD3 = d3.geo.path().projection(projectionD3);
-  return {
-    path: pathD3,
-    projection: projectionD3
-  };
 };
 
 class MapInfo extends Component<Props> {
@@ -91,6 +71,8 @@ class MapInfo extends Component<Props> {
       importPercent: formatMessage({ id: 'mapInfo.importPercent' }),
       consumptionShare: formatMessage({ id: 'mapInfo.consumptionShare' })
     };
+
+    this.getBubbleProps = this.getBubbleProps.bind(this);
   }
 
   getFactorsByType() {
@@ -348,6 +330,10 @@ class MapInfo extends Component<Props> {
   }
 
   getBubbleProps(data) {
+    if (!data || !data.statsByElements) return null;
+
+    const dataStats = data.statsByElements;
+
     const { locationType } = this.props;
 
     const { labels } = this;
@@ -362,11 +348,11 @@ class MapInfo extends Component<Props> {
 
     const LocationData = [];
 
-    const totalItemData = data.find(stats => stats.location === 'all');
+    const totalItemData = dataStats.find(stats => stats.location === 'all');
 
-    const iranItemData = data.find(stats => stats.location === 'IRN');
+    const iranItemData = dataStats.find(stats => stats.location === 'IRN');
 
-    data.forEach(elem => {
+    dataStats.forEach(elem => {
       const location = LocationOptions.find(
         cnty => cnty[LocationsType] === elem.location
       );
@@ -430,56 +416,18 @@ class MapInfo extends Component<Props> {
   render() {
     const { locationType, year, elements } = this.props;
 
-    let scopeProps = 'world';
-    let idName = 'world-map';
-    let widthProps = '80%';
-    let heightProps = '65vh';
-    let dataUrlProps = null;
-    let popupTemplateProps = popupTemplate;
-    let setProjectionProps = setProjection;
-
-    if (locationType === 'iran') {
-      scopeProps = 'irn';
-      idName = 'iran-map';
-      widthProps = '85%';
-      heightProps = '65vh';
-      dataUrlProps = 'components/Information/irn.topo.json';
-      popupTemplateProps = popupTemplate;
-      setProjectionProps = irnSetProjection;
-    }
-
     return (
       <section className="smfp-datamaps-wrap-outer animated fadeInUp fast delay-2s">
-        <Query
-          query={GET_ELEMENT_MIX_STATS} // GET_ELEMENTS_STATS}
+        <Map
+          locationType={locationType}
+          query={GET_ELEMENT_MIX_STATS}
           variables={{
             // locationType,
             year,
             elements
           }}
-        >
-          {({ data, loading }) => {
-            if (loading) return <Loading />;
-            if (!data || !data.statsByElements) return null;
-
-            const LocationData = this.getBubbleProps(data.statsByElements);
-            console.log('------LocationData----', LocationData);
-
-            return (
-              <Datamaps
-                className="smfp-datamaps-wrap animated fadeIn fast"
-                idName={idName}
-                widthProps={widthProps}
-                heightProps={heightProps}
-                scopeProps={scopeProps}
-                dataUrlProps={dataUrlProps}
-                bubblesProps={LocationData}
-                popupTemplateProps={popupTemplateProps}
-                setProjectionProps={setProjectionProps}
-              />
-            );
-          }}
-        </Query>
+          getBubbleProps={this.getBubbleProps}
+        />
       </section>
     );
   }

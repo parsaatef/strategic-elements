@@ -6,6 +6,7 @@
   "ANALYSIS_INTRO": "/analysis/intro",
   "ANALYSIS_FACTOR": "/analysis/:type",
   "ANALYSIS_ELEMENT": "/analysis/:type/:element/:title",
+  "ANALYSIS_RELATED_CHART": "/analysis-related-chart",
 
   "INFORMATION": "/information/:type",
   "INFORMATION_OF_WORLD": "/information-of-world",

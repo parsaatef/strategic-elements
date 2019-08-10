@@ -5,19 +5,61 @@ import React from 'react';
 import { Query } from 'react-apollo';
 import { withRouter } from 'react-router-dom';
 import ReactSelect from 'react-select';
-import { Button } from 'react-bootstrap';
-import { FormattedMessage } from 'react-intl';
+// import { Button } from 'react-bootstrap';
+import { injectIntl, intlShape } from 'react-intl';
+import _ from 'underscore';
+import { connect } from 'react-redux';
 import { GET_ELEMENTS } from '../../queries/element';
 import BubbleCloud from '../../components/bubble/BubbleCloud';
 import { ANALYSIS_ELEMENT } from '../../constants/routes';
-import item4 from '../../images/menu-item-4.jpg';
 import { FormattedSimpleMsg } from '../../utils/utility';
 import PageHeadingIcon from '../../components/General/PageHeadingIcon';
 import Loading from '../../components/General/Loading';
+import AnalysisRate from './Analysis';
 
 type Props = {
   history: object,
-  match: object
+  match: object,
+  elementsRates: object
+};
+
+const defaultIndicatorsFactor = {
+  p1: 0.3,
+  p2: 0.2,
+  p3: 0.3,
+  p4: 0.2,
+  e1: 0.1,
+  e2: 0.2,
+  e3: 0.1,
+  e4: 0.15,
+  e5: 0.15,
+  e6: 0.2,
+  e7: 0.1,
+  s1: 0.5,
+  s2: 0.2,
+  s3: 0.3,
+  t1: 0.6,
+  t2: 0.4,
+  en1: 0.3,
+  en2: 0.1,
+  en3: 0.2,
+  en4: 0.2,
+  en5: 0.2,
+  l1: 0.5,
+  l2: 0.2,
+  l3: 0.3
+};
+
+const getFactorGroup = factor => {
+  let group = '';
+
+  if (factor.includes('en')) {
+    group = 'en';
+  } else {
+    group = factor.substr(0, 1);
+  }
+
+  return group;
 };
 
 class AnalysisFactor extends React.Component<Props> {
@@ -27,7 +69,9 @@ class AnalysisFactor extends React.Component<Props> {
     this.state = {
       // currentElement: '' ,
       currentFactor: { value: '', label: 'انتخاب' },
-      currentFactorVal: {}
+      currentFactorVal: {},
+      elements: [],
+      inputData: []
     };
 
     this.sourceClick = this.sourceClick.bind(this);
@@ -36,33 +80,152 @@ class AnalysisFactor extends React.Component<Props> {
     this.recalculateData = this.recalculateData.bind(this);
   }
 
-  getData(stats) {
-    console.log(this.props);
+  componentDidMount() {
+    const { elements } = this.state;
+    const { elementsRates } = this.props;
+
+    if (!_.isEmpty(elements) && !_.isEmpty(elementsRates)) {
+      this.setData();
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { elements } = this.state;
+    const { elementsRates } = this.props;
+
+    if (
+      !_.isEqual(prevState.elements, elements) ||
+      !_.isEqual(prevProps.elementsRates, elementsRates)
+    ) {
+      this.setData();
+    }
+  }
+
+  getNewMultiple(x) {
+    const { currentFactor, currentFactorVal } = this.state;
+
+    const defVal = defaultIndicatorsFactor[currentFactor.value];
+
+    const newval = currentFactorVal.value;
+
+    return (x / (1 - defVal)) * (1 - newval);
+  }
+
+  getNewIndicators() {
+    const newIndicators = {};
+
+    const { currentFactor, currentFactorVal } = this.state;
+
+    if (!currentFactor.value || !currentFactorVal.value) {
+      return _.clone(defaultIndicatorsFactor);
+    }
+
+    const currGroup = getFactorGroup(currentFactor.value);
+
+    _.each(defaultIndicatorsFactor, (val, factor) => {
+      if (factor === currentFactor.value) {
+        newIndicators[factor] = currentFactorVal.value;
+      } else {
+        const group = getFactorGroup(factor);
+
+        if (currGroup === group) {
+          newIndicators[factor] = this.getNewMultiple(val);
+        } else {
+          newIndicators[factor] = val;
+        }
+      }
+    });
+
+    return newIndicators;
+  }
+
+  setData() {
+    const { elements, inputData } = this.state;
+
+    const { elementsRates } = this.props;
 
     const data = [];
 
-    stats.forEach(elem => {
-      data.push({
-        id: elem.element,
-        cat: elem.group,
-        name: elem.elementTitle,
-        value: 50,
-        icon: item4,
-        desc: ''
-      });
+    const elementsRanks = [];
+
+    elements.forEach(elem => {
+      if (elementsRates && elementsRates[elem.element]) {
+        elementsRanks.push({
+          rate: elementsRates[elem.element].finalRate,
+          element: elem.element
+        });
+      }
     });
 
-    return data;
+    const allRanks = _.sortBy(elementsRanks, 'rate');
+
+    allRanks.reverse().map((value, index) => {
+      const newValue = value;
+      newValue.rank = index + 1;
+      return newValue;
+    });
+
+    const minRate =
+      allRanks.length > 0 ? allRanks[allRanks.length - 1].rate : 0;
+    const maxRate = allRanks.length > 0 ? allRanks[0].rate : 5;
+
+    console.log('---------allRanks-------', allRanks);
+
+    const countAll = Object.values(elementsRanks).length;
+
+    const { intl } = this.props;
+
+    const { formatMessage, formatNumber } = intl;
+
+    elements.forEach(elem => {
+      if (elementsRates && elementsRates[elem.element]) {
+        let foundedRank = allRanks.find(x => x.element === elem.element);
+
+        foundedRank = foundedRank ? foundedRank.rank : 0;
+
+        let value =
+          ((elementsRates[elem.element].finalRate - minRate) * 100) /
+          (maxRate - minRate);
+
+        value = value < 5 ? 5 : value;
+
+        data.push({
+          id: elem.element,
+          cat: formatMessage({ id: `global.${elem.category}` }),
+          name: elem.elementTitle,
+          value,
+          icon: elem.symbol,
+          isImage: false,
+          desc: `
+            <div><span class="rank">رتبه: </span> <span>${formatNumber(
+              foundedRank
+            )}</span> از <span>${formatNumber(countAll)}</span></div>
+            <div><span class="rating">امتیاز: </span> <span>${formatNumber(
+              elementsRates[elem.element].finalRate
+            )}</span> از <span>${formatNumber(5)}</span></div>
+          `
+        });
+      }
+    });
+
+    if (!_.isEqual(inputData, data)) {
+      console.log('----------data-----------', data);
+
+      this.setState({
+        inputData: data
+      });
+    }
   }
 
   sourceClick(node) {
     const { history, match } = this.props;
 
     const { type } = match.params;
+    console.log('-----------node--------', node);
 
     history.push(
       ANALYSIS_ELEMENT.replace(':type', type)
-        .replace(':element', node.id)
+        .replace(':element', node.element)
         .replace(':title', node.name)
     );
 
@@ -91,17 +254,28 @@ class AnalysisFactor extends React.Component<Props> {
     const { match } = this.props;
 
     const { type } = match.params;
+    console.log('-------type-------', type);
 
-    const { currentFactor, currentFactorVal } = this.state;
+    const { currentFactor, currentFactorVal, elements, inputData } = this.state;
 
     return (
       <div className="information-analysis-container">
+        <AnalysisRate
+          analysisFactor={type}
+          indicatorsFactor={this.getNewIndicators()}
+        />
+
         <Query
           query={GET_ELEMENTS}
           variables={{
             offset: -1,
             first: 0
           }}
+          /* onCompleted={ data =>  { alert("tttessssss...");
+            if( !_.isEqual( data.searchElement.elements, elements ) ) { alert("My test");
+              this.setState({elements : data.searchElement.elements})
+            }
+          }} */
         >
           {({ data, loading, error, refetch }) => {
             if (loading) return <Loading />;
@@ -111,7 +285,10 @@ class AnalysisFactor extends React.Component<Props> {
 
             console.log('data, error, refetch', data, error, refetch);
 
-            const inputData = this.getData(data.searchElement.elements);
+            if (!_.isEqual(data.searchElement.elements, elements)) {
+              this.setState({ elements: data.searchElement.elements });
+              return null;
+            }
 
             return (
               <section className="analysis-factor-wrapper">
@@ -120,7 +297,7 @@ class AnalysisFactor extends React.Component<Props> {
                   title={<FormattedSimpleMsg id={`analysis.element_${type}`} />}
                 />
 
-                <div className="animated fadeInUp fast">
+                <div className="animated animation-fill-mode-backwards fadeInUp fast">
                   <div className="smfp-filter-item text-row-padding">
                     {/* <FormattedMessage id="analysis.select_affected_factor" /> */}
                     شاخص
@@ -188,12 +365,25 @@ class AnalysisFactor extends React.Component<Props> {
                         name="effect_value"
                         value={currentFactorVal}
                         onChange={this.changeFactorValue}
-                        options={[]}
+                        options={[
+                          { value: '', label: 'انتخاب' },
+                          { value: 0, label: 0 },
+                          { value: 0.1, label: 0.1 },
+                          { value: 0.2, label: 0.2 },
+                          { value: 0.3, label: 0.3 },
+                          { value: 0.4, label: 0.4 },
+                          { value: 0.5, label: 0.5 },
+                          { value: 0.6, label: 0.6 },
+                          { value: 0.7, label: 0.7 },
+                          { value: 0.8, label: 0.8 },
+                          { value: 0.9, label: 0.9 },
+                          { value: 1, label: 1 }
+                        ]}
                       />
                     </div>
                   </div>
 
-                  <div className="smfp-filter-item">
+                  {/* <div className="smfp-filter-item">
                     <Button
                       style={{ marginLeft: '6px' }}
                       onClick={this.recalculateData}
@@ -205,7 +395,7 @@ class AnalysisFactor extends React.Component<Props> {
                     <Button type="button" variant="outline-danger">
                       <FormattedMessage id="global.reset" />
                     </Button>
-                  </div>
+                  </div> */}
                 </div>
 
                 <BubbleCloud
@@ -222,4 +412,12 @@ class AnalysisFactor extends React.Component<Props> {
   }
 }
 
-export default withRouter(AnalysisFactor);
+AnalysisFactor.propTypes = {
+  intl: intlShape.isRequired
+};
+
+const mapStateToProps = state => ({
+  elementsRates: state.analysis.elementsRates
+});
+
+export default connect(mapStateToProps)(withRouter(injectIntl(AnalysisFactor)));

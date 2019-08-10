@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 import { gql } from 'apollo-boost';
+import { injectIntl, intlShape } from 'react-intl';
 import { GET_MINES } from '../../queries/mine';
 import PageHeadingIcon from '../General/PageHeadingIcon';
 import Loading from '../General/Loading';
+import Map from '../Information/Map';
+import Iran from '../../utils/iran.json';
+import { getUnit } from '../../utils/utility';
 
 export const GET_ELEMENT_BY_NAME = gql`
   query($element: String!) {
@@ -16,7 +20,65 @@ export const GET_ELEMENT_BY_NAME = gql`
   }
 `;
 
+const StatesOptions = Iran.States;
+
 class Mines extends Component<Props> {
+  constructor(props) {
+    super(props);
+
+    const { intl } = this.props;
+
+    const { formatMessage } = intl;
+
+    this.labels = {
+      locationTitle: formatMessage({ id: 'mapInfo.state' }),
+      mineName: formatMessage({ id: 'mapInfo.mineName' }),
+      mainMineral: formatMessage({ id: 'mapInfo.mainMineral' }),
+      caratAverage: formatMessage({ id: 'mapInfo.caratAverage' }),
+      mineStatus: formatMessage({ id: 'mapInfo.mineStatus' }),
+      savedValue: formatMessage({ id: 'mapInfo.savedValue' }),
+      unit: formatMessage({ id: 'mapInfo.unit' })
+    };
+
+    this.getBubbleProps = this.getBubbleProps.bind(this);
+  }
+
+  getBubbleProps(data) {
+    if (!data || !data.searchMine || !data.searchMine.mines) return null;
+
+    const dataStats = data.searchMine.mines;
+
+    const LocationData = [];
+
+    const { intl } = this.props;
+
+    const { formatMessage, formatNumber } = intl;
+
+    dataStats.forEach(elem => {
+      const location = StatesOptions.find(cnty => cnty.state === elem.location);
+
+      LocationData.push({
+        ...location,
+        locationTitle: formatMessage({ id: location.title }),
+        mineName: elem.title,
+        mainMineral: elem.mineral,
+        caratAverage: elem.caratAverage ? formatNumber(elem.caratAverage) : '-',
+        mineStatus: elem.status,
+        savedValue: elem.productionValue
+          ? formatNumber(elem.productionValue)
+          : '',
+        unit: getUnit('option', elem.unit),
+        labels: this.labels,
+        radius:
+          elem.savedValue && elem.caratAverage
+            ? elem.savedValue * elem.caratAverage
+            : 1
+      });
+    });
+
+    return LocationData;
+  }
+
   render() {
     const { match } = this.props;
 
@@ -27,6 +89,17 @@ class Mines extends Component<Props> {
         <PageHeadingIcon
           icon="smfpIcon smfpIcon-mine"
           title={`معادن ${title}`}
+        />
+
+        <Map
+          locationType="iran"
+          query={GET_MINES}
+          variables={{
+            locationType: 'iran',
+            elements: [element],
+            offset: -1
+          }}
+          getBubbleProps={this.getBubbleProps}
         />
 
         <Query
@@ -61,36 +134,13 @@ class Mines extends Component<Props> {
             }
           }}
         </Query>
-
-        {/* <div>
-
-          <Query
-            query={GET_ELEMENT_BY_NAME}
-            variables={{
-              element
-            }}
-          >
-            {({ data, loading, error, refetch }) => {
-              if (loading) return <Loading />;
-
-              console.log('data, error, refetch', data, error, refetch);
-
-              return (
-                <>
-                  {data && data.elementByName && (
-                    <div dangerouslySetInnerHTML={{
-                      __html: data.elementByName.secondaryResourcesDesc
-                    }} />
-                  )}
-                </>
-              );
-            }}
-          </Query>
-
-        </div> */}
       </div>
     );
   }
 }
 
-export default Mines;
+Mines.propTypes = {
+  intl: intlShape.isRequired
+};
+
+export default injectIntl(Mines);

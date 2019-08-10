@@ -270,6 +270,21 @@ export function getQualityLevel(type = 'all', by) {
   return foundedOption ? foundedOption.label : '';
 }
 
+export function getQualityNumber(by) {
+  const options = [
+    { quality: '', value: 0 },
+    { quality: 'very_high', value: 5 },
+    { quality: 'high', value: 4 },
+    { quality: 'medium', value: 3 },
+    { quality: 'low', value: 2 },
+    { quality: 'very_low', value: 1 }
+  ];
+
+  const foundedOption = options.find(option => option.quality === by);
+
+  return foundedOption ? foundedOption.value : 0;
+}
+
 export function getMineStatus(type = 'all', by) {
   const options = [
     { value: '', label: 'انتخاب' },

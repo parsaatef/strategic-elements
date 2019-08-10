@@ -210,6 +210,14 @@
   "mapInfo.importPercent": "درصد واردات",
   "mapInfo.consumptionShare": "مقدار سهم از مصرف ایران",
 
+  "mapInfo.state": "استان",
+  "mapInfo.mineName": "نام معدن",
+  "mapInfo.mainMineral": "کانی اصلی",
+  "mapInfo.caratAverage": "عیار (%)",
+  "mapInfo.mineStatus": "وضعیت معدن",
+  "mapInfo.savedValue": "میزان ذخیره",
+  "mapInfo.unit": "واحد",
+
   "world.all": "کل",
   "world.other": "سایر",
   "world.Afghanistan": "افغانستان",
@@ -430,6 +438,8 @@
   "analysis.element_law_issue": "تحلیل از دیدگاه مسائل قانونی",
   "analysis.select_affected_factor": "انتخاب شاخص تاثیرگذار",
   "analysis.select_effect_value": "انتخاب میزان تاثیر",
+  "analysis.element_develop": "تحلیل از دیدگاه توسعه پایدار",
+  "analysis.element_strategic": "تحلیل از دیدگاه راهبردی",
 
   "global.confirm": "تایید",
   "global.select_element": "انتخاب ماده معدنی",

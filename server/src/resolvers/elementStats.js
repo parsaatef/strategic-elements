@@ -2,7 +2,7 @@ import Joi from 'joi';
 import mongoose from 'mongoose';
 import { UserInputError } from 'apollo-server-express';
 import { registerElementStats, updateElementStats } from '../schemas';
-import { ElementStats, Resource, GlobalPrice } from '../models';
+import { ElementStats, Resource, GlobalPrice, Element } from '../models';
 
 export default {
   ElementMixStats: {
@@ -27,6 +27,15 @@ export default {
       filters.element = element;
 
       return GlobalPrice.findOne(filters);
+    },
+    elementInfo: root => {
+      const { element } = root;
+
+      const filters = {};
+
+      filters.element = element;
+
+      return Element.findOne(filters);
     }
   },
   Query: {

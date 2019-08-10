@@ -2,7 +2,10 @@
 import React, { Component } from 'react';
 import { Row } from 'react-bootstrap';
 import PanelItem from '../../components/General/PanelItem';
-import { ANALYSIS_FACTOR } from '../../constants/routes';
+import {
+  ANALYSIS_FACTOR,
+  ANALYSIS_RELATED_CHART
+} from '../../constants/routes';
 
 type Props = {};
 
@@ -26,45 +29,31 @@ export default class AnalysisIntro extends Component<Props> {
             <div className="smfp-analysis-intro-content">
               <Row>
                 <PanelItem
-                  className="col-sm-4 col-xs-6"
+                  className="col-sm-3 col-xs-6"
+                  link={ANALYSIS_FACTOR.replace(':type', 'strategic')}
+                  icon="smfpIcon smfpIcon-political-analysis"
+                  title="تحلیل راهبردی"
+                />
+
+                <PanelItem
+                  className="col-sm-3 col-xs-6"
                   link={ANALYSIS_FACTOR.replace(':type', 'economic')}
                   icon="smfpIcon smfpIcon-economical-analysis"
-                  title="اهمیت اقتصادی"
+                  title="تحلیل اقتصادی"
                 />
 
                 <PanelItem
-                  className="col-sm-4 col-xs-6"
-                  link={ANALYSIS_FACTOR.replace(':type', 'politic')}
-                  icon="smfpIcon smfpIcon-political-analysis"
-                  title="اهمیت سیاسی"
-                />
-
-                <PanelItem
-                  className="col-sm-4 col-xs-6"
-                  link={ANALYSIS_FACTOR.replace(':type', 'socialist')}
-                  icon="smfpIcon smfpIcon-social-analysis"
-                  title="عوامل اجتماعی"
-                />
-
-                <PanelItem
-                  className="col-sm-4 col-xs-6"
-                  link={ANALYSIS_FACTOR.replace(':type', 'technology')}
+                  className="col-sm-3 col-xs-6"
+                  link={ANALYSIS_FACTOR.replace(':type', 'develop')}
                   icon="smfpIcon smfpIcon-technology-analysis"
-                  title="دسترسی به تکنولوژی"
+                  title="تحلیل توسعه پایدار"
                 />
 
                 <PanelItem
-                  className="col-sm-4 col-xs-6"
-                  link={ANALYSIS_FACTOR.replace(':type', 'environment')}
-                  icon="smfpIcon smfpIcon-environment-analysis"
-                  title="اثرات محیط زیستی"
-                />
-
-                <PanelItem
-                  className="col-sm-4 col-xs-6"
-                  link={ANALYSIS_FACTOR.replace(':type', 'law_issue')}
+                  className="col-sm-3 col-xs-6"
+                  link={ANALYSIS_RELATED_CHART}
                   icon="smfpIcon smfpIcon-legal-analysis"
-                  title="مسائل قانونی"
+                  title="نمودار وابستگی"
                 />
               </Row>
             </div>

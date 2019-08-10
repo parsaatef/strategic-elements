@@ -77,6 +77,7 @@ export default gql`
     year: Int!
     unit: String
     element: String!
+    elementInfo: Element
     resourceStats: Resource
     price: GlobalPrice
   }

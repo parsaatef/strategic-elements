@@ -87,6 +87,7 @@ import {
   ANALYSIS_INTRO,
   ANALYSIS_FACTOR,
   ANALYSIS_ELEMENT,
+  ANALYSIS_RELATED_CHART,
   ADMIN,
   INTERNATIONAL_RELATION_REGISTER,
   INTERNATIONAL_RELATIONS_LIST,
@@ -110,6 +111,8 @@ const AnalysisFactor = lazy(() =>
 const AnalysisElement = lazy(() =>
   import('./containers/analysis/AnalysisElement')
 );
+
+const RelatedChart = lazy(() => import('./containers/analysis/RelatedChart'));
 
 const Admin = lazy(() => import('./containers/admin/Admin'));
 
@@ -709,6 +712,13 @@ const Routes = ({ session, refetch }: Props) => (
           session={session}
           path={ANALYSIS_ELEMENT}
           component={AnalysisElement}
+        />
+
+        <RestrictedRoute
+          exact
+          session={session}
+          path={ANALYSIS_RELATED_CHART}
+          component={RelatedChart}
         />
 
         <RestrictedRoute

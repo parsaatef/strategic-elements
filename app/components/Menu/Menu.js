@@ -24,7 +24,8 @@ import {
   USER_REGISTER,
   ANALYSIS_INTRO,
   ADMIN,
-  ANALYSIS_FACTOR
+  ANALYSIS_FACTOR,
+  ANALYSIS_RELATED_CHART
 } from '../../constants/routes';
 import logo from '../../images/logo.jpg';
 import classie from '../../assets/js/MultiLevelMenu/classie';
@@ -177,7 +178,7 @@ class Menu extends Component<Props> {
               <li className="smfp-menu-item menu__item" role="menuitem">
                 <Link
                   className="smfp-menu-link menu__link"
-                  to={ANALYSIS_FACTOR.replace(':type', 'politic')}
+                  to={ANALYSIS_FACTOR.replace(':type', 'strategic')}
                 >
                   <span>تحلیل راهبردی</span>
                 </Link>
@@ -193,7 +194,7 @@ class Menu extends Component<Props> {
               <li className="smfp-menu-item menu__item" role="menuitem">
                 <Link
                   className="smfp-menu-link menu__link"
-                  to={ANALYSIS_FACTOR.replace(':type', 'technology')}
+                  to={ANALYSIS_FACTOR.replace(':type', 'develop')}
                 >
                   <span>تحلیل توسعه پایدار</span>
                 </Link>
@@ -201,7 +202,7 @@ class Menu extends Component<Props> {
               <li className="smfp-menu-item menu__item" role="menuitem">
                 <Link
                   className="smfp-menu-link menu__link"
-                  to={ANALYSIS_FACTOR.replace(':type', 'technology')}
+                  to={ANALYSIS_RELATED_CHART}
                 >
                   <span>نمودار وابستگی</span>
                 </Link>

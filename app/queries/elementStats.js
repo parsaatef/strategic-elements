@@ -49,6 +49,40 @@ export const GET_ELEMENT_MIX_STATS = gql`
   }
 `;
 
+export const GET_ELEMENT_MIX_STATS_INFO = gql`
+  query($year: Int, $elements: [String!], $locations: [String!]) {
+    statsByElements(year: $year, elements: $elements, locations: $locations) {
+      id
+      location
+      locationType
+      productionValue
+      consumptionValue
+      exportValue
+      importValue
+      secondaryProductionValue
+      year
+      unit
+      element
+      elementInfo {
+        id
+        element
+        elementTitle
+      }
+      resourceStats {
+        primarySource
+        unit
+        secondarySource
+      }
+      price {
+        price
+        year
+        unit
+        element
+      }
+    }
+  }
+`;
+
 export const GET_ELEMENTS_STATS = gql`
   query(
     $ids: [ID!]

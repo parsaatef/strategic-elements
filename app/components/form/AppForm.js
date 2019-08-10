@@ -5,6 +5,9 @@ import deepClone from 'underscore.deepclone';
 
 _.mixin(deepClone);
 
+/**
+ * Type checking
+ */
 type Props = {
   children: React.Node,
   initialValues: object,
@@ -12,6 +15,10 @@ type Props = {
   onSubmit: () => void
 };
 
+/**
+ * Manage Forms and fields on app
+ * @class AppForm
+ */
 class AppForm extends Component<Props> {
   constructor(props) {
     super(props);
@@ -37,6 +44,10 @@ class AppForm extends Component<Props> {
     }
   }
 
+  /**
+   * set Initial Values
+   * @returns {{}}
+   */
   setInitialValues() {
     const { initialValues } = this.props;
 
@@ -51,6 +62,11 @@ class AppForm extends Component<Props> {
     return newValues;
   }
 
+  /**
+   * handle fileds change
+   * @param name
+   * @param value
+   */
   handleChange(name, value) {
     this.setState(
       state => {
@@ -101,6 +117,10 @@ class AppForm extends Component<Props> {
     );
   }
 
+  /**
+   * handle form submit
+   * @param e
+   */
   handleSubmit(e) {
     e.preventDefault();
 
@@ -136,6 +156,11 @@ class AppForm extends Component<Props> {
     }
   }
 
+  /**
+   * set form fileds errors
+   * @param name
+   * @param errors
+   */
   setErrors(name, errors) {
     this.setState(state => {
       /**
@@ -155,6 +180,11 @@ class AppForm extends Component<Props> {
     });
   }
 
+  /**
+   * hamdle form fields as valid field
+   * @param children
+   * @returns {*}
+   */
   mapChildren(children) {
     const { values, errors } = this.state;
 
@@ -183,6 +213,10 @@ class AppForm extends Component<Props> {
     });
   }
 
+  /**
+   * render of form
+   * @returns {*}
+   */
   render() {
     const { children } = this.props;
 
