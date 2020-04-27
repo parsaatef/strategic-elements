@@ -65,6 +65,7 @@ import {
   UPSTREAM_INDUSTRY_LIST,
   UPSTREAM_INDUSTRY_EDIT,
   UPSTREAM_INDUSTRY,
+  DEPENDENCE_INDUSTRIES,
   THREAT_REGISTER,
   THREATS_LIST,
   THREAT_EDIT,
@@ -147,9 +148,9 @@ const TechnologicalLevel = lazy(() =>
   import('./components/Elements/TechnologicalLevel')
 );
 
-/* const DependenceIndustries = lazy(() =>
+const DependenceIndustries = lazy(() =>
   import('./components/Elements/DependenceIndustries')
-); */
+);
 
 const Mine = lazy(() => import('./components/Elements/Mines'));
 
@@ -615,6 +616,12 @@ const Routes = ({ session, refetch }: Props) => (
           session={session}
           path={UPSTREAM_INDUSTRY}
           component={UpstreamIndustry}
+        />
+
+        <RestrictedRoute
+          session={session}
+          path={DEPENDENCE_INDUSTRIES}
+          component={DependenceIndustries}
         />
 
         <RestrictedRoute

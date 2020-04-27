@@ -4,6 +4,8 @@ import { gql } from 'apollo-boost';
 import { GET_MINERALS } from '../../queries/mineral';
 import PageHeadingIcon from '../General/PageHeadingIcon';
 import Loading from '../General/Loading';
+import { FormattedMessage } from 'react-intl';
+import { getQualityLevel } from '../../utils/utility';
 
 export const GET_ELEMENT_BY_NAME = gql`
   query($element: String!) {
@@ -42,7 +44,15 @@ class Mineral extends Component<Props> {
             if (data && data.searchMineral && data.searchMineral.minerals) {
               return (
                 <div>
-                  <table className="table table-with-width table-striped table-bordered">
+                  <table className="table table-lg-width table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th><FormattedMessage id="global.title" /></th>
+                        <th><FormattedMessage id="global.formula" /></th>
+                        <th><FormattedMessage id="global.color" /></th>
+                        <th><FormattedMessage id="global.abundance" /></th>
+                      </tr>
+                    </thead>
                     <tbody>
                       {data.searchMineral.minerals.map(source => (
                         <tr
@@ -52,7 +62,7 @@ class Mineral extends Component<Props> {
                           <td>{source.title}</td>
                           <td>{source.formula}</td>
                           <td>{source.color}</td>
-                          <td>{source.abundance}</td>
+                          <td>{getQualityLevel('option', source.abundance)}</td>
                         </tr>
                       ))}
                     </tbody>

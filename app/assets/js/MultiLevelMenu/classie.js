@@ -24,7 +24,7 @@ let hasClass;
 let addClass;
 let removeClass;
 
-if ('classList' in document.documentElement) {
+if (document.documentElement && 'classList' in document.documentElement) {
   hasClass = (elem, c) => elem.classList.contains(c);
 
   addClass = (elem, c) => {

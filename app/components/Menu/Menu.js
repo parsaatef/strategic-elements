@@ -156,7 +156,7 @@ class Menu extends Component<Props> {
                     <div className="icon-wrap">
                       <i className="smfpIcon smfpIcon-admin" />
                     </div>
-                    <span className="title">ادمین</span>
+                    <span className="title">مدیریت</span>
                   </Link>
                 </li>
               )}
@@ -232,7 +232,7 @@ class Menu extends Component<Props> {
                 className="menu__level"
                 tabIndex="-1"
                 role="menu"
-                aria-label="ادمین"
+                aria-label="مدیریت"
               >
                 <li className="smfp-menu-item menu__item" role="menuitem">
                   <Link className="smfp-menu-link menu__link" to={ADMIN}>

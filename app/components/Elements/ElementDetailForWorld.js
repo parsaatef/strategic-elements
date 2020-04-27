@@ -67,7 +67,7 @@ class ElementDetailForWorld extends Component<Props> {
 
     const locationLabel = type === 'world' ? 'جهان' : 'ایران';
 
-    let heading = `جزییات منابع و ذخایر {{element}} در {{location}}`;
+    let heading = `جزییات آمار ماده معدنی {{element}} در {{location}}`;
 
     heading = heading
       .replace('{{location}}', locationLabel)

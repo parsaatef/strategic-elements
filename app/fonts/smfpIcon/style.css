@@ -2,9 +2,9 @@
   font-family: 'smfpicon';
   src: url('fonts/smfpicon.eot?e1hbz7');
   src: url('fonts/smfpicon.eot?e1hbz7#iefix') format('embedded-opentype'),
-    url('fonts/smfpicon.ttf?e1hbz7') format('truetype'),
-    url('fonts/smfpicon.woff?e1hbz7') format('woff'),
-    url('fonts/smfpicon.svg?e1hbz7#smfpicon') format('svg');
+  url('fonts/smfpicon.ttf?e1hbz7') format('truetype'),
+  url('fonts/smfpicon.woff?e1hbz7') format('woff'),
+  url('fonts/smfpicon.svg?e1hbz7#smfpicon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -13,6 +13,7 @@
   /*
     use !important to prevent issues with browser extensions that change fonts
   */
+  font-family: 'smfpicon' !important;
   speak: none;
   font-style: normal;
   font-weight: normal;

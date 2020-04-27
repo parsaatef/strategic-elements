@@ -33,7 +33,7 @@ export default class InformationOfIran extends Component<Props> {
                 name="elementlist"
                 form="elementlist"
               >
-                <option value="element">انتخاب عنصر</option>
+                <option value="element">انتخاب ماده معدنی</option>
                 <option value="Zinc">Zinc</option>
                 <option value="Gallium">Gallium</option>
                 <option value="Germanium">Germanium</option>
@@ -60,7 +60,7 @@ export default class InformationOfIran extends Component<Props> {
         <div className="text-center btn-element-wrap">
           <a className="smfp-btn-img" href="">
             <img src="../../images/menu-item-4.jpg" alt="img" className="" />
-            <div className="title">نمایش اطلاعات عنصر</div>
+            <div className="title">نمایش اطلاعات ماده معدنی</div>
           </a>
         </div>
       </div>

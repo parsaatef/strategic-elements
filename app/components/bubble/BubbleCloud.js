@@ -34,7 +34,7 @@ import {
 import { injectIntl } from 'react-intl'; // intlShape
 // import { schemeCategory10 } from "d3-scale-chromatic";
 
-console.log(d3);
+console.log("--d3-3---", d3);
 
 const schemeSet1 = [
   '#ff9d0c',
@@ -67,7 +67,8 @@ class BubbleCloud extends React.Component<Props> {
     }
   }
 
-  renderCloud() {
+  renderCloud() { console.log("--d3-4---", d3);
+  console.log("--d3Event---", d3Event);
     // const { intl } = this.props;
     // const { formatMessage } = intl;
 

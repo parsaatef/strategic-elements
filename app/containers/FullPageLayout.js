@@ -1,17 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
 import Routes from '../Routes';
 
-type Props = {};
+const FullPageLayout = () => (
+      <>
+        <Scrollbars className="container-fluid smfp-Custom-scrollbar-container">
+          <Routes />
+        </Scrollbars>
+      </>
+);
 
-export default class FullPageLayout extends Component<Props> {
-  props: Props;
-
-  render() {
-    return (
-      <Scrollbars className="container-fluid smfp-Custom-scrollbar-container">
-        <Routes />
-      </Scrollbars>
-    );
-  }
-}
+export default FullPageLayout;

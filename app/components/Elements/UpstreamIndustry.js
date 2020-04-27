@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 import { gql } from 'apollo-boost';
-import { GET_OPTIONS } from '../../queries/option';
+import { GET_INDUSTRIES } from '../../queries/industry';
 import PageHeadingIcon from '../General/PageHeadingIcon';
 import Loading from '../General/Loading';
+import { getQualityLevel, getIndustryTypes } from '../../utils/utility';
+import { FormattedMessage } from 'react-intl';
 
 export const GET_ELEMENT_BY_NAME = gql`
   query($element: String!) {
@@ -11,7 +13,7 @@ export const GET_ELEMENT_BY_NAME = gql`
       id
       element
       elementTitle
-      secondaryResourcesDesc
+      description
     }
   }
 `;
@@ -30,28 +32,38 @@ class UpstreamIndustry extends Component<Props> {
         />
 
         <Query
-          query={GET_OPTIONS}
+          query={GET_INDUSTRIES}
           variables={{
-            element,
-            type: 'upstream-Industry',
-            offset: -1
+            elements: [element],
+            offset: -1,
+            type: 'downstream'
           }}
         >
           {({ data, loading }) => {
             if (loading) return <Loading />;
 
-            if (data && data.searchOptions && data.searchOptions.options) {
+            if (data && data.searchIndustries && data.searchIndustries.industries) {
               return (
                 <div>
-                  <table className="table table-with-width table-striped table-bordered">
+                  <table className="table table-lg-width table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th><FormattedMessage id="global.industry" /></th>
+                        <th><FormattedMessage id="global.strategicImportance" /></th>
+                        <th><FormattedMessage id="global.economicSignificance" /></th>
+                        <th><FormattedMessage id="global.jobCreationRate" /></th>
+                      </tr>
+                    </thead>
                     <tbody>
-                      {data.searchOptions.options.map(option => (
+                      {data.searchIndustries.industries.map(item => (
                         <tr
-                          key={option.id}
+                          key={item.id}
                           className="animated fadeInUp faster animation-auto-delay"
                         >
-                          <td>{option.name}</td>
-                          <td>{option.value}</td>
+                          <td>{item.title}</td>
+                          <td>{getQualityLevel('option', item.strategicImportance)}</td>
+                          <td>{getQualityLevel('option', item.economicSignificance)}</td>
+                          <td>{getQualityLevel('option', item.jobCreationRate)}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -79,7 +91,7 @@ class UpstreamIndustry extends Component<Props> {
                   {data && data.elementByName && (
                     <div
                       dangerouslySetInnerHTML={{
-                        __html: data.elementByName.lowLevelIndustryDesc
+                        __html: data.elementByName.description
                       }}
                     />
                   )}

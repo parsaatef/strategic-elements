@@ -33,9 +33,9 @@ class RelatedChart extends Component<Props> {
       // element
 
       const iranStats = statsByLocation.find(x => x.location === 'IRN');
-
+      //console.log("---iranStats---", iranStats);
       const worldStats = statsByLocation.find(x => x.location === 'all');
-
+      //console.log("---worldStats---", worldStats);
       if (worldStats && iranStats) {
         const value = !iranStats.consumptionValue
           ? 0
@@ -48,9 +48,20 @@ class RelatedChart extends Component<Props> {
                 100
             );
 
+        let percentValue = 0;
+        
+        if (value >= 5) {
+          percentValue = 100;  
+        } else if (value > 1 && value < 5) {
+          percentValue = Math.random((value - 1) * 25);  
+        } else {
+          percentValue = 0;
+        }
+        
+
         dataLabels.push({
           element: iranStats.elementInfo.elementTitle,
-          value: value || 0
+          value: percentValue
         });
       }
     });

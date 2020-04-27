@@ -108,7 +108,7 @@
   "global.usage2": "کاربرد 2",
   "global.usage3": "کاربرد 3",
   "global.usage4": "کاربرد 4",
-  "global.information_detail_title": "جزییات منابع و ذخایر {{element}} در {{location}}",
+  "global.information_detail_title": "جزییات آمار ماده معدنی {{element}} در {{location}}",
 
   "global.conductor": "رسانا",
   "global.semiconductor": "نیمه رسانا",
@@ -215,6 +215,8 @@
   "mapInfo.mainMineral": "کانی اصلی",
   "mapInfo.caratAverage": "عیار (%)",
   "mapInfo.mineStatus": "وضعیت معدن",
+  "mapInfo.active": "فعال",
+  "mapInfo.inactive": "غیر فعال",
   "mapInfo.savedValue": "میزان ذخیره",
   "mapInfo.unit": "واحد",
 

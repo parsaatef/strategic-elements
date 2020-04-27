@@ -210,7 +210,7 @@ class InformationOfWorld extends Component<Props> {
             className="text-center btn-element-wrap animated fadeInUp fast"
             link={ELEMENT_INFORMATION.replace(':element', currentElement.value)}
             icon="smfpIcon smfpIcon-element"
-            title="نمایش اطلاعات عنصر"
+            title="نمایش اطلاعات ماده معدنی"
           />
         )}
       </section>

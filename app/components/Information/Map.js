@@ -4,8 +4,30 @@ import { Query } from 'react-apollo';
 import Loading from '../General/Loading';
 import Datamaps from './datamaps';
 import popupTemplate from './popupTemplate';
+import {
+  event as d3Event,
+  mouse as d3Mouse,
+  select as d3Select,
+  selectAll as d3SelectAll
+} from 'd3-selection';
 
-const setProjection = null;
+
+
+console.log("----d31-----", d3);
+console.log("----d3Event-----", d3Event);
+
+// https://bl.ocks.org/mbostock/db6b4335bf1662b413e7968910104f0f or https://bl.ocks.org/mbostock/3892919
+const setProjection = null;/*function(element) { console.log("---element-", arguments);
+  var projection = d3.geo.equirectangular()
+    .center([70, 30])
+    .rotate([4.4, 0])
+    .scale(element.offsetWidth)
+    .translate([element.offsetWidth / 2, element.offsetHeight / 2]);
+  var path = d3.geo.path()
+    .projection(projection);
+
+  return {path: path, projection: projection};
+};*/
 
 const irnSetProjection = () => {
   const projectionD3 = d3.geo
@@ -21,23 +43,23 @@ const irnSetProjection = () => {
 
 class Map extends Component<Props> {
   render() {
-    const { locationType, variables, query, getBubbleProps } = this.props;
+    const { locationType, variables, query, getBubbleProps, popupCustomTemplate } = this.props;
 
     let scopeProps = 'world';
     let idName = 'world-map';
-    let widthProps = '80%';
-    let heightProps = '65vh';
+    let widthProps = '90%';
+    let heightProps = '90vh';
     let dataUrlProps = null;
-    let popupTemplateProps = popupTemplate;
+    let popupTemplateProps = popupCustomTemplate || popupTemplate;
     let setProjectionProps = setProjection;
 
     if (locationType === 'iran') {
       scopeProps = 'irn';
       idName = 'iran-map';
-      widthProps = '85%';
-      heightProps = '65vh';
+      widthProps = '90%';
+      heightProps = '75vh';
       dataUrlProps = 'components/Information/irn.topo.json';
-      popupTemplateProps = popupTemplate;
+      popupTemplateProps = popupCustomTemplate || popupTemplate;
       setProjectionProps = irnSetProjection;
     }
 

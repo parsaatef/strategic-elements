@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 import { gql } from 'apollo-boost';
 import { GET_OPTIONS } from '../../queries/option';
+import { GET_ENVIRONMENTS } from '../../queries/environment';
 import PageHeadingIcon from '../General/PageHeadingIcon';
 import Loading from '../General/Loading';
+import { getQualityLevel } from '../../utils/utility';
+import { FormattedMessage } from 'react-intl';
 
 export const GET_ELEMENT_BY_NAME = gql`
   query($element: String!) {
@@ -11,7 +14,7 @@ export const GET_ELEMENT_BY_NAME = gql`
       id
       element
       elementTitle
-      ecologyDesc
+      description
     }
   }
 `;
@@ -30,29 +33,64 @@ class Environment extends Component<Props> {
         />
 
         <Query
-          query={GET_OPTIONS}
+          query={GET_ENVIRONMENTS}
           variables={{
-            element,
-            type: 'environment',
-            offset: -1
+            elements: [element],
+            offset: -1,
           }}
         >
           {({ data, loading }) => {
             if (loading) return <Loading />;
 
-            if (data && data.searchOptions && data.searchOptions.options) {
+            if (data && data.searchEnvironments && data.searchEnvironments.environments) {
               return (
                 <div>
                   <table className="table table-with-width table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th>عامل محیط زیستی</th>
+                        <th>میزان تاثیر</th>
+                      </tr>
+                    </thead>
                     <tbody>
-                      {data.searchOptions.options.map(option => (
-                        <tr
-                          key={option.id}
-                          className="animated fadeInUp faster animation-auto-delay"
-                        >
-                          <td>{option.name}</td>
-                          <td>{option.value}</td>
-                        </tr>
+                      {data.searchEnvironments.environments.map(item => (
+                        <>
+                          <tr
+                            key='waterConsumption'
+                            className="animated fadeInUp faster animation-auto-delay"
+                          >
+                            <td><FormattedMessage id="global.waterConsumption" /></td>
+                            <td>{getQualityLevel('option', item.waterConsumption)}</td>
+                          </tr>
+                          <tr
+                            key='energyConsumption'
+                            className="animated fadeInUp faster animation-auto-delay"
+                          >
+                            <td><FormattedMessage id="global.energyConsumption" /></td>
+                            <td>{getQualityLevel('option', item.energyConsumption)}</td>
+                          </tr>
+                          <tr
+                            key='greenhouseGasEmissions'
+                            className="animated fadeInUp faster animation-auto-delay"
+                          >
+                            <td><FormattedMessage id="global.greenhouseGasEmissions" /></td>
+                            <td>{getQualityLevel('option', item.greenhouseGasEmissions)}</td>
+                          </tr>
+                          <tr
+                            key='risksWasteAWasteWater'
+                            className="animated fadeInUp faster animation-auto-delay"
+                          >
+                            <td><FormattedMessage id="global.risksWasteAWasteWater" /></td>
+                            <td>{getQualityLevel('option', item.risksWasteAWasteWater)}</td>
+                          </tr>
+                          <tr
+                            key='productionProcessRisksHuman'
+                            className="animated fadeInUp faster animation-auto-delay"
+                          >
+                            <td><FormattedMessage id="global.productionProcessRisksHuman" /></td>
+                            <td>{getQualityLevel('option', item.productionProcessRisksHuman)}</td>
+                          </tr>
+                        </>
                       ))}
                     </tbody>
                   </table>
@@ -79,7 +117,7 @@ class Environment extends Component<Props> {
                   {data && data.elementByName && (
                     <div
                       dangerouslySetInnerHTML={{
-                        __html: data.elementByName.ecologyDesc
+                        __html: data.elementByName.description
                       }}
                     />
                   )}

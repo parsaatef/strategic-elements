@@ -86,7 +86,7 @@ class Signin extends Component<Props, State> {
         <div className="smfp-login-wrap">
           <div className="smfp-login-wrap-inner">
             <div className="smfp-login-heading animated fadeInUp fast">
-              <h1>سامانه مدیریتی فناورانه پویا</h1>
+              <h1>سامانه مواد معدنی راهبردی (سَمَر)</h1>
             </div>
 
             <Mutation mutation={SIGNIN_USER} variables={{ email, password }}>

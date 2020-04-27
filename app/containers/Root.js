@@ -15,12 +15,12 @@ type Props = {
 
 class Root extends Component<Props> {
   render() {
-    const { store, history } = this.props;
+    const { store, history } = this.props; console.log("-------history------", history);
 
     return (
       <Provider store={store}>
         <ConnectedRouter history={history}>
-          <Layout />
+          <Layout history={history} />
         </ConnectedRouter>
       </Provider>
     );

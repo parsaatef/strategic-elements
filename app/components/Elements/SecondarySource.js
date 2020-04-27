@@ -4,6 +4,7 @@ import { gql } from 'apollo-boost';
 import { GET_RESOURCES } from '../../queries/resource';
 import PageHeadingIcon from '../General/PageHeadingIcon';
 import Loading from '../General/Loading';
+import { getCountries, getQualityLevel } from '../../utils/utility';
 
 export const GET_ELEMENT_BY_NAME = gql`
   query($element: String!) {
@@ -11,7 +12,7 @@ export const GET_ELEMENT_BY_NAME = gql`
       id
       element
       elementTitle
-      secondaryResourcesDesc
+      description
     }
   }
 `;
@@ -49,8 +50,8 @@ class SecondarySource extends Component<Props> {
                           key={source.id}
                           className="animated fadeInUp faster animation-auto-delay"
                         >
-                          <td>{source.title}</td>
-                          <td>{source.value}</td>
+                          <td>{getCountries('option', source.location)}</td>
+                          <td>{getQualityLevel('option', source.secondarySource)}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -78,7 +79,7 @@ class SecondarySource extends Component<Props> {
                   {data && data.elementByName && (
                     <div
                       dangerouslySetInnerHTML={{
-                        __html: data.elementByName.secondaryResourcesDesc
+                        __html: data.elementByName.description
                       }}
                     />
                   )}

@@ -324,7 +324,7 @@ class MapInfo extends Component<Props> {
         );
     }
 
-    finalFactors.radius = radius;
+    finalFactors.radius = Number(radius) + 6;
 
     return finalFactors;
   }
@@ -409,6 +409,8 @@ class MapInfo extends Component<Props> {
         } */
       }
     });
+
+    console.log("----LocationData----", LocationData)
 
     return LocationData;
   }

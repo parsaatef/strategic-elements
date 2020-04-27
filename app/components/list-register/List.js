@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 import { Row, Col } from 'react-bootstrap';
 import ReactSelect from 'react-select';
+import _ from 'underscore';
 import ListFilters from './ListFilters';
 import MultiDeleteAction from './multiDelete';
 import STPagination from './pagination';
@@ -15,6 +16,8 @@ const bulkActionsOptions = [
     label: <FormattedSimpleMsg id="global.deleteSelectedItems" />
   }
 ];
+
+const getSelectValue = (value, options) => _.findWhere(options, { value });
 
 class ItemsList extends Component<Props> {
   constructor(props) {
@@ -68,7 +71,7 @@ class ItemsList extends Component<Props> {
     });
   }
 
-  setBulkAction({ value }) {
+  setBulkAction({ value }) { console.log("-----value------", value);
     this.setState({
       bulkAction: value
     });
@@ -144,7 +147,7 @@ class ItemsList extends Component<Props> {
                   <Col md={5}>
                     <div className="smfp-filter-item">
                       <ReactSelect
-                        value={bulkAction}
+                        value={getSelectValue(bulkAction, bulkActionsOptions)}
                         onChange={this.setBulkAction}
                         options={bulkActionsOptions}
                         placeholder=<FormattedSimpleMsg id="global.select" />

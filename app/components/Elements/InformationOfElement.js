@@ -71,7 +71,7 @@ class InformationOfElement extends Component<Props> {
                   <>
                     <PageHeadingIcon
                       icon="smfpIcon smfpIcon-element"
-                      title={`عنصر ${data.elementByName.elementTitle}`}
+                      title={`ماده معدنی ${data.elementByName.elementTitle}`}
                     />
 
                     <table className="table table-with-width table-striped table-bordered">

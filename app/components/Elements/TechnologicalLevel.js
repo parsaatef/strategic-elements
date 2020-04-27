@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 import { gql } from 'apollo-boost';
-import { GET_OPTIONS } from '../../queries/option';
+import { GET_TECHNOLOGIES } from '../../queries/technology';
 import PageHeadingIcon from '../General/PageHeadingIcon';
 import Loading from '../General/Loading';
+import { FormattedMessage } from 'react-intl';
+import { getQualityLevel } from '../../utils/utility';
 
 export const GET_ELEMENT_BY_NAME = gql`
   query($element: String!) {
@@ -30,28 +32,37 @@ class TechnologicalLevel extends Component<Props> {
         />
 
         <Query
-          query={GET_OPTIONS}
+          query={GET_TECHNOLOGIES}
           variables={{
-            element,
-            type: 'technology-level',
-            offset: -1
+            elements: [element],
+            offset: -1,
           }}
         >
           {({ data, loading }) => {
             if (loading) return <Loading />;
 
-            if (data && data.searchOptions && data.searchOptions.options) {
+            if (data && data.searchTechnologies && data.searchTechnologies.technologies) {
               return (
                 <div>
-                  <table className="table table-with-width table-striped table-bordered">
+                  <table className="table table-lg-width table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th><FormattedMessage id="global.technology" /></th>
+                        <th><FormattedMessage id="global.level" /></th>
+                        <th><FormattedMessage id="global.strategicImportance" /></th>
+                        <th><FormattedMessage id="global.availabilityInIran" /></th>
+                      </tr>
+                    </thead>
                     <tbody>
-                      {data.searchOptions.options.map(option => (
+                      {data.searchTechnologies.technologies.map(option => (
                         <tr
                           key={option.id}
                           className="animated fadeInUp faster animation-auto-delay"
                         >
-                          <td>{option.name}</td>
-                          <td>{option.value}</td>
+                          <td>{option.title}</td>
+                          <td>{getQualityLevel('option', option.level)}</td>
+                          <td>{getQualityLevel('option', option.strategicImportance)}</td>
+                          <td>{getQualityLevel('option', option.availabilityInIran)}</td>
                         </tr>
                       ))}
                     </tbody>

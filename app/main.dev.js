@@ -1,4 +1,4 @@
-/* eslint global-require: off */
+/* eslint global-require: off, no-console: off */
 
 /**
  * This module executes inside of electron's main process. You can start
@@ -10,6 +10,7 @@
  *
  * @flow
  */
+import path from 'path';
 import { app, BrowserWindow } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
@@ -19,6 +20,7 @@ export default class AppUpdater {
   constructor() {
     log.transports.file.level = 'info';
     autoUpdater.logger = log;
+    //autoUpdater.checkForUpdates();
     autoUpdater.checkForUpdatesAndNotify();
   }
 }
@@ -47,19 +49,7 @@ const installExtensions = async () => {
   ).catch(console.log);
 };
 
-/**
- * Add event listeners...
- */
-
-app.on('window-all-closed', () => {
-  // Respect the OSX convention of having the application in memory even
-  // after all windows have been closed
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
-});
-
-app.on('ready', async () => {
+const createWindow = async () => {
   if (
     process.env.NODE_ENV === 'development' ||
     process.env.DEBUG_PROD === 'true'
@@ -70,10 +60,19 @@ app.on('ready', async () => {
   mainWindow = new BrowserWindow({
     show: false,
     width: 1024,
-    height: 728
+    height: 728,
+    webPreferences:
+      process.env.NODE_ENV === 'development' || process.env.E2E_BUILD === 'true'
+        ? {
+            nodeIntegration: true
+          }
+        : {
+            nodeIntegration: true,
+            preload: path.join('file://', __dirname, 'dist/renderer.prod.js')
+          }
   });
 
-  mainWindow.loadURL(`file://${__dirname}/app.html`);
+  mainWindow.loadFile(`./app.html`);
 
   // @TODO: Use 'ready-to-show' event
   //        https://github.com/electron/electron/blob/master/docs/api/browser-window.md#using-ready-to-show-event
@@ -99,4 +98,24 @@ app.on('ready', async () => {
   // Remove this if your app does not use auto updates
   // eslint-disable-next-line
   new AppUpdater();
+};
+
+/**
+ * Add event listeners...
+ */
+
+app.on('window-all-closed', () => {
+  // Respect the OSX convention of having the application in memory even
+  // after all windows have been closed
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
+});
+
+app.on('ready', createWindow);
+
+app.on('activate', () => {
+  // On macOS it's common to re-create a window in the app when the
+  // dock icon is clicked and there are no other windows open.
+  if (mainWindow === null) createWindow();
 });

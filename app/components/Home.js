@@ -21,10 +21,10 @@ class Home extends Component<Props> {
           <div className="smfp-intro-wrap-inner">
             <div className="smfp-intro-heading">
               <h1 className="animated fadeInDown fast delay-0-5s">
-                سامانه مدیریتی فناورانه پویا
+                سامانه مواد معدنی راهبردی (سَمَر)
               </h1>
               <h3 className="sub-title animated fadeInDown fast">
-                منابع و ذخایر عناصر راهبردی
+                شناسایی عناصر راهبردی
               </h3>
             </div>
 
@@ -33,7 +33,7 @@ class Home extends Component<Props> {
                 className="col-sm-4 col-xs-6 delay-1s"
                 link={INFORMATION_OF_WORLD}
                 icon="smfpIcon smfpIcon-illustrated-information"
-                title="اطلاعات مصور"
+                title="داده‌نما"
               />
 
               <PanelItem
@@ -47,14 +47,13 @@ class Home extends Component<Props> {
                 className="col-sm-4 col-xs-6 delay-2s"
                 link={ADMIN}
                 icon="smfpIcon smfpIcon-admin"
-                title="ادمین"
+                title="مدیریت"
               />
             </div>
 
             <div className="site-info animated fadeInUp fast delay-2-5s">
               <Link className="imprint" to={HOME}>
-                تمامی حقوق مادی و معنوی این اپ متعلق به سامانه مدیریتی فناورانه
-                پویا میباشد.
+              تمامی حقوق مادی و معنوی این اپ متعلق به سامانه مواد معدنی راهبردی (سَمَر) می‌باشد
               </Link>
             </div>
           </div>

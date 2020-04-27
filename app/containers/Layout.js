@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import { ApolloConsumer } from 'react-apollo';
 import Sidebar from './Sidebar';
 import Content from './Content';
@@ -35,12 +35,12 @@ class Layout extends Component<Props> {
   };
 
   render() {
-    const { location, history } = this.props;
+    const { history } = this.props;
     console.log('---this.props----', this.props);
 
     console.log('-----history can go-------', history.canGo);
 
-    if (location.pathname === '/' || location.pathname === '/signin') {
+    if (history.location.pathname === '/' || history.location.pathname === '/signin') {
       return <FullPageLayout />;
     }
 
@@ -98,8 +98,10 @@ class Layout extends Component<Props> {
   }
 }
 
-const mapStateToProps = state => ({
+/*const mapStateToProps = state => ({
   location: state.router.location
-});
+});*/
 
-export default connect(mapStateToProps)(withRouter(Layout));
+// const LayoutWithRouter = withRouter(Layout);
+
+export default Layout;//connect(mapStateToProps)(Layout);

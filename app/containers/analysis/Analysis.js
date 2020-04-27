@@ -30,19 +30,19 @@ const getDependencyToOtherCountry = elementStats => {
 
   switch (value) {
     case value > 0 && value <= 0.35:
-      rate = 1;
+      rate = 2;
       break;
 
     case value > 0.35 && value <= 0.75:
-      rate = 1;
+      rate = 3;
       break;
 
     case value > 0.75 && value <= 1:
-      rate = 1;
+      rate = 4;
       break;
 
     case value === 1:
-      rate = 1;
+      rate = 5;
       break;
 
     case value === 0:

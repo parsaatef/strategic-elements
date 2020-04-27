@@ -11,7 +11,10 @@ import {
   MINES_LIST,
   SECONDARY_SOURCES_LIST,
   TECHNOLOGICAL_LEVEL_LIST,
-  USERS_LIST
+  USERS_LIST,
+  INDUSTRY_LIST,
+  INTERNATIONAL_RELATIONS_LIST,
+  THREATS_LIST
 } from '../../constants/routes';
 
 type Props = {};
@@ -81,14 +84,14 @@ export default class Admin extends Component<Props> {
                   className="col-sm-4 col-xs-6"
                   link={SECONDARY_SOURCES_LIST}
                   icon="smfpIcon smfpIcon-secondary-sources"
-                  title="منابع ثانویه"
+                  title="منابع"
                 />
 
                 <PanelItem
                   className="col-sm-4 col-xs-6"
                   link={TECHNOLOGICAL_LEVEL_LIST}
                   icon="smfpIcon smfpIcon-technological-level"
-                  title="سطح تکنولوژی"
+                  title="فناوری‌ها"
                 />
 
                 <PanelItem
@@ -96,6 +99,28 @@ export default class Admin extends Component<Props> {
                   link={ENVIRONMENT_LIST}
                   icon="smfpIcon smfpIcon-environment"
                   title="محیط‌زیست"
+                />
+
+                
+                <PanelItem
+                  className="col-sm-4 col-xs-6"
+                  link={INDUSTRY_LIST}
+                  icon="smfpIcon smfpIcon-upstream-industry"
+                  title="صنایع"
+                />
+
+                <PanelItem
+                  className="col-sm-4 col-xs-6"
+                  link={THREATS_LIST}
+                  icon="smfpIcon smfpIcon-threats"
+                  title="تهدیدها"
+                />
+
+                <PanelItem
+                  className="col-sm-4 col-xs-6"
+                  link={INTERNATIONAL_RELATIONS_LIST}
+                  icon="smfpIcon smfpIcon-environment-analysis"
+                  title="روابط بین‌الملل"
                 />
               </Row>
             </div>
