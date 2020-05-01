@@ -1,12 +1,13 @@
 @font-face {
   font-family: 'smfpicon';
-  src: url('fonts/smfpicon.eot?e1hbz7');
-  src: url('fonts/smfpicon.eot?e1hbz7#iefix') format('embedded-opentype'),
-  url('fonts/smfpicon.ttf?e1hbz7') format('truetype'),
-  url('fonts/smfpicon.woff?e1hbz7') format('woff'),
-  url('fonts/smfpicon.svg?e1hbz7#smfpicon') format('svg');
+  src:  url('fonts/smfpicon.eot?l2bioh');
+  src:  url('fonts/smfpicon.eot?l2bioh#iefix') format('embedded-opentype'),
+    url('fonts/smfpicon.ttf?l2bioh') format('truetype'),
+    url('fonts/smfpicon.woff?l2bioh') format('woff'),
+    url('fonts/smfpicon.svg?l2bioh#smfpicon') format('svg');
   font-weight: normal;
   font-style: normal;
+  font-display: block;
 }
 
 .smfpIcon {
@@ -26,102 +27,103 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.smfpIcon-illustrated-information::before {
-  content: '\e900';
+.smfpIcon-illustrated-information:before {
+  content: "\e900";
 }
-.smfpIcon-dependence-industries::before {
-  content: '\e901';
+.smfpIcon-dependence-industries:before {
+  content: "\e901";
 }
-.smfpIcon-details::before {
-  content: '\e902';
+.smfpIcon-details:before {
+  content: "\e902";
 }
-.smfpIcon-economical-analysis::before {
-  content: '\e903';
+.smfpIcon-economical-analysis:before {
+  content: "\e903";
 }
-.smfpIcon-edit::before {
-  content: '\e904';
+.smfpIcon-edit:before {
+  content: "\e904";
 }
-.smfpIcon-element::before {
-  content: '\e905';
+.smfpIcon-element:before {
+  content: "\e905";
 }
-.smfpIcon-element-stats::before {
-  content: '\e906';
+.smfpIcon-element-stats:before {
+  content: "\e906";
 }
-.smfpIcon-environment::before {
-  content: '\e907';
+.smfpIcon-environment:before {
+  content: "\e907";
 }
-.smfpIcon-environment-analysis::before {
-  content: '\e908';
+.smfpIcon-environment-analysis:before {
+  content: "\e908";
 }
-.smfpIcon-export::before {
-  content: '\e909';
+.smfpIcon-export:before {
+  content: "\e909";
 }
-.smfpIcon-global-price::before {
-  content: '\e90a';
+.smfpIcon-global-price:before {
+  content: "\e90a";
 }
-.smfpIcon-import::before {
-  content: '\e90b';
+.smfpIcon-import:before {
+  content: "\e90b";
 }
-.smfpIcon-information-analysis::before {
-  content: '\e90c';
+.smfpIcon-information-analysis:before {
+  content: "\e90c";
 }
-.smfpIcon-iran::before {
-  content: '\e90d';
+.smfpIcon-iran:before {
+  content: "\e90d";
 }
-.smfpIcon-legal-analysis::before {
-  content: '\e923';
+.smfpIcon-legal-analysis:before {
+  content: "\e923";
 }
-.smfpIcon-mine::before {
-  content: '\e924';
+.smfpIcon-mine:before {
+  content: "\e924";
 }
-.smfpIcon-mineral::before {
-  content: '\e925';
+.smfpIcon-mineral:before {
+  content: "\e925";
 }
-.smfpIcon-political-analysis::before {
-  content: '\e926';
+.smfpIcon-political-analysis:before {
+  content: "\e926";
 }
-.smfpIcon-register-form::before {
-  content: '\e927';
+.smfpIcon-register-form:before {
+  content: "\e927";
 }
-.smfpIcon-remove::before {
-  content: '\e928';
+.smfpIcon-remove:before {
+  content: "\e928";
 }
-.smfpIcon-reset::before {
-  content: '\e929';
+.smfpIcon-reset:before {
+  content: "\e929";
 }
-.smfpIcon-secondary-production::before {
-  content: '\e92a';
+.smfpIcon-secondary-production:before {
+  content: "\e92a";
 }
-.smfpIcon-secondary-sources::before {
-  content: '\e92b';
+.smfpIcon-secondary-sources:before {
+  content: "\e92b";
 }
-.smfpIcon-social-analysis::before {
-  content: '\e931';
+.smfpIcon-social-analysis:before {
+  content: "\e931";
 }
-.smfpIcon-strategic-analysis::before {
-  content: '\e932';
+.smfpIcon-strategic-analysis:before {
+  content: "\e932";
 }
-.smfpIcon-admin::before {
-  content: '\e933';
+.smfpIcon-admin:before {
+  content: "\e933";
 }
-.smfpIcon-technological-level::before {
-  content: '\e934';
+.smfpIcon-technological-level:before {
+  content: "\e934";
 }
-.smfpIcon-technology-analysis::before {
-  content: '\e935';
+.smfpIcon-technology-analysis:before {
+  content: "\e935";
 }
-.smfpIcon-threats::before {
-  content: '\e936';
+.smfpIcon-threats:before {
+  content: "\e936";
 }
-.smfpIcon-total-stats::before {
-  content: '\e937';
+.smfpIcon-total-stats:before {
+  content: "\e937";
 }
-.smfpIcon-upstream-industry::before {
-  content: '\e938';
+.smfpIcon-upstream-industry:before {
+  content: "\e938";
 }
-.smfpIcon-user::before {
-  content: '\e939';
+.smfpIcon-user:before {
+  content: "\e939";
 }
-.smfpIcon-world::before {
-  content: '\e93a';
+.smfpIcon-world:before {
+  content: "\e93a";
 }
+

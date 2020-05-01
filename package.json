@@ -57,8 +57,8 @@
     ]
   },
   "build": {
-    "productName": "ElectronReact",
-    "appId": "org.develar.ElectronReact",
+    "productName": "StrategicElements",
+    "appId": "org.develar.StrategicElements",
     "files": [
       "dist/",
       "node_modules/",

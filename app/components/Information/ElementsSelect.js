@@ -114,4 +114,6 @@ class ElementsSelect extends Component<Props> {
   }
 }
 
+ElementsSelect.displayName = 'ElementsSelect';
+
 export default ElementsSelect;

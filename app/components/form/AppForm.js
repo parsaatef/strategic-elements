@@ -186,9 +186,9 @@ class AppForm extends Component<Props> {
    * @returns {*}
    */
   mapChildren(children) {
-    const { values, errors } = this.state;
+    const { values, errors } = this.state; console.log("-----children----", children);
 
-    return React.Children.map(children, child => {
+    return React.Children.map(children, child => { console.log("-----child----", child);
       if (
         child &&
         child.type &&

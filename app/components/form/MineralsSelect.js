@@ -77,4 +77,6 @@ const MineralsSelect = ({
   </Query>
 );
 
+MineralsSelect.displayName = 'MineralsSelect';
+
 export default MineralsSelect;

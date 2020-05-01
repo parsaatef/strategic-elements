@@ -57,7 +57,7 @@ const Select = (props) => { console.log("----props---", props);
             const newValue = multiple
               ? _.pluck(selectedOption, 'value')
               : selectedOption.value; console.log("----newValue---", newValue);
-              if (handleChange) { alert("test");
+              if (handleChange) { //alert("test");
                 handleChange(name, newValue);
               }
           }}

@@ -58,7 +58,7 @@ class Map extends Component<Props> {
       idName = 'iran-map';
       widthProps = '90%';
       heightProps = '75vh';
-      dataUrlProps = 'components/Information/irn.topo.json';
+      dataUrlProps = 'dist/irn.topo.json';
       popupTemplateProps = popupCustomTemplate || popupTemplate;
       setProjectionProps = irnSetProjection;
     }
