@@ -1,31 +1,4 @@
-@font-face {
-  font-family: 'smfpicon';
-  src:  url('fonts/smfpicon.eot?l2bioh');
-  src:  url('fonts/smfpicon.eot?l2bioh#iefix') format('embedded-opentype'),
-    url('fonts/smfpicon.ttf?l2bioh') format('truetype'),
-    url('fonts/smfpicon.woff?l2bioh') format('woff'),
-    url('fonts/smfpicon.svg?l2bioh#smfpicon') format('svg');
-  font-weight: normal;
-  font-style: normal;
-  font-display: block;
-}
 
-.smfpIcon {
-  /*
-    use !important to prevent issues with browser extensions that change fonts
-  */
-  font-family: 'smfpicon' !important;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
 .smfpIcon-illustrated-information:before {
   content: "\e900";
@@ -125,5 +98,34 @@
 }
 .smfpIcon-world:before {
   content: "\e93a";
+}
+
+@font-face {
+  font-family: 'smfpicon';
+  src:  url('fonts/smfpicon.eot?l2bioh');
+  src:  url('fonts/smfpicon.eot?l2bioh#iefix') format('embedded-opentype'),
+    url('fonts/smfpicon.ttf?l2bioh') format('truetype'),
+    url('fonts/smfpicon.woff?l2bioh') format('woff'),
+    url('fonts/smfpicon.svg?l2bioh#smfpicon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.smfpIcon {
+  /*
+    use !important to prevent issues with browser extensions that change fonts
+  */
+  font-family: 'smfpicon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
