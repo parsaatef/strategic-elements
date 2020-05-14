@@ -65,4 +65,6 @@ const ElementsSelect = ({ fieldType = 'field', name = 'element', ...rest }) => (
   </Query>
 );
 
+ElementsSelect.displayName = 'ElementsSelect';
+
 export default ElementsSelect;

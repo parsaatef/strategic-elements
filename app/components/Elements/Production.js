@@ -49,7 +49,9 @@ class Production extends Component<Props> {
           variables={{
             elements: [element],
             location,
-            offset: -1
+            offset: -1,
+            sortBy: 'year',
+            sort: 'asc'
           }}
         >
           {({ data, loading }) => {

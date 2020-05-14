@@ -6632,7 +6632,7 @@ button.close {
 }
 
 .tech-stack-container svg:not(:root) {
-  overflow: visible;
+  overflow: hidden;
 }
 
 .tech-stack-container .circle-overlay {

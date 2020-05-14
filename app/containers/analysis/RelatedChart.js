@@ -33,7 +33,7 @@ class RelatedChart extends Component<Props> {
       // element
 
       const iranStats = statsByLocation.find(x => x.location === 'IRN');
-      //console.log("---iranStats---", iranStats);
+       console.log("---iranStats---", iranStats);
       const worldStats = statsByLocation.find(x => x.location === 'all');
       //console.log("---worldStats---", worldStats);
       if (worldStats && iranStats) {
@@ -58,11 +58,12 @@ class RelatedChart extends Component<Props> {
           percentValue = 0;
         }
         
-
-        dataLabels.push({
-          element: iranStats.elementInfo.elementTitle,
-          value: percentValue
-        });
+        if (iranStats.elementInfo && iranStats.elementInfo.elementTitle) {
+          dataLabels.push({
+            element: iranStats.elementInfo.elementTitle,
+            value: percentValue
+          });
+        }
       }
     });
 

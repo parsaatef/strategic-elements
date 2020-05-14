@@ -16,18 +16,20 @@ import { FormattedSimpleMsg } from '../../utils/utility';
 import PageHeadingIcon from '../../components/General/PageHeadingIcon';
 import Loading from '../../components/General/Loading';
 import AnalysisRate from './Analysis';
+import { setElementsRates } from '../../actions/analysis';
 
 type Props = {
   history: object,
   match: object,
-  elementsRates: object
+  elementsRates: object,
+  setElementsRatesDis: void
 };
 
 const defaultIndicatorsFactor = {
   p1: 0.3,
-  p2: 0.2,
-  p3: 0.3,
-  p4: 0.2,
+  p2: 0.1,
+  p3: 0.5,
+  p4: 0.1,
   e1: 0.1,
   e2: 0.2,
   e3: 0.1,
@@ -35,19 +37,19 @@ const defaultIndicatorsFactor = {
   e5: 0.15,
   e6: 0.2,
   e7: 0.1,
-  s1: 0.5,
-  s2: 0.2,
-  s3: 0.3,
-  t1: 0.6,
-  t2: 0.4,
+  s1: 0.35,
+  s2: 0.3,
+  s3: 0.35,
+  t1: 0.5,
+  t2: 0.5,
   en1: 0.3,
   en2: 0.1,
-  en3: 0.2,
-  en4: 0.2,
-  en5: 0.2,
-  l1: 0.5,
+  en3: 0.15,
+  en4: 0.15,
+  en5: 0.3,
+  l1: 0.3,
   l2: 0.2,
-  l3: 0.3
+  l3: 0.5
 };
 
 const getFactorGroup = factor => {
@@ -69,7 +71,7 @@ class AnalysisFactor extends React.Component<Props> {
     this.state = {
       // currentElement: '' ,
       currentFactor: { value: '', label: 'انتخاب' },
-      currentFactorVal: {},
+      currentFactorVal: 0,
       elements: [],
       inputData: []
     };
@@ -84,6 +86,8 @@ class AnalysisFactor extends React.Component<Props> {
     const { elements } = this.state;
     const { elementsRates } = this.props;
 
+    console.log("-----this.props--A---", this.props);
+
     if (!_.isEmpty(elements) && !_.isEmpty(elementsRates)) {
       this.setData();
     }
@@ -91,8 +95,10 @@ class AnalysisFactor extends React.Component<Props> {
 
   componentDidUpdate(prevProps, prevState) {
     const { elements } = this.state;
-    const { elementsRates } = this.props;
+    const { elementsRates, match } = this.props;
 
+    const { type } = match.params; console.log("---type !== prevProps.match.params.type---", type !== prevProps.match.params.type);
+    console.log("-----this.props--U---", this.props);// type !== prevProps.match.params.type ||
     if (
       !_.isEqual(prevState.elements, elements) ||
       !_.isEqual(prevProps.elementsRates, elementsRates)
@@ -106,7 +112,7 @@ class AnalysisFactor extends React.Component<Props> {
 
     const defVal = defaultIndicatorsFactor[currentFactor.value];
 
-    const newval = currentFactorVal.value;
+    const newval = currentFactorVal;
 
     return (x / (1 - defVal)) * (1 - newval);
   }
@@ -116,7 +122,7 @@ class AnalysisFactor extends React.Component<Props> {
 
     const { currentFactor, currentFactorVal } = this.state;
 
-    if (!currentFactor.value || !currentFactorVal.value) {
+    if (!currentFactor.value || !currentFactorVal) {
       return _.clone(defaultIndicatorsFactor);
     }
 
@@ -124,7 +130,7 @@ class AnalysisFactor extends React.Component<Props> {
 
     _.each(defaultIndicatorsFactor, (val, factor) => {
       if (factor === currentFactor.value) {
-        newIndicators[factor] = currentFactorVal.value;
+        newIndicators[factor] = currentFactorVal;
       } else {
         const group = getFactorGroup(factor);
 
@@ -240,9 +246,11 @@ class AnalysisFactor extends React.Component<Props> {
     });
   }
 
-  changeFactorValue(option) {
+  changeFactorValue(e) { // option
+    console.log("------e.target.value----", e.target.value);
+    const value = e.target.value > 1 ? 1 : e.target.value;
     this.setState({
-      currentFactorVal: option
+      currentFactorVal: value < 0 ? 0 : value
     });
   }
 
@@ -251,7 +259,7 @@ class AnalysisFactor extends React.Component<Props> {
   }
 
   render() {
-    const { match } = this.props;
+    const { match, setElementsRatesDis } = this.props;
 
     const { type } = match.params;
     console.log('-------type-------', type);
@@ -263,6 +271,7 @@ class AnalysisFactor extends React.Component<Props> {
         <AnalysisRate
           analysisFactor={type}
           indicatorsFactor={this.getNewIndicators()}
+          setElementsRatesDis={setElementsRatesDis}
         />
 
         <Query
@@ -361,7 +370,17 @@ class AnalysisFactor extends React.Component<Props> {
 
                   <div className="smfp-filter-item">
                     <div className="effect-value-field">
-                      <ReactSelect
+                      <input
+                        ref={el => { this.factorValEl = el; }}
+                        type="number" 
+                        name="effect_value"
+                        min={0}
+                        max={1}
+                        step={0.1}
+                        onChange={this.changeFactorValue}
+                        value={currentFactorVal}
+                      />
+                      {/* <ReactSelect
                         name="effect_value"
                         value={currentFactorVal}
                         onChange={this.changeFactorValue}
@@ -379,7 +398,7 @@ class AnalysisFactor extends React.Component<Props> {
                           { value: 0.9, label: 0.9 },
                           { value: 1, label: 1 }
                         ]}
-                      />
+                      /> */}
                     </div>
                   </div>
 
@@ -420,4 +439,8 @@ const mapStateToProps = state => ({
   elementsRates: state.analysis.elementsRates
 });
 
-export default connect(mapStateToProps)(withRouter(injectIntl(AnalysisFactor)));
+const mapDispatchToProps = dispatch => ({
+  setElementsRatesDis: rates => dispatch(setElementsRates(rates))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(injectIntl(AnalysisFactor)));

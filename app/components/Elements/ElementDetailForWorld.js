@@ -133,7 +133,7 @@ class ElementDetailForWorld extends Component<Props> {
               const iranItemData = data.statsByElements.find(
                 stats => stats.location === 'IRN'
               );
-
+              // console.log("-----location-----", location);
               const currLocStats = data.statsByElements.find(
                 stats => stats.location === location
               );
@@ -168,7 +168,7 @@ class ElementDetailForWorld extends Component<Props> {
                 importValue,
                 secondaryProductionValue,
                 unit
-              } = currLocStats;
+              } = currLocStats || {}; // console.log("-----currLocStats-----", currLocStats);
 
               const { primarySource, unit: unitSource, secondarySource } =
                 resourceStats || {};
@@ -236,11 +236,11 @@ class ElementDetailForWorld extends Component<Props> {
                     name="میزان تولید اولیه"
                   />
 
-                  <ElementDetailItem
+                  {location !== "all" && <ElementDetailItem
                     value={allFactor.primaryProductionPercent}
                     unit=""
                     name="درصد تولید اولیه"
-                  />
+                  />}
 
                   <ElementDetailItem
                     value={formatNumber(secondaryProductionValue)}
@@ -248,11 +248,11 @@ class ElementDetailForWorld extends Component<Props> {
                     name="میزان تولید ثانویه"
                   />
 
-                  <ElementDetailItem
+                  {location !== "all" && <ElementDetailItem
                     value={allFactor.secondaryProductionPercent}
                     unit=""
                     name="درصد تولید ثانویه"
-                  />
+                  />}
 
                   <ElementDetailItem
                     value={formatNumber(exportValue)}
@@ -260,11 +260,11 @@ class ElementDetailForWorld extends Component<Props> {
                     name="میزان صادرات از ایران"
                   />
 
-                  <ElementDetailItem
+                  {location !== "all" && <ElementDetailItem
                     value={allFactor.exportPercent}
                     unit=""
                     name="درصد صادرات از ایران"
-                  />
+                  />}
 
                   <ElementDetailItem
                     value={formatNumber(importValue)}
@@ -272,11 +272,11 @@ class ElementDetailForWorld extends Component<Props> {
                     name="میزان واردات به ایران"
                   />
 
-                  <ElementDetailItem
+                  {location !== "all" && <ElementDetailItem
                     value={allFactor.importPercent}
                     unit=""
                     name="درصد واردات به ایران"
-                  />
+                  />}
 
                   <ElementDetailItem
                     value={formatNumber(consumptionValueTotal)}
@@ -286,7 +286,7 @@ class ElementDetailForWorld extends Component<Props> {
 
                   <ElementDetailItem
                     value={formatNumber(iranConsumptionValue)}
-                    unit={unit}
+                    unit={iranUnit}
                     name="میزان مصرف ایران"
                   />
 
@@ -302,11 +302,11 @@ class ElementDetailForWorld extends Component<Props> {
                     name="میزان منابع اولیه"
                   />
 
-                  <ElementDetailItem
+                  {location !== "all" && <ElementDetailItem
                     value={allFactor.resourcePercent}
                     unit=""
                     name="درصد منابع اولیه"
-                  />
+                  />}
 
                   <ElementDetailItem
                     value={getQualityLevel('option', secondarySource)}

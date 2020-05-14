@@ -28,26 +28,16 @@ const getDependencyToOtherCountry = elementStats => {
 
   let rate = 1;
 
-  switch (value) {
-    case value > 0 && value <= 0.35:
-      rate = 2;
-      break;
-
-    case value > 0.35 && value <= 0.75:
-      rate = 3;
-      break;
-
-    case value > 0.75 && value <= 1:
-      rate = 4;
-      break;
-
-    case value === 1:
-      rate = 5;
-      break;
-
-    case value === 0:
-    default:
-      rate = 1;
+  if (value > 0 && value < 0.35) {
+    rate = 2;
+  } else if (value >= 0.35 && value < 0.75) {
+    rate = 3;
+  } else if (value >= 0.75 && value < 1) {
+    rate = 4;
+  } else if (value === 1) {
+    rate = 5;
+  } else if (value === 0) {
+    rate = 1;
   }
 
   return rate;
@@ -68,7 +58,7 @@ const threatInternationalRelation = (
 
       if (relation && stats.importValue) {
         value +=
-          (stats.importValue / iranStats.importValue) *
+          (getStandardValueByUnit(stats.importValue, stats.unit) / getStandardValueByUnit(iranStats.importValue, iranStats.unit)) *
           getQualityNumber(relation.relationLevel);
       }
     }
@@ -76,32 +66,23 @@ const threatInternationalRelation = (
 
   let rate = 1;
 
-  switch (value) {
-    case value > 1 && value <= 2:
-      rate = 5;
-      break;
-
-    case value > 2 && value <= 3:
-      rate = 4;
-      break;
-
-    case value > 3 && value <= 4:
-      rate = 3;
-      break;
-
-    case value > 4 && value <= 4.5:
-      rate = 2;
-      break;
-
-    case value > 4.5 && value <= 5:
-    default:
-      rate = 1;
+  if (value >= 1 && value < 2) {
+    rate = 5;
+  } else if (value >= 2 && value < 3) {
+    rate = 4;
+  } else if (value >= 3 && value < 4) {
+    rate = 3;
+  } else if (value >= 4 && value < 4.5) {
+    rate = 2;
+  } else if (value >= 4.5 && value <= 5) {
+    rate = 1;
   }
 
   return rate;
 };
 
 const getStrategicImportance = (technologies, industries, element) => {
+
   const elementTechsSI = _.where(technologies, { element }).map(val =>
     getQualityNumber(val.strategicImportance)
   );
@@ -132,26 +113,16 @@ const getStrategicImportance = (technologies, industries, element) => {
 
   let rate = 1;
 
-  switch (value) {
-    case value > 1.5 && value <= 2.5:
-      rate = 2;
-      break;
-
-    case value > 2.5 && value <= 3.5:
-      rate = 3;
-      break;
-
-    case value > 3.5 && value <= 4.5:
-      rate = 4;
-      break;
-
-    case value > 4.5 && value <= 5:
-      rate = 5;
-      break;
-
-    case value > 1 && value <= 1.5:
-    default:
-      rate = 1;
+  if (value >= 1.5 && value < 2.5) {
+    rate = 2;
+  } else if (value >= 2.5 && value < 3.5) {
+    rate = 3;
+  } else if (value >= 3.5 && value < 4.5) {
+    rate = 4;
+  } else if (value >= 4.5 && value <= 5) {
+    rate = 5;
+  } else if (value >= 1 && value < 1.5) {
+    rate = 1;
   }
 
   return rate;
@@ -162,8 +133,9 @@ const getMonopolyImpact = (statsLocations, worldStats) => {
 
   statsLocations.forEach(stats => {
     if (stats.location !== 'IRN' && stats.location !== 'all') {
-      if (!firstOfWorld || firstOfWorld < stats.productionValue) {
-        firstOfWorld = stats.productionValue;
+      const currPValue = getStandardValueByUnit(stats.productionValue, stats.unit);
+      if (!firstOfWorld || firstOfWorld < currPValue) {
+        firstOfWorld = currPValue;
       }
     }
   });
@@ -171,71 +143,56 @@ const getMonopolyImpact = (statsLocations, worldStats) => {
   let value = 0;
 
   if (firstOfWorld && worldStats && worldStats.productionValue) {
-    value = firstOfWorld / worldStats.productionValue;
+    value = firstOfWorld / getStandardValueByUnit(worldStats.productionValue, worldStats.unit);
   }
 
   let rate = 1;
 
-  switch (value) {
-    case value > 0.2 && value <= 0.35:
-      rate = 2;
-      break;
-
-    case value > 0.35 && value <= 0.5:
-      rate = 3;
-      break;
-
-    case value > 0.5 && value <= 0.75:
-      rate = 4;
-      break;
-
-    case value > 0.75:
-      rate = 5;
-      break;
-
-    case value <= 0.2:
-    default:
-      rate = 1;
+  if (value >= 0.2 && value < 0.35) {
+    rate = 2;
+  } else if (value >= 0.35 && value < 0.5) {
+    rate = 3;
+  } else if (value >= 0.5 && value < 0.7) {
+    rate = 4;
+  } else if (value >= 0.7) {
+    rate = 5;
+  } else if (value < 0.2) {
+    rate = 1;
   }
 
   return rate;
 };
 
 const getPrimarySource = (iranStats, worldStats) => {
+
+  const irUnit = iranStats.resourceStats && iranStats.resourceStats.unit ? iranStats.resourceStats.unit : "ton";
+
   const iranResource =
     iranStats.resourceStats && iranStats.resourceStats.primarySource
       ? iranStats.resourceStats.primarySource
       : 0;
+
+      const wrUnit = worldStats.resourceStats && worldStats.resourceStats.unit ? worldStats.resourceStats.unit : "ton";
 
   const worldResource =
     worldStats.resourceStats && worldStats.resourceStats.primarySource
       ? worldStats.resourceStats.primarySource
       : 1;
 
-  const value = iranResource / worldResource;
+  const value = getStandardValueByUnit(iranResource, irUnit) / getStandardValueByUnit(worldResource, wrUnit); console.log("-----value----", value, iranStats.element);
 
   let rate = 1;
 
-  switch (value) {
-    case value > 0.005 && value <= 0.01:
-      rate = 2;
-      break;
-
-    case value > 0.01 && value <= 0.025:
-      rate = 3;
-      break;
-
-    case value > 0.025 && value <= 0.05:
-      rate = 4;
-      break;
-
-    case value > 0.05:
-      rate = 5;
-      break;
-
-    case value <= 0.005:
-    default:
-      rate = 1;
+  if (value >= 0.005 && value < 0.01) {
+    rate = 2;
+  } else if (value >= 0.01 && value < 0.025) {
+    rate = 3;
+  } else if (value >= 0.025 && value < 0.05) {
+    rate = 4;
+  } else if (value >= 0.05) {
+    rate = 5;
+  } else if (value < 0.005) {
+    rate = 1;
   }
 
   return rate;
@@ -250,30 +207,20 @@ const getIranConsumption = (iranStats, worldStats) => {
     ? worldStats.consumptionValue
     : 1;
 
-  const value = iranConsumption / worldConsumption;
+  const value = getStandardValueByUnit(iranConsumption, iranStats.unit) / getStandardValueByUnit(worldConsumption, worldStats.unit);
 
   let rate = 1;
 
-  switch (value) {
-    case value > 0.005 && value <= 0.01:
-      rate = 2;
-      break;
-
-    case value > 0.01 && value <= 0.025:
-      rate = 3;
-      break;
-
-    case value > 0.025 && value <= 0.05:
-      rate = 4;
-      break;
-
-    case value > 0.05:
-      rate = 5;
-      break;
-
-    case value <= 0.005:
-    default:
-      rate = 1;
+  if (value >= 0.005 && value < 0.01) {
+    rate = 2;
+  } else if (value >= 0.01 && value < 0.025) {
+    rate = 3;
+  } else if (value >= 0.025 && value < 0.05) {
+    rate = 4;
+  } else if (value >= 0.05) {
+    rate = 5;
+  } else if (value < 0.005) {
+    rate = 1;
   }
 
   return rate;
@@ -284,26 +231,16 @@ const getEconomicValue = (gPrice, totalPrice) => {
 
   let rate = 1;
 
-  switch (value) {
-    case value > 0.0005 && value <= 0.001:
-      rate = 2;
-      break;
-
-    case value > 0.001 && value <= 0.01:
-      rate = 3;
-      break;
-
-    case value > 0.01 && value <= 1:
-      rate = 4;
-      break;
-
-    case value > 1:
-      rate = 5;
-      break;
-
-    case value <= 0.0005:
-    default:
-      rate = 1;
+  if (value >= 0.0005 && value < 0.001) {
+    rate = 2;
+  } else if (value >= 0.001 && value < 0.01) {
+    rate = 3;
+  } else if (value >= 0.01 && value < 1) {
+    rate = 4;
+  } else if (value >= 1) {
+    rate = 5;
+  } else if (value < 0.0005) {
+    rate = 1;
   }
 
   return rate;
@@ -322,26 +259,16 @@ const getExportPotential = iranStats => {
 
   let rate = 1;
 
-  switch (value) {
-    case value >= 1 && value <= 2:
-      rate = 2;
-      break;
-
-    case value > 2 && value <= 3:
-      rate = 3;
-      break;
-
-    case value > 3 && value <= 5:
-      rate = 4;
-      break;
-
-    case value > 5:
-      rate = 5;
-      break;
-
-    case value < 1:
-    default:
-      rate = 1;
+  if (value >= 1 && value < 2) {
+    rate = 2;
+  } else if (value >= 2 && value < 3) {
+    rate = 3;
+  } else if (value >= 3 && value < 5) {
+    rate = 4;
+  } else if (value >= 5) {
+    rate = 5;
+  } else if (value < 1) {
+    rate = 1;
   }
 
   return rate;
@@ -363,26 +290,16 @@ const getImpactOnIndustries = (industries, element) => {
 
   let rate = 1;
 
-  switch (value) {
-    case value > 1.5 && value <= 2.5:
-      rate = 2;
-      break;
-
-    case value > 2.5 && value <= 3.5:
-      rate = 3;
-      break;
-
-    case value > 3.5 && value <= 4.5:
-      rate = 4;
-      break;
-
-    case value > 4.5 && value <= 5:
-      rate = 5;
-      break;
-
-    case value > 1 && value <= 1.5:
-    default:
-      rate = 1;
+  if (value >= 1.5 && value < 2.5) {
+    rate = 2;
+  } else if (value >= 2.5 && value < 3.5) {
+    rate = 3;
+  } else if (value >= 3.5 && value < 4.5) {
+    rate = 4;
+  } else if (value >= 4.5 && value <= 5) {
+    rate = 5;
+  } else if (value >= 1 && value < 1.5) {
+    rate = 1;
   }
 
   return rate;
@@ -408,7 +325,7 @@ const getJobCreationRate = (industries, element) => {
     totalIndsES += val;
   });
 
-  return elementIndsES.length > 0 ? totalIndsES / elementIndsES.length : 0;
+  return elementIndsES.length > 0 ? Math.round(totalIndsES / elementIndsES.length) : 0;
 };
 
 const getImpactPreventLocalDeprivation = (mines, element) => {
@@ -422,7 +339,7 @@ const getImpactPreventLocalDeprivation = (mines, element) => {
     totalImpacts += val;
   });
 
-  return elementImpacts.length > 0 ? totalImpacts / elementImpacts.length : 0;
+  return elementImpacts.length > 0 ? Math.round(totalImpacts / elementImpacts.length) : 0;
 };
 
 const getStatesDispersion = (mines, element) => {
@@ -459,7 +376,7 @@ const getTechnplogyRestriction = (technologies, element) => {
   });
 
   return elementAvailability.length > 0
-    ? totalAvailability / elementAvailability.length
+    ? 6 - Math.round(totalAvailability / elementAvailability.length)
     : 0;
 };
 
@@ -472,30 +389,20 @@ const getDisabilityOnSecondaryProduction = iranStats => {
     ? iranStats.secondaryProductionValue
     : 0;
 
-  const value = iranProduction / iranSecondaryProduction;
+  const value = iranSecondaryProduction / iranProduction;
 
   let rate = 5;
 
-  switch (value) {
-    case value > 0.1 && value <= 0.2:
-      rate = 1;
-      break;
-
-    case value > 0.05 && value <= 0.1:
-      rate = 2;
-      break;
-
-    case value > 0.01 && value <= 0.05:
-      rate = 3;
-      break;
-
-    case value > 0 && value <= 0.01:
-      rate = 4;
-      break;
-
-    case value === 0:
-    default:
-      rate = 5;
+  if (value >= 0.1 && value <= 0.2) {
+    rate = 1;
+  } else if (value >= 0.05 && value < 0.1) {
+    rate = 2;
+  } else if (value >= 0.01 && value < 0.05) {
+    rate = 3;
+  } else if (value > 0 && value < 0.01) {
+    rate = 4;
+  } else if (value === 0) {
+    rate = 5;
   }
 
   return rate;
@@ -520,22 +427,22 @@ class AnalysisRate extends React.Component<Props> {
         P: 0.1,
         E: 0.2,
         S: 0.2,
-        T: 0.1,
-        En: 0.3,
+        T: 0.15,
+        En: 0.25,
         L: 0.1
       },
       strategic: {
-        P: 0.3,
+        P: 0.35,
         E: 0.1,
         S: 0.1,
         T: 0.2,
         En: 0.1,
-        L: 0.2
+        L: 0.15
       },
       economic: {
-        P: 0.1,
+        P: 0.15,
         E: 0.3,
-        S: 0.2,
+        S: 0.15,
         T: 0.1,
         En: 0.1,
         L: 0.2
@@ -571,12 +478,12 @@ class AnalysisRate extends React.Component<Props> {
       }
     }
 
-    const { analysisFactor, indicatorsFactor } = this.props;
+    const { analysisFactor, indicatorsFactor } = this.props; console.log("-----analysisFactor---", analysisFactor);
 
     if (
-      !_.isEqual(prevProps.analysisFactor, analysisFactor) ||
+      prevProps.analysisFactor !== analysisFactor ||
       !_.isEqual(prevProps.indicatorsFactor, indicatorsFactor)
-    ) {
+    ) {console.log("----test----", this.props);
       this.createBubbleData();
     }
   }
@@ -597,6 +504,8 @@ class AnalysisRate extends React.Component<Props> {
       indicatorsFactor,
       setElementsRatesDis
     } = this.props;
+
+    console.log('--------statsByElements--------', statsByElements);
 
     const elements = _.groupBy(statsByElements, stats => stats.element);
 
@@ -653,7 +562,10 @@ class AnalysisRate extends React.Component<Props> {
 
       const worldStats = statsByLocation.find(x => x.location === 'all');
 
-      let p1 = 1;
+      let p1 = 1; 
+      
+      if (iranStats && iranStats.element === "gold")
+      console.log("-----iranStats--IRN--", iranStats);
 
       if (iranStats) {
         p1 = getDependencyToOtherCountry(iranStats);
@@ -702,18 +614,18 @@ class AnalysisRate extends React.Component<Props> {
 
       let e4 = 1;
 
-      if (worldStats && iranStats) {
+      if (iranStats) {
         e4 = getExportPotential(iranStats);
       }
 
       const threat = threats.find(x => x.element === element);
 
-      let e5 = 1;
+      let e5 = 1; 
 
       if (threat && threat.diffRawMaterialValueAProcessedProduct) {
         e5 = getQualityNumber(threat.diffRawMaterialValueAProcessedProduct);
       }
-
+      
       const e6 = getImpactOnIndustries(industries, element);
 
       let e7 = 1;
@@ -728,7 +640,9 @@ class AnalysisRate extends React.Component<Props> {
 
       const s3 = getImpactPreventLocalDeprivation(mines, element);
 
-      const t1 = getTechnplogyRestriction(technologies, element);
+      let t1 = getTechnplogyRestriction(technologies, element);
+
+      t1 = t1 > 5 ? 5 : t1;
 
       let t2 = 5;
 
@@ -741,31 +655,36 @@ class AnalysisRate extends React.Component<Props> {
       let en1 = 1;
 
       if (environment && environment.waterConsumption) {
-        en1 = getQualityNumber(environment.waterConsumption);
+        en1 = 6 - getQualityNumber(environment.waterConsumption);
+        en1 = en1 > 5 ? 5 : en1;
       }
 
       let en2 = 1;
 
       if (environment && environment.energyConsumption) {
-        en2 = getQualityNumber(environment.energyConsumption);
+        en2 = 6 - getQualityNumber(environment.energyConsumption);
+        en2 = en2 > 5 ? 5 : en2;
       }
 
       let en3 = 1;
 
       if (environment && environment.greenhouseGasEmissions) {
-        en3 = getQualityNumber(environment.greenhouseGasEmissions);
+        en3 = 6 - getQualityNumber(environment.greenhouseGasEmissions);
+        en3 = en3 > 5 ? 5 : en3;
       }
 
       let en4 = 1;
 
       if (environment && environment.risksWasteAWasteWater) {
-        en4 = getQualityNumber(environment.risksWasteAWasteWater);
+        en4 = 6 - getQualityNumber(environment.risksWasteAWasteWater);
+        en4 = en4 > 5 ? 5 : en4;
       }
 
       let en5 = 1;
 
       if (environment && environment.productionProcessRisksHuman) {
-        en5 = getQualityNumber(environment.productionProcessRisksHuman);
+        en5 = 6 - getQualityNumber(environment.productionProcessRisksHuman);
+        en5 = en5 > 5 ? 5 : en5;
       }
 
       let l1 = 1;
@@ -783,7 +702,8 @@ class AnalysisRate extends React.Component<Props> {
       let l3 = 1;
 
       if (threat && threat.levelGovernmentalSupport) {
-        l3 = getQualityNumber(threat.levelGovernmentalSupport);
+        l3 = 6 - getQualityNumber(threat.levelGovernmentalSupport);
+        l3 = l3 > 5 ? 5 : l3;
       }
 
       elementsRate[element] = {
@@ -829,7 +749,9 @@ class AnalysisRate extends React.Component<Props> {
       };
     });
 
-    console.log('--------elementsRate----------', elementsRate);
+    // console.log('--------elementsRate---gold-------', elementsRate['gold']);
+
+    console.log("---setElementsRatesDis---");
 
     setElementsRatesDis(elementsRate);
   }
@@ -854,18 +776,23 @@ class AnalysisRate extends React.Component<Props> {
             first: 0,
             year: 2018
           }}
-          onCompleted={data => {
+          /* onCompleted={data => {
             if (!_.isEqual(data.statsByElements, statsByElements)) {
               this.setState({ statsByElements: data.statsByElements });
             }
-          }}
+          }} */
         >
           {({ data, loading, error }) => {
             if (loading) return <Loading />;
 
             if (error) console.error(error);
 
-            if (data) console.log(data);
+            if (data && data.statsByElements) {
+              console.log(data);
+              if (!_.isEqual(data.statsByElements, statsByElements)) {
+                this.setState({ statsByElements: data.statsByElements });
+              }
+            }
 
             return null;
           }}
@@ -877,7 +804,7 @@ class AnalysisRate extends React.Component<Props> {
             offset: -1,
             first: 0
           }}
-          onCompleted={data => {
+          /* onCompleted={data => {
             if (
               !_.isEqual(
                 data.searchInternationalRelations.internationalRelations,
@@ -889,14 +816,27 @@ class AnalysisRate extends React.Component<Props> {
                   data.searchInternationalRelations.internationalRelations
               });
             }
-          }}
+          }} */
         >
           {({ data, loading, error }) => {
             if (loading) return <Loading />;
 
             if (error) console.error(error);
 
-            if (data) console.log(data);
+            if (data && data.searchInternationalRelations) {
+              console.log(data);
+              if (
+                !_.isEqual(
+                  data.searchInternationalRelations.internationalRelations,
+                  internationalRelations
+                )
+              ) {
+                this.setState({
+                  internationalRelations:
+                    data.searchInternationalRelations.internationalRelations
+                });
+              }
+            }
 
             return null;
           }}
@@ -908,7 +848,7 @@ class AnalysisRate extends React.Component<Props> {
             offset: -1,
             first: 0
           }}
-          onCompleted={data => {
+          /* onCompleted={data => {
             if (
               !_.isEqual(data.searchEnvironments.environments, environments)
             ) {
@@ -916,14 +856,23 @@ class AnalysisRate extends React.Component<Props> {
                 environments: data.searchEnvironments.environments
               });
             }
-          }}
+          }} */
         >
           {({ data, loading, error }) => {
             if (loading) return <Loading />;
 
             if (error) console.error(error);
 
-            if (data) console.log(data);
+            if (data && data.searchEnvironments) {
+              console.log(data);
+              if (
+                !_.isEqual(data.searchEnvironments.environments, environments)
+              ) {
+                this.setState({
+                  environments: data.searchEnvironments.environments
+                });
+              }
+            }
 
             return null;
           }}
@@ -935,18 +884,23 @@ class AnalysisRate extends React.Component<Props> {
             offset: -1,
             first: 0
           }}
-          onCompleted={data => {
+          /* onCompleted={data => {
             if (!_.isEqual(data.searchThreats.threats, threats)) {
               this.setState({ threats: data.searchThreats.threats });
             }
-          }}
+          }} */
         >
           {({ data, loading, error }) => {
             if (loading) return <Loading />;
 
-            if (error) console.error(error);
+            if (data && data.searchThreats) {
+              console.log(data);
+              if (!_.isEqual(data.searchThreats.threats, threats)) {
+                this.setState({ threats: data.searchThreats.threats });
+              }
+            }
 
-            if (data) console.log(data);
+            if (error) console.log(error);
 
             return null;
           }}
@@ -958,7 +912,7 @@ class AnalysisRate extends React.Component<Props> {
             offset: -1,
             first: 0
           }}
-          onCompleted={data => {
+          /* onCompleted={data => {
             if (
               !_.isEqual(data.searchTechnologies.technologies, technologies)
             ) {
@@ -966,14 +920,23 @@ class AnalysisRate extends React.Component<Props> {
                 technologies: data.searchTechnologies.technologies
               });
             }
-          }}
+          }} */
         >
           {({ data, loading, error }) => {
             if (loading) return <Loading />;
 
             if (error) console.error(error);
 
-            if (data) console.log(data);
+            if (data && data.searchTechnologies) {
+              console.log(data);
+              if (
+                !_.isEqual(data.searchTechnologies.technologies, technologies)
+              ) {
+                this.setState({
+                  technologies: data.searchTechnologies.technologies
+                });
+              }
+            }
 
             return null;
           }}
@@ -985,18 +948,23 @@ class AnalysisRate extends React.Component<Props> {
             offset: -1,
             first: 0
           }}
-          onCompleted={data => {
+          /* onCompleted={data => {
             if (!_.isEqual(data.searchIndustries.industries, industries)) {
               this.setState({ industries: data.searchIndustries.industries });
             }
-          }}
+          }} */
         >
           {({ data, loading, error }) => {
             if (loading) return <Loading />;
 
             if (error) console.error(error);
 
-            if (data) console.log(data);
+            if (data && data.searchIndustries) {
+              console.log(data);
+              if (!_.isEqual(data.searchIndustries.industries, industries)) {
+                this.setState({ industries: data.searchIndustries.industries });
+              }
+            }
 
             return null;
           }}
@@ -1008,18 +976,23 @@ class AnalysisRate extends React.Component<Props> {
             offset: -1,
             first: 0
           }}
-          onCompleted={data => {
+          /* onCompleted={data => {
             if (!_.isEqual(data.searchMine.mines, mines)) {
               this.setState({ mines: data.searchMine.mines });
             }
-          }}
+          }} */
         >
           {({ data, loading, error }) => {
             if (loading) return <Loading />;
 
             if (error) console.error(error);
 
-            if (data) console.log(data);
+            if (data && data.searchMine) {
+              console.log(data);
+              if (!_.isEqual(data.searchMine.mines, mines)) {
+                this.setState({ mines: data.searchMine.mines });
+              }
+            }
 
             return null;
           }}
@@ -1032,9 +1005,9 @@ class AnalysisRate extends React.Component<Props> {
 AnalysisRate.defaultProps = {
   indicatorsFactor: {
     p1: 0.3,
-    p2: 0.2,
-    p3: 0.3,
-    p4: 0.2,
+    p2: 0.1,
+    p3: 0.5,
+    p4: 0.1,
     e1: 0.1,
     e2: 0.2,
     e3: 0.1,
@@ -1042,27 +1015,27 @@ AnalysisRate.defaultProps = {
     e5: 0.15,
     e6: 0.2,
     e7: 0.1,
-    s1: 0.5,
-    s2: 0.2,
-    s3: 0.3,
-    t1: 0.6,
-    t2: 0.4,
+    s1: 0.35,
+    s2: 0.3,
+    s3: 0.35,
+    t1: 0.5,
+    t2: 0.5,
     en1: 0.3,
     en2: 0.1,
-    en3: 0.2,
-    en4: 0.2,
-    en5: 0.2,
-    l1: 0.5,
+    en3: 0.15,
+    en4: 0.15,
+    en5: 0.3,
+    l1: 0.3,
     l2: 0.2,
-    l3: 0.3
+    l3: 0.5
   }
 };
 
-const mapDispatchToProps = dispatch => ({
+/* const mapDispatchToProps = dispatch => ({
   setElementsRatesDis: rates => dispatch(setElementsRates(rates))
-});
+}); */
 
-export default connect(
+export default withRouter(AnalysisRate); /* connect(
   null,
   mapDispatchToProps
-)(withRouter(AnalysisRate));
+)(withRouter(AnalysisRate)); */

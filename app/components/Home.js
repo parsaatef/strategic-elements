@@ -24,7 +24,7 @@ class Home extends Component<Props> {
                 سامانه مواد معدنی راهبردی (سَمَر)
               </h1>
               <h3 className="sub-title animated fadeInDown fast">
-                شناسایی عناصر راهبردی
+                شناسایی مواد معدنی راهبردی
               </h3>
             </div>
 

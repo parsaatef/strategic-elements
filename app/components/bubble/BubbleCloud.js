@@ -34,7 +34,7 @@ import {
 import { injectIntl } from 'react-intl'; // intlShape
 // import { schemeCategory10 } from "d3-scale-chromatic";
 
-console.log("--d3-3---", d3);
+// console.log("--d3-3---", d3);
 
 const schemeSet1 = [
   '#ff9d0c',
@@ -44,8 +44,9 @@ const schemeSet1 = [
   '#c71200',
   '#343a40',
   '#0c9600',
-  '#42c023',
-  '#5d6afc'
+  '#aca119',
+  '#5d6afc',
+  '#838383'
 ];
 
 type Props = {
@@ -67,8 +68,8 @@ class BubbleCloud extends React.Component<Props> {
     }
   }
 
-  renderCloud() { console.log("--d3-4---", d3);
-  console.log("--d3Event---", d3Event);
+  renderCloud() { // console.log("--d3-4---", d3);
+  // console.log("--d3Event---", d3Event);
     // const { intl } = this.props;
     // const { formatMessage } = intl;
 
@@ -225,7 +226,7 @@ class BubbleCloud extends React.Component<Props> {
     // display text as circle icon
     node
       .filter(d => {
-        console.log('---consoe.log--d.isImage--', d.isImage, d);
+        // console.log('---consoe.log--d.isImage--', d.isImage, d);
         return (
           !String(d.icon).includes('https://naustud.io/tech-stack/img/') &&
           !d.isImage
@@ -240,7 +241,7 @@ class BubbleCloud extends React.Component<Props> {
       .append('tspan')
       .attr('x', 0)
       .attr('y', (d, i, nodes2) => {
-        console.log('--nodes2--');
+        // console.log('--nodes2--');
         return 19 + (i - nodes2.length / 2 - 0.5) * 10;
       })
       .text(name => name);
@@ -331,7 +332,7 @@ class BubbleCloud extends React.Component<Props> {
       .shape('circle')
       .shapePadding(10)
       .labelAlign('start');
-    console.log(legendSize);
+    // console.log(legendSize);
 
     /**
      * legend 2

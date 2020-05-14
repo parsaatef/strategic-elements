@@ -324,7 +324,9 @@ class MapInfo extends Component<Props> {
         );
     }
 
-    finalFactors.radius = Number(radius) + 6;
+    finalFactors.radius = Number(radius);
+
+    finalFactors.radius = !finalFactors.radius || finalFactors.radius < 2 ? 2 : finalFactors.radius;
 
     return finalFactors;
   }
