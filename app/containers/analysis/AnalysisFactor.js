@@ -202,6 +202,7 @@ class AnalysisFactor extends React.Component<Props> {
           value,
           icon: elem.symbol,
           isImage: false,
+          rank: foundedRank,
           desc: `
             <div><span class="rank">رتبه: </span> <span>${formatNumber(
               foundedRank
@@ -309,7 +310,7 @@ class AnalysisFactor extends React.Component<Props> {
                 <div className="animated animation-fill-mode-backwards fadeInUp fast">
                   <div className="smfp-filter-item text-row-padding">
                     {/* <FormattedMessage id="analysis.select_affected_factor" /> */}
-                    شاخص
+                    متغیر
                   </div>
 
                   <div className="smfp-filter-item">

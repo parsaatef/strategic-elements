@@ -48,7 +48,7 @@ const popupTemplate = {
             <ul style="float: left">  
               <li>
                 <label class="title">درصد ذخیره</label>
-                <span class="value">${data.radius}%</span>
+                <span class="value">${data.radiusPercent}%</span>
               </li>
             </ul>
             <div style="clear: both"> </div>
@@ -138,8 +138,8 @@ class Mines extends Component<Props> {
         });
       }
 
-      total += elem.productionValue && elem.caratAverage
-      ? elem.productionValue * elem.caratAverage
+      total += elem.productionValue && (elem.caratAverage || 1)
+      ? elem.productionValue * (elem.caratAverage || 1)
       : 0;
 
     });
@@ -147,11 +147,12 @@ class Mines extends Component<Props> {
     allStates.forEach((locData, index) => {
       let radius = 0;
       locData.mines.forEach(mine => {
-        radius += mine.productionValue && mine.caratAverage
-        ? mine.productionValue * mine.caratAverage
+        radius += mine.productionValue && (mine.caratAverage || 1)
+        ? mine.productionValue * (mine.caratAverage || 1)
         : 0;
       });
-      allStates[index].radius = Math.round((radius/total) * 100);
+      allStates[index].radiusPercent = Math.round((radius/total) * 10000)/100;
+      allStates[index].radius = Math.round((radius/total) * 100) || 2;
     });
 
     console.log("----allStates------", allStates);

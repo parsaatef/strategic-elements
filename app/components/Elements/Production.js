@@ -72,7 +72,7 @@ class Production extends Component<Props> {
                 if (item.secondaryProductionValue != null) {
                   secondaryProductionValue.push(item.secondaryProductionValue);
                 } else {
-                  secondaryProductionValue.push(100000);
+                  secondaryProductionValue.push(0);
                 }
               });
 

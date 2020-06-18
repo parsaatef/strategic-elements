@@ -95,6 +95,7 @@ import {
   INTERNATIONAL_RELATION_EDIT,
   PRODUCTION
 } from './constants/routes';
+import { Alert } from 'react-bootstrap';
 
 /**
  * Front End Routers
@@ -238,6 +239,28 @@ RestrictedRoute = withAuth(session => session && session.getCurrentUser)(
   RestrictedRoute
 );
 
+const AdminRoute = (props) => {
+
+  const { session } = props;
+
+  const currentUser =
+    session && session.getCurrentUser ? session.getCurrentUser : {};
+
+  if (currentUser && currentUser.role === 'admin') {
+    return <RestrictedRoute {...props} />;
+  }
+
+  return (
+    <section style={{
+      margin: '30px'
+    }}>
+      <Alert variant="danger">
+        شما به این صفحه دسترسی ندارید
+      </Alert>
+    </section>
+  )
+}
+
 type Props = {
   session: object,
   refetch: () => void
@@ -282,33 +305,33 @@ const Routes = ({ session, refetch }: Props) => (
           component={InformationOfWorld}
         />
 
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={USER_REGISTER}
           component={usersManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={USERS_LIST}
           component={usersManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={USER_EDIT}
           component={usersManagement}
         />
 
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={MINERAL_REGISTER}
           component={MineralManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={MINERALS_LIST}
           component={MineralManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={MINERAL_EDIT}
           component={MineralManagement}
@@ -316,18 +339,18 @@ const Routes = ({ session, refetch }: Props) => (
 
         <RestrictedRoute session={session} path={MINERAL} component={Mineral} />
 
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={MINE_REGISTER}
           component={MineManagement}
         />
 
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={MINES_LIST}
           component={MineManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={MINE_EDIT}
           component={MineManagement}
@@ -335,33 +358,33 @@ const Routes = ({ session, refetch }: Props) => (
 
         <RestrictedRoute session={session} path={MINE} component={Mine} />
 
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={ELEMENT_REGISTER}
           component={ElementManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={ELEMENTS_LIST}
           component={ElementManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={ELEMENT_EDIT}
           component={ElementManagement}
         />
 
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={GLOBAL_PRICE_REGISTER}
           component={GlobalPriceManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={GLOBAL_PRICES_LIST}
           component={GlobalPriceManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={GLOBAL_PRICE_EDIT}
           component={GlobalPriceManagement}
@@ -372,179 +395,179 @@ const Routes = ({ session, refetch }: Props) => (
           component={GlobalPrice}
         />
 
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={SECONDARY_SOURCE_REGISTER}
           component={ResourceManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={SECONDARY_SOURCES_LIST}
           component={ResourceManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={SECONDARY_SOURCE_EDIT}
           component={ResourceManagement}
         />
 
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={TOTAL_STATS_REGISTER}
           component={TotalStatsManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={TOTAL_STATS_LIST}
           component={TotalStatsManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={TOTAL_STATS_EDIT}
           component={TotalStatsManagement}
         />
 
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={EXPORT_REGISTER}
           component={ExportManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={EXPORT_LIST}
           component={ExportManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={EXPORT_EDIT}
           component={ExportManagement}
         />
 
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={IMPORT_REGISTER}
           component={ImportManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={IMPORT_LIST}
           component={ImportManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={IMPORT_EDIT}
           component={ImportManagement}
         />
 
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={WORLD_RESERVES_REGISTER}
           component={WorldReservesManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={WORLD_RESERVES_LIST}
           component={WorldReservesManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={WORLD_RESERVES_EDIT}
           component={WorldReservesManagement}
         />
 
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={IRAN_RESERVES_REGISTER}
           component={IranReservesManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={IRAN_RESERVES_LIST}
           component={IranReservesManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={IRAN_RESERVES_EDIT}
           component={IranReservesManagement}
         />
 
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={WORLD_PRODUCTION_REGISTER}
           component={WorldProductionManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={WORLD_PRODUCTION_LIST}
           component={WorldProductionManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={WORLD_PRODUCTION_EDIT}
           component={WorldProductionManagement}
         />
 
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={IRAN_PRODUCTION_REGISTER}
           component={IranProductionManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={IRAN_PRODUCTION_LIST}
           component={IranProductionManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={IRAN_PRODUCTION_EDIT}
           component={IranProductionManagement}
         />
 
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={WORLD_CONSUMPTION_REGISTER}
           component={WorldConsumptionManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={WORLD_CONSUMPTION_LIST}
           component={WorldConsumptionManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={WORLD_CONSUMPTION_EDIT}
           component={WorldConsumptionManagement}
         />
 
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={IRAN_CONSUMPTION_REGISTER}
           component={IranConsumptionManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={IRAN_CONSUMPTION_LIST}
           component={IranConsumptionManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={IRAN_CONSUMPTION_EDIT}
           component={IranConsumptionManagement}
         />
 
-        <RestrictedRoute
+        <AdminRoute
           exact
           session={session}
           path={INDUSTRY_REGISTER}
           component={DependenceIndustriesManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           exact
           session={session}
           path={INDUSTRY_LIST}
           component={DependenceIndustriesManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           exact
           session={session}
           path={INDUSTRY_EDIT}
@@ -558,17 +581,17 @@ const Routes = ({ session, refetch }: Props) => (
           component={DependenceIndustries}
         /> */}
 
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={TECHNOLOGICAL_LEVEL_REGISTER}
           component={TechnologicalLevelManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={TECHNOLOGICAL_LEVEL_LIST}
           component={TechnologicalLevelManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={TECHNOLOGICAL_LEVEL_EDIT}
           component={TechnologicalLevelManagement}
@@ -580,33 +603,33 @@ const Routes = ({ session, refetch }: Props) => (
           component={TechnologicalLevel}
         />
 
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={SECONDARY_PRODUCTION_REGISTER}
           component={SecondaryProductionManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={SECONDARY_PRODUCTION_LIST}
           component={SecondaryProductionManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={SECONDARY_PRODUCTION_EDIT}
           component={SecondaryProductionManagement}
         />
 
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={UPSTREAM_INDUSTRY_REGISTER}
           component={UpstreamIndustryManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={UPSTREAM_INDUSTRY_LIST}
           component={UpstreamIndustryManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={UPSTREAM_INDUSTRY_EDIT}
           component={UpstreamIndustryManagement}
@@ -624,33 +647,33 @@ const Routes = ({ session, refetch }: Props) => (
           component={DependenceIndustries}
         />
 
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={THREAT_REGISTER}
           component={ThreatManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={THREATS_LIST}
           component={ThreatManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={THREAT_EDIT}
           component={ThreatManagement}
         />
 
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={INTERNATIONAL_RELATION_REGISTER}
           component={InternationalRelationManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={INTERNATIONAL_RELATIONS_LIST}
           component={InternationalRelationManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={INTERNATIONAL_RELATION_EDIT}
           component={InternationalRelationManagement}
@@ -658,19 +681,19 @@ const Routes = ({ session, refetch }: Props) => (
 
         <RestrictedRoute session={session} path={THREAT} component={Threat} />
 
-        <RestrictedRoute
+        <AdminRoute
           exact
           session={session}
           path={ENVIRONMENT_REGISTER}
           component={EnvironmentManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           exact
           session={session}
           path={ENVIRONMENT_LIST}
           component={EnvironmentManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           exact
           session={session}
           path={ENVIRONMENT_EDIT}
@@ -684,18 +707,18 @@ const Routes = ({ session, refetch }: Props) => (
           component={Environment}
         />
 
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={ELEMENT_STATS_REGISTER}
           component={ElementStatsManagement}
         />
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={ELEMENTS_STATS_LIST}
           component={ElementStatsManagement}
         />
 
-        <RestrictedRoute
+        <AdminRoute
           session={session}
           path={ELEMENT_STATS_EDIT}
           component={ElementStatsManagement}
@@ -728,7 +751,7 @@ const Routes = ({ session, refetch }: Props) => (
           component={RelatedChart}
         />
 
-        <RestrictedRoute
+        <AdminRoute
           exact
           session={session}
           path={ADMIN}

@@ -3,6 +3,10 @@ declare const styles: {
   readonly "action--close": string;
   readonly "action--open": string;
   readonly "active": string;
+  readonly "alert": string;
+  readonly "alert-danger": string;
+  readonly "alert-dismissable": string;
+  readonly "alert-dismissible": string;
   readonly "analysis-factor-wrapper": string;
   readonly "animate-inFromLeft": string;
   readonly "animate-inFromRight": string;

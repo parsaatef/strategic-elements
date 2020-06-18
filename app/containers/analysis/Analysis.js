@@ -17,13 +17,14 @@ import Loading from '../../components/General/Loading';
 import { getQualityNumber, getStandardValueByUnit } from '../../utils/utility';
 import { setElementsRates } from '../../actions/analysis';
 
-const getDependencyToOtherCountry = elementStats => {
-  const { importValue, consumptionValue } = elementStats;
+const getDependencyToOtherCountry = (elementStats, worldStats) => {
+  const { consumptionValue, unit } = elementStats;
+  const { importValue, unit: wrUnit } = worldStats;
 
   let value = 0;
 
   if (importValue && consumptionValue) {
-    value = importValue / consumptionValue;
+    value = getStandardValueByUnit(importValue, wrUnit) / getStandardValueByUnit(consumptionValue, unit);
   }
 
   let rate = 1;
@@ -46,7 +47,7 @@ const getDependencyToOtherCountry = elementStats => {
 const threatInternationalRelation = (
   statsLocations,
   internationalRelations,
-  iranStats
+  worldStats
 ) => {
   let value = 0;
 
@@ -58,7 +59,7 @@ const threatInternationalRelation = (
 
       if (relation && stats.importValue) {
         value +=
-          (getStandardValueByUnit(stats.importValue, stats.unit) / getStandardValueByUnit(iranStats.importValue, iranStats.unit)) *
+          (getStandardValueByUnit(stats.importValue, stats.unit) / getStandardValueByUnit(worldStats.importValue, worldStats.unit)) *
           getQualityNumber(relation.relationLevel);
       }
     }
@@ -567,17 +568,17 @@ class AnalysisRate extends React.Component<Props> {
       if (iranStats && iranStats.element === "gold")
       console.log("-----iranStats--IRN--", iranStats);
 
-      if (iranStats) {
-        p1 = getDependencyToOtherCountry(iranStats);
+      if (iranStats && worldStats) {
+        p1 = getDependencyToOtherCountry(iranStats, worldStats);
       }
 
       let p2 = 1;
 
-      if (iranStats && iranStats.importValue && statsByLocation.length > 1) {
+      if (worldStats && worldStats.importValue && statsByLocation.length > 1) {
         p2 = threatInternationalRelation(
           statsByLocation,
           internationalRelations,
-          iranStats
+          worldStats
         );
       }
 
@@ -603,7 +604,9 @@ class AnalysisRate extends React.Component<Props> {
         const gPrice =
           first.price.price / getStandardValueByUnit(1, first.price.unit);
 
-        e2 = getEconomicValue(gPrice, totalPrice);
+        const priceAverage = totalPrice / Object.keys(elements).length;
+
+        e2 = getEconomicValue(gPrice, priceAverage);
       }
 
       let e3 = 1;

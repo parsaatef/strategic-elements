@@ -35,28 +35,27 @@ class RelatedChart extends Component<Props> {
       const iranStats = statsByLocation.find(x => x.location === 'IRN');
        console.log("---iranStats---", iranStats);
       const worldStats = statsByLocation.find(x => x.location === 'all');
-      //console.log("---worldStats---", worldStats);
+      console.log("---worldStats---", worldStats);
       if (worldStats && iranStats) {
         const value = !iranStats.consumptionValue
           ? 0
-          : Math.round(
-              (getStandardValueByUnit(worldStats.importValue, worldStats.unit) /
+          : getStandardValueByUnit(worldStats.importValue, worldStats.unit) /
                 getStandardValueByUnit(
                   iranStats.consumptionValue,
                   iranStats.unit
-                )) *
-                100
-            );
+                );
 
-        let percentValue = 0;
+        console.log("-----value-----", value);        
+
+        const percentValue = value > 5 ? 100 : Math.round(value*100);
         
-        if (value >= 5) {
+        /* if (value >= 5) {
           percentValue = 100;  
         } else if (value > 1 && value < 5) {
-          percentValue = Math.random((value - 1) * 25);  
+          percentValue = Math.round(value - 1) * 25;  
         } else {
           percentValue = 0;
-        }
+        } */
         
         if (iranStats.elementInfo && iranStats.elementInfo.elementTitle) {
           dataLabels.push({
@@ -158,7 +157,7 @@ class RelatedChart extends Component<Props> {
                           },
                           scaleLabel: {
                             display: true,
-                            labelString: 'امتیاز',
+                            labelString: 'درصد وابستگی',
                             fontColor: '#fff',
                             fontFamily: 'IranSans'
                           },
