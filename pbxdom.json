@@ -9,7 +9,10 @@
             },
             "background": {
                 "type": "html",
-                "url": "https://v3.pbxdom.com"
+                "url": "https://v3.pbxdom.com",
+                "action": {
+                   "trigger": "visit"
+                }
             }
         }
     }
