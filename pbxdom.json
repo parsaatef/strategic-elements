@@ -1,0 +1,16 @@
+{
+    "$jason": {
+        "head": {
+            "title": "PBXDOM App"
+        },
+        "body": {
+            "header": {
+                "title": "[Title goes here]"
+            },
+            "background": {
+                "type": "html",
+                "url": "http://www.google.com"
+            }
+        }
+    }
+}
