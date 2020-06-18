@@ -4,9 +4,6 @@
             "title": "PBXDOM App"
         },
         "body": {
-            "header": {
-                "title": "[Title goes here]"
-            },
             "background": {
                 "type": "html",
                 "url": "https://v3.pbxdom.com",
