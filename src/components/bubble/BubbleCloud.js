@@ -160,7 +160,8 @@ class BubbleCloud extends React.Component<Props> {
           icon: newData.icon,
           desc: newData.desc,
           isImage: newData.isImage,
-          element: newData.id
+          element: newData.id,
+          rank: newData.rank
         };
       });
 
@@ -285,7 +286,7 @@ class BubbleCloud extends React.Component<Props> {
             <span>${d.cat}</span> <br />
             <div class="clearfix"> 
               <span style="float: right;color:#deea92;">${d.name}</span> 
-              <span style="float: left">${format(d.value)}</span>
+              <span style="float: left">${format(d.rank)}</span>
             </div>
           </div>`
       )

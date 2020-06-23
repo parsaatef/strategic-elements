@@ -255,24 +255,24 @@ class ElementDetailForWorld extends Component<Props> {
                   />}
 
                   <ElementDetailItem
-                    value={formatNumber(exportValue)}
+                    value={location !== "IRN" ? formatNumber(exportValue) : exportValueTotal}
                     unit={unit}
                     name="میزان صادرات از ایران"
                   />
 
-                  {location !== "all" && <ElementDetailItem
+                  {location !== "all" && location !== "IRN" && <ElementDetailItem
                     value={allFactor.exportPercent}
                     unit=""
                     name="درصد صادرات از ایران"
                   />}
 
                   <ElementDetailItem
-                    value={formatNumber(importValue)}
+                    value={location !== "IRN" ? formatNumber(importValue) : importValueTotal}
                     unit={unit}
                     name="میزان واردات به ایران"
                   />
 
-                  {location !== "all" && <ElementDetailItem
+                  {location !== "all" && location !== "IRN" && <ElementDetailItem
                     value={allFactor.importPercent}
                     unit=""
                     name="درصد واردات به ایران"

@@ -348,7 +348,7 @@ class Menu extends Component<Props> {
               </ul>
             )}
 
-            <ul
+            {currentUser && currentUser.role === 'admin' && (<ul
               data-menu="submenu-3-1"
               id="submenu-3-1"
               className="menu__level"
@@ -376,9 +376,9 @@ class Menu extends Component<Props> {
                   </Link>
                 </li>
               )}
-            </ul>
+            </ul>)}
 
-            <ul
+            {currentUser && currentUser.role === 'admin' && (<ul
               data-menu="submenu-3-2"
               id="submenu-3-2"
               className="menu__level"
@@ -433,7 +433,7 @@ class Menu extends Component<Props> {
                   <span>واردات به ایران</span>
                 </Link>
               </li>
-            </ul>
+            </ul>)}
           </div>
         </nav>
       </div>
